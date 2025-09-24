@@ -31,12 +31,15 @@ def find_absent_buscos(root_dir, top_buscos):
                 try:
                     # Read the file, skipping lines starting with '#'
                     data = pd.read_csv(full_table_path, sep="\t", comment="#", header=None)
-                    # Filter rows where the second column is "Complete"
-                    complete_buscos = set(data[data[1] == "Complete"][0].tolist())  # Column 0: BUSCO IDs
-                    
+
+                    # Keep BUSCOs marked as "Complete" OR "Duplicated"
+                    present_buscos = set(
+                        data[data[1].isin(["Complete", "Duplicated"])][0].tolist()
+                    )
+
                     # Check for absence of top BUSCO IDs
                     for busco_id in top_buscos:
-                        if busco_id not in complete_buscos:
+                        if busco_id not in present_buscos:
                             busco_absence[busco_id].append(species_dir)
                 except Exception as e:
                     print(f"Error reading {full_table_path}: {e}")
@@ -59,7 +62,7 @@ top_buscos = ["1314980at2759", "1324510at2759", "290630at2759", "299766at2759",
 busco_absence_df = find_absent_buscos(root_dir, top_buscos)
 
 # Save the results to a TSV file
-output_file = os.path.join(root_dir, "busco_absences.tsv")
+output_file = os.path.join(root_dir, "busco_absences_duplicated_notincluded.tsv")
 busco_absence_df.to_csv(output_file, sep="\t", index=False)
 print(f"BUSCO absences saved to: {output_file}")
 
