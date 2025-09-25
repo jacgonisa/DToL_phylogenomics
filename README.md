@@ -29,6 +29,9 @@ Retrieving BUSCOs fasta files
 ```
 bash scripts/get_fasta_busco_bioython.sh
 ```
+Trim alignments
 
-
+```
+bash scripts/trim_alignments.sh
+```
 
