@@ -1,0 +1,503 @@
+IQ-TREE multicore version 2.3.4 COVID-edition for Linux x86 64-bit built Jun  5 2024
+Developed by Bui Quang Minh, James Barbetti, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams, Ly Trong Nhan, Thomas Wong
+
+Host:    BOT-B01941D (AVX512, FMA3, 187 GB RAM)
+Command: iqtree -s concatenated_alignment/concatenated_alignment_255busco_432species -m MFP -nt AUTO -B 1000 -pre trees/run_notpartitioned
+Seed:    420532 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Fri Sep 26 10:34:16 2025
+Kernel:  AVX+FMA - auto-detect threads (24 CPU cores detected)
+
+Reading alignment file concatenated_alignment/concatenated_alignment_255busco_432species ... Phylip format detected
+Alignment most likely contains protein sequences
+Alignment has 442 sequences with 103928 columns, 101870 distinct patterns
+96303 parsimony-informative, 3604 singleton sites, 4021 constant sites
+                         Gap/Ambiguity  Composition  p-value
+Analyzing sequences: done in 0.0523849 secs using 1565% CPU
+   1  iyAthRosa1.1.fa            5.12%    failed      0.00%
+   2  gfPanStip1.1.fasta         8.57%    failed      0.00%
+   3  iyGasPulc2.1.fasta         6.70%    failed      0.00%
+   4  iyTenMeso1.1.fasta         5.21%    failed      0.00%
+   5  gfCopMica1.1.fasta         8.90%    failed      0.00%
+   6  cbRhyLore1.1.fa            7.09%    failed      0.00%
+   7  icMalBipu1.1.fa            6.85%    failed      0.00%
+   8  iuLoeVari1.hap1.1.fasta    8.31%    failed      0.00%
+   9  icPriAter1.hap1.1.fasta    6.14%    failed      0.00%
+  10  icOthPunc1.1.fasta         6.47%    failed      0.00%
+  11  dhQueCerr2.1.fasta         6.29%    failed      0.00%
+  12  mCanLor1.2.fa              5.73%    failed      0.00%
+  13  iyBuaLabo1.1.fa            5.08%    failed      0.00%
+  14  idPheCory1.1.fa            5.28%    failed      0.00%
+  15  gfHygPuni3.1.fasta         9.06%    failed      0.00%
+  16  icPyrSerr1.1.fa            5.24%    failed      0.00%
+  17  ilBisBetu1.1.fa            6.77%    failed      0.00%
+  18  csSphGirg1.1.fasta         7.59%    failed      0.00%
+  19  icCarProb1.1.fasta         5.66%    failed      0.00%
+  20  daLycEuro1.1.fa            7.46%    failed      0.00%
+  21  ilTinTrin1.1.fa            7.74%    failed      0.00%
+  22  daFilPyra1.hap1.1.fasta    6.80%    failed      0.00%
+  23  wrPisGeom1.1.fa           12.20%    failed      0.00%
+  24  qeAllFusc8.1.fasta        12.52%    failed      0.00%
+  25  bCorHaw1.1.fa              6.66%    failed      0.00%
+  26  ddSalCapr1.1.fasta         6.75%    failed      0.00%
+  27  daLobUren4.hap1.1.fasta    7.69%    failed      0.00%
+  28  cjHerHutc3.1.fasta         6.81%    failed      0.00%
+  29  icNicInve2.1.fasta         6.01%    failed      0.00%
+  30  ddEupPepu3.1.fa            7.01%    failed      0.00%
+  31  grLepFlav1.1.fasta        10.75%    failed      0.00%
+  32  icNebBrev1.1.fa            6.24%    failed      0.00%
+  33  gfRusVesc1.hap1.1.fasta    8.79%    failed      0.00%
+  34  idAthIbis2.2.fasta         5.77%    failed      0.00%
+  35  gfPleOstr1.1.fa            8.28%    failed      0.00%
+  36  xbGarTell2.1.fa            6.70%    failed      0.00%
+  37  dcPerMacu1.1.fasta         7.25%    failed      0.00%
+  38  lpLuzPall1.1.fasta         8.02%    failed      0.00%
+  39  fThuAlb1.1.fa              7.05%    failed      0.00%
+  40  ilZeuPyri1.1.fa            6.07%    failed      0.00%
+  41  idBerChal2.1.fasta         8.04%    failed      0.00%
+  42  iyCamRapt1.1.fasta         5.46%    failed      0.00%
+  43  iyBomHypn1.1.fa            4.37%    failed      0.00%
+  44  icPhiCogn1.1.fa            6.28%    failed      0.00%
+  45  daAjuCham1.1.fasta         7.38%    failed      0.00%
+  46  lpCarDepa1.1.fa            7.34%    failed      0.00%
+  47  jrHalOcto1.1.fa           10.19%    failed      0.00%
+  48  xgPatPell1.1.fa            6.88%    failed      0.00%
+  49  dcFalConv1.1.fasta         7.26%    failed      0.00%
+  50  iyDysLute2.1.fasta         6.22%    failed      0.00%
+  51  icOphArdo1.1.fa            9.33%    failed      0.00%
+  52  idIliLine1.hap1.1.fasta    5.50%    failed      0.00%
+  53  icCanRust1.1.fa            9.34%    failed      0.00%
+  54  ddPopNigr1.1.fasta         7.86%    failed      0.00%
+  55  icDalMarg2.1.fasta         6.31%    failed      0.00%
+  56  idNepScut1.1.fasta         6.01%    failed      0.00%
+  57  ddNasOffi1.1.fasta         6.63%    failed      0.00%
+  58  qqMetBour1.1.fa            6.80%    failed      0.00%
+  59  idLeuObtu2.1.fasta         4.97%    failed      0.00%
+  60  icMalMini1.1.fasta         6.33%    failed      0.00%
+  61  ilMicArun2.1.fa            6.10%    failed      0.14%
+  62  icRhaFulv1.1.fa            6.16%    failed      0.00%
+  63  ucMarCocc1.1.fasta        14.90%    failed      0.00%
+  64  iyVulBima1.1.fasta         5.31%    failed      0.00%
+  65  ieCloDipt1.1.fasta         7.31%    failed      0.00%
+  66  icAspAene1.1.fasta         6.90%    failed      0.00%
+  67  mMelMel3.2.fa              6.08%    failed      0.00%
+  68  jaRicFlor1.1.fa            7.29%    failed      0.00%
+  69  cbCalCord2.1.fasta         7.11%    failed      0.00%
+  70  tnLinLong1.2.fa            6.91%    failed      0.00%
+  71  gfMycGale1.hap1.1.fasta    8.86%    failed      0.00%
+  72  drAstGlyc1.1.fasta         8.63%    failed      0.00%
+  73  iyEphMani1.1.fasta         4.92%    failed      0.00%
+  74  iyApaInim1.hap1.1.fasta    5.28%    failed      0.00%
+  75  ieSipAlte2.1.fasta         7.88%    failed      0.00%
+  76  lpJunSqua1.hap1.1.fasta    7.61%    failed      0.00%
+  77  icPteMadi1.1.fa            6.89%    failed      0.00%
+  78  idSphTaen1.1.fa            5.78%    failed      0.00%
+  79  bPorHoc1.1.fa              7.30%    failed      0.00%
+  80  bFalBia1.1.fa              7.57%    failed      0.00%
+  81  glEphLana1.1.fasta         9.09%    failed      0.00%
+  82  kaAplTurb1.1.fa            7.78%    failed      0.00%
+  83  iySusPulc1.1.fasta         5.52%    failed      0.00%
+  84  caAndHook4.1.fasta         6.69%    failed      0.00%
+  85  lpLeeOryz1.hap1.1.fasta    7.14%    failed      0.00%
+  86  dmAquVulg1.hap1.1.fasta    7.39%    failed      0.00%
+  87  dhAlnGlut1.1.fa            9.95%    failed      0.00%
+  88  qeOrcFlav1.1.fasta         9.21%    failed      0.00%
+  89  dhAlnInca1.hap1.1.fasta    7.54%    failed      0.00%
+  90  gfButSuba1.1.fasta        10.95%    failed      0.00%
+  91  icLonFlav1.hap1.1.fasta    5.62%    failed      0.00%
+  92  xgSteCine2.1.fa            7.48%    failed      0.00%
+  93  drParJuda1.1.fa            7.38%    failed      0.00%
+  94  iyIchXant1.1.fasta         4.96%    failed      0.00%
+  95  dcPerAmph1.hap1.1.fasta    7.01%    failed      0.00%
+  96  idPolAmen1.1.fa            4.64%    failed      0.00%
+  97  iyCerRyby1.1.fa            5.09%    failed      0.00%
+  98  mLemCat1.1.fa              7.16%    failed      0.00%
+  99  lpJunBufo1.hap1.1.fasta    6.85%    failed      0.00%
+ 100  daSenSylv1.hap1.1.fasta    7.50%    failed      0.00%
+ 101  icLimPone1.hap1.1.fasta    6.16%    failed      0.00%
+ 102  idProAzur1.1.fa            5.65%    failed      0.00%
+ 103  iyEctCont1.1.fa            5.55%    failed      0.00%
+ 104  gzMucPiri1.1.fa           12.06%    failed      0.00%
+ 105  ieEcdTorr1.1.fasta         8.02%    failed      0.00%
+ 106  ilThoDeci1.1.fa            6.33%    failed      0.00%
+ 107  laLemMinu1.hap1.1.fasta   11.14%    failed      0.00%
+ 108  cbIsoPulc3.1.fasta         7.01%    failed      0.00%
+ 109  iyOphLute1.1.fa            4.85%    failed      0.00%
+ 110  dhQuePetr1.hap1.1.fasta    6.82%    failed      0.00%
+ 111  wpSthLimi1.1.fa            6.36%    failed      0.00%
+ 112  dcCheAlbu1.1.fasta         7.40%    failed      0.00%
+ 113  xbTriCroc3.1.fa            8.43%    failed      0.00%
+ 114  idHetRotu1.1.fasta         6.76%    failed      0.00%
+ 115  iyStePhae1.1.fa            4.87%    failed      0.00%
+ 116  iyChaSisp2.1.fasta         6.94%    failed      0.00%
+ 117  icTenMoli1.1.fasta         5.39%    failed      0.00%
+ 118  idEupCoro1.1.fasta         5.69%    failed      0.00%
+ 119  icPodAlpi1.1.fa            6.90%    failed      0.00%
+ 120  iiLimRhom1.1.fa            7.68%    failed      0.00%
+ 121  eaMarGlac1.2.fa            7.07%    failed      0.00%
+ 122  fBarBab1.1.fa              5.75%    failed      0.00%
+ 123  gfArmOsto1.1.fasta         8.93%    failed      0.00%
+ 124  iyPhyAter2.1.fasta         5.50%    failed      0.00%
+ 125  drFilUlma1.1.fa            6.93%    failed      0.00%
+ 126  idLypDubi1.1.fasta         4.85%    failed      0.00%
+ 127  mRhiSin1.1.fa              6.65%    failed      0.00%
+ 128  bGalGal1.GRCg7b.fa         6.37%    failed      0.00%
+ 129  idBelPand1.1.fa            7.46%    failed      0.00%
+ 130  ilYpsScab1.1.fa            6.36%    failed      0.00%
+ 131  fAloSap1.1.fa              5.55%    failed      0.00%
+ 132  iyMimDahl1.1.fa            5.34%    failed      0.00%
+ 133  icAgoFuli1.1.fasta         5.45%    failed      0.00%
+ 134  icAdaBipu1.1.fa            6.14%    failed      0.00%
+ 135  gfGliIrri2.hap1.1.fasta    8.33%    failed      0.00%
+ 136  daPulDyse1.1.fa            7.00%    failed      0.00%
+ 137  iyTryClav1.1.fasta         4.61%    failed      0.00%
+ 138  idSarRose1.1.fa            5.26%    failed      0.00%
+ 139  drChaAngu1.1.fa            7.50%    failed      0.00%
+ 140  ddCarHirs1.hap1.1.fasta    6.61%    failed      0.00%
+ 141  tzBugStol2.1.fa            7.52%    failed      0.00%
+ 142  dhCorColu1.hap1.1.fasta    7.69%    failed      0.00%
+ 143  xgPatVulg1.1.fa            6.37%    failed      0.00%
+ 144  lpSpaEmer1.hap1.1.fasta    7.74%    failed      0.00%
+ 145  gfEntClyp1.2.fasta         9.19%    failed      0.00%
+ 146  gfAgrPrae1.1.fasta         9.34%    failed      0.00%
+ 147  bFalPer1.1.fa              6.84%    failed      0.00%
+ 148  ddBarVulg1.1.fasta         6.86%    failed      0.00%
+ 149  drPotAnse1.1.fa           10.43%    failed      0.00%
+ 150  daPauTome1.hap1.1.fasta    6.80%    failed      0.00%
+ 151  gzEntParv1.1.fasta         8.74%    failed      0.00%
+ 152  grCorFumo1.1.fasta         9.14%    failed      0.00%
+ 153  drAilAlti1.1.fa            7.38%    failed      0.00%
+ 154  gyLeoLubr2.1.fasta         8.18%    failed      0.00%
+ 155  idDroImmi1.1.fasta         5.46%    failed      0.00%
+ 156  icHarRubr1.1.fasta         6.17%    failed      0.00%
+ 157  bFalChe1.1.fa              6.97%    failed      0.00%
+ 158  dcAgrGith1.1.fasta         6.71%    failed      0.00%
+ 159  icKykRobo1.hap1.1.fasta    6.16%    failed      0.00%
+ 160  mDicBic1.1.fa              6.38%    failed      0.00%
+ 161  ihAcaHaem1.1.fa            6.23%    failed      0.00%
+ 162  icPlaCyli4.1.fasta         6.42%    failed      0.00%
+ 163  daLamPurp1.hap1.1.fasta    8.10%    failed      0.00%
+ 164  glUmbDeus1.1.fasta         8.63%    failed      0.00%
+ 165  iyTipFemo1.1.fa            4.94%    failed      0.00%
+ 166  dmBerVulg1.1.fasta         6.65%    failed      0.00%
+ 167  daCalOffi1.1.fasta         7.30%    failed      0.00%
+ 168  icApoCory1.1.fa            6.17%    failed      0.00%
+ 169  cmLunCruc20.1.fasta        7.67%    failed      0.00%
+ 170  iyRhoChlo1.1.fa            4.86%    failed      0.02%
+ 171  idEmpSter1.1.fasta         5.23%    failed      0.00%
+ 172  inChrCarn1.1.fa            7.60%    failed      0.00%
+ 173  xgPhoLine1.1.fa            8.15%    failed      0.00%
+ 174  iyArgPaga1.1.fasta         5.37%    failed      0.00%
+ 175  iyZelAlbi1.1.fasta         4.72%    failed      0.00%
+ 176  gpAraPeru1.1.fasta         8.56%    failed      0.00%
+ 177  ilAgoAren1.1.fa            5.88%    failed      0.00%
+ 178  lpBroSter1.1.fasta         6.40%    failed      0.00%
+ 179  laApoDist1.hap1.1.fasta    6.68%    failed      0.00%
+ 180  ihAelAcum1.1.fa            5.83%    failed      0.00%
+ 181  iyHetAmic1.1.fasta         6.34%    failed      0.00%
+ 182  drTriFrag1.1.fa            7.74%    failed      0.00%
+ 183  icCocRufa1.hap1.1.fasta    5.75%    failed      0.00%
+ 184  idTacFera2.1.fa            5.57%    failed      0.00%
+ 185  icScaQuad2.1.fasta         5.57%    failed      0.00%
+ 186  idSyrPipi1.1.fa            5.44%    failed      0.00%
+ 187  iyPemLugu1.1.fasta         5.82%    failed      0.00%
+ 188  glPlaGlau9.1.fasta         8.92%    failed      0.00%
+ 189  idLycDeci1.1.fasta         5.00%    failed      0.00%
+ 190  iyAleSimi1.hap1.1.fasta    6.36%    failed      0.00%
+ 191  idCluTigr1.1.fa            7.51%    failed      0.00%
+ 192  gfPhaAlbo1.hap1.1.fasta    9.31%    failed      0.00%
+ 193  gfGanResi1.1.fasta         7.87%    failed      0.00%
+ 194  drRosaCani1.1.fa           8.69%    failed      0.00%
+ 195  xgGibMagu1.1.fa            8.14%    failed      0.00%
+ 196  ilParStra1.1.fa            6.56%    failed      0.00%
+ 197  daArcMinu1.1.fa            7.09%    failed      0.00%
+ 198  idSicFerr1.1.fa            8.65%    failed      0.00%
+ 199  iyMacAlbo1.1.fasta         5.35%    failed      0.00%
+ 200  iuMesFusc1.1.fasta         7.24%    failed      0.00%
+ 201  icLocCrat2.1.fasta         7.01%    failed      0.00%
+ 202  iyDipLaet1.1.fasta         6.59%    failed      0.00%
+ 203  ipLeuNigr2.1.fa            6.55%    failed      0.00%
+ 204  ilDeiPorc1.1.fa            6.28%    failed      0.00%
+ 205  gfAgaBisp1.1.fa            7.94%    failed      0.00%
+ 206  iiLimMarm1.1.fa            7.29%    failed      0.00%
+ 207  gfRamCorn1.1.fasta         8.91%    failed      0.00%
+ 208  grTriPseu1.1.fa            9.12%    failed      0.00%
+ 209  iiGlyPell1.1.fa            7.50%    failed      0.00%
+ 210  cbPolSexa1.1.fasta         7.64%    failed      0.00%
+ 211  mEleMax1.1.fa              5.68%    failed      0.00%
+ 212  idNepFlae1.1.fa            5.20%    failed      0.00%
+ 213  ipNemPict2.1.fa            5.57%    failed      0.00%
+ 214  dhQueIlex1.hap1.1.fasta    7.12%    failed      0.00%
+ 215  dcSalRamo1.1.fasta         7.03%    failed      0.00%
+ 216  grSimLame1.1.fasta         8.71%    failed      0.00%
+ 217  wcLumRube1.1.fa            8.25%    failed      0.00%
+ 218  iyMicDepi1.1.fasta         6.88%    failed      0.00%
+ 219  icLeiSpin1.1.fa            6.03%    failed      0.00%
+ 220  icGalNymp1.1.fasta         6.46%    failed      0.00%
+ 221  fToxJac2.1.fa              7.01%    failed      0.00%
+ 222  mOrcOrc1.1.fa              5.80%    failed      0.00%
+ 223  iiLimLuna2.1.fa            6.45%    failed      0.00%
+ 224  iyCylCali1.1.fasta         5.83%    failed      0.00%
+ 225  daSheArve1.1.fa            7.42%    failed      0.00%
+ 226  gfTriHemi4.1.fasta         8.67%    failed      0.00%
+ 227  ioIscEleg1.1.fa            6.87%    failed      0.00%
+ 228  gfAurGent2.1.fasta         9.14%    failed      0.00%
+ 229  lpLuzSylv1.1.fa            8.01%    failed      0.00%
+ 230  ilEmmMono1.1.fa            6.72%    failed      0.00%
+ 231  iyVesVulg1.1.fa            4.86%    failed      0.00%
+ 232  daLinVulg1.1.fa            6.98%    failed      0.00%
+ 233  idBomDisc1.1.fa            5.52%    failed      0.00%
+ 234  icHalSede1.1.fa            6.16%    failed      0.00%
+ 235  gfVolSurr1.1.fasta         8.72%    failed      0.00%
+ 236  lpCypFusc1.hap1.1.fasta    8.64%    failed      0.00%
+ 237  idMelRora1.1.fasta         4.92%    failed      0.00%
+ 238  idStoLuna1.1.fa            6.04%    failed      0.00%
+ 239  bAccGen1.1.fa              5.75%    failed      0.00%
+ 240  icDroQuad1.1.fasta         6.36%    failed      0.00%
+ 241  iyCoeConi1.1.fasta         5.39%    failed      0.00%
+ 242  daPruVulg3.hap1.1.fasta    7.36%    failed      0.00%
+ 243  cbRhyConf1.1.fasta         7.80%    failed      0.00%
+ 244  idCheUrba1.1.fasta         5.41%    failed      0.00%
+ 245  idEpiSucc1.1.fa            5.02%    failed      0.00%
+ 246  idAntAnth1.1.fasta         6.28%    failed      0.00%
+ 247  idMacAtri3.1.fa            5.74%    failed      0.00%
+ 248  fAciRut3.2.fa              6.34%    failed      0.00%
+ 249  gfAmaRube1.hap1.1.fasta    8.76%    failed      0.00%
+ 250  ilHydMica1.1.fa            6.12%    failed      0.00%
+ 251  ddImpParv1.hap1.1.fasta    7.26%    failed      0.00%
+ 252  bTaeGut1.4.fa              6.85%    failed      0.00%
+ 253  icAgrCyan1.1.fasta         6.00%    failed      0.00%
+ 254  ocSycCili1.1.fasta        14.34%    failed      0.00%
+ 255  drUleMino1.hap1.1.fasta    6.92%    failed      0.00%
+ 256  idGymRotn1.1.fa            4.60%    failed      0.00%
+ 257  bLagMut1.1.fa              6.71%    failed      0.00%
+ 258  iiLimAuri1.1.fasta         7.86%    failed      0.00%
+ 259  lpJunEffu1.1.fa            7.04%    failed      0.00%
+ 260  iyAmmPube2.1.fasta         7.26%    failed      0.00%
+ 261  gfLacBlen1.hap1.1.fasta    8.66%    failed      0.00%
+ 262  iySphEphi1.1.fasta         5.15%    failed      0.00%
+ 263  ldNarOssi1.1.fasta        11.23%    failed      0.00%
+ 264  drAceCamp1.1.fasta         9.11%    failed      0.00%
+ 265  drUrtUren1.1.fa            8.21%    failed      0.00%
+ 266  dcMoeTrin1.hap1.1.fasta    6.82%    failed      0.00%
+ 267  gfClaFumo1.1.fasta         9.59%    failed      0.00%
+ 268  xbLimFort5.1.fa            9.08%    failed      0.00%
+ 269  icCryAcut1.1.fasta         6.90%    failed      0.00%
+ 270  icDiaBole1.1.fasta         5.85%    failed      0.00%
+ 271  fTraTra1.2.fa              6.06%    failed      0.00%
+ 272  drIleAqui2.1.fasta         6.48%    failed      0.00%
+ 273  lsIriFoet1.hap1.1.fasta    7.44%    failed      0.00%
+ 274  icChrOric1.1.fa            6.35%    failed      0.00%
+ 275  idAcrOrbc1.1.fasta         6.14%    failed      0.00%
+ 276  icBruVari1.hap1.1.fasta    6.03%    failed      0.00%
+ 277  icNebSali1.1.fa            5.49%    failed      0.00%
+ 278  gfInoObsi1.1.fasta         9.26%    failed      0.00%
+ 279  icSilAtra2.1.fa            5.65%    failed      0.00%
+ 280  lpSchTabe1.hap1.1.fasta    8.18%    failed      0.00%
+ 281  icHarAxyr1.1.fa            6.08%    failed      0.00%
+ 282  iyAnoNige1.1.fa            4.91%    failed      0.00%
+ 283  lpPolViri1.hap1.1.fasta    7.37%    failed      0.00%
+ 284  dhQueRobu3.1.fa            7.47%    failed      0.00%
+ 285  icAphGran1.1.fasta         6.15%    failed      0.00%
+ 286  idEriIntr1.1.fasta         6.96%    failed      0.00%
+ 287  idPhyRufi1.1.fasta         7.36%    failed      0.00%
+ 288  iyMegLign1.1.fasta         5.40%    failed      0.00%
+ 289  lpHorVulg1.hap1.1.fasta    6.82%    failed      0.00%
+ 290  idChrAsil3.1.fasta         6.22%    failed      0.00%
+ 291  lpPoaChai1.hap1.1.fasta    7.00%    failed      0.00%
+ 292  iyExeIsch1.1.fasta         5.06%    failed      0.00%
+ 293  daVerOffi1.1.fasta         7.13%    failed      0.00%
+ 294  glLicPygm2.1.fasta         8.06%    failed      0.00%
+ 295  drSaxAizo1.hap1.1.fasta    7.43%    failed      0.00%
+ 296  gfFlaVelt1.2.fasta         9.75%    failed      0.00%
+ 297  ihIcePurc2.1.fa           10.23%    failed      0.00%
+ 298  ddHotPalu2.hap1.1.fasta    6.95%    failed      0.00%
+ 299  dmRanScel1.hap1.1.fasta    7.48%    failed      0.00%
+ 300  dcPolAvic1.1.fa            8.46%    failed      0.00%
+ 301  fThuMac1.1.fa              5.78%    failed      0.00%
+ 302  dhFagSylv1.hap1.1.fasta    7.79%    failed      0.00%
+ 303  gfCorTriu1.hap1.1.fasta    8.25%    failed      0.00%
+ 304  drMalDome5.1.fa            6.37%    failed      0.00%
+ 305  idBibMarc1.1.fa            5.67%    failed      0.00%
+ 306  fPhoGun1.2.fa              6.17%    failed      0.00%
+ 307  glRamSili2.1.fasta         8.73%    failed      0.00%
+ 308  gfLaeSulp1.1.fa            8.30%    failed      0.00%
+ 309  izTheDome1.hap1.1.fasta    8.51%    failed      0.00%
+ 310  icSteBima1.1.fasta         5.90%    failed      0.00%
+ 311  qxSacCarc1.2.fa           13.45%    failed      0.00%
+ 312  daScuGale1.1.fa            6.42%    failed      0.00%
+ 313  wpLepClav1.1.fa            7.39%    failed      0.00%
+ 314  daCruLaev1.1.fasta         8.08%    failed      0.00%
+ 315  tzCryPall5.1.fa            9.32%    failed      0.00%
+ 316  icAnaMacu3.1.fasta         5.31%    failed      0.00%
+ 317  ilWatBina1.1.fa            6.00%    failed      0.00%
+ 318  jaNemVect1.1.fa            6.49%    failed      0.00%
+ 319  drMalSylv7.1.fa            7.00%    failed      0.00%
+ 320  nxTriColu2.1.fasta        17.06%    failed      0.00%
+ 321  idMelMell2.1.fasta         6.63%    failed      0.00%
+ 322  igLabMino1.1.fasta         6.48%    failed      0.00%
+ 323  icGraRufi3.hap1.1.fasta    5.48%    failed      0.00%
+ 324  drLotPedu3.1.fasta         9.42%    failed      0.00%
+ 325  iyPriPert1.1.fasta         5.29%    failed      0.00%
+ 326  icPycFuli2.1.fasta         5.95%    failed      0.00%
+ 327  dcAreSerp1.hap1.1.fasta    7.82%    failed      0.00%
+ 328  icPolCerv1.1.fa            5.25%    failed      0.00%
+ 329  fPanHyp1.1.fa              6.09%    failed      0.00%
+ 330  drGeuRiva1.hap1.1.fasta    6.55%    failed      0.00%
+ 331  lpDigSang1.hap1.1.fasta    6.66%    failed      0.00%
+ 332  icEndCocc1.1.fasta         5.66%    failed      0.00%
+ 333  paTetJugo1.1.fa           20.91%    failed      0.00%
+ 334  ilSesBemb1.1.fa            5.82%    failed      0.00%
+ 335  iyLasVill1.1.fasta         5.53%    failed      0.00%
+ 336  lpSciSylv1.hap1.1.fasta    6.55%    failed      0.00%
+ 337  xgBioGlab47.1.fa           7.04%    failed      0.00%
+ 338  ddAraThal4.1.fa            6.87%    failed      0.00%
+ 339  iyAndDors1.1.fa            5.42%    failed      0.00%
+ 340  daTraPrat1.hap1.1.fasta    8.18%    failed      0.00%
+ 341  jaDiaLine6.1.fa            7.44%    failed      0.00%
+ 342  iyLasBrun3.1.fasta         5.40%    failed      0.00%
+ 343  gfBolQuer1.1.fasta         9.60%    failed      0.00%
+ 344  gsMetZobe1.1.fa           16.07%    failed      0.00%
+ 345  iyNysSpin1.1.fa            5.09%    failed      0.00%
+ 346  drFraVesc1.hap1.1.fasta    7.58%    failed      0.00%
+ 347  idFerCupr2.1.fasta         6.91%    failed      0.00%
+ 348  tzMemMemb1.1.fa            9.31%    failed      0.00%
+ 349  ddPriVulg1.1.fasta         7.91%    failed      0.00%
+ 350  fTelBon1.1.fa              7.18%    failed      0.00%
+ 351  lpSchLacu1.fa              7.18%    failed      0.00%
+ 352  icAmpSols1.1.fasta         5.23%    failed      0.00%
+ 353  dcPolTetr1.hap1.1.fasta    6.87%    failed      0.00%
+ 354  iyAncNigr1.1.fa            5.21%    failed      0.00%
+ 355  icMelMelo1.1.fa            5.53%    failed      0.00%
+ 356  glClaSqua9.2.fasta         9.11%    failed      0.00%
+ 357  dmThaMinu1.hap1.1.fasta    7.45%    failed      0.00%
+ 358  lpPhrAust1.1.fa            6.77%    failed      0.00%
+ 359  icAbaPara2.1.fasta         5.71%    failed      0.00%
+ 360  iySelTumu1.1.fa            5.10%    failed      0.00%
+ 361  daSolDulc1.1.fa            7.91%    failed      0.00%
+ 362  idMelCint3.1.fasta         7.26%    failed      0.00%
+ 363  gdRhiKalk1.hap1.1.fasta    8.62%    failed      0.00%
+ 364  idMyoTess1.2.fasta         6.66%    failed      0.00%
+ 365  lpEriAngu1.1.fasta         7.70%    failed      0.00%
+ 366  ieProBifi2.1.fasta         8.81%    failed      0.00%
+ 367  iyAmbArma2.1.fa            6.52%    failed      0.00%
+ 368  gfHerErin3.1.fasta         8.83%    failed      0.00%
+ 369  iyNomFabr1.1.fa            4.70%    failed      0.00%
+ 370  icQueLate1.hap1.1.fasta    5.23%    failed      0.00%
+ 371  daInuSali1.hap1.1.fasta    7.64%    failed      0.00%
+ 372  lpHieOdor1.hap1.1.fasta    7.29%    failed      0.00%
+ 373  idPhyMeln1.1.fa            4.71%    failed      0.00%
+ 374  iyDolMeso1.1.fasta         5.05%    failed      0.00%
+ 375  icOcyOlen1.1.fa            5.57%    failed      0.00%
+ 376  icCetAura1.1.fasta         5.93%    failed      0.00%
+ 377  ilPieNapi4.1.fa            5.51%    failed      0.00%
+ 378  icSalPlan1.1.fasta         6.36%    failed      0.00%
+ 379  fTauBub2.1.fa              6.26%    failed      0.00%
+ 380  ddMerAnnu1.1.fa            7.29%    failed      0.00%
+ 381  ipIsoGram3.1.fa            5.44%    failed      0.00%
+ 382  drGeuUrba1.1.fa            6.18%    failed      0.00%
+ 383  iyAbiCand1.1.fasta         5.53%    failed      0.00%
+ 384  ilParAegt1.1.fa            6.20%    failed      0.00%
+ 385  ilNotUddm1.1.fa            6.06%    failed      0.00%
+ 386  rVipLat1.1.fa              5.84%    failed      0.00%
+ 387  daVerTrip1.1.fasta         7.10%    failed      0.00%
+ 388  idHydCyrt1.1.fasta         4.51%    failed      0.00%
+ 389  idNemPant2.1.fasta         6.12%    failed      0.00%
+ 390  fDanRer4.1.fa              6.12%    failed      0.00%
+ 391  cbHylTriq8.1.fasta         6.97%    failed      0.00%
+ 392  dhMyrGale1.1.fasta         7.74%    failed      0.00%
+ 393  qeLepCurv1.1.fasta         9.40%    failed      0.00%
+ 394  icLepMacu1.1.fa            5.80%    failed      0.00%
+ 395  idPamGerm1.hap1.1.fasta    7.69%    failed      0.00%
+ 396  gfLepSord1.hap1.1.fasta    9.54%    failed      0.00%
+ 397  ilPyrMalv3.1.fa            6.78%    failed      0.00%
+ 398  wpAliVire1.1.fa            6.43%    failed      0.00%
+ 399  gfChlBrun1.1.fasta         8.11%    failed      0.00%
+ 400  daConArve2.hap1.1.fasta    6.81%    failed      0.00%
+ 401  icMyrOcto1.1.fasta         5.59%    failed      0.00%
+ 402  icAgrMuri1.1.fa            5.84%    failed      0.00%
+ 403  icPedDerm1.1.fasta         5.81%    failed      0.00%
+ 404  iyMacEuro1.1.fa            5.29%    failed      0.00%
+ 405  ioPlaPenn1.1.fa            6.01%    failed      0.00%
+ 406  ucDunPrim2.1.fa           17.31%    failed      0.00%
+ 407  drMedArab1.1.fa            7.07%    failed      0.00%
+ 408  lpSchTriq1.1.fasta         7.57%    failed      0.00%
+ 409  idEpiEuco1.1.fasta         6.27%    failed      0.00%
+ 410  lpPhlPrat1.hap1.1.fasta    7.26%    failed      0.00%
+ 411  icCocSept1.1.fa            6.01%    failed      0.00%
+ 412  lpEleQuin1.1.fasta         7.93%    failed      0.00%
+ 413  daMisOron1.1.fa            7.60%    failed      0.00%
+ 414  icBraGlab1.1.fasta         5.78%    failed      0.00%
+ 415  glFlaMari1.1.fasta        12.65%    failed      0.00%
+ 416  idChaNemo1.1.fasta         6.44%    failed      0.00%
+ 417  gfPorCaly1.1.fasta         8.48%    failed      0.00%
+ 418  dcSpeMari1.1.fasta         7.87%    failed      0.00%
+ 419  dhBetPend1.hap1.1.fasta    7.99%    failed      0.00%
+ 420  lpTriCesp1.1.fasta         7.18%    failed      0.00%
+ 421  daBalNigr1.1.fa            8.23%    failed      0.00%
+ 422  idMicPoli1.1.fasta         7.03%    failed      0.00%
+ 423  mCerEla1.1.fa              6.80%    failed      0.00%
+ 424  dhAlnCord1.hap1.1.fasta    6.80%    failed      0.00%
+ 425  iyCepSpin2.1.fasta         5.03%    failed      0.00%
+ 426  daGalUlig1.hap1.1.fasta    7.46%    failed      0.00%
+ 427  gfSpaMino1.hap1.1.fasta   10.28%    failed      0.00%
+ 428  xbTriGiga4.1.fa            8.49%    failed      0.00%
+ 429  iuPsoGibb1.1.fasta         6.73%    failed      0.00%
+ 430  qeDicMinu4.1.fasta        12.93%    failed      0.00%
+ 431  ipNemDubi1.1.fa            6.07%    failed      0.00%
+ 432  daCirDiss1.hap1.1.fasta    6.11%    failed      0.00%
+ 433  ibEctPall1.hap1.1.fasta    5.57%    failed      0.00%
+ 434  laPotNata1.hap1.1.fasta    7.62%    failed      0.00%
+ 435  drHedHeli1.1.fa            7.13%    failed      0.00%
+ 436  laTriMari1.1.fasta         8.08%    failed      0.00%
+ 437  cbThuTama2.1.fa           30.99%    failed      0.00%
+ 438  ucPseBory1.1.fasta        19.33%    failed      0.00%
+ 439  gfTauPull1.1.fasta        11.93%    failed      0.00%
+ 440  pEimTen1.1.fa             53.19%    failed      0.00%
+ 441  pxEimPrae1.1.fasta        54.30%    failed      0.00%
+ 442  ucPycProv1.1.fa           34.61%    failed      0.00%
+WARNING: 2 sequences contain more than 50% gaps/ambiguity
+****  TOTAL                      7.48%  442 sequences failed composition chi2 test (p-value<5%; df=19)
+NOTE: minimal branch length is reduced to 0.000000962205 for long alignment
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 32.711 seconds
+Measuring multi-threading efficiency up to 24 CPU cores
+2 trees examined
+Threads: 1 / Time: 197.552 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -58401138
+Threads: 2 / Time: 113.373 sec / Speedup: 1.743 / Efficiency: 87% / LogL: -58401138
+Threads: 3 / Time: 85.237 sec / Speedup: 2.318 / Efficiency: 77% / LogL: -58401138
+Threads: 4 / Time: 68.701 sec / Speedup: 2.876 / Efficiency: 72% / LogL: -58401138
+Threads: 5 / Time: 58.447 sec / Speedup: 3.380 / Efficiency: 68% / LogL: -58401138
+Threads: 6 / Time: 53.742 sec / Speedup: 3.676 / Efficiency: 61% / LogL: -58401138
+Threads: 7 / Time: 49.987 sec / Speedup: 3.952 / Efficiency: 56% / LogL: -58401138
+Threads: 8 / Time: 46.162 sec / Speedup: 4.280 / Efficiency: 53% / LogL: -58401138
+Threads: 9 / Time: 44.987 sec / Speedup: 4.391 / Efficiency: 49% / LogL: -58401138
+BEST NUMBER OF THREADS: 8
+
+Perform fast likelihood tree search using LG+I+G model...
+Estimate model parameters (epsilon = 5.000)
+Perform nearest neighbor interchange...
+Estimate model parameters (epsilon = 1.000)
+1. Initial log-likelihood: -25864272.336
+2. Current log-likelihood: -25864270.131
+Optimal log-likelihood: -25864270.109
+Proportion of invariable sites: 0.038
+Gamma shape alpha: 0.928
+Parameters optimization took 2 rounds (108.837 sec)
+Time for fast ML tree search: 690.837 seconds
+
+NOTE: ModelFinder requires 69967 MB RAM!
+ModelFinder will test up to 1232 protein models (sample size: 103928) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+  1  LG            27771859.187 881 55545480.374 55545495.456 55553895.205
+  2  LG+I          27588897.415 882 55179558.830 55179573.945 55187983.212
+  3  LG+G4         25885231.441 882 51772226.882 51772241.998 51780651.264
+  4  LG+I+G4       25864270.127 883 51730306.253 51730321.403 51738740.187
+  5  LG+R2         26363262.589 883 52728291.177 52728306.328 52736725.111
+  6  LG+R3         26001952.395 885 52005674.790 52005690.009 52014127.826
+  7  LG+R4         25873070.753 887 51747915.506 51747930.794 51756387.645
+  8  LG+R5         25813021.494 889 51627820.987 51627836.345 51636312.229
+  9  LG+R6         25782857.931 891 51567497.862 51567513.289 51576008.208
+ 10  LG+R7         25766966.600 893 51535719.199 51535734.696 51544248.647
+ 11  LG+R8         25758580.351 895 51518950.702 51518966.269 51527499.253
