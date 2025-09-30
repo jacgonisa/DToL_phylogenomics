@@ -1,0 +1,1986 @@
+IQ-TREE 2.3.4 COVID-edition built Jun  5 2024
+
+Input file name: concatenated_alignment/concatenated_alignment_255busco_432species
+Type of analysis: ModelFinder + tree reconstruction + ultrafast bootstrap (1000 replicates)
+Random seed number: 553443
+
+REFERENCES
+----------
+
+To cite IQ-TREE please use:
+
+Bui Quang Minh, Heiko A. Schmidt, Olga Chernomor, Dominik Schrempf,
+Michael D. Woodhams, Arndt von Haeseler, and Robert Lanfear (2020)
+IQ-TREE 2: New models and efficient methods for phylogenetic inference
+in the genomic era. Mol. Biol. Evol., in press.
+https://doi.org/10.1093/molbev/msaa015
+
+To cite ModelFinder please use: 
+
+Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler,
+and Lars S Jermiin (2017) ModelFinder: Fast model selection for
+accurate phylogenetic estimates. Nature Methods, 14:587–589.
+https://doi.org/10.1038/nmeth.4285
+
+Since you used ultrafast bootstrap (UFBoot) please also cite: 
+
+Diep Thi Hoang, Olga Chernomor, Arndt von Haeseler, Bui Quang Minh,
+and Le Sy Vinh (2018) UFBoot2: Improving the ultrafast bootstrap
+approximation. Mol. Biol. Evol., 35:518–522.
+https://doi.org/10.1093/molbev/msx281
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 442 sequences with 103928 amino-acid sites
+Number of constant sites: 4021 (= 3.86902% of all sites)
+Number of invariant (constant or ambiguous constant) sites: 4021 (= 3.86902% of all sites)
+Number of parsimony informative sites: 96303
+Number of distinct site patterns: 101870
+
+ModelFinder
+-----------
+
+Best-fit model according to BIC: Q.insect+I+R10
+
+List of models sorted by BIC scores: 
+
+Model                  LogL         AIC      w-AIC        AICc     w-AICc         BIC      w-BIC
+Q.insect+I+R10  -25608741.640 51219283.280 +        1 51219299.022 +        1 51227879.588 +        1
+Q.insect+F+I+R10 -25649247.450 51300332.900 -        0 51300349.316 -        0 51309110.686 -        0
+Q.yeast+I+R10   -25680733.460 51363266.920 -        0 51363282.662 -        0 51371863.228 -        0
+Q.yeast+F+I+R10 -25685853.090 51373544.180 -        0 51373560.596 -        0 51382321.966 -        0
+Q.plant+I+R10   -25733705.600 51469211.200 -        0 51469226.942 -        0 51477807.508 -        0
+LG+F+I+R10      -25739311.610 51480461.220 -        0 51480477.636 -        0 51489239.006 -        0
+LG+I+R10        -25750078.450 51501956.900 -        0 51501972.642 -        0 51510553.208 -        0
+LG+R10          -25750939.990 51503677.980 -        0 51503693.686 -        0 51512264.737 -        0
+LG+I+R9         -25752600.370 51506996.740 -        0 51507012.411 -        0 51515573.945 -        0
+LG+R9           -25753681.360 51509156.720 -        0 51509172.356 -        0 51517724.374 -        0
+Q.pfam+F+I+R10  -25753730.870 51509299.740 -        0 51509316.156 -        0 51518077.526 -        0
+LG+I+R8         -25756743.780 51515279.560 -        0 51515295.161 -        0 51523837.662 -        0
+Q.pfam+I+R10    -25758118.050 51518036.100 -        0 51518051.842 -        0 51526632.408 -        0
+LG+R8           -25759029.000 51519848.000 -        0 51519863.566 -        0 51528396.551 -        0
+Q.plant+F+I+R10 -25762168.470 51526174.940 -        0 51526191.356 -        0 51534952.726 -        0
+LG+I+R7         -25764007.070 51529802.140 -        0 51529817.672 -        0 51538341.140 -        0
+LG+R7           -25767438.110 51536662.220 -        0 51536677.717 -        0 51545191.668 -        0
+LG+I+R6         -25777948.120 51557680.240 -        0 51557695.702 -        0 51566200.137 -        0
+JTT+F+I+R10     -25781984.170 51565806.340 -        0 51565822.756 -        0 51574584.126 -        0
+LG+R6           -25783301.310 51568384.620 -        0 51568400.047 -        0 51576894.965 -        0
+JTTDCMut+F+I+R10 -25783746.940 51569331.880 -        0 51569348.296 -        0 51578109.666 -        0
+LG+I+R5         -25804311.640 51610403.280 -        0 51610418.672 -        0 51618904.074 -        0
+LG+R5           -25813493.080 51628764.160 -        0 51628779.518 -        0 51637255.402 -        0
+JTTDCMut+I+R10  -25822037.300 51645874.600 -        0 51645890.342 -        0 51654470.908 -        0
+JTT+I+R10       -25822057.950 51645915.900 -        0 51645931.642 -        0 51654512.208 -        0
+LG+I+R4         -25856665.270 51715106.540 -        0 51715121.863 -        0 51723588.231 -        0
+LG+I+G4         -25864749.210 51731264.420 -        0 51731279.570 -        0 51739698.354 -        0
+LG+R4           -25873542.270 51748858.540 -        0 51748873.828 -        0 51757330.679 -        0
+LG+G4           -25885721.000 51773206.000 -        0 51773221.116 -        0 51781630.382 -        0
+WAG+I+R10       -25920022.820 51841845.640 -        0 51841861.382 -        0 51850441.948 -        0
+WAG+F+I+R10     -25921867.460 51845572.920 -        0 51845589.336 -        0 51854350.706 -        0
+mtInv+F+I+R10   -25929863.450 51861564.900 -        0 51861581.316 -        0 51870342.686 -        0
+rtREV+F+I+R10   -25941830.790 51885499.580 -        0 51885515.996 -        0 51894277.366 -        0
+LG+I+R3         -25971049.560 51943871.120 -        0 51943886.374 -        0 51952333.708 -        0
+VT+I+R10        -25981697.750 51965195.500 -        0 51965211.242 -        0 51973791.808 -        0
+VT+F+I+R10      -25983813.000 51969464.000 -        0 51969480.416 -        0 51978241.786 -        0
+Q.mammal+F+I+R10 -25996525.530 51994889.060 -        0 51994905.476 -        0 52003666.846 -        0
+LG+R3           -26002439.060 52006648.120 -        0 52006663.339 -        0 52015101.156 -        0
+Q.mammal+I+R10  -26019788.750 52041377.500 -        0 52041393.242 -        0 52049973.808 -        0
+cpREV+I+R10     -26046376.380 52094552.760 -        0 52094568.502 -        0 52103149.068 -        0
+mtZOA+F+I+R10   -26058732.930 52119303.860 -        0 52119320.276 -        0 52128081.646 -        0
+Dayhoff+F+I+R10 -26063476.460 52128790.920 -        0 52128807.336 -        0 52137568.706 -        0
+DCMut+F+I+R10   -26065508.790 52132855.580 -        0 52132871.996 -        0 52141633.366 -        0
+mtMet+F+I+R10   -26072298.460 52146434.920 -        0 52146451.336 -        0 52155212.706 -        0
+rtREV+I+R10     -26090610.790 52183021.580 -        0 52183037.322 -        0 52191617.888 -        0
+cpREV+F+I+R10   -26099673.360 52201184.720 -        0 52201201.136 -        0 52209962.506 -        0
+Dayhoff+I+R10   -26146697.460 52295194.920 -        0 52295210.662 -        0 52303791.228 -        0
+DCMut+I+R10     -26149207.820 52300215.640 -        0 52300231.382 -        0 52308811.948 -        0
+Q.bird+F+I+R10  -26195710.870 52393259.740 -        0 52393276.156 -        0 52402037.526 -        0
+Q.bird+I+R10    -26222646.900 52447093.800 -        0 52447109.542 -        0 52455690.108 -        0
+mtREV+F+I+R10   -26234273.380 52470384.760 -        0 52470401.176 -        0 52479162.546 -        0
+PMB+I+R10       -26263358.290 52528516.580 -        0 52528532.322 -        0 52537112.888 -        0
+Blosum62+I+R10  -26273819.700 52549439.400 -        0 52549455.142 -        0 52558035.708 -        0
+LG+I+R2         -26296015.850 52593799.700 -        0 52593814.885 -        0 52602243.185 -        0
+PMB+F+I+R10     -26298419.670 52598677.340 -        0 52598693.756 -        0 52607455.126 -        0
+Blosum62+F+I+R10 -26305575.230 52612988.460 -        0 52613004.876 -        0 52621766.246 -        0
+FLU+F+I+R10     -26337505.290 52676848.580 -        0 52676864.996 -        0 52685626.366 -        0
+LG+R2           -26363829.190 52729424.380 -        0 52729439.530 -        0 52737858.314 -        0
+HIVb+F+I+R10    -26393606.370 52789050.740 -        0 52789067.156 -        0 52797828.526 -        0
+FLU+I+R10       -26399976.610 52801753.220 -        0 52801768.962 -        0 52810349.528 -        0
+mtART+F+I+R10   -26470133.300 52942104.600 -        0 52942121.016 -        0 52950882.386 -        0
+mtZOA+I+R10     -26487867.180 52977534.360 -        0 52977550.102 -        0 52986130.668 -        0
+mtVer+F+I+R10   -26503153.850 53008145.700 -        0 53008162.116 -        0 53016923.486 -        0
+HIVb+I+R10      -26528496.600 53058793.200 -        0 53058808.942 -        0 53067389.508 -        0
+mtMet+I+R10     -26766318.800 53534437.600 -        0 53534453.342 -        0 53543033.908 -        0
+mtMAM+F+I+R10   -26812437.520 53626713.040 -        0 53626729.456 -        0 53635490.826 -        0
+mtInv+I+R10     -26833374.960 53668549.920 -        0 53668565.662 -        0 53677146.228 -        0
+FLAVI+F+I+R10   -26873312.390 53748462.780 -        0 53748479.196 -        0 53757240.566 -        0
+FLAVI+I+R10     -26943597.780 53888995.560 -        0 53889011.302 -        0 53897591.868 -        0
+mtREV+I+R10     -26962519.510 53926839.020 -        0 53926854.762 -        0 53935435.328 -        0
+mtVer+I+R10     -27118604.070 54239008.140 -        0 54239023.882 -        0 54247604.448 -        0
+mtART+I+R10     -27167941.880 54337683.760 -        0 54337699.502 -        0 54346280.068 -        0
+HIVw+F+I+R10    -27351853.720 54705545.440 -        0 54705561.856 -        0 54714323.226 -        0
+mtMAM+I+R10     -27565593.220 55132986.440 -        0 55133002.182 -        0 55141582.748 -        0
+LG+I            -27589469.720 55180703.440 -        0 55180718.556 -        0 55189127.822 -        0
+HIVw+I+R10      -27732079.390 55465958.780 -        0 55465974.522 -        0 55474555.088 -        0
+LG              -27772484.120 55546730.240 -        0 55546745.321 -        0 55555145.071 -        0
+
+AIC, w-AIC   : Akaike information criterion scores and weights.
+AICc, w-AICc : Corrected AIC scores and weights.
+BIC, w-BIC   : Bayesian information criterion scores and weights.
+
+Plus signs denote the 95% confidence sets.
+Minus signs denote significant exclusion.
+
+SUBSTITUTION PROCESS
+--------------------
+
+Model of substitution: Q.insect+I+R10
+
+State frequencies: (model)
+
+Model of rate heterogeneity: Invar+FreeRate with 10 categories
+Proportion of invariable sites: 0.0295
+Site proportion and rates:  (0.0915,0.0350) (0.1088,0.1384) (0.1338,0.3028) (0.1501,0.5353) (0.1462,0.8445) (0.1220,1.2531) (0.0945,1.8056) (0.0663,2.5565) (0.0405,3.6702) (0.0168,5.6940)
+
+ Category  Relative_rate  Proportion
+  0         0              0.0295
+  1         0.0350         0.0915
+  2         0.1384         0.1088
+  3         0.3028         0.1338
+  4         0.5353         0.1501
+  5         0.8445         0.1462
+  6         1.2531         0.1220
+  7         1.8056         0.0945
+  8         2.5565         0.0663
+  9         3.6702         0.0405
+  10         5.6940         0.0168
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+
+**NOTE**: Consensus tree has higher likelihood than ML tree found! Please use consensus tree below.
+Log-likelihood of the tree: -25607291.6383 (s.e. 56835.0907)
+Unconstrained log-likelihood (without tree): -1195180.9534
+Number of free parameters (#branches + #model parameters): 900
+Akaike information criterion (AIC) score: 51216383.2766
+Corrected Akaike information criterion (AICc) score: 51216399.0181
+Bayesian information criterion (BIC) score: 51224979.5849
+
+Total tree length (sum of branch lengths): 83.2638
+Sum of internal branch lengths: 27.4017 (32.9095% of tree length)
+
+NOTE: Tree is UNROOTED although outgroup taxon 'iyAthRosa1.1.fa' is drawn at root
+Numbers in parentheses are  ultrafast bootstrap support (%)
+
++--iyAthRosa1.1.fa
+|
+|                                                                                         +--gfPanStip1.1.fasta
+|                                                                                      +--| (100)
+|                                                                                      |  +--gfMycGale1.hap1.1.fasta
+|                                                                                   +--| (100)
+|                                                                                   |  |  +--gfArmOsto1.1.fasta
+|                                                                                   |  +--| (100)
+|                                                                                   |     +---gfFlaVelt1.2.fasta
+|                                                                                +--| (100)
+|                                                                                |  |           +----gfCopMica1.1.fasta
+|                                                                                |  |        +--| (100)
+|                                                                                |  |        |  |  +--gfAgaBisp1.1.fa
+|                                                                                |  |        |  +--| (100)
+|                                                                                |  |        |     +--gfChlBrun1.1.fasta
+|                                                                                |  |     +--| (100)
+|                                                                                |  |     |  |     +--gfAgrPrae1.1.fasta
+|                                                                                |  |     |  |  +--| (100)
+|                                                                                |  |     |  |  |  +--gfInoObsi1.1.fasta
+|                                                                                |  |     |  +--| (100)
+|                                                                                |  |     |     +--gfCorTriu1.hap1.1.fasta
+|                                                                                |  |  +--| (100)
+|                                                                                |  |  |  |  +---gfVolSurr1.1.fasta
+|                                                                                |  |  |  +--| (100)
+|                                                                                |  |  |     +---gfAmaRube1.hap1.1.fasta
+|                                                                                |  +--| (100)
+|                                                                                |     |  +--gfEntClyp1.2.fasta
+|                                                                                |     +--| (100)
+|                                                                                |        |  +--gfTriHemi4.1.fasta
+|                                                                                |        +--| (100)
+|                                                                                |           +--gfLepSord1.hap1.1.fasta
+|                                                                             +--| (100)
+|                                                                             |  +---gfPleOstr1.1.fa
+|                                                                          +--| (100)
+|                                                                          |  |  +--gfHygPuni3.1.fasta
+|                                                                          |  +--| (100)
+|                                                                          |     |  +--gfGliIrri2.hap1.1.fasta
+|                                                                          |     +--| (100)
+|                                                                          |        +--gfPorCaly1.1.fasta
+|                                                                       +--| (100)
+|                                                                       |  |  +--gfRamCorn1.1.fasta
+|                                                                       |  +--| (100)
+|                                                                       |     +----gfClaFumo1.1.fasta
+|                                                                    +--| (100)
+|                                                                    |  |  +--gfButSuba1.1.fasta
+|                                                                    |  +--| (100)
+|                                                                    |     +--gfAurGent2.1.fasta
+|                                                                 +--| (100)
+|                                                                 |  |  +--gfGanResi1.1.fasta
+|                                                                 |  +--| (100)
+|                                                                 |     |     +--gfLaeSulp1.1.fa
+|                                                                 |     |  +--| (100)
+|                                                                 |     |  |  +--gfBolQuer1.1.fasta
+|                                                                 |     +--| (100)
+|                                                                 |        +--gfSpaMino1.hap1.1.fasta
+|                                                              +--| (100)
+|                                                              |  |     +--gfRusVesc1.hap1.1.fasta
+|                                                              |  |  +--| (100)
+|                                                              |  |  |  +--gfLacBlen1.hap1.1.fasta
+|                                                              |  +--| (100)
+|                                                              |     +--gfHerErin3.1.fasta
+|                                                           +--| (100)
+|                                                           |  +----gfPhaAlbo1.hap1.1.fasta
+|                                                      +----| (100)
+|                                                      |    +---------gfTauPull1.1.fasta
+|                                                   +--| (100)
+|                                                   |  |                  +----grLepFlav1.1.fasta
+|                                                   |  |               +--| (100)
+|                                                   |  |               |  |     +--grCorFumo1.1.fasta
+|                                                   |  |               |  |  +--| (100)
+|                                                   |  |               |  |  |  +--grSimLame1.1.fasta
+|                                                   |  |               |  +--| (100)
+|                                                   |  |               |     +--grTriPseu1.1.fa
+|                                                   |  |            +--| (100)
+|                                                   |  |            |  +---gyLeoLubr2.1.fasta
+|                                                   |  |         +--| (100)
+|                                                   |  |         |  |     +---glEphLana1.1.fasta
+|                                                   |  |         |  |  +--| (100)
+|                                                   |  |         |  |  |  +--glLicPygm2.1.fasta
+|                                                   |  |         |  +--| (100)
+|                                                   |  |         |     |     +--glUmbDeus1.1.fasta
+|                                                   |  |         |     |  +--| (100)
+|                                                   |  |         |     |  |  |        +--glPlaGlau9.1.fasta
+|                                                   |  |         |     |  |  |     +--| (100)
+|                                                   |  |         |     |  |  |     |  +--glClaSqua9.2.fasta
+|                                                   |  |         |     |  |  |  +--| (100)
+|                                                   |  |         |     |  |  |  |  +----glRamSili2.1.fasta
+|                                                   |  |         |     |  |  +--| (100)
+|                                                   |  |         |     |  |     +---glFlaMari1.1.fasta
+|                                                   |  |         |     +--| (100)
+|                                                   |  |         |        +----gpAraPeru1.1.fasta
+|                                                   |  |   +-----| (100)
+|                                                   |  |   |     +-----gdRhiKalk1.hap1.1.fasta
+|                                                   |  +---| (100)
+|                                                   |      +--------------------gsMetZobe1.1.fa
+|                                              +----| (100)
+|                                              |    |  +--------gzMucPiri1.1.fa
+|                                              |    +--| (100)
+|                                              |       +-------gzEntParv1.1.fasta
+|                                         +----| (100)
+|                                         |    |                                       +--cbRhyLore1.1.fa
+|                                         |    |                                    +--| (100)
+|                                         |    |                                    |  +--cbHylTriq8.1.fasta
+|                                         |    |                                 +--| (100)
+|                                         |    |                                 |  +--cbRhyConf1.1.fasta
+|                                         |    |                              +--| (95)
+|                                         |    |                              |  +--cbThuTama2.1.fa
+|                                         |    |                           +--| (95)
+|                                         |    |                           |  +--cbCalCord2.1.fasta
+|                                         |    |                        +--| (100)
+|                                         |    |                        |  +--cbIsoPulc3.1.fasta
+|                                         |    |                     +--| (100)
+|                                         |    |                     |  +--cbPolSexa1.1.fasta
+|                                         |    |                  +--| (100)
+|                                         |    |                  |  +--caAndHook4.1.fasta
+|                                         |    |               +--| (100)
+|                                         |    |               |  +--csSphGirg1.1.fasta
+|                                         |    |            +--| (100)
+|                                         |    |            |  |  +--cjHerHutc3.1.fasta
+|                                         |    |            |  +--| (100)
+|                                         |    |            |     +--cmLunCruc20.1.fasta
+|                                         |    |       +----| (100)
+|                                         |    |       |    |                                    +--dhQueCerr2.1.fasta
+|                                         |    |       |    |                                 +--| (100)
+|                                         |    |       |    |                                 |  +--dhQueIlex1.hap1.1.fasta
+|                                         |    |       |    |                              +--| (100)
+|                                         |    |       |    |                              |  |  +--dhQuePetr1.hap1.1.fasta
+|                                         |    |       |    |                              |  +--| (100)
+|                                         |    |       |    |                              |     +--dhQueRobu3.1.fa
+|                                         |    |       |    |                           +--| (100)
+|                                         |    |       |    |                           |  +--dhFagSylv1.hap1.1.fasta
+|                                         |    |       |    |                        +--| (100)
+|                                         |    |       |    |                        |  |              +--dhAlnGlut1.1.fa
+|                                         |    |       |    |                        |  |           +--| (100)
+|                                         |    |       |    |                        |  |           |  +--dhAlnInca1.hap1.1.fasta
+|                                         |    |       |    |                        |  |        +--| (100)
+|                                         |    |       |    |                        |  |        |  +--dhAlnCord1.hap1.1.fasta
+|                                         |    |       |    |                        |  |     +--| (100)
+|                                         |    |       |    |                        |  |     |  +--dhCorColu1.hap1.1.fasta
+|                                         |    |       |    |                        |  |  +--| (100)
+|                                         |    |       |    |                        |  |  |  +--dhBetPend1.hap1.1.fasta
+|                                         |    |       |    |                        |  +--| (100)
+|                                         |    |       |    |                        |     +--dhMyrGale1.1.fasta
+|                                         |    |       |    |                     +--| (100)
+|                                         |    |       |    |                     |  |        +--drAstGlyc1.1.fasta
+|                                         |    |       |    |                     |  |     +--| (100)
+|                                         |    |       |    |                     |  |     |  |  +--drTriFrag1.1.fa
+|                                         |    |       |    |                     |  |     |  +--| (100)
+|                                         |    |       |    |                     |  |     |     +--drMedArab1.1.fa
+|                                         |    |       |    |                     |  |  +--| (100)
+|                                         |    |       |    |                     |  |  |  +--drLotPedu3.1.fasta
+|                                         |    |       |    |                     |  +--| (100)
+|                                         |    |       |    |                     |     +--drUleMino1.hap1.1.fasta
+|                                         |    |       |    |                  +--| (100)
+|                                         |    |       |    |                  |  |     +--drParJuda1.1.fa
+|                                         |    |       |    |                  |  |  +--| (100)
+|                                         |    |       |    |                  |  |  |  +--drUrtUren1.1.fa
+|                                         |    |       |    |                  |  +--| (100)
+|                                         |    |       |    |                  |     |     +--drFilUlma1.1.fa
+|                                         |    |       |    |                  |     |  +--| (100)
+|                                         |    |       |    |                  |     |  |  |        +--drPotAnse1.1.fa
+|                                         |    |       |    |                  |     |  |  |     +--| (100)
+|                                         |    |       |    |                  |     |  |  |     |  +--drFraVesc1.hap1.1.fasta
+|                                         |    |       |    |                  |     |  |  |  +--| (100)
+|                                         |    |       |    |                  |     |  |  |  |  +--drRosaCani1.1.fa
+|                                         |    |       |    |                  |     |  |  +--| (100)
+|                                         |    |       |    |                  |     |  |     |  +--drGeuRiva1.hap1.1.fasta
+|                                         |    |       |    |                  |     |  |     +--| (100)
+|                                         |    |       |    |                  |     |  |        +--drGeuUrba1.1.fa
+|                                         |    |       |    |                  |     +--| (100)
+|                                         |    |       |    |                  |        |  +--drMalDome5.1.fa
+|                                         |    |       |    |                  |        +--| (100)
+|                                         |    |       |    |                  |           +--drMalSylv7.1.fa
+|                                         |    |       |    |               +--| (100)
+|                                         |    |       |    |               |  |           +--ddSalCapr1.1.fasta
+|                                         |    |       |    |               |  |        +--| (100)
+|                                         |    |       |    |               |  |        |  +--ddPopNigr1.1.fasta
+|                                         |    |       |    |               |  |     +--| (100)
+|                                         |    |       |    |               |  |     |  |  +--ddEupPepu3.1.fa
+|                                         |    |       |    |               |  |     |  +--| (100)
+|                                         |    |       |    |               |  |     |     +--ddMerAnnu1.1.fa
+|                                         |    |       |    |               |  |  +--| (99)
+|                                         |    |       |    |               |  |  |  |  +--drAilAlti1.1.fa
+|                                         |    |       |    |               |  |  |  +--| (100)
+|                                         |    |       |    |               |  |  |     +--drAceCamp1.1.fasta
+|                                         |    |       |    |               |  +--| (99)
+|                                         |    |       |    |               |     |        +--ddNasOffi1.1.fasta
+|                                         |    |       |    |               |     |     +--| (100)
+|                                         |    |       |    |               |     |     |  |  +--ddCarHirs1.hap1.1.fasta
+|                                         |    |       |    |               |     |     |  +--| (100)
+|                                         |    |       |    |               |     |     |     +--ddBarVulg1.1.fasta
+|                                         |    |       |    |               |     |  +--| (100)
+|                                         |    |       |    |               |     |  |  +--ddAraThal4.1.fa
+|                                         |    |       |    |               |     +--| (99)
+|                                         |    |       |    |               |        +--drChaAngu1.1.fa
+|                                         |    |       |    |            +--| (100)
+|                                         |    |       |    |            |  +--drSaxAizo1.hap1.1.fasta
+|                                         |    |       |    |         +--| (100)
+|                                         |    |       |    |         |  |                          +--daLycEuro1.1.fa
+|                                         |    |       |    |         |  |                       +--| (100)
+|                                         |    |       |    |         |  |                       |  +--daPruVulg3.hap1.1.fasta
+|                                         |    |       |    |         |  |                    +--| (100)
+|                                         |    |       |    |         |  |                    |  |     +--daAjuCham1.1.fasta
+|                                         |    |       |    |         |  |                    |  |  +--| (100)
+|                                         |    |       |    |         |  |                    |  |  |  |  +--daLamPurp1.hap1.1.fasta
+|                                         |    |       |    |         |  |                    |  |  |  +--| (100)
+|                                         |    |       |    |         |  |                    |  |  |     +--daBalNigr1.1.fa
+|                                         |    |       |    |         |  |                    |  +--| (100)
+|                                         |    |       |    |         |  |                    |     +--daScuGale1.1.fa
+|                                         |    |       |    |         |  |                 +--| (100)
+|                                         |    |       |    |         |  |                 |  +--daPauTome1.hap1.1.fasta
+|                                         |    |       |    |         |  |              +--| (100)
+|                                         |    |       |    |         |  |              |  +--daVerOffi1.1.fasta
+|                                         |    |       |    |         |  |           +--| (100)
+|                                         |    |       |    |         |  |           |  |     +--daLinVulg1.1.fa
+|                                         |    |       |    |         |  |           |  |  +--| (100)
+|                                         |    |       |    |         |  |           |  |  |  +--daMisOron1.1.fa
+|                                         |    |       |    |         |  |           |  +--| (100)
+|                                         |    |       |    |         |  |           |     +--daVerTrip1.1.fasta
+|                                         |    |       |    |         |  |        +--| (100)
+|                                         |    |       |    |         |  |        |  |     +--daSheArve1.1.fa
+|                                         |    |       |    |         |  |        |  |  +--| (100)
+|                                         |    |       |    |         |  |        |  |  |  |  +--daCruLaev1.1.fasta
+|                                         |    |       |    |         |  |        |  |  |  +--| (100)
+|                                         |    |       |    |         |  |        |  |  |     +--daGalUlig1.hap1.1.fasta
+|                                         |    |       |    |         |  |        |  +--| (99)
+|                                         |    |       |    |         |  |        |     |  +--daSolDulc1.1.fa
+|                                         |    |       |    |         |  |        |     +--| (100)
+|                                         |    |       |    |         |  |        |        +--daConArve2.hap1.1.fasta
+|                                         |    |       |    |         |  |     +--| (100)
+|                                         |    |       |    |         |  |     |  +--drIleAqui2.1.fasta
+|                                         |    |       |    |         |  |  +--| (100)
+|                                         |    |       |    |         |  |  |  |                    +--daFilPyra1.hap1.1.fasta
+|                                         |    |       |    |         |  |  |  |                 +--| (100)
+|                                         |    |       |    |         |  |  |  |                 |  +--daCalOffi1.1.fasta
+|                                         |    |       |    |         |  |  |  |              +--| (100)
+|                                         |    |       |    |         |  |  |  |              |  +--daSenSylv1.hap1.1.fasta
+|                                         |    |       |    |         |  |  |  |           +--| (100)
+|                                         |    |       |    |         |  |  |  |           |  |  +--daPulDyse1.1.fa
+|                                         |    |       |    |         |  |  |  |           |  +--| (100)
+|                                         |    |       |    |         |  |  |  |           |     +--daInuSali1.hap1.1.fasta
+|                                         |    |       |    |         |  |  |  |        +--| (100)
+|                                         |    |       |    |         |  |  |  |        |  +--daTraPrat1.hap1.1.fasta
+|                                         |    |       |    |         |  |  |  |     +--| (100)
+|                                         |    |       |    |         |  |  |  |     |  |  +--daArcMinu1.1.fa
+|                                         |    |       |    |         |  |  |  |     |  +--| (100)
+|                                         |    |       |    |         |  |  |  |     |     +--daCirDiss1.hap1.1.fasta
+|                                         |    |       |    |         |  |  |  |  +--| (100)
+|                                         |    |       |    |         |  |  |  |  |  +--daLobUren4.hap1.1.fasta
+|                                         |    |       |    |         |  |  |  +--| (100)
+|                                         |    |       |    |         |  |  |     |  +--ddHotPalu2.hap1.1.fasta
+|                                         |    |       |    |         |  |  |     +--| (100)
+|                                         |    |       |    |         |  |  |        +--drHedHeli1.1.fa
+|                                         |    |       |    |         |  +--| (100)
+|                                         |    |       |    |         |     |  +--ddImpParv1.hap1.1.fasta
+|                                         |    |       |    |         |     +--| (100)
+|                                         |    |       |    |         |        +--ddPriVulg1.1.fasta
+|                                         |    |       |    |      +--| (100)
+|                                         |    |       |    |      |  |        +--dcPerMacu1.1.fasta
+|                                         |    |       |    |      |  |     +--| (100)
+|                                         |    |       |    |      |  |     |  +--dcPerAmph1.hap1.1.fasta
+|                                         |    |       |    |      |  |  +--| (100)
+|                                         |    |       |    |      |  |  |  |  +--dcFalConv1.1.fasta
+|                                         |    |       |    |      |  |  |  +--| (100)
+|                                         |    |       |    |      |  |  |     +--dcPolAvic1.1.fa
+|                                         |    |       |    |      |  +--| (100)
+|                                         |    |       |    |      |     |     +--dcCheAlbu1.1.fasta
+|                                         |    |       |    |      |     |  +--| (100)
+|                                         |    |       |    |      |     |  |  +--dcSalRamo1.1.fasta
+|                                         |    |       |    |      |     +--| (100)
+|                                         |    |       |    |      |        |        +--dcAgrGith1.1.fasta
+|                                         |    |       |    |      |        |     +--| (100)
+|                                         |    |       |    |      |        |     |  |  +--dcMoeTrin1.hap1.1.fasta
+|                                         |    |       |    |      |        |     |  +--| (100)
+|                                         |    |       |    |      |        |     |     +--dcAreSerp1.hap1.1.fasta
+|                                         |    |       |    |      |        |  +--| (100)
+|                                         |    |       |    |      |        |  |  +--dcSpeMari1.1.fasta
+|                                         |    |       |    |      |        +--| (100)
+|                                         |    |       |    |      |           +--dcPolTetr1.hap1.1.fasta
+|                                         |    |       |    |   +--| (100)
+|                                         |    |       |    |   |  |        +--dmAquVulg1.hap1.1.fasta
+|                                         |    |       |    |   |  |     +--| (100)
+|                                         |    |       |    |   |  |     |  +--dmThaMinu1.hap1.1.fasta
+|                                         |    |       |    |   |  |  +--| (100)
+|                                         |    |       |    |   |  |  |  +--dmRanScel1.hap1.1.fasta
+|                                         |    |       |    |   |  +--| (100)
+|                                         |    |       |    |   |     +--dmBerVulg1.1.fasta
+|                                         |    |       |    +---| (100)
+|                                         |    |       |        |                       +--lpLuzPall1.1.fasta
+|                                         |    |       |        |                    +--| (100)
+|                                         |    |       |        |                    |  +--lpLuzSylv1.1.fa
+|                                         |    |       |        |                 +--| (100)
+|                                         |    |       |        |                 |  |  +--lpJunSqua1.hap1.1.fasta
+|                                         |    |       |        |                 |  +--| (100)
+|                                         |    |       |        |                 |     |  +--lpJunBufo1.hap1.1.fasta
+|                                         |    |       |        |                 |     +--| (100)
+|                                         |    |       |        |                 |        +--lpJunEffu1.1.fa
+|                                         |    |       |        |              +--| (100)
+|                                         |    |       |        |              |  |     +--lpCarDepa1.1.fa
+|                                         |    |       |        |              |  |  +--| (100)
+|                                         |    |       |        |              |  |  |  |     +--lpSciSylv1.hap1.1.fasta
+|                                         |    |       |        |              |  |  |  |  +--| (100)
+|                                         |    |       |        |              |  |  |  |  |  +--lpEriAngu1.1.fasta
+|                                         |    |       |        |              |  |  |  +--| (98)
+|                                         |    |       |        |              |  |  |     +--lpTriCesp1.1.fasta
+|                                         |    |       |        |              |  +--| (100)
+|                                         |    |       |        |              |     |     +--lpCypFusc1.hap1.1.fasta
+|                                         |    |       |        |              |     |  +--| (100)
+|                                         |    |       |        |              |     |  |  |     +--lpSchTabe1.hap1.1.fasta
+|                                         |    |       |        |              |     |  |  |  +--| (100)
+|                                         |    |       |        |              |     |  |  |  |  +--lpSchTriq1.1.fasta
+|                                         |    |       |        |              |     |  |  +--| (100)
+|                                         |    |       |        |              |     |  |     +--lpSchLacu1.fa
+|                                         |    |       |        |              |     +--| (100)
+|                                         |    |       |        |              |        +--lpEleQuin1.1.fasta
+|                                         |    |       |        |           +--| (100)
+|                                         |    |       |        |           |  |     +--lpLeeOryz1.hap1.1.fasta
+|                                         |    |       |        |           |  |  +--| (100)
+|                                         |    |       |        |           |  |  |  |     +--lpBroSter1.1.fasta
+|                                         |    |       |        |           |  |  |  |  +--| (100)
+|                                         |    |       |        |           |  |  |  |  |  +--lpHorVulg1.hap1.1.fasta
+|                                         |    |       |        |           |  |  |  +--| (100)
+|                                         |    |       |        |           |  |  |     |     +--lpPolViri1.hap1.1.fasta
+|                                         |    |       |        |           |  |  |     |  +--| (100)
+|                                         |    |       |        |           |  |  |     |  |  +--lpHieOdor1.hap1.1.fasta
+|                                         |    |       |        |           |  |  |     +--| (100)
+|                                         |    |       |        |           |  |  |        |  +--lpPoaChai1.hap1.1.fasta
+|                                         |    |       |        |           |  |  |        +--| (100)
+|                                         |    |       |        |           |  |  |           +--lpPhlPrat1.hap1.1.fasta
+|                                         |    |       |        |           |  +--| (100)
+|                                         |    |       |        |           |     |  +--lpDigSang1.hap1.1.fasta
+|                                         |    |       |        |           |     +--| (100)
+|                                         |    |       |        |           |        +--lpPhrAust1.1.fa
+|                                         |    |       |        |        +--| (100)
+|                                         |    |       |        |        |  +--lpSpaEmer1.hap1.1.fasta
+|                                         |    |       |        |     +--| (48)
+|                                         |    |       |        |     |  +--lsIriFoet1.hap1.1.fasta
+|                                         |    |       |        |  +--| (100)
+|                                         |    |       |        |  |  +--ldNarOssi1.1.fasta
+|                                         |    |       |        +--| (100)
+|                                         |    |       |           |  +---laLemMinu1.hap1.1.fasta
+|                                         |    |       |           +--| (100)
+|                                         |    |       |              |  +--laApoDist1.hap1.1.fasta
+|                                         |    |       |              +--| (100)
+|                                         |    |       |                 |  +--laPotNata1.hap1.1.fasta
+|                                         |    |       |                 +--| (100)
+|                                         |    |       |                    +--laTriMari1.1.fasta
+|                                         |    |  +----| (100)
+|                                         |    |  |    |     +----------ucMarCocc1.1.fasta
+|                                         |    |  |    |  +--| (100)
+|                                         |    |  |    |  |  |  +--------ucDunPrim2.1.fa
+|                                         |    |  |    |  |  +--| (100)
+|                                         |    |  |    |  |     +-------ucPseBory1.1.fasta
+|                                         |    |  |    +--| (100)
+|                                         |    |  |       +--------------------ucPycProv1.1.fa
+|                                         |    +--| (100)
+|                                         |       |  +-------------------paTetJugo1.1.fa
+|                                         |       +--| (100)
+|                                         |          |                          +---pEimTen1.1.fa
+|                                         |          +--------------------------| (100)
+|                                         |                                     +---pxEimPrae1.1.fasta
+|                                      +--| (100)
+|                                      |  +-----------ocSycCili1.1.fasta
+|                                   +--| (100)
+|                                   |  |  +---------jrHalOcto1.1.fa
+|                                   |  +--| (100)
+|                                   |     |  +---jaRicFlor1.1.fa
+|                                   |     +--| (100)
+|                                   |        |  +--jaNemVect1.1.fa
+|                                   |        +--| (100)
+|                                   |           +--jaDiaLine6.1.fa
+|                                +--| (100)
+|                                |  |                           +--mCanLor1.2.fa
+|                                |  |                        +--| (100)
+|                                |  |                        |  +--mMelMel3.2.fa
+|                                |  |                     +--| (32)
+|                                |  |                     |  +--mDicBic1.1.fa
+|                                |  |                  +--| (100)
+|                                |  |                  |  |  +--mRhiSin1.1.fa
+|                                |  |                  |  +--| (32)
+|                                |  |                  |     |  +--mOrcOrc1.1.fa
+|                                |  |                  |     +--| (100)
+|                                |  |                  |        +--mCerEla1.1.fa
+|                                |  |               +--| (100)
+|                                |  |               |  +--mLemCat1.1.fa
+|                                |  |            +--| (100)
+|                                |  |            |  +--mEleMax1.1.fa
+|                                |  |         +--| (100)
+|                                |  |         |  |           +--bCorHaw1.1.fa
+|                                |  |         |  |        +--| (100)
+|                                |  |         |  |        |  +--bTaeGut1.4.fa
+|                                |  |         |  |     +--| (100)
+|                                |  |         |  |     |  |  +--bPorHoc1.1.fa
+|                                |  |         |  |     |  +--| (100)
+|                                |  |         |  |     |     |        +--bFalBia1.1.fa
+|                                |  |         |  |     |     |     +--| (100)
+|                                |  |         |  |     |     |     |  +--bFalChe1.1.fa
+|                                |  |         |  |     |     |  +--| (100)
+|                                |  |         |  |     |     |  |  +--bFalPer1.1.fa
+|                                |  |         |  |     |     +--| (100)
+|                                |  |         |  |     |        +--bAccGen1.1.fa
+|                                |  |         |  |  +--| (100)
+|                                |  |         |  |  |  |  +--bGalGal1.GRCg7b.fa
+|                                |  |         |  |  |  +--| (100)
+|                                |  |         |  |  |     +--bLagMut1.1.fa
+|                                |  |         |  +--| (100)
+|                                |  |         |     +--rVipLat1.1.fa
+|                                |  |     +---| (100)
+|                                |  |     |   |                 +--fThuAlb1.1.fa
+|                                |  |     |   |              +--| (100)
+|                                |  |     |   |              |  +--fThuMac1.1.fa
+|                                |  |     |   |           +--| (100)
+|                                |  |     |   |           |  |  +--fPhoGun1.2.fa
+|                                |  |     |   |           |  +--| (100)
+|                                |  |     |   |           |     +--fTauBub2.1.fa
+|                                |  |     |   |        +--| (100)
+|                                |  |     |   |        |  |  +--fToxJac2.1.fa
+|                                |  |     |   |        |  +--| (100)
+|                                |  |     |   |        |     +--fTraTra1.2.fa
+|                                |  |     |   |     +--| (100)
+|                                |  |     |   |     |  +--fTelBon1.1.fa
+|                                |  |     |   |  +--| (100)
+|                                |  |     |   |  |  |        +--fBarBab1.1.fa
+|                                |  |     |   |  |  |     +--| (100)
+|                                |  |     |   |  |  |     |  +--fDanRer4.1.fa
+|                                |  |     |   |  |  |  +--| (100)
+|                                |  |     |   |  |  |  |  +--fPanHyp1.1.fa
+|                                |  |     |   |  |  +--| (100)
+|                                |  |     |   |  |     +--fAloSap1.1.fa
+|                                |  |     |   +--| (100)
+|                                |  |     |      +--fAciRut3.2.fa
+|                                |  |  +--| (100)
+|                                |  |  |  +-----------kaAplTurb1.1.fa
+|                                |  +--| (100)
+|                                |     +------eaMarGlac1.2.fa
+|                             +--| (100)
+|                             |  |              +------------wrPisGeom1.1.fa
+|                             |  |           +--| (100)
+|                             |  |           |  +----wcLumRube1.1.fa
+|                             |  |        +--| (100)
+|                             |  |        |  |     +--wpSthLimi1.1.fa
+|                             |  |        |  |  +--| (100)
+|                             |  |        |  |  |  +--wpLepClav1.1.fa
+|                             |  |        |  +--| (100)
+|                             |  |        |     +----wpAliVire1.1.fa
+|                             |  |     +--| (100)
+|                             |  |     |  +-----tnLinLong1.2.fa
+|                             |  |  +--| (100)
+|                             |  |  |  |        +--xbGarTell2.1.fa
+|                             |  |  |  |     +--| (100)
+|                             |  |  |  |     |  |  +--xbTriCroc3.1.fa
+|                             |  |  |  |     |  +--| (100)
+|                             |  |  |  |     |     +--xbTriGiga4.1.fa
+|                             |  |  |  |  +--| (100)
+|                             |  |  |  |  |  +---xbLimFort5.1.fa
+|                             |  |  |  +--| (100)
+|                             |  |  |     |         +--xgPatPell1.1.fa
+|                             |  |  |     |     +---| (100)
+|                             |  |  |     |     |   +--xgPatVulg1.1.fa
+|                             |  |  |     |  +--| (100)
+|                             |  |  |     |  |  |     +--xgSteCine2.1.fa
+|                             |  |  |     |  |  |  +--| (100)
+|                             |  |  |     |  |  |  |  +--xgPhoLine1.1.fa
+|                             |  |  |     |  |  +--| (100)
+|                             |  |  |     |  |     +--xgGibMagu1.1.fa
+|                             |  |  |     +--| (100)
+|                             |  |  |        +------xgBioGlab47.1.fa
+|                             |  +--| (100)
+|                             |     |           +--tzBugStol2.1.fa
+|                             |     |        +--| (100)
+|                             |     |        |  +--tzCryPall5.1.fa
+|                             |     +--------| (100)
+|                             |              +--tzMemMemb1.1.fa
+|                          +--| (74)
+|                          |  +--------qqMetBour1.1.fa
+|                       +--| (95)
+|                       |  |  +------------qxSacCarc1.2.fa
+|                       |  +--| (74)
+|                       |     +--------------------nxTriColu2.1.fasta
+|                    +--| (100)
+|                    |  |         +--qeAllFusc8.1.fasta
+|                    |  |      +--| (100)
+|                    |  |      |  +--qeDicMinu4.1.fasta
+|                    |  +------| (100)
+|                    |         |   +--qeOrcFlav1.1.fasta
+|                    |         +---| (100)
+|                    |             +--qeLepCurv1.1.fasta
+|                 +--| (93)
+|                 |  +---izTheDome1.hap1.1.fasta
+|              +--| (100)
+|              |  |         +--ieCloDipt1.1.fasta
+|              |  |      +--| (100)
+|              |  |      |  +--ieProBifi2.1.fasta
+|              |  |  +---| (100)
+|              |  |  |   |  +--ieSipAlte2.1.fasta
+|              |  |  |   +--| (100)
+|              |  |  |      +--ieEcdTorr1.1.fasta
+|              |  +--| (93)
+|              |     |    +--ioIscEleg1.1.fa
+|              |     +----| (100)
+|              |          +--ioPlaPenn1.1.fa
+|           +--| (100)
+|           |  |           +--ipLeuNigr2.1.fa
+|           |  |        +--| (100)
+|           |  |        |  |  +--ipNemPict2.1.fa
+|           |  |        |  +--| (100)
+|           |  |        |     +--ipNemDubi1.1.fa
+|           |  |     +--| (100)
+|           |  |     |  +--ipIsoGram3.1.fa
+|           |  |  +--| (100)
+|           |  |  |  +--ibEctPall1.hap1.1.fasta
+|           |  +--| (100)
+|           |     +------igLabMino1.1.fasta
+|        +--| (100)
+|        |  |          +--iuLoeVari1.hap1.1.fasta
+|        |  |       +--| (100)
+|        |  |       |  +--iuPsoGibb1.1.fasta
+|        |  |  +----| (100)
+|        |  |  |    +--iuMesFusc1.1.fasta
+|        |  +--| (100)
+|        |     |        +--ihAcaHaem1.1.fa
+|        |     |  +-----| (100)
+|        |     |  |     +--ihAelAcum1.1.fa
+|        |     +--| (100)
+|        |        +---------ihIcePurc2.1.fa
+|     +--| (100)
+|     |  |                 +----icMalBipu1.1.fa
+|     |  |              +--| (100)
+|     |  |              |  |                    +--icPriAter1.hap1.1.fasta
+|     |  |              |  |                 +--| (100)
+|     |  |              |  |                 |  +--icDiaBole1.1.fasta
+|     |  |              |  |              +--| (100)
+|     |  |              |  |              |  +--icTenMoli1.1.fasta
+|     |  |              |  |           +--| (100)
+|     |  |              |  |           |  +--icPycFuli2.1.fasta
+|     |  |              |  |        +--| (100)
+|     |  |              |  |        |  |  +--icPyrSerr1.1.fa
+|     |  |              |  |        |  +--| (100)
+|     |  |              |  |        |     +--icSalPlan1.1.fasta
+|     |  |              |  |     +--| (100)
+|     |  |              |  |     |  +--icAnaMacu3.1.fasta
+|     |  |              |  |  +--| (100)
+|     |  |              |  |  |  |           +--icAspAene1.1.fasta
+|     |  |              |  |  |  |        +--| (100)
+|     |  |              |  |  |  |        |  |     +--icKykRobo1.hap1.1.fasta
+|     |  |              |  |  |  |        |  |  +--| (100)
+|     |  |              |  |  |  |        |  |  |  +--icPolCerv1.1.fa
+|     |  |              |  |  |  |        |  +--| (100)
+|     |  |              |  |  |  |        |     +----icPlaCyli4.1.fasta
+|     |  |              |  |  |  |     +--| (100)
+|     |  |              |  |  |  |     |  +--icApoCory1.1.fa
+|     |  |              |  |  |  |  +--| (100)
+|     |  |              |  |  |  |  |  |           +--icLonFlav1.hap1.1.fasta
+|     |  |              |  |  |  |  |  |        +--| (100)
+|     |  |              |  |  |  |  |  |        |  |  +--icLocCrat2.1.fasta
+|     |  |              |  |  |  |  |  |        |  +--| (100)
+|     |  |              |  |  |  |  |  |        |     +--icGalNymp1.1.fasta
+|     |  |              |  |  |  |  |  |     +--| (100)
+|     |  |              |  |  |  |  |  |     |  +--icChrOric1.1.fa
+|     |  |              |  |  |  |  |  |  +--| (100)
+|     |  |              |  |  |  |  |  |  |  +--icBruVari1.hap1.1.fasta
+|     |  |              |  |  |  |  |  +--| (100)
+|     |  |              |  |  |  |  |     |  +--icGraRufi3.hap1.1.fasta
+|     |  |              |  |  |  |  |     +--| (100)
+|     |  |              |  |  |  |  |        +--icLepMacu1.1.fa
+|     |  |              |  |  |  +--| (100)
+|     |  |              |  |  |     |     +--icCryAcut1.1.fasta
+|     |  |              |  |  |     |  +--| (100)
+|     |  |              |  |  |     |  |  +--icPedDerm1.1.fasta
+|     |  |              |  |  |     +--| (100)
+|     |  |              |  |  |        +--icBraGlab1.1.fasta
+|     |  |              |  +--| (79)
+|     |  |              |     |              +--icAdaBipu1.1.fa
+|     |  |              |     |           +--| (100)
+|     |  |              |     |           |  +--icCocSept1.1.fa
+|     |  |              |     |        +--| (100)
+|     |  |              |     |        |  +--icHarAxyr1.1.fa
+|     |  |              |     |     +--| (100)
+|     |  |              |     |     |  |  +--icHalSede1.1.fa
+|     |  |              |     |     |  +--| (100)
+|     |  |              |     |     |     +--icMyrOcto1.1.fasta
+|     |  |              |     |  +--| (100)
+|     |  |              |     |  |  +--icCocRufa1.hap1.1.fasta
+|     |  |              |     +--| (100)
+|     |  |              |        +--icEndCocc1.1.fasta
+|     |  |           +--| (100)
+|     |  |           |  |           +--icOthPunc1.1.fasta
+|     |  |           |  |        +--| (100)
+|     |  |           |  |        |  |     +--icPhiCogn1.1.fa
+|     |  |           |  |        |  |  +--| (100)
+|     |  |           |  |        |  |  |  +--icOcyOlen1.1.fa
+|     |  |           |  |        |  +--| (100)
+|     |  |           |  |        |     +--icQueLate1.hap1.1.fasta
+|     |  |           |  |     +--| (98)
+|     |  |           |  |     |  |     +--icNicInve2.1.fasta
+|     |  |           |  |     |  |  +--| (100)
+|     |  |           |  |     |  |  |  +--icSilAtra2.1.fa
+|     |  |           |  |     |  +--| (100)
+|     |  |           |  |     |     +--icScaQuad2.1.fasta
+|     |  |           |  |  +--| (100)
+|     |  |           |  |  |  +---icSteBima1.1.fasta
+|     |  |           |  +--| (100)
+|     |  |           |     |  +--icAphGran1.1.fasta
+|     |  |           |     +--| (100)
+|     |  |           |        |     +--icAmpSols1.1.fasta
+|     |  |           |        |  +--| (100)
+|     |  |           |        |  |  +--icMelMelo1.1.fa
+|     |  |           |        +--| (100)
+|     |  |           |           +--icCetAura1.1.fasta
+|     |  |        +--| (100)
+|     |  |        |  |           +--icCanRust1.1.fa
+|     |  |        |  |        +--| (100)
+|     |  |        |  |        |  |  +--icRhaFulv1.1.fa
+|     |  |        |  |        |  +--| (100)
+|     |  |        |  |        |     +--icPodAlpi1.1.fa
+|     |  |        |  |     +--| (100)
+|     |  |        |  |     |  +--icMalMini1.1.fasta
+|     |  |        |  |  +--| (100)
+|     |  |        |  |  |  |  +--icDalMarg2.1.fasta
+|     |  |        |  |  |  +--| (100)
+|     |  |        |  |  |     |  +--icLimPone1.hap1.1.fasta
+|     |  |        |  |  |     +--| (100)
+|     |  |        |  |  |        +--icAgrMuri1.1.fa
+|     |  |        |  +--| (100)
+|     |  |        |     +----icAgrCyan1.1.fasta
+|     |  |     +--| (100)
+|     |  |     |  |     +--icCarProb1.1.fasta
+|     |  |     |  |  +--| (100)
+|     |  |     |  |  |  |     +--icNebBrev1.1.fa
+|     |  |     |  |  |  |  +--| (100)
+|     |  |     |  |  |  |  |  +--icNebSali1.1.fa
+|     |  |     |  |  |  +--| (100)
+|     |  |     |  |  |     +--icLeiSpin1.1.fa
+|     |  |     |  +--| (100)
+|     |  |     |     |        +--icOphArdo1.1.fa
+|     |  |     |     |     +--| (100)
+|     |  |     |     |     |  +--icHarRubr1.1.fasta
+|     |  |     |     |  +--| (98)
+|     |  |     |     |  |  |  +--icAgoFuli1.1.fasta
+|     |  |     |     |  |  +--| (100)
+|     |  |     |     |  |     +--icDroQuad1.1.fasta
+|     |  |     |     +--| (100)
+|     |  |     |        |  +--icPteMadi1.1.fa
+|     |  |     |        +--| (100)
+|     |  |     |           +--icAbaPara2.1.fasta
+|     |  |  +--| (100)
+|     |  |  |  +-----inChrCarn1.1.fa
+|     |  +--| (100)
+|     |     |                                             +--idPheCory1.1.fa
+|     |     |                                          +--| (100)
+|     |     |                                          |  +--idIliLine1.hap1.1.fasta
+|     |     |                                       +--| (100)
+|     |     |                                       |  |     +--idSicFerr1.1.fa
+|     |     |                                       |  |  +--| (100)
+|     |     |                                       |  |  |  +--idPhyRufi1.1.fasta
+|     |     |                                       |  +--| (100)
+|     |     |                                       |     +--idMyoTess1.2.fasta
+|     |     |                                    +--| (100)
+|     |     |                                    |  +--idLycDeci1.1.fasta
+|     |     |                                 +--| (100)
+|     |     |                                 |  |           +--idLeuObtu2.1.fasta
+|     |     |                                 |  |        +--| (100)
+|     |     |                                 |  |        |  |        +--idPolAmen1.1.fa
+|     |     |                                 |  |        |  |     +--| (100)
+|     |     |                                 |  |        |  |     |  |        +--idLypDubi1.1.fasta
+|     |     |                                 |  |        |  |     |  |     +--| (100)
+|     |     |                                 |  |        |  |     |  |     |  +--idTacFera2.1.fa
+|     |     |                                 |  |        |  |     |  |  +--| (100)
+|     |     |                                 |  |        |  |     |  |  |  +--idEpiSucc1.1.fa
+|     |     |                                 |  |        |  |     |  +--| (100)
+|     |     |                                 |  |        |  |     |     +--idGymRotn1.1.fa
+|     |     |                                 |  |        |  |  +--| (100)
+|     |     |                                 |  |        |  |  |  |     +--idProAzur1.1.fa
+|     |     |                                 |  |        |  |  |  |  +--| (100)
+|     |     |                                 |  |        |  |  |  |  |  |  +--idMelRora1.1.fasta
+|     |     |                                 |  |        |  |  |  |  |  +--| (100)
+|     |     |                                 |  |        |  |  |  |  |     +--idPhyMeln1.1.fa
+|     |     |                                 |  |        |  |  |  +--| (97)
+|     |     |                                 |  |        |  |  |     |  +--idBelPand1.1.fa
+|     |     |                                 |  |        |  |  |     +--| (100)
+|     |     |                                 |  |        |  |  |        +--idStoLuna1.1.fa
+|     |     |                                 |  |        |  +--| (100)
+|     |     |                                 |  |        |     +--idSarRose1.1.fa
+|     |     |                                 |  |     +--| (100)
+|     |     |                                 |  |     |  +--idHydCyrt1.1.fasta
+|     |     |                                 |  |  +--| (100)
+|     |     |                                 |  |  |  +---idDroImmi1.1.fasta
+|     |     |                                 |  +--| (100)
+|     |     |                                 |     |  +--idHetRotu1.1.fasta
+|     |     |                                 |     +--| (100)
+|     |     |                                 |        +--idCluTigr1.1.fa
+|     |     |                              +--| (100)
+|     |     |                              |  +--idNepScut1.1.fasta
+|     |     |                           +--| (100)
+|     |     |                           |  |           +--idSphTaen1.1.fa
+|     |     |                           |  |        +--| (100)
+|     |     |                           |  |        |  +--idMelCint3.1.fasta
+|     |     |                           |  |     +--| (100)
+|     |     |                           |  |     |  |  +--idEupCoro1.1.fasta
+|     |     |                           |  |     |  +--| (100)
+|     |     |                           |  |     |     +--idEpiEuco1.1.fasta
+|     |     |                           |  |  +--| (100)
+|     |     |                           |  |  |  +--idMelMell2.1.fasta
+|     |     |                           |  +--| (100)
+|     |     |                           |     |     +--idSyrPipi1.1.fa
+|     |     |                           |     |  +--| (100)
+|     |     |                           |     |  |  +--idEriIntr1.1.fasta
+|     |     |                           |     +--| (100)
+|     |     |                           |        |     +--idCheUrba1.1.fasta
+|     |     |                           |        |  +--| (100)
+|     |     |                           |        |  |  +--idFerCupr2.1.fasta
+|     |     |                           |        +--| (100)
+|     |     |                           |           +--idChaNemo1.1.fasta
+|     |     |                        +--| (100)
+|     |     |                        |  +--idEmpSter1.1.fasta
+|     |     |                     +--| (98)
+|     |     |                     |  |  +--idMacAtri3.1.fa
+|     |     |                     |  +--| (100)
+|     |     |                     |     +--idPamGerm1.hap1.1.fasta
+|     |     |                  +--| (100)
+|     |     |                  |  |  +--idBomDisc1.1.fa
+|     |     |                  |  +--| (100)
+|     |     |                  |     +--idAntAnth1.1.fasta
+|     |     |               +--| (96)
+|     |     |               |  |  +--idBerChal2.1.fasta
+|     |     |               |  +--| (100)
+|     |     |               |     |  +--idNemPant2.1.fasta
+|     |     |               |     +--| (100)
+|     |     |               |        +--idMicPoli1.1.fasta
+|     |     |            +--| (97)
+|     |     |            |  |  +---idAthIbis2.2.fasta
+|     |     |            |  +--| (100)
+|     |     |            |     +--idChrAsil3.1.fasta
+|     |     |         +--| (100)
+|     |     |         |  +----idAcrOrbc1.1.fasta
+|     |     |      +--| (100)
+|     |     |      |  +----idBibMarc1.1.fa
+|     |     |  +---| (100)
+|     |     |  |   +----idNepFlae1.1.fa
+|     |     +--| (100)
+|     |        |                             +--ilBisBetu1.1.fa
+|     |        |                          +--| (71)
+|     |        |                          |  |  +--ilThoDeci1.1.fa
+|     |        |                          |  +--| (100)
+|     |        |                          |     +--ilHydMica1.1.fa
+|     |        |                       +--| (100)
+|     |        |                       |  |  +--ilDeiPorc1.1.fa
+|     |        |                       |  +--| (71)
+|     |        |                       |     +--ilWatBina1.1.fa
+|     |        |                    +--| (93)
+|     |        |                    |  +--ilAgoAren1.1.fa
+|     |        |                 +--| (98)
+|     |        |                 |  |     +--ilParStra1.1.fa
+|     |        |                 |  |  +--| (99)
+|     |        |                 |  |  |  +--ilEmmMono1.1.fa
+|     |        |                 |  +--| (97)
+|     |        |                 |     |     +--ilPieNapi4.1.fa
+|     |        |                 |     |  +--| (100)
+|     |        |                 |     |  |  +--ilParAegt1.1.fa
+|     |        |                 |     +--| (100)
+|     |        |                 |        +--ilPyrMalv3.1.fa
+|     |        |              +--| (98)
+|     |        |              |  |  +--ilZeuPyri1.1.fa
+|     |        |              |  +--| (100)
+|     |        |              |     +--ilSesBemb1.1.fa
+|     |        |           +--| (100)
+|     |        |           |  +--ilNotUddm1.1.fa
+|     |        |        +--| (100)
+|     |        |        |  +--ilYpsScab1.1.fa
+|     |        |     +--| (100)
+|     |        |     |  +--ilTinTrin1.1.fa
+|     |        |  +--| (100)
+|     |        |  |  +----ilMicArun2.1.fa
+|     |        +--| (100)
+|     |           |            +--iiLimRhom1.1.fa
+|     |           |         +--| (100)
+|     |           |         |  +--iiLimMarm1.1.fa
+|     |           |      +--| (100)
+|     |           |      |  +--iiLimLuna2.1.fa
+|     |           |   +--| (100)
+|     |           |   |  +--iiGlyPell1.1.fa
+|     |           +---| (100)
+|     |               +--iiLimAuri1.1.fasta
+|  +--| (100)
+|  |  |           +--iyGasPulc2.1.fasta
+|  |  |        +--| (100)
+|  |  |        |  +--iyChaSisp2.1.fasta
+|  |  |     +--| (99)
+|  |  |     |  |                             +--iyBomHypn1.1.fa
+|  |  |     |  |                          +--| (100)
+|  |  |     |  |                          |  +--iyNomFabr1.1.fa
+|  |  |     |  |                       +--| (100)
+|  |  |     |  |                       |  |  +--iyStePhae1.1.fa
+|  |  |     |  |                       |  +--| (100)
+|  |  |     |  |                       |     |  +--iyCoeConi1.1.fasta
+|  |  |     |  |                       |     +--| (100)
+|  |  |     |  |                       |        +--iyMegLign1.1.fasta
+|  |  |     |  |                    +--| (100)
+|  |  |     |  |                    |  |     +--iySphEphi1.1.fasta
+|  |  |     |  |                    |  |  +--| (100)
+|  |  |     |  |                    |  |  |  |  +--iyLasVill1.1.fasta
+|  |  |     |  |                    |  |  |  +--| (100)
+|  |  |     |  |                    |  |  |     +--iySelTumu1.1.fa
+|  |  |     |  |                    |  +--| (100)
+|  |  |     |  |                    |     +--iyAndDors1.1.fa
+|  |  |     |  |                 +--| (100)
+|  |  |     |  |                 |  +--iyMacEuro1.1.fa
+|  |  |     |  |              +--| (100)
+|  |  |     |  |              |  |  +--iyCerRyby1.1.fa
+|  |  |     |  |              |  +--| (99)
+|  |  |     |  |              |     |  +--iyMimDahl1.1.fa
+|  |  |     |  |              |     +--| (100)
+|  |  |     |  |              |        +--iyPemLugu1.1.fasta
+|  |  |     |  |           +--| (98)
+|  |  |     |  |           |  +--iyNysSpin1.1.fa
+|  |  |     |  |        +--| (100)
+|  |  |     |  |        |  |     +--iyEctCont1.1.fa
+|  |  |     |  |        |  |  +--| (100)
+|  |  |     |  |        |  |  |  +--iyTryClav1.1.fasta
+|  |  |     |  |        |  +--| (100)
+|  |  |     |  |        |     +--iyAmmPube2.1.fasta
+|  |  |     |  |     +--| (100)
+|  |  |     |  |     |  +--iyLasBrun3.1.fasta
+|  |  |     |  |  +--| (100)
+|  |  |     |  |  |  |  +--iyTipFemo1.1.fa
+|  |  |     |  |  |  +--| (100)
+|  |  |     |  |  |     |  +--iyAnoNige1.1.fa
+|  |  |     |  |  |     +--| (100)
+|  |  |     |  |  |        +--iyPriPert1.1.fasta
+|  |  |     |  +--| (100)
+|  |  |     |     |  +--iyVesVulg1.1.fa
+|  |  |     |     +--| (100)
+|  |  |     |        +--iyAncNigr1.1.fa
+|  |  |  +--| (100)
+|  |  |  |  |           +--iyBuaLabo1.1.fa
+|  |  |  |  |        +--| (100)
+|  |  |  |  |        |  |     +--iyVulBima1.1.fasta
+|  |  |  |  |        |  |  +--| (100)
+|  |  |  |  |        |  |  |  |  +--iyIchXant1.1.fasta
+|  |  |  |  |        |  |  |  +--| (100)
+|  |  |  |  |        |  |  |     |  +--iyExeIsch1.1.fasta
+|  |  |  |  |        |  |  |     +--| (100)
+|  |  |  |  |        |  |  |        +--iyAmbArma2.1.fa
+|  |  |  |  |        |  +--| (100)
+|  |  |  |  |        |     +--iyApaInim1.hap1.1.fasta
+|  |  |  |  |     +--| (100)
+|  |  |  |  |     |  |        +--iyEphMani1.1.fasta
+|  |  |  |  |     |  |     +--| (100)
+|  |  |  |  |     |  |     |  +--iyDolMeso1.1.fasta
+|  |  |  |  |     |  |  +--| (100)
+|  |  |  |  |     |  |  |  +--iyCylCali1.1.fasta
+|  |  |  |  |     |  +--| (100)
+|  |  |  |  |     |     |  +--iySusPulc1.1.fasta
+|  |  |  |  |     |     +--| (100)
+|  |  |  |  |     |        +--iyDipLaet1.1.fasta
+|  |  |  |  |  +--| (100)
+|  |  |  |  |  |  |        +--iyCamRapt1.1.fasta
+|  |  |  |  |  |  |     +--| (100)
+|  |  |  |  |  |  |     |  +--iyOphLute1.1.fa
+|  |  |  |  |  |  |  +--| (100)
+|  |  |  |  |  |  |  |  +--iyHetAmic1.1.fasta
+|  |  |  |  |  |  +--| (100)
+|  |  |  |  |  |     +--iyDysLute2.1.fasta
+|  |  |  |  +--| (100)
+|  |  |  |     |     +--iyZelAlbi1.1.fasta
+|  |  |  |     |  +--| (100)
+|  |  |  |     |  |  +--iyMicDepi1.1.fasta
+|  |  |  |     +--| (100)
+|  |  |  |        +--iyAleSimi1.hap1.1.fasta
+|  |  +--| (100)
+|  |     +--iyCepSpin2.1.fasta
++--| (100)
+|  +--iyArgPaga1.1.fasta
+|
+|           +--iyTenMeso1.1.fasta
+|        +--| (100)
+|        |  +--iyRhoChlo1.1.fa
+|     +--| (100)
+|     |  +--iyMacAlbo1.1.fasta
+|  +--| (100)
+|  |  +--iyPhyAter2.1.fasta
++--| (100)
+   +--iyAbiCand1.1.fasta
+
+Tree in newick format:
+
+(iyAthRosa1.1.fa:0.0937567041,((((((((((((((((((((((((((((gfPanStip1.1.fasta:0.0902853157,gfMycGale1.hap1.1.fasta:0.0674830930)100:0.1401862010,(gfArmOsto1.1.fasta:0.1299907675,gfFlaVelt1.2.fasta:0.2343201916)100:0.1039083791)100:0.0219994816,((((gfCopMica1.1.fasta:0.2869037731,(gfAgaBisp1.1.fa:0.1055676450,gfChlBrun1.1.fasta:0.0786840119)100:0.1518429271)100:0.0335228892,((gfAgrPrae1.1.fasta:0.1763059908,gfInoObsi1.1.fasta:0.2262227227)100:0.0272039038,gfCorTriu1.hap1.1.fasta:0.1403931819)100:0.0639943104)100:0.0283831729,(gfVolSurr1.1.fasta:0.2483723563,gfAmaRube1.hap1.1.fasta:0.2376238363)100:0.0328597661)100:0.0193391269,(gfEntClyp1.2.fasta:0.1704667947,(gfTriHemi4.1.fasta:0.1366348192,gfLepSord1.hap1.1.fasta:0.1094987421)100:0.0207330062)100:0.0372710418)100:0.0228222361)100:0.0214743966,gfPleOstr1.1.fa:0.2607406865)100:0.0282706928,(gfHygPuni3.1.fasta:0.1466731265,(gfGliIrri2.hap1.1.fasta:0.1519054663,gfPorCaly1.1.fasta:0.1337228958)100:0.0519435078)100:0.0523160127)100:0.0162557735,(gfRamCorn1.1.fasta:0.1748586389,gfClaFumo1.1.fasta:0.2939687409)100:0.0393415451)100:0.0243255652,(gfButSuba1.1.fasta:0.0661224110,gfAurGent2.1.fasta:0.0740902200)100:0.2256069856)100:0.0361572442,(gfGanResi1.1.fasta:0.1998351807,((gfLaeSulp1.1.fa:0.1310687750,gfBolQuer1.1.fasta:0.1574914803)100:0.0376037065,gfSpaMino1.hap1.1.fasta:0.1492896910)100:0.0313075065)100:0.0751537847)100:0.0220164042,((gfRusVesc1.hap1.1.fasta:0.0970123415,gfLacBlen1.hap1.1.fasta:0.1004609121)100:0.1610974702,gfHerErin3.1.fasta:0.1699748051)100:0.0794378171)100:0.1044604246,gfPhaAlbo1.hap1.1.fasta:0.3061000449)100:0.2285662824,gfTauPull1.1.fasta:0.5997959886)100:0.3371189870,(((((grLepFlav1.1.fasta:0.3432360957,((grCorFumo1.1.fasta:0.1600464839,grSimLame1.1.fasta:0.1461359756)100:0.0513897655,grTriPseu1.1.fa:0.1407077129)100:0.1357361752)100:0.1485012042,gyLeoLubr2.1.fasta:0.2461239504)100:0.1093494509,((glEphLana1.1.fasta:0.2323539396,glLicPygm2.1.fasta:0.2254939616)100:0.1570332851,((glUmbDeus1.1.fasta:0.1453037525,(((glPlaGlau9.1.fasta:0.1248625156,glClaSqua9.2.fasta:0.1238199955)100:0.0421999281,glRamSili2.1.fasta:0.3036639546)100:0.0502889736,glFlaMari1.1.fasta:0.2648841121)100:0.0505393205)100:0.0702881485,gpAraPeru1.1.fasta:0.3304339881)100:0.0442871786)100:0.0336296902)100:0.0611867068,gdRhiKalk1.hap1.1.fasta:0.3579450680)100:0.3967012705,gsMetZobe1.1.fa:1.2328521998)100:0.2480913787)100:0.1256610080,(gzMucPiri1.1.fa:0.5446352133,gzEntParv1.1.fasta:0.4857315645)100:0.1434983027)100:0.2989879568,((((((((((((cbRhyLore1.1.fa:0.0177100778,cbHylTriq8.1.fasta:0.0135433395)100:0.0027859812,cbRhyConf1.1.fasta:0.0221612159)100:0.0012047903,cbThuTama2.1.fa:0.0482407700)95:0.0015138830,cbCalCord2.1.fasta:0.0227191706)95:0.0033898182,cbIsoPulc3.1.fasta:0.0161368947)100:0.1219632880,cbPolSexa1.1.fasta:0.1017941150)100:0.0474696343,caAndHook4.1.fasta:0.0957817268)100:0.0502901335,csSphGirg1.1.fasta:0.1451106223)100:0.1011846800,(cjHerHutc3.1.fasta:0.1649697406,cmLunCruc20.1.fasta:0.1541379031)100:0.1075450361)100:0.1114936048,((((((((((((dhQueCerr2.1.fasta:0.0103644279,dhQueIlex1.hap1.1.fasta:0.0103626431)100:0.0017579391,(dhQuePetr1.hap1.1.fasta:0.0063656867,dhQueRobu3.1.fa:0.0059912182)100:0.0058438998)100:0.0390300784,dhFagSylv1.hap1.1.fasta:0.0431324216)100:0.0246706905,(((((dhAlnGlut1.1.fa:0.0060884070,dhAlnInca1.hap1.1.fasta:0.0086043180)100:0.0032252612,dhAlnCord1.hap1.1.fasta:0.0105919121)100:0.0182958011,dhCorColu1.hap1.1.fasta:0.0312126017)100:0.0035940765,dhBetPend1.hap1.1.fasta:0.0233312224)100:0.0328389939,dhMyrGale1.1.fasta:0.0761722865)100:0.0125965329)100:0.0330465832,(((drAstGlyc1.1.fasta:0.0624504951,(drTriFrag1.1.fa:0.0509945252,drMedArab1.1.fa:0.0472540177)100:0.0384931082)100:0.0181728906,drLotPedu3.1.fasta:0.0709860532)100:0.0185845053,drUleMino1.hap1.1.fasta:0.0763506381)100:0.0951383338)100:0.0089495819,((drParJuda1.1.fa:0.1135591885,drUrtUren1.1.fa:0.1413742286)100:0.0716570391,((drFilUlma1.1.fa:0.0853665077,(((drPotAnse1.1.fa:0.0533080308,drFraVesc1.hap1.1.fasta:0.0339461398)100:0.0105243738,drRosaCani1.1.fa:0.0625748925)100:0.0145531196,(drGeuRiva1.hap1.1.fasta:0.0178155328,drGeuUrba1.1.fa:0.0146208068)100:0.0581092534)100:0.0159379490)100:0.0478212477,(drMalDome5.1.fa:0.0085485744,drMalSylv7.1.fa:0.0109635314)100:0.0731147538)100:0.0471437593)100:0.0216205964)100:0.0122908219,((((ddSalCapr1.1.fasta:0.0316140415,ddPopNigr1.1.fasta:0.0238415858)100:0.0791265741,(ddEupPepu3.1.fa:0.1116994192,ddMerAnnu1.1.fa:0.0991998963)100:0.0297515912)100:0.0349178360,(drAilAlti1.1.fa:0.0774323257,drAceCamp1.1.fasta:0.0828684354)100:0.0427983218)99:0.0116019769,(((ddNasOffi1.1.fasta:0.0351648696,(ddCarHirs1.hap1.1.fasta:0.0475804995,ddBarVulg1.1.fasta:0.0242018445)100:0.0057477819)100:0.0166574640,ddAraThal4.1.fa:0.0446192080)100:0.1912234449,drChaAngu1.1.fa:0.1821280364)99:0.0262117881)99:0.0097506892)100:0.0191052139,drSaxAizo1.hap1.1.fasta:0.1917221683)100:0.0099409684,(((((((((daLycEuro1.1.fa:0.0406972196,daPruVulg3.hap1.1.fasta:0.0609685065)100:0.0560034687,((daAjuCham1.1.fasta:0.0628095853,(daLamPurp1.hap1.1.fasta:0.0370712316,daBalNigr1.1.fa:0.0290901742)100:0.0503638367)100:0.0068803721,daScuGale1.1.fa:0.0610394121)100:0.0131511278)100:0.0175224015,daPauTome1.hap1.1.fasta:0.0383988080)100:0.0070658595,daVerOffi1.1.fasta:0.0817387221)100:0.0178746320,((daLinVulg1.1.fa:0.0626457017,daMisOron1.1.fa:0.0454451647)100:0.0418971596,daVerTrip1.1.fasta:0.1615822870)100:0.0207554386)100:0.0655346349,((daSheArve1.1.fa:0.0601589631,(daCruLaev1.1.fasta:0.0494778280,daGalUlig1.hap1.1.fasta:0.0409289538)100:0.0117718977)100:0.1683135051,(daSolDulc1.1.fa:0.1159505824,daConArve2.hap1.1.fasta:0.1205815047)100:0.0278000018)99:0.0095703497)100:0.0234062811,drIleAqui2.1.fasta:0.0944748688)100:0.0092345951,(((((((daFilPyra1.hap1.1.fasta:0.0550572202,daCalOffi1.1.fasta:0.0679317336)100:0.0070271052,daSenSylv1.hap1.1.fasta:0.0851251991)100:0.0071012893,(daPulDyse1.1.fa:0.0257292637,daInuSali1.hap1.1.fasta:0.0266825736)100:0.0278489033)100:0.0092996172,daTraPrat1.hap1.1.fasta:0.0673229019)100:0.0058212074,(daArcMinu1.1.fa:0.0217932530,daCirDiss1.hap1.1.fasta:0.0350603300)100:0.0218357707)100:0.0850186493,daLobUren4.hap1.1.fasta:0.1018294120)100:0.0319480430,(ddHotPalu2.hap1.1.fasta:0.1158423254,drHedHeli1.1.fa:0.0552127902)100:0.0488555245)100:0.0177695716)100:0.0136908406,(ddImpParv1.hap1.1.fasta:0.1780339905,ddPriVulg1.1.fasta:0.1813332866)100:0.0295208750)100:0.0223102280)100:0.0113312106,(((dcPerMacu1.1.fasta:0.0210290390,dcPerAmph1.hap1.1.fasta:0.0225513193)100:0.0523484123,(dcFalConv1.1.fasta:0.0354576660,dcPolAvic1.1.fa:0.0517998050)100:0.0428750352)100:0.1132604096,((dcCheAlbu1.1.fasta:0.0710795521,dcSalRamo1.1.fasta:0.0880474164)100:0.0391111308,(((dcAgrGith1.1.fasta:0.0826368210,(dcMoeTrin1.hap1.1.fasta:0.0430152249,dcAreSerp1.hap1.1.fasta:0.0504835044)100:0.0387120769)100:0.0173430165,dcSpeMari1.1.fasta:0.0856524482)100:0.0295089589,dcPolTetr1.hap1.1.fasta:0.1046530920)100:0.0375712599)100:0.0690175064)100:0.0621767044)100:0.0395857179,(((dmAquVulg1.hap1.1.fasta:0.0374749348,dmThaMinu1.hap1.1.fasta:0.0389058454)100:0.0605173236,dmRanScel1.hap1.1.fasta:0.1304724319)100:0.0461118828,dmBerVulg1.1.fasta:0.1282345075)100:0.0389165431)100:0.0347723671,((((((((lpLuzPall1.1.fasta:0.0144350791,lpLuzSylv1.1.fa:0.0109680328)100:0.0878621802,(lpJunSqua1.hap1.1.fasta:0.0673954897,(lpJunBufo1.hap1.1.fasta:0.0728904292,lpJunEffu1.1.fa:0.0288095635)100:0.0308075938)100:0.0441961602)100:0.0664643820,((lpCarDepa1.1.fa:0.0338471014,((lpSciSylv1.hap1.1.fasta:0.0114412029,lpEriAngu1.1.fasta:0.0135700152)100:0.0105754195,lpTriCesp1.1.fasta:0.0183703541)98:0.0032585048)100:0.0196917749,((lpCypFusc1.hap1.1.fasta:0.0510453275,((lpSchTabe1.hap1.1.fasta:0.0079990184,lpSchTriq1.1.fasta:0.0089466783)100:0.0038131452,lpSchLacu1.fa:0.0070139436)100:0.0370326802)100:0.0105735244,lpEleQuin1.1.fasta:0.0596033944)100:0.0060097970)100:0.0786276743)100:0.0885357795,((lpLeeOryz1.hap1.1.fasta:0.0701025059,((lpBroSter1.1.fasta:0.0632490516,lpHorVulg1.hap1.1.fasta:0.0347303497)100:0.0188836766,((lpPolViri1.hap1.1.fasta:0.0301679220,lpHieOdor1.hap1.1.fasta:0.0504918191)100:0.0071205613,(lpPoaChai1.hap1.1.fasta:0.0273213462,lpPhlPrat1.hap1.1.fasta:0.0242914159)100:0.0114591174)100:0.0162598613)100:0.0483236856)100:0.0091757178,(lpDigSang1.hap1.1.fasta:0.0590598611,lpPhrAust1.1.fa:0.0434262600)100:0.0238297061)100:0.1472390103)100:0.0338548238,lpSpaEmer1.hap1.1.fasta:0.1147115423)100:0.0388220180,lsIriFoet1.hap1.1.fasta:0.1652243602)48:0.0125626984,ldNarOssi1.1.fasta:0.1500215781)100:0.0338829136,(laLemMinu1.hap1.1.fasta:0.2748933680,(laApoDist1.hap1.1.fasta:0.1530725875,(laPotNata1.hap1.1.fasta:0.1489565556,laTriMari1.1.fasta:0.1646901680)100:0.0329566423)100:0.0501937280)100:0.0242317842)100:0.0377733809)100:0.2404859148)100:0.3154467460,((ucMarCocc1.1.fasta:0.6348624210,(ucDunPrim2.1.fa:0.5255860824,ucPseBory1.1.fasta:0.5060457999)100:0.1727328639)100:0.1701691058,ucPycProv1.1.fa:1.2512183923)100:0.1285129483)100:0.2870807913,(paTetJugo1.1.fa:1.1671586070,(pEimTen1.1.fa:0.2623224848,pxEimPrae1.1.fasta:0.2848654294)100:1.5873700560)100:0.1184976630)100:0.1395672682)100:0.2992818487,ocSycCili1.1.fasta:0.7223204237)100:0.0916401034,(jrHalOcto1.1.fa:0.6254592279,(jaRicFlor1.1.fa:0.2419071457,(jaNemVect1.1.fa:0.1999928914,jaDiaLine6.1.fa:0.2146305082)100:0.0867979592)100:0.1461349171)100:0.0869851852)100:0.0899768805,(((((((((mCanLor1.2.fa:0.0240086461,mMelMel3.2.fa:0.0218493889)100:0.0117153138,mDicBic1.1.fa:0.0253185241)32:0.0017318281,(mRhiSin1.1.fa:0.0356752579,(mOrcOrc1.1.fa:0.0268822403,mCerEla1.1.fa:0.0310531741)100:0.0106040421)32:0.0018695642)100:0.0053546357,mLemCat1.1.fa:0.0356243306)100:0.0069505654,mEleMax1.1.fa:0.0381611709)100:0.0908631964,((((bCorHaw1.1.fa:0.0169233886,bTaeGut1.4.fa:0.0286800361)100:0.0261250545,(bPorHoc1.1.fa:0.0350144704,(((bFalBia1.1.fa:0.0038214866,bFalChe1.1.fa:0.0023857816)100:0.0020816060,bFalPer1.1.fa:0.0032597742)100:0.0282412776,bAccGen1.1.fa:0.0218711039)100:0.0042962765)100:0.0044077761)100:0.0109164066,(bGalGal1.GRCg7b.fa:0.0138021603,bLagMut1.1.fa:0.0173995742)100:0.0261598787)100:0.0557691902,rVipLat1.1.fa:0.1189878590)100:0.0235762046)100:0.0637293938,((((((fThuAlb1.1.fa:0.0050705457,fThuMac1.1.fa:0.0047832588)100:0.0323598870,(fPhoGun1.2.fa:0.0332236627,fTauBub2.1.fa:0.0417039434)100:0.0314561660)100:0.0044250178,(fToxJac2.1.fa:0.0305785393,fTraTra1.2.fa:0.0495467741)100:0.0066758992)100:0.0085913076,fTelBon1.1.fa:0.0616142632)100:0.0717224925,(((fBarBab1.1.fa:0.0458115326,fDanRer4.1.fa:0.0462011730)100:0.0429280006,fPanHyp1.1.fa:0.0790019503)100:0.0216416296,fAloSap1.1.fa:0.0970281819)100:0.0201468967)100:0.0671067235,fAciRut3.2.fa:0.1017953967)100:0.0465067132)100:0.2341069072,kaAplTurb1.1.fa:0.7175787857)100:0.0640987248,eaMarGlac1.2.fa:0.4132204735)100:0.0345452335)100:0.0493388290,(((((wrPisGeom1.1.fa:0.7988386779,wcLumRube1.1.fa:0.3293887478)100:0.1556467157,((wpSthLimi1.1.fa:0.1786931060,wpLepClav1.1.fa:0.1490737239)100:0.1359437268,wpAliVire1.1.fa:0.3071110321)100:0.0483189275)100:0.0421206797,tnLinLong1.2.fa:0.3472345183)100:0.0268676595,(((xbGarTell2.1.fa:0.1779537448,(xbTriCroc3.1.fa:0.0287259691,xbTriGiga4.1.fa:0.0247107265)100:0.1637130650)100:0.1432410974,xbLimFort5.1.fa:0.2732257137)100:0.0456228758,(((xgPatPell1.1.fa:0.0225684346,xgPatVulg1.1.fa:0.0159095540)100:0.2698445767,((xgSteCine2.1.fa:0.0318307251,xgPhoLine1.1.fa:0.0342085469)100:0.0076649038,xgGibMagu1.1.fa:0.0364333782)100:0.2108759382)100:0.0344292194,xgBioGlab47.1.fa:0.4177181563)100:0.0471356107)100:0.0863446264)100:0.0395423120,((tzBugStol2.1.fa:0.1713129246,tzCryPall5.1.fa:0.1864973870)100:0.0490539173,tzMemMemb1.1.fa:0.1678986438)100:0.5666287572)100:0.0498903966)100:0.0922934250,qqMetBour1.1.fa:0.5429635439)74:0.0609079978,(qxSacCarc1.2.fa:0.7884795796,nxTriColu2.1.fasta:1.2243935171)74:0.1264586017)95:0.0623410445,((qeAllFusc8.1.fasta:0.1425179278,qeDicMinu4.1.fasta:0.1419221123)100:0.1936609286,(qeOrcFlav1.1.fasta:0.1249151993,qeLepCurv1.1.fasta:0.1291071865)100:0.2415940475)100:0.4570945695)100:0.1065069760,izTheDome1.hap1.1.fasta:0.2447262031)93:0.0259506418,(((ieCloDipt1.1.fasta:0.0913204441,ieProBifi2.1.fasta:0.0606855245)100:0.2280165638,(ieSipAlte2.1.fasta:0.1065275698,ieEcdTorr1.1.fasta:0.1214652804)100:0.0873185641)100:0.2417784321,(ioIscEleg1.1.fa:0.0606601282,ioPlaPenn1.1.fa:0.0568719702)100:0.3047534119)93:0.0387517086)100:0.0341985774,((((ipLeuNigr2.1.fa:0.1508050425,(ipNemPict2.1.fa:0.0775538548,ipNemDubi1.1.fa:0.0814869771)100:0.1570929598)100:0.0545980555,ipIsoGram3.1.fa:0.1598645235)100:0.1066557977,ibEctPall1.hap1.1.fasta:0.2059812150)100:0.0318197683,igLabMino1.1.fasta:0.4532125851)100:0.0349936163)100:0.0281384624,(((iuLoeVari1.hap1.1.fasta:0.0716551199,iuPsoGibb1.1.fasta:0.1033631195)100:0.1186883516,iuMesFusc1.1.fasta:0.1814541738)100:0.3361514375,((ihAcaHaem1.1.fa:0.1079964263,ihAelAcum1.1.fa:0.0790632666)100:0.3508620221,ihIcePurc2.1.fa:0.6049045061)100:0.0814855175)100:0.0446175507)100:0.0448153366,((((((icMalBipu1.1.fa:0.3065878370,(((((((icPriAter1.hap1.1.fasta:0.0893697895,icDiaBole1.1.fasta:0.1077055217)100:0.0304050988,icTenMoli1.1.fasta:0.0862493768)100:0.0481570281,icPycFuli2.1.fasta:0.1715491125)100:0.0259971993,(icPyrSerr1.1.fa:0.1449499949,icSalPlan1.1.fasta:0.1894946865)100:0.0266558037)100:0.0157259440,icAnaMacu3.1.fasta:0.2152914862)100:0.0577061643,((((icAspAene1.1.fasta:0.2154560746,((icKykRobo1.hap1.1.fasta:0.1247175187,icPolCerv1.1.fa:0.0946155081)100:0.0306981178,icPlaCyli4.1.fasta:0.3006643260)100:0.0404282528)100:0.0470053528,icApoCory1.1.fa:0.2246427726)100:0.0461245975,((((icLonFlav1.hap1.1.fasta:0.1265527534,(icLocCrat2.1.fasta:0.0210308711,icGalNymp1.1.fasta:0.0237132597)100:0.0976755564)100:0.0655644186,icChrOric1.1.fa:0.1364468975)100:0.0258493672,icBruVari1.hap1.1.fasta:0.1943700986)100:0.0252508580,(icGraRufi3.hap1.1.fasta:0.0422644829,icLepMacu1.1.fa:0.0344671602)100:0.0743343554)100:0.0354586106)100:0.0207959864,((icCryAcut1.1.fasta:0.1913529142,icPedDerm1.1.fasta:0.1716017631)100:0.0339027376,icBraGlab1.1.fasta:0.2158735500)100:0.0158914365)100:0.0404411238)100:0.0150475877,(((((icAdaBipu1.1.fa:0.0766575194,icCocSept1.1.fa:0.0629072182)100:0.0170868286,icHarAxyr1.1.fa:0.0886517492)100:0.0153956290,(icHalSede1.1.fa:0.0500642360,icMyrOcto1.1.fasta:0.0496297777)100:0.0257078545)100:0.1150408134,icCocRufa1.hap1.1.fasta:0.0899520032)100:0.1171361910,icEndCocc1.1.fasta:0.1647751755)100:0.0834892400)79:0.0153423645)100:0.0622528956,((((icOthPunc1.1.fasta:0.1327619178,((icPhiCogn1.1.fa:0.1022259640,icOcyOlen1.1.fa:0.0639529401)100:0.0324657044,icQueLate1.hap1.1.fasta:0.0865023703)100:0.0552077316)100:0.0511466323,((icNicInve2.1.fasta:0.1893189475,icSilAtra2.1.fa:0.1515542036)100:0.0399029444,icScaQuad2.1.fasta:0.2168146145)100:0.0192074737)98:0.0207629597,icSteBima1.1.fasta:0.2374215337)100:0.0761432818,(icAphGran1.1.fasta:0.2028109303,((icAmpSols1.1.fasta:0.0670638375,icMelMelo1.1.fa:0.0657448652)100:0.0440666786,icCetAura1.1.fasta:0.1168464113)100:0.0853505262)100:0.0914562789)100:0.0330567551)100:0.0200019628,((((icCanRust1.1.fa:0.0348846178,(icRhaFulv1.1.fa:0.0511498497,icPodAlpi1.1.fa:0.0365961372)100:0.0106598783)100:0.1662241122,icMalMini1.1.fasta:0.1566396918)100:0.0797683381,(icDalMarg2.1.fasta:0.1067982974,(icLimPone1.hap1.1.fasta:0.0854704124,icAgrMuri1.1.fa:0.1136479628)100:0.0229401853)100:0.0304645343)100:0.0698427583,icAgrCyan1.1.fasta:0.2926459753)100:0.0348208125)100:0.1037473471,((icCarProb1.1.fasta:0.1161827263,((icNebBrev1.1.fa:0.0063419943,icNebSali1.1.fa:0.0067202146)100:0.0576815428,icLeiSpin1.1.fa:0.0644173720)100:0.1004103890)100:0.0248405750,(((icOphArdo1.1.fa:0.0217269488,icHarRubr1.1.fasta:0.0214017392)100:0.0786391931,(icAgoFuli1.1.fasta:0.0723141054,icDroQuad1.1.fasta:0.0904191626)100:0.0163104516)98:0.0092143831,(icPteMadi1.1.fa:0.0625106713,icAbaPara2.1.fasta:0.0644762243)100:0.0140780755)100:0.0766139988)100:0.1430421570)100:0.0695212123,inChrCarn1.1.fa:0.3609462975)100:0.0584282380,(((((((((((((((idPheCory1.1.fa:0.0185274938,idIliLine1.hap1.1.fasta:0.0230998058)100:0.0684314481,((idSicFerr1.1.fa:0.1064970025,idPhyRufi1.1.fasta:0.1448996243)100:0.0143394332,idMyoTess1.2.fasta:0.0962010353)100:0.0302507977)100:0.0284203332,idLycDeci1.1.fasta:0.1035044696)100:0.0319576223,((((idLeuObtu2.1.fasta:0.0618225604,(((idPolAmen1.1.fa:0.0587004440,(((idLypDubi1.1.fasta:0.0603182292,idTacFera2.1.fa:0.0567262287)100:0.0105821877,idEpiSucc1.1.fa:0.0834668130)100:0.0058259736,idGymRotn1.1.fa:0.0648765726)100:0.0102474577)100:0.0069310923,((idProAzur1.1.fa:0.0421714870,(idMelRora1.1.fasta:0.0682232025,idPhyMeln1.1.fa:0.0485349821)100:0.0218404381)100:0.0039636887,(idBelPand1.1.fa:0.0423439161,idStoLuna1.1.fa:0.0517131653)100:0.0067901079)97:0.0032411385)100:0.0141586959,idSarRose1.1.fa:0.0666516556)100:0.0210505176)100:0.0234510690,idHydCyrt1.1.fasta:0.0887307635)100:0.0809883381,idDroImmi1.1.fasta:0.2496022710)100:0.0253319833,(idHetRotu1.1.fasta:0.0901372373,idCluTigr1.1.fa:0.1443439837)100:0.0172309252)100:0.0303242652)100:0.0605710111,idNepScut1.1.fasta:0.1237504875)100:0.0378577035,((((idSphTaen1.1.fa:0.0723225995,idMelCint3.1.fasta:0.0343931078)100:0.0090180257,(idEupCoro1.1.fasta:0.0378038247,idEpiEuco1.1.fasta:0.0346839985)100:0.0102844832)100:0.0323268366,idMelMell2.1.fasta:0.0654821296)100:0.0296175447,((idSyrPipi1.1.fa:0.0712192884,idEriIntr1.1.fasta:0.0958272631)100:0.0175234455,((idCheUrba1.1.fasta:0.0543579620,idFerCupr2.1.fasta:0.0575937104)100:0.0188261729,idChaNemo1.1.fasta:0.0579767413)100:0.0068091793)100:0.0097617357)100:0.0942777152)100:0.1005999537,idEmpSter1.1.fasta:0.2037365856)100:0.0318554676,(idMacAtri3.1.fa:0.0454327936,idPamGerm1.hap1.1.fasta:0.0377931988)100:0.1551991507)98:0.0154635032,(idBomDisc1.1.fa:0.1236819505,idAntAnth1.1.fasta:0.1143370555)100:0.1066746861)100:0.0242460434,(idBerChal2.1.fasta:0.1076002758,(idNemPant2.1.fasta:0.1206811705,idMicPoli1.1.fasta:0.1151923852)100:0.0555689533)100:0.0847975860)96:0.0144899427,(idAthIbis2.2.fasta:0.2502793783,idChrAsil3.1.fasta:0.1868389397)100:0.0269762152)97:0.0237767997,idAcrOrbc1.1.fasta:0.2950538076)100:0.0848037804,idBibMarc1.1.fa:0.2898192011)100:0.0429511094,idNepFlae1.1.fa:0.2968270872)100:0.2303713257,((((((((((ilBisBetu1.1.fa:0.1390028235,(ilThoDeci1.1.fa:0.0342528806,ilHydMica1.1.fa:0.0312385590)100:0.0730741154)71:0.0133918959,(ilDeiPorc1.1.fa:0.1095870515,ilWatBina1.1.fa:0.1117919175)71:0.0136891238)100:0.0151714701,ilAgoAren1.1.fa:0.1036006731)93:0.0075717685,((ilParStra1.1.fa:0.1209930761,ilEmmMono1.1.fa:0.1738561197)99:0.0188524839,((ilPieNapi4.1.fa:0.1378497585,ilParAegt1.1.fa:0.1109725234)100:0.0209356694,ilPyrMalv3.1.fa:0.1180162704)100:0.0286847541)97:0.0096034900)98:0.0086611024,(ilZeuPyri1.1.fa:0.1199410939,ilSesBemb1.1.fa:0.1126138495)100:0.0135891288)98:0.0128301185,ilNotUddm1.1.fa:0.1311272104)100:0.0270673185,ilYpsScab1.1.fa:0.1182699026)100:0.0455528818,ilTinTrin1.1.fa:0.2133192755)100:0.1818662072,ilMicArun2.1.fa:0.2888103757)100:0.0641546031,((((iiLimRhom1.1.fa:0.0083477518,iiLimMarm1.1.fa:0.0068336055)100:0.0026857004,iiLimLuna2.1.fa:0.0119078160)100:0.0023018720,iiGlyPell1.1.fa:0.0090559146)100:0.0026594839,iiLimAuri1.1.fasta:0.0097566495)100:0.2585963731)100:0.1629879675)100:0.0653199326)100:0.0509159507)100:0.2169531570,((((iyGasPulc2.1.fasta:0.0843252071,iyChaSisp2.1.fasta:0.0959469041)100:0.1749834668,((((((((((iyBomHypn1.1.fa:0.0766781351,iyNomFabr1.1.fa:0.0868079098)100:0.0169889724,(iyStePhae1.1.fa:0.0498337323,(iyCoeConi1.1.fasta:0.0327254010,iyMegLign1.1.fasta:0.0267320949)100:0.0328905248)100:0.0386598822)100:0.0154302977,((iySphEphi1.1.fasta:0.0297312310,(iyLasVill1.1.fasta:0.0358516863,iySelTumu1.1.fa:0.0249193144)100:0.0093711183)100:0.0774808259,iyAndDors1.1.fa:0.0833108961)100:0.0139602219)100:0.0078442166,iyMacEuro1.1.fa:0.0791513434)100:0.0324647977,(iyCerRyby1.1.fa:0.1105497370,(iyMimDahl1.1.fa:0.0920635727,iyPemLugu1.1.fasta:0.1062471268)100:0.0117313897)99:0.0073952138)100:0.0166755263,iyNysSpin1.1.fa:0.1156276758)98:0.0083629356,((iyEctCont1.1.fa:0.1155595802,iyTryClav1.1.fasta:0.1210615501)100:0.0487192397,iyAmmPube2.1.fasta:0.1326793423)100:0.0149701910)100:0.0287725942,iyLasBrun3.1.fasta:0.1588183228)100:0.0131330959,(iyTipFemo1.1.fa:0.1555358039,(iyAnoNige1.1.fa:0.0776891205,iyPriPert1.1.fasta:0.0612225135)100:0.0976106999)100:0.0226949685)100:0.0103822998,(iyVesVulg1.1.fa:0.0690849623,iyAncNigr1.1.fa:0.0654424688)100:0.0943958222)100:0.0515674814)99:0.0144081575,((((iyBuaLabo1.1.fa:0.0547181814,((iyVulBima1.1.fasta:0.0201304612,(iyIchXant1.1.fasta:0.0090211987,(iyExeIsch1.1.fasta:0.0076865193,iyAmbArma2.1.fa:0.0107098300)100:0.0034698461)100:0.0081488904)100:0.0143751714,iyApaInim1.hap1.1.fasta:0.0382087903)100:0.0285163667)100:0.0294144731,(((iyEphMani1.1.fasta:0.0178692442,iyDolMeso1.1.fasta:0.0178181763)100:0.0305970094,iyCylCali1.1.fasta:0.0612830128)100:0.0074681355,(iySusPulc1.1.fasta:0.0573092145,iyDipLaet1.1.fasta:0.0694174677)100:0.0325631759)100:0.0323167536)100:0.0118581900,(((iyCamRapt1.1.fasta:0.0764823253,iyOphLute1.1.fa:0.0799899408)100:0.0137776692,iyHetAmic1.1.fasta:0.1004883499)100:0.0300308032,iyDysLute2.1.fasta:0.0697489625)100:0.0209761029)100:0.0688241888,((iyZelAlbi1.1.fasta:0.1307724253,iyMicDepi1.1.fasta:0.1784366489)100:0.0374718884,iyAleSimi1.hap1.1.fasta:0.1573641632)100:0.0616527962)100:0.0519741790)100:0.0215798817,iyCepSpin2.1.fasta:0.1336850069)100:0.0392771771)100:0.0613535026,iyArgPaga1.1.fasta:0.1307186887)100:0.0388814572,((((iyTenMeso1.1.fasta:0.0258257703,iyRhoChlo1.1.fa:0.0263556358)100:0.0127119901,iyMacAlbo1.1.fasta:0.0293033352)100:0.0204184400,iyPhyAter2.1.fasta:0.0605142679)100:0.0222049493,iyAbiCand1.1.fasta:0.0954866787)100:0.0131738921);
+
+CONSENSUS TREE
+--------------
+
+Consensus tree is constructed from 1000 bootstrap trees
+Log-likelihood of consensus tree: -25607281.57222185
+Robinson-Foulds distance between ML tree and consensus tree: 6
+
+Branches with support >0.00000000% are kept (extended consensus)
+Branch lengths are optimized by maximum likelihood on original alignment
+Numbers in parentheses are bootstrap supports (%)
+
++--iyAthRosa1.1.fa
+|
+|                                                                                         +--gfPanStip1.1.fasta
+|                                                                                      +--| (100)
+|                                                                                      |  +--gfMycGale1.hap1.1.fasta
+|                                                                                   +--| (100)
+|                                                                                   |  |  +--gfArmOsto1.1.fasta
+|                                                                                   |  +--| (100)
+|                                                                                   |     +---gfFlaVelt1.2.fasta
+|                                                                                +--| (100)
+|                                                                                |  |           +----gfCopMica1.1.fasta
+|                                                                                |  |        +--| (100)
+|                                                                                |  |        |  |  +--gfAgaBisp1.1.fa
+|                                                                                |  |        |  +--| (100)
+|                                                                                |  |        |     +--gfChlBrun1.1.fasta
+|                                                                                |  |     +--| (100)
+|                                                                                |  |     |  |     +--gfAgrPrae1.1.fasta
+|                                                                                |  |     |  |  +--| (100)
+|                                                                                |  |     |  |  |  +--gfInoObsi1.1.fasta
+|                                                                                |  |     |  +--| (100)
+|                                                                                |  |     |     +--gfCorTriu1.hap1.1.fasta
+|                                                                                |  |  +--| (100)
+|                                                                                |  |  |  |  +---gfVolSurr1.1.fasta
+|                                                                                |  |  |  +--| (100)
+|                                                                                |  |  |     +---gfAmaRube1.hap1.1.fasta
+|                                                                                |  +--| (100)
+|                                                                                |     |  +--gfEntClyp1.2.fasta
+|                                                                                |     +--| (100)
+|                                                                                |        |  +--gfTriHemi4.1.fasta
+|                                                                                |        +--| (100)
+|                                                                                |           +--gfLepSord1.hap1.1.fasta
+|                                                                             +--| (100)
+|                                                                             |  +---gfPleOstr1.1.fa
+|                                                                          +--| (100)
+|                                                                          |  |  +--gfHygPuni3.1.fasta
+|                                                                          |  +--| (100)
+|                                                                          |     |  +--gfGliIrri2.hap1.1.fasta
+|                                                                          |     +--| (100)
+|                                                                          |        +--gfPorCaly1.1.fasta
+|                                                                       +--| (100)
+|                                                                       |  |  +--gfRamCorn1.1.fasta
+|                                                                       |  +--| (100)
+|                                                                       |     +----gfClaFumo1.1.fasta
+|                                                                    +--| (100)
+|                                                                    |  |  +--gfButSuba1.1.fasta
+|                                                                    |  +--| (100)
+|                                                                    |     +--gfAurGent2.1.fasta
+|                                                                 +--| (100)
+|                                                                 |  |  +--gfGanResi1.1.fasta
+|                                                                 |  +--| (100)
+|                                                                 |     |     +--gfLaeSulp1.1.fa
+|                                                                 |     |  +--| (100)
+|                                                                 |     |  |  +--gfBolQuer1.1.fasta
+|                                                                 |     +--| (100)
+|                                                                 |        +--gfSpaMino1.hap1.1.fasta
+|                                                              +--| (100)
+|                                                              |  |     +--gfRusVesc1.hap1.1.fasta
+|                                                              |  |  +--| (100)
+|                                                              |  |  |  +--gfLacBlen1.hap1.1.fasta
+|                                                              |  +--| (100)
+|                                                              |     +--gfHerErin3.1.fasta
+|                                                           +--| (100)
+|                                                           |  +----gfPhaAlbo1.hap1.1.fasta
+|                                                      +----| (100)
+|                                                      |    +---------gfTauPull1.1.fasta
+|                                                   +--| (100)
+|                                                   |  |                  +----grLepFlav1.1.fasta
+|                                                   |  |               +--| (100)
+|                                                   |  |               |  |     +--grCorFumo1.1.fasta
+|                                                   |  |               |  |  +--| (100)
+|                                                   |  |               |  |  |  +--grSimLame1.1.fasta
+|                                                   |  |               |  +--| (100)
+|                                                   |  |               |     +--grTriPseu1.1.fa
+|                                                   |  |            +--| (100)
+|                                                   |  |            |  +---gyLeoLubr2.1.fasta
+|                                                   |  |         +--| (100)
+|                                                   |  |         |  |     +---glEphLana1.1.fasta
+|                                                   |  |         |  |  +--| (100)
+|                                                   |  |         |  |  |  +--glLicPygm2.1.fasta
+|                                                   |  |         |  +--| (100)
+|                                                   |  |         |     |     +--glUmbDeus1.1.fasta
+|                                                   |  |         |     |  +--| (100)
+|                                                   |  |         |     |  |  |        +--glPlaGlau9.1.fasta
+|                                                   |  |         |     |  |  |     +--| (100)
+|                                                   |  |         |     |  |  |     |  +--glClaSqua9.2.fasta
+|                                                   |  |         |     |  |  |  +--| (100)
+|                                                   |  |         |     |  |  |  |  +----glRamSili2.1.fasta
+|                                                   |  |         |     |  |  +--| (100)
+|                                                   |  |         |     |  |     +---glFlaMari1.1.fasta
+|                                                   |  |         |     +--| (100)
+|                                                   |  |         |        +----gpAraPeru1.1.fasta
+|                                                   |  |   +-----| (100)
+|                                                   |  |   |     +-----gdRhiKalk1.hap1.1.fasta
+|                                                   |  +---| (100)
+|                                                   |      +--------------------gsMetZobe1.1.fa
+|                                              +----| (100)
+|                                              |    |  +--------gzMucPiri1.1.fa
+|                                              |    +--| (100)
+|                                              |       +-------gzEntParv1.1.fasta
+|                                         +----| (100)
+|                                         |    |                                       +--cbRhyLore1.1.fa
+|                                         |    |                                    +--| (100)
+|                                         |    |                                    |  +--cbHylTriq8.1.fasta
+|                                         |    |                                 +--| (100)
+|                                         |    |                                 |  +--cbRhyConf1.1.fasta
+|                                         |    |                              +--| (95)
+|                                         |    |                              |  +--cbThuTama2.1.fa
+|                                         |    |                           +--| (95)
+|                                         |    |                           |  +--cbCalCord2.1.fasta
+|                                         |    |                        +--| (100)
+|                                         |    |                        |  +--cbIsoPulc3.1.fasta
+|                                         |    |                     +--| (100)
+|                                         |    |                     |  +--cbPolSexa1.1.fasta
+|                                         |    |                  +--| (100)
+|                                         |    |                  |  +--caAndHook4.1.fasta
+|                                         |    |               +--| (100)
+|                                         |    |               |  +--csSphGirg1.1.fasta
+|                                         |    |            +--| (100)
+|                                         |    |            |  |  +--cjHerHutc3.1.fasta
+|                                         |    |            |  +--| (100)
+|                                         |    |            |     +--cmLunCruc20.1.fasta
+|                                         |    |       +----| (100)
+|                                         |    |       |    |                                    +--dhQueCerr2.1.fasta
+|                                         |    |       |    |                                 +--| (100)
+|                                         |    |       |    |                                 |  +--dhQueIlex1.hap1.1.fasta
+|                                         |    |       |    |                              +--| (100)
+|                                         |    |       |    |                              |  |  +--dhQuePetr1.hap1.1.fasta
+|                                         |    |       |    |                              |  +--| (100)
+|                                         |    |       |    |                              |     +--dhQueRobu3.1.fa
+|                                         |    |       |    |                           +--| (100)
+|                                         |    |       |    |                           |  +--dhFagSylv1.hap1.1.fasta
+|                                         |    |       |    |                        +--| (100)
+|                                         |    |       |    |                        |  |              +--dhAlnGlut1.1.fa
+|                                         |    |       |    |                        |  |           +--| (100)
+|                                         |    |       |    |                        |  |           |  +--dhAlnInca1.hap1.1.fasta
+|                                         |    |       |    |                        |  |        +--| (100)
+|                                         |    |       |    |                        |  |        |  +--dhAlnCord1.hap1.1.fasta
+|                                         |    |       |    |                        |  |     +--| (100)
+|                                         |    |       |    |                        |  |     |  +--dhCorColu1.hap1.1.fasta
+|                                         |    |       |    |                        |  |  +--| (100)
+|                                         |    |       |    |                        |  |  |  +--dhBetPend1.hap1.1.fasta
+|                                         |    |       |    |                        |  +--| (100)
+|                                         |    |       |    |                        |     +--dhMyrGale1.1.fasta
+|                                         |    |       |    |                     +--| (100)
+|                                         |    |       |    |                     |  |        +--drAstGlyc1.1.fasta
+|                                         |    |       |    |                     |  |     +--| (100)
+|                                         |    |       |    |                     |  |     |  |  +--drTriFrag1.1.fa
+|                                         |    |       |    |                     |  |     |  +--| (100)
+|                                         |    |       |    |                     |  |     |     +--drMedArab1.1.fa
+|                                         |    |       |    |                     |  |  +--| (100)
+|                                         |    |       |    |                     |  |  |  +--drLotPedu3.1.fasta
+|                                         |    |       |    |                     |  +--| (100)
+|                                         |    |       |    |                     |     +--drUleMino1.hap1.1.fasta
+|                                         |    |       |    |                  +--| (100)
+|                                         |    |       |    |                  |  |     +--drParJuda1.1.fa
+|                                         |    |       |    |                  |  |  +--| (100)
+|                                         |    |       |    |                  |  |  |  +--drUrtUren1.1.fa
+|                                         |    |       |    |                  |  +--| (100)
+|                                         |    |       |    |                  |     |     +--drFilUlma1.1.fa
+|                                         |    |       |    |                  |     |  +--| (100)
+|                                         |    |       |    |                  |     |  |  |        +--drPotAnse1.1.fa
+|                                         |    |       |    |                  |     |  |  |     +--| (100)
+|                                         |    |       |    |                  |     |  |  |     |  +--drFraVesc1.hap1.1.fasta
+|                                         |    |       |    |                  |     |  |  |  +--| (100)
+|                                         |    |       |    |                  |     |  |  |  |  +--drRosaCani1.1.fa
+|                                         |    |       |    |                  |     |  |  +--| (100)
+|                                         |    |       |    |                  |     |  |     |  +--drGeuRiva1.hap1.1.fasta
+|                                         |    |       |    |                  |     |  |     +--| (100)
+|                                         |    |       |    |                  |     |  |        +--drGeuUrba1.1.fa
+|                                         |    |       |    |                  |     +--| (100)
+|                                         |    |       |    |                  |        |  +--drMalDome5.1.fa
+|                                         |    |       |    |                  |        +--| (100)
+|                                         |    |       |    |                  |           +--drMalSylv7.1.fa
+|                                         |    |       |    |               +--| (100)
+|                                         |    |       |    |               |  |           +--ddSalCapr1.1.fasta
+|                                         |    |       |    |               |  |        +--| (100)
+|                                         |    |       |    |               |  |        |  +--ddPopNigr1.1.fasta
+|                                         |    |       |    |               |  |     +--| (100)
+|                                         |    |       |    |               |  |     |  |  +--ddEupPepu3.1.fa
+|                                         |    |       |    |               |  |     |  +--| (100)
+|                                         |    |       |    |               |  |     |     +--ddMerAnnu1.1.fa
+|                                         |    |       |    |               |  |  +--| (99)
+|                                         |    |       |    |               |  |  |  |  +--drAilAlti1.1.fa
+|                                         |    |       |    |               |  |  |  +--| (100)
+|                                         |    |       |    |               |  |  |     +--drAceCamp1.1.fasta
+|                                         |    |       |    |               |  +--| (99)
+|                                         |    |       |    |               |     |        +--ddNasOffi1.1.fasta
+|                                         |    |       |    |               |     |     +--| (100)
+|                                         |    |       |    |               |     |     |  |  +--ddCarHirs1.hap1.1.fasta
+|                                         |    |       |    |               |     |     |  +--| (100)
+|                                         |    |       |    |               |     |     |     +--ddBarVulg1.1.fasta
+|                                         |    |       |    |               |     |  +--| (100)
+|                                         |    |       |    |               |     |  |  +--ddAraThal4.1.fa
+|                                         |    |       |    |               |     +--| (99)
+|                                         |    |       |    |               |        +--drChaAngu1.1.fa
+|                                         |    |       |    |            +--| (100)
+|                                         |    |       |    |            |  +--drSaxAizo1.hap1.1.fasta
+|                                         |    |       |    |         +--| (100)
+|                                         |    |       |    |         |  |                          +--daLycEuro1.1.fa
+|                                         |    |       |    |         |  |                       +--| (100)
+|                                         |    |       |    |         |  |                       |  +--daPruVulg3.hap1.1.fasta
+|                                         |    |       |    |         |  |                    +--| (100)
+|                                         |    |       |    |         |  |                    |  |     +--daAjuCham1.1.fasta
+|                                         |    |       |    |         |  |                    |  |  +--| (100)
+|                                         |    |       |    |         |  |                    |  |  |  |  +--daLamPurp1.hap1.1.fasta
+|                                         |    |       |    |         |  |                    |  |  |  +--| (100)
+|                                         |    |       |    |         |  |                    |  |  |     +--daBalNigr1.1.fa
+|                                         |    |       |    |         |  |                    |  +--| (100)
+|                                         |    |       |    |         |  |                    |     +--daScuGale1.1.fa
+|                                         |    |       |    |         |  |                 +--| (100)
+|                                         |    |       |    |         |  |                 |  +--daPauTome1.hap1.1.fasta
+|                                         |    |       |    |         |  |              +--| (100)
+|                                         |    |       |    |         |  |              |  +--daVerOffi1.1.fasta
+|                                         |    |       |    |         |  |           +--| (100)
+|                                         |    |       |    |         |  |           |  |     +--daLinVulg1.1.fa
+|                                         |    |       |    |         |  |           |  |  +--| (100)
+|                                         |    |       |    |         |  |           |  |  |  +--daMisOron1.1.fa
+|                                         |    |       |    |         |  |           |  +--| (100)
+|                                         |    |       |    |         |  |           |     +--daVerTrip1.1.fasta
+|                                         |    |       |    |         |  |        +--| (100)
+|                                         |    |       |    |         |  |        |  |     +--daSheArve1.1.fa
+|                                         |    |       |    |         |  |        |  |  +--| (100)
+|                                         |    |       |    |         |  |        |  |  |  |  +--daCruLaev1.1.fasta
+|                                         |    |       |    |         |  |        |  |  |  +--| (100)
+|                                         |    |       |    |         |  |        |  |  |     +--daGalUlig1.hap1.1.fasta
+|                                         |    |       |    |         |  |        |  +--| (99)
+|                                         |    |       |    |         |  |        |     |  +--daSolDulc1.1.fa
+|                                         |    |       |    |         |  |        |     +--| (100)
+|                                         |    |       |    |         |  |        |        +--daConArve2.hap1.1.fasta
+|                                         |    |       |    |         |  |     +--| (100)
+|                                         |    |       |    |         |  |     |  +--drIleAqui2.1.fasta
+|                                         |    |       |    |         |  |  +--| (100)
+|                                         |    |       |    |         |  |  |  |                    +--daFilPyra1.hap1.1.fasta
+|                                         |    |       |    |         |  |  |  |                 +--| (100)
+|                                         |    |       |    |         |  |  |  |                 |  +--daCalOffi1.1.fasta
+|                                         |    |       |    |         |  |  |  |              +--| (100)
+|                                         |    |       |    |         |  |  |  |              |  +--daSenSylv1.hap1.1.fasta
+|                                         |    |       |    |         |  |  |  |           +--| (100)
+|                                         |    |       |    |         |  |  |  |           |  |  +--daPulDyse1.1.fa
+|                                         |    |       |    |         |  |  |  |           |  +--| (100)
+|                                         |    |       |    |         |  |  |  |           |     +--daInuSali1.hap1.1.fasta
+|                                         |    |       |    |         |  |  |  |        +--| (100)
+|                                         |    |       |    |         |  |  |  |        |  +--daTraPrat1.hap1.1.fasta
+|                                         |    |       |    |         |  |  |  |     +--| (100)
+|                                         |    |       |    |         |  |  |  |     |  |  +--daArcMinu1.1.fa
+|                                         |    |       |    |         |  |  |  |     |  +--| (100)
+|                                         |    |       |    |         |  |  |  |     |     +--daCirDiss1.hap1.1.fasta
+|                                         |    |       |    |         |  |  |  |  +--| (100)
+|                                         |    |       |    |         |  |  |  |  |  +--daLobUren4.hap1.1.fasta
+|                                         |    |       |    |         |  |  |  +--| (100)
+|                                         |    |       |    |         |  |  |     |  +--ddHotPalu2.hap1.1.fasta
+|                                         |    |       |    |         |  |  |     +--| (100)
+|                                         |    |       |    |         |  |  |        +--drHedHeli1.1.fa
+|                                         |    |       |    |         |  +--| (100)
+|                                         |    |       |    |         |     |  +--ddImpParv1.hap1.1.fasta
+|                                         |    |       |    |         |     +--| (100)
+|                                         |    |       |    |         |        +--ddPriVulg1.1.fasta
+|                                         |    |       |    |      +--| (100)
+|                                         |    |       |    |      |  |        +--dcPerMacu1.1.fasta
+|                                         |    |       |    |      |  |     +--| (100)
+|                                         |    |       |    |      |  |     |  +--dcPerAmph1.hap1.1.fasta
+|                                         |    |       |    |      |  |  +--| (100)
+|                                         |    |       |    |      |  |  |  |  +--dcFalConv1.1.fasta
+|                                         |    |       |    |      |  |  |  +--| (100)
+|                                         |    |       |    |      |  |  |     +--dcPolAvic1.1.fa
+|                                         |    |       |    |      |  +--| (100)
+|                                         |    |       |    |      |     |     +--dcCheAlbu1.1.fasta
+|                                         |    |       |    |      |     |  +--| (100)
+|                                         |    |       |    |      |     |  |  +--dcSalRamo1.1.fasta
+|                                         |    |       |    |      |     +--| (100)
+|                                         |    |       |    |      |        |        +--dcAgrGith1.1.fasta
+|                                         |    |       |    |      |        |     +--| (100)
+|                                         |    |       |    |      |        |     |  |  +--dcMoeTrin1.hap1.1.fasta
+|                                         |    |       |    |      |        |     |  +--| (100)
+|                                         |    |       |    |      |        |     |     +--dcAreSerp1.hap1.1.fasta
+|                                         |    |       |    |      |        |  +--| (100)
+|                                         |    |       |    |      |        |  |  +--dcSpeMari1.1.fasta
+|                                         |    |       |    |      |        +--| (100)
+|                                         |    |       |    |      |           +--dcPolTetr1.hap1.1.fasta
+|                                         |    |       |    |   +--| (100)
+|                                         |    |       |    |   |  |        +--dmAquVulg1.hap1.1.fasta
+|                                         |    |       |    |   |  |     +--| (100)
+|                                         |    |       |    |   |  |     |  +--dmThaMinu1.hap1.1.fasta
+|                                         |    |       |    |   |  |  +--| (100)
+|                                         |    |       |    |   |  |  |  +--dmRanScel1.hap1.1.fasta
+|                                         |    |       |    |   |  +--| (100)
+|                                         |    |       |    |   |     +--dmBerVulg1.1.fasta
+|                                         |    |       |    +---| (100)
+|                                         |    |       |        |                    +--lpLuzPall1.1.fasta
+|                                         |    |       |        |                 +--| (100)
+|                                         |    |       |        |                 |  +--lpLuzSylv1.1.fa
+|                                         |    |       |        |              +--| (100)
+|                                         |    |       |        |              |  |  +--lpJunSqua1.hap1.1.fasta
+|                                         |    |       |        |              |  +--| (100)
+|                                         |    |       |        |              |     |  +--lpJunBufo1.hap1.1.fasta
+|                                         |    |       |        |              |     +--| (100)
+|                                         |    |       |        |              |        +--lpJunEffu1.1.fa
+|                                         |    |       |        |           +--| (100)
+|                                         |    |       |        |           |  |     +--lpCarDepa1.1.fa
+|                                         |    |       |        |           |  |  +--| (100)
+|                                         |    |       |        |           |  |  |  |     +--lpSciSylv1.hap1.1.fasta
+|                                         |    |       |        |           |  |  |  |  +--| (100)
+|                                         |    |       |        |           |  |  |  |  |  +--lpEriAngu1.1.fasta
+|                                         |    |       |        |           |  |  |  +--| (98)
+|                                         |    |       |        |           |  |  |     +--lpTriCesp1.1.fasta
+|                                         |    |       |        |           |  +--| (100)
+|                                         |    |       |        |           |     |     +--lpCypFusc1.hap1.1.fasta
+|                                         |    |       |        |           |     |  +--| (100)
+|                                         |    |       |        |           |     |  |  |     +--lpSchTabe1.hap1.1.fasta
+|                                         |    |       |        |           |     |  |  |  +--| (100)
+|                                         |    |       |        |           |     |  |  |  |  +--lpSchTriq1.1.fasta
+|                                         |    |       |        |           |     |  |  +--| (100)
+|                                         |    |       |        |           |     |  |     +--lpSchLacu1.fa
+|                                         |    |       |        |           |     +--| (100)
+|                                         |    |       |        |           |        +--lpEleQuin1.1.fasta
+|                                         |    |       |        |        +--| (100)
+|                                         |    |       |        |        |  |     +--lpLeeOryz1.hap1.1.fasta
+|                                         |    |       |        |        |  |  +--| (100)
+|                                         |    |       |        |        |  |  |  |     +--lpBroSter1.1.fasta
+|                                         |    |       |        |        |  |  |  |  +--| (100)
+|                                         |    |       |        |        |  |  |  |  |  +--lpHorVulg1.hap1.1.fasta
+|                                         |    |       |        |        |  |  |  +--| (100)
+|                                         |    |       |        |        |  |  |     |     +--lpPolViri1.hap1.1.fasta
+|                                         |    |       |        |        |  |  |     |  +--| (100)
+|                                         |    |       |        |        |  |  |     |  |  +--lpHieOdor1.hap1.1.fasta
+|                                         |    |       |        |        |  |  |     +--| (100)
+|                                         |    |       |        |        |  |  |        |  +--lpPoaChai1.hap1.1.fasta
+|                                         |    |       |        |        |  |  |        +--| (100)
+|                                         |    |       |        |        |  |  |           +--lpPhlPrat1.hap1.1.fasta
+|                                         |    |       |        |        |  +--| (100)
+|                                         |    |       |        |        |     |  +--lpDigSang1.hap1.1.fasta
+|                                         |    |       |        |        |     +--| (100)
+|                                         |    |       |        |        |        +--lpPhrAust1.1.fa
+|                                         |    |       |        |     +--| (100)
+|                                         |    |       |        |     |  +--lpSpaEmer1.hap1.1.fasta
+|                                         |    |       |        |  +--| (100)
+|                                         |    |       |        |  |  |  +--ldNarOssi1.1.fasta
+|                                         |    |       |        |  |  +--| (52)
+|                                         |    |       |        |  |     +--lsIriFoet1.hap1.1.fasta
+|                                         |    |       |        +--| (100)
+|                                         |    |       |           |  +---laLemMinu1.hap1.1.fasta
+|                                         |    |       |           +--| (100)
+|                                         |    |       |              |  +--laApoDist1.hap1.1.fasta
+|                                         |    |       |              +--| (100)
+|                                         |    |       |                 |  +--laPotNata1.hap1.1.fasta
+|                                         |    |       |                 +--| (100)
+|                                         |    |       |                    +--laTriMari1.1.fasta
+|                                         |    |  +----| (100)
+|                                         |    |  |    |     +----------ucMarCocc1.1.fasta
+|                                         |    |  |    |  +--| (100)
+|                                         |    |  |    |  |  |  +--------ucDunPrim2.1.fa
+|                                         |    |  |    |  |  +--| (100)
+|                                         |    |  |    |  |     +-------ucPseBory1.1.fasta
+|                                         |    |  |    +--| (100)
+|                                         |    |  |       +--------------------ucPycProv1.1.fa
+|                                         |    +--| (100)
+|                                         |       |  +-------------------paTetJugo1.1.fa
+|                                         |       +--| (100)
+|                                         |          |                          +---pEimTen1.1.fa
+|                                         |          +--------------------------| (100)
+|                                         |                                     +---pxEimPrae1.1.fasta
+|                                      +--| (100)
+|                                      |  +-----------ocSycCili1.1.fasta
+|                                   +--| (100)
+|                                   |  |  +---------jrHalOcto1.1.fa
+|                                   |  +--| (100)
+|                                   |     |  +---jaRicFlor1.1.fa
+|                                   |     +--| (100)
+|                                   |        |  +--jaNemVect1.1.fa
+|                                   |        +--| (100)
+|                                   |           +--jaDiaLine6.1.fa
+|                                +--| (100)
+|                                |  |                           +--mCanLor1.2.fa
+|                                |  |                        +--| (100)
+|                                |  |                        |  +--mMelMel3.2.fa
+|                                |  |                     +--| (53)
+|                                |  |                     |  |  +--mRhiSin1.1.fa
+|                                |  |                     |  +--| (54)
+|                                |  |                     |     +--mDicBic1.1.fa
+|                                |  |                  +--| (100)
+|                                |  |                  |  |  +--mOrcOrc1.1.fa
+|                                |  |                  |  +--| (100)
+|                                |  |                  |     +--mCerEla1.1.fa
+|                                |  |               +--| (100)
+|                                |  |               |  +--mLemCat1.1.fa
+|                                |  |            +--| (100)
+|                                |  |            |  +--mEleMax1.1.fa
+|                                |  |         +--| (100)
+|                                |  |         |  |           +--bCorHaw1.1.fa
+|                                |  |         |  |        +--| (100)
+|                                |  |         |  |        |  +--bTaeGut1.4.fa
+|                                |  |         |  |     +--| (100)
+|                                |  |         |  |     |  |  +--bPorHoc1.1.fa
+|                                |  |         |  |     |  +--| (100)
+|                                |  |         |  |     |     |        +--bFalBia1.1.fa
+|                                |  |         |  |     |     |     +--| (100)
+|                                |  |         |  |     |     |     |  +--bFalChe1.1.fa
+|                                |  |         |  |     |     |  +--| (100)
+|                                |  |         |  |     |     |  |  +--bFalPer1.1.fa
+|                                |  |         |  |     |     +--| (100)
+|                                |  |         |  |     |        +--bAccGen1.1.fa
+|                                |  |         |  |  +--| (100)
+|                                |  |         |  |  |  |  +--bGalGal1.GRCg7b.fa
+|                                |  |         |  |  |  +--| (100)
+|                                |  |         |  |  |     +--bLagMut1.1.fa
+|                                |  |         |  +--| (100)
+|                                |  |         |     +--rVipLat1.1.fa
+|                                |  |     +---| (100)
+|                                |  |     |   |                 +--fThuAlb1.1.fa
+|                                |  |     |   |              +--| (100)
+|                                |  |     |   |              |  +--fThuMac1.1.fa
+|                                |  |     |   |           +--| (100)
+|                                |  |     |   |           |  |  +--fPhoGun1.2.fa
+|                                |  |     |   |           |  +--| (100)
+|                                |  |     |   |           |     +--fTauBub2.1.fa
+|                                |  |     |   |        +--| (100)
+|                                |  |     |   |        |  |  +--fToxJac2.1.fa
+|                                |  |     |   |        |  +--| (100)
+|                                |  |     |   |        |     +--fTraTra1.2.fa
+|                                |  |     |   |     +--| (100)
+|                                |  |     |   |     |  +--fTelBon1.1.fa
+|                                |  |     |   |  +--| (100)
+|                                |  |     |   |  |  |        +--fBarBab1.1.fa
+|                                |  |     |   |  |  |     +--| (100)
+|                                |  |     |   |  |  |     |  +--fDanRer4.1.fa
+|                                |  |     |   |  |  |  +--| (100)
+|                                |  |     |   |  |  |  |  +--fPanHyp1.1.fa
+|                                |  |     |   |  |  +--| (100)
+|                                |  |     |   |  |     +--fAloSap1.1.fa
+|                                |  |     |   +--| (100)
+|                                |  |     |      +--fAciRut3.2.fa
+|                                |  |  +--| (100)
+|                                |  |  |  +-----------kaAplTurb1.1.fa
+|                                |  +--| (100)
+|                                |     +------eaMarGlac1.2.fa
+|                             +--| (100)
+|                             |  |              +------------wrPisGeom1.1.fa
+|                             |  |           +--| (100)
+|                             |  |           |  +----wcLumRube1.1.fa
+|                             |  |        +--| (100)
+|                             |  |        |  |     +--wpSthLimi1.1.fa
+|                             |  |        |  |  +--| (100)
+|                             |  |        |  |  |  +--wpLepClav1.1.fa
+|                             |  |        |  +--| (100)
+|                             |  |        |     +----wpAliVire1.1.fa
+|                             |  |     +--| (100)
+|                             |  |     |  +-----tnLinLong1.2.fa
+|                             |  |  +--| (100)
+|                             |  |  |  |        +--xbGarTell2.1.fa
+|                             |  |  |  |     +--| (100)
+|                             |  |  |  |     |  |  +--xbTriCroc3.1.fa
+|                             |  |  |  |     |  +--| (100)
+|                             |  |  |  |     |     +--xbTriGiga4.1.fa
+|                             |  |  |  |  +--| (100)
+|                             |  |  |  |  |  +---xbLimFort5.1.fa
+|                             |  |  |  +--| (100)
+|                             |  |  |     |         +--xgPatPell1.1.fa
+|                             |  |  |     |     +---| (100)
+|                             |  |  |     |     |   +--xgPatVulg1.1.fa
+|                             |  |  |     |  +--| (100)
+|                             |  |  |     |  |  |     +--xgSteCine2.1.fa
+|                             |  |  |     |  |  |  +--| (100)
+|                             |  |  |     |  |  |  |  +--xgPhoLine1.1.fa
+|                             |  |  |     |  |  +--| (100)
+|                             |  |  |     |  |     +--xgGibMagu1.1.fa
+|                             |  |  |     +--| (100)
+|                             |  |  |        +------xgBioGlab47.1.fa
+|                             |  +--| (100)
+|                             |     |           +--tzBugStol2.1.fa
+|                             |     |        +--| (100)
+|                             |     |        |  +--tzCryPall5.1.fa
+|                             |     +--------| (100)
+|                             |              +--tzMemMemb1.1.fa
+|                          +--| (74)
+|                          |  +--------qqMetBour1.1.fa
+|                       +--| (95)
+|                       |  |  +------------qxSacCarc1.2.fa
+|                       |  +--| (74)
+|                       |     +--------------------nxTriColu2.1.fasta
+|                    +--| (100)
+|                    |  |         +--qeAllFusc8.1.fasta
+|                    |  |      +--| (100)
+|                    |  |      |  +--qeDicMinu4.1.fasta
+|                    |  +------| (100)
+|                    |         |   +--qeOrcFlav1.1.fasta
+|                    |         +---| (100)
+|                    |             +--qeLepCurv1.1.fasta
+|                 +--| (93)
+|                 |  +---izTheDome1.hap1.1.fasta
+|              +--| (100)
+|              |  |         +--ieCloDipt1.1.fasta
+|              |  |      +--| (100)
+|              |  |      |  +--ieProBifi2.1.fasta
+|              |  |  +---| (100)
+|              |  |  |   |  +--ieSipAlte2.1.fasta
+|              |  |  |   +--| (100)
+|              |  |  |      +--ieEcdTorr1.1.fasta
+|              |  +--| (93)
+|              |     |    +--ioIscEleg1.1.fa
+|              |     +----| (100)
+|              |          +--ioPlaPenn1.1.fa
+|           +--| (100)
+|           |  |           +--ipLeuNigr2.1.fa
+|           |  |        +--| (100)
+|           |  |        |  |  +--ipNemPict2.1.fa
+|           |  |        |  +--| (100)
+|           |  |        |     +--ipNemDubi1.1.fa
+|           |  |     +--| (100)
+|           |  |     |  +--ipIsoGram3.1.fa
+|           |  |  +--| (100)
+|           |  |  |  +--ibEctPall1.hap1.1.fasta
+|           |  +--| (100)
+|           |     +------igLabMino1.1.fasta
+|        +--| (100)
+|        |  |          +--iuLoeVari1.hap1.1.fasta
+|        |  |       +--| (100)
+|        |  |       |  +--iuPsoGibb1.1.fasta
+|        |  |  +----| (100)
+|        |  |  |    +--iuMesFusc1.1.fasta
+|        |  +--| (100)
+|        |     |        +--ihAcaHaem1.1.fa
+|        |     |  +-----| (100)
+|        |     |  |     +--ihAelAcum1.1.fa
+|        |     +--| (100)
+|        |        +---------ihIcePurc2.1.fa
+|     +--| (100)
+|     |  |                 +----icMalBipu1.1.fa
+|     |  |              +--| (100)
+|     |  |              |  |                    +--icPriAter1.hap1.1.fasta
+|     |  |              |  |                 +--| (100)
+|     |  |              |  |                 |  +--icDiaBole1.1.fasta
+|     |  |              |  |              +--| (100)
+|     |  |              |  |              |  +--icTenMoli1.1.fasta
+|     |  |              |  |           +--| (100)
+|     |  |              |  |           |  +--icPycFuli2.1.fasta
+|     |  |              |  |        +--| (100)
+|     |  |              |  |        |  |  +--icPyrSerr1.1.fa
+|     |  |              |  |        |  +--| (100)
+|     |  |              |  |        |     +--icSalPlan1.1.fasta
+|     |  |              |  |     +--| (100)
+|     |  |              |  |     |  +--icAnaMacu3.1.fasta
+|     |  |              |  |  +--| (100)
+|     |  |              |  |  |  |           +--icAspAene1.1.fasta
+|     |  |              |  |  |  |        +--| (100)
+|     |  |              |  |  |  |        |  |     +--icKykRobo1.hap1.1.fasta
+|     |  |              |  |  |  |        |  |  +--| (100)
+|     |  |              |  |  |  |        |  |  |  +--icPolCerv1.1.fa
+|     |  |              |  |  |  |        |  +--| (100)
+|     |  |              |  |  |  |        |     +----icPlaCyli4.1.fasta
+|     |  |              |  |  |  |     +--| (100)
+|     |  |              |  |  |  |     |  +--icApoCory1.1.fa
+|     |  |              |  |  |  |  +--| (100)
+|     |  |              |  |  |  |  |  |           +--icLonFlav1.hap1.1.fasta
+|     |  |              |  |  |  |  |  |        +--| (100)
+|     |  |              |  |  |  |  |  |        |  |  +--icLocCrat2.1.fasta
+|     |  |              |  |  |  |  |  |        |  +--| (100)
+|     |  |              |  |  |  |  |  |        |     +--icGalNymp1.1.fasta
+|     |  |              |  |  |  |  |  |     +--| (100)
+|     |  |              |  |  |  |  |  |     |  +--icChrOric1.1.fa
+|     |  |              |  |  |  |  |  |  +--| (100)
+|     |  |              |  |  |  |  |  |  |  +--icBruVari1.hap1.1.fasta
+|     |  |              |  |  |  |  |  +--| (100)
+|     |  |              |  |  |  |  |     |  +--icGraRufi3.hap1.1.fasta
+|     |  |              |  |  |  |  |     +--| (100)
+|     |  |              |  |  |  |  |        +--icLepMacu1.1.fa
+|     |  |              |  |  |  +--| (100)
+|     |  |              |  |  |     |     +--icCryAcut1.1.fasta
+|     |  |              |  |  |     |  +--| (100)
+|     |  |              |  |  |     |  |  +--icPedDerm1.1.fasta
+|     |  |              |  |  |     +--| (100)
+|     |  |              |  |  |        +--icBraGlab1.1.fasta
+|     |  |              |  +--| (79)
+|     |  |              |     |              +--icAdaBipu1.1.fa
+|     |  |              |     |           +--| (100)
+|     |  |              |     |           |  +--icCocSept1.1.fa
+|     |  |              |     |        +--| (100)
+|     |  |              |     |        |  +--icHarAxyr1.1.fa
+|     |  |              |     |     +--| (100)
+|     |  |              |     |     |  |  +--icHalSede1.1.fa
+|     |  |              |     |     |  +--| (100)
+|     |  |              |     |     |     +--icMyrOcto1.1.fasta
+|     |  |              |     |  +--| (100)
+|     |  |              |     |  |  +--icCocRufa1.hap1.1.fasta
+|     |  |              |     +--| (100)
+|     |  |              |        +--icEndCocc1.1.fasta
+|     |  |           +--| (100)
+|     |  |           |  |           +--icOthPunc1.1.fasta
+|     |  |           |  |        +--| (100)
+|     |  |           |  |        |  |     +--icPhiCogn1.1.fa
+|     |  |           |  |        |  |  +--| (100)
+|     |  |           |  |        |  |  |  +--icOcyOlen1.1.fa
+|     |  |           |  |        |  +--| (100)
+|     |  |           |  |        |     +--icQueLate1.hap1.1.fasta
+|     |  |           |  |     +--| (98)
+|     |  |           |  |     |  |     +--icNicInve2.1.fasta
+|     |  |           |  |     |  |  +--| (100)
+|     |  |           |  |     |  |  |  +--icSilAtra2.1.fa
+|     |  |           |  |     |  +--| (100)
+|     |  |           |  |     |     +--icScaQuad2.1.fasta
+|     |  |           |  |  +--| (100)
+|     |  |           |  |  |  +---icSteBima1.1.fasta
+|     |  |           |  +--| (100)
+|     |  |           |     |  +--icAphGran1.1.fasta
+|     |  |           |     +--| (100)
+|     |  |           |        |     +--icAmpSols1.1.fasta
+|     |  |           |        |  +--| (100)
+|     |  |           |        |  |  +--icMelMelo1.1.fa
+|     |  |           |        +--| (100)
+|     |  |           |           +--icCetAura1.1.fasta
+|     |  |        +--| (100)
+|     |  |        |  |           +--icCanRust1.1.fa
+|     |  |        |  |        +--| (100)
+|     |  |        |  |        |  |  +--icRhaFulv1.1.fa
+|     |  |        |  |        |  +--| (100)
+|     |  |        |  |        |     +--icPodAlpi1.1.fa
+|     |  |        |  |     +--| (100)
+|     |  |        |  |     |  +--icMalMini1.1.fasta
+|     |  |        |  |  +--| (100)
+|     |  |        |  |  |  |  +--icDalMarg2.1.fasta
+|     |  |        |  |  |  +--| (100)
+|     |  |        |  |  |     |  +--icLimPone1.hap1.1.fasta
+|     |  |        |  |  |     +--| (100)
+|     |  |        |  |  |        +--icAgrMuri1.1.fa
+|     |  |        |  +--| (100)
+|     |  |        |     +----icAgrCyan1.1.fasta
+|     |  |     +--| (100)
+|     |  |     |  |     +--icCarProb1.1.fasta
+|     |  |     |  |  +--| (100)
+|     |  |     |  |  |  |     +--icNebBrev1.1.fa
+|     |  |     |  |  |  |  +--| (100)
+|     |  |     |  |  |  |  |  +--icNebSali1.1.fa
+|     |  |     |  |  |  +--| (100)
+|     |  |     |  |  |     +--icLeiSpin1.1.fa
+|     |  |     |  +--| (100)
+|     |  |     |     |        +--icOphArdo1.1.fa
+|     |  |     |     |     +--| (100)
+|     |  |     |     |     |  +--icHarRubr1.1.fasta
+|     |  |     |     |  +--| (98)
+|     |  |     |     |  |  |  +--icAgoFuli1.1.fasta
+|     |  |     |     |  |  +--| (100)
+|     |  |     |     |  |     +--icDroQuad1.1.fasta
+|     |  |     |     +--| (100)
+|     |  |     |        |  +--icPteMadi1.1.fa
+|     |  |     |        +--| (100)
+|     |  |     |           +--icAbaPara2.1.fasta
+|     |  |  +--| (100)
+|     |  |  |  +-----inChrCarn1.1.fa
+|     |  +--| (100)
+|     |     |                                             +--idPheCory1.1.fa
+|     |     |                                          +--| (100)
+|     |     |                                          |  +--idIliLine1.hap1.1.fasta
+|     |     |                                       +--| (100)
+|     |     |                                       |  |     +--idSicFerr1.1.fa
+|     |     |                                       |  |  +--| (100)
+|     |     |                                       |  |  |  +--idPhyRufi1.1.fasta
+|     |     |                                       |  +--| (100)
+|     |     |                                       |     +--idMyoTess1.2.fasta
+|     |     |                                    +--| (100)
+|     |     |                                    |  +--idLycDeci1.1.fasta
+|     |     |                                 +--| (100)
+|     |     |                                 |  |           +--idLeuObtu2.1.fasta
+|     |     |                                 |  |        +--| (100)
+|     |     |                                 |  |        |  |        +--idPolAmen1.1.fa
+|     |     |                                 |  |        |  |     +--| (100)
+|     |     |                                 |  |        |  |     |  |        +--idLypDubi1.1.fasta
+|     |     |                                 |  |        |  |     |  |     +--| (100)
+|     |     |                                 |  |        |  |     |  |     |  +--idTacFera2.1.fa
+|     |     |                                 |  |        |  |     |  |  +--| (100)
+|     |     |                                 |  |        |  |     |  |  |  +--idEpiSucc1.1.fa
+|     |     |                                 |  |        |  |     |  +--| (100)
+|     |     |                                 |  |        |  |     |     +--idGymRotn1.1.fa
+|     |     |                                 |  |        |  |  +--| (100)
+|     |     |                                 |  |        |  |  |  |     +--idProAzur1.1.fa
+|     |     |                                 |  |        |  |  |  |  +--| (100)
+|     |     |                                 |  |        |  |  |  |  |  |  +--idMelRora1.1.fasta
+|     |     |                                 |  |        |  |  |  |  |  +--| (100)
+|     |     |                                 |  |        |  |  |  |  |     +--idPhyMeln1.1.fa
+|     |     |                                 |  |        |  |  |  +--| (97)
+|     |     |                                 |  |        |  |  |     |  +--idBelPand1.1.fa
+|     |     |                                 |  |        |  |  |     +--| (100)
+|     |     |                                 |  |        |  |  |        +--idStoLuna1.1.fa
+|     |     |                                 |  |        |  +--| (100)
+|     |     |                                 |  |        |     +--idSarRose1.1.fa
+|     |     |                                 |  |     +--| (100)
+|     |     |                                 |  |     |  +--idHydCyrt1.1.fasta
+|     |     |                                 |  |  +--| (100)
+|     |     |                                 |  |  |  +---idDroImmi1.1.fasta
+|     |     |                                 |  +--| (100)
+|     |     |                                 |     |  +--idHetRotu1.1.fasta
+|     |     |                                 |     +--| (100)
+|     |     |                                 |        +--idCluTigr1.1.fa
+|     |     |                              +--| (100)
+|     |     |                              |  +--idNepScut1.1.fasta
+|     |     |                           +--| (100)
+|     |     |                           |  |           +--idSphTaen1.1.fa
+|     |     |                           |  |        +--| (100)
+|     |     |                           |  |        |  +--idMelCint3.1.fasta
+|     |     |                           |  |     +--| (100)
+|     |     |                           |  |     |  |  +--idEupCoro1.1.fasta
+|     |     |                           |  |     |  +--| (100)
+|     |     |                           |  |     |     +--idEpiEuco1.1.fasta
+|     |     |                           |  |  +--| (100)
+|     |     |                           |  |  |  +--idMelMell2.1.fasta
+|     |     |                           |  +--| (100)
+|     |     |                           |     |     +--idSyrPipi1.1.fa
+|     |     |                           |     |  +--| (100)
+|     |     |                           |     |  |  +--idEriIntr1.1.fasta
+|     |     |                           |     +--| (100)
+|     |     |                           |        |     +--idCheUrba1.1.fasta
+|     |     |                           |        |  +--| (100)
+|     |     |                           |        |  |  +--idFerCupr2.1.fasta
+|     |     |                           |        +--| (100)
+|     |     |                           |           +--idChaNemo1.1.fasta
+|     |     |                        +--| (100)
+|     |     |                        |  +--idEmpSter1.1.fasta
+|     |     |                     +--| (98)
+|     |     |                     |  |  +--idMacAtri3.1.fa
+|     |     |                     |  +--| (100)
+|     |     |                     |     +--idPamGerm1.hap1.1.fasta
+|     |     |                  +--| (100)
+|     |     |                  |  |  +--idBomDisc1.1.fa
+|     |     |                  |  +--| (100)
+|     |     |                  |     +--idAntAnth1.1.fasta
+|     |     |               +--| (96)
+|     |     |               |  |  +--idBerChal2.1.fasta
+|     |     |               |  +--| (100)
+|     |     |               |     |  +--idNemPant2.1.fasta
+|     |     |               |     +--| (100)
+|     |     |               |        +--idMicPoli1.1.fasta
+|     |     |            +--| (97)
+|     |     |            |  |  +---idAthIbis2.2.fasta
+|     |     |            |  +--| (100)
+|     |     |            |     +--idChrAsil3.1.fasta
+|     |     |         +--| (100)
+|     |     |         |  +----idAcrOrbc1.1.fasta
+|     |     |      +--| (100)
+|     |     |      |  +----idBibMarc1.1.fa
+|     |     |  +---| (100)
+|     |     |  |   +----idNepFlae1.1.fa
+|     |     +--| (100)
+|     |        |                             +--ilBisBetu1.1.fa
+|     |        |                          +--| (71)
+|     |        |                          |  |  +--ilThoDeci1.1.fa
+|     |        |                          |  +--| (100)
+|     |        |                          |     +--ilHydMica1.1.fa
+|     |        |                       +--| (100)
+|     |        |                       |  |  +--ilDeiPorc1.1.fa
+|     |        |                       |  +--| (71)
+|     |        |                       |     +--ilWatBina1.1.fa
+|     |        |                    +--| (93)
+|     |        |                    |  +--ilAgoAren1.1.fa
+|     |        |                 +--| (98)
+|     |        |                 |  |     +--ilParStra1.1.fa
+|     |        |                 |  |  +--| (99)
+|     |        |                 |  |  |  +--ilEmmMono1.1.fa
+|     |        |                 |  +--| (97)
+|     |        |                 |     |     +--ilPieNapi4.1.fa
+|     |        |                 |     |  +--| (100)
+|     |        |                 |     |  |  +--ilParAegt1.1.fa
+|     |        |                 |     +--| (100)
+|     |        |                 |        +--ilPyrMalv3.1.fa
+|     |        |              +--| (98)
+|     |        |              |  |  +--ilZeuPyri1.1.fa
+|     |        |              |  +--| (100)
+|     |        |              |     +--ilSesBemb1.1.fa
+|     |        |           +--| (100)
+|     |        |           |  +--ilNotUddm1.1.fa
+|     |        |        +--| (100)
+|     |        |        |  +--ilYpsScab1.1.fa
+|     |        |     +--| (100)
+|     |        |     |  +--ilTinTrin1.1.fa
+|     |        |  +--| (100)
+|     |        |  |  +----ilMicArun2.1.fa
+|     |        +--| (100)
+|     |           |            +--iiLimRhom1.1.fa
+|     |           |         +--| (100)
+|     |           |         |  +--iiLimMarm1.1.fa
+|     |           |      +--| (100)
+|     |           |      |  +--iiLimLuna2.1.fa
+|     |           |   +--| (100)
+|     |           |   |  +--iiGlyPell1.1.fa
+|     |           +---| (100)
+|     |               +--iiLimAuri1.1.fasta
+|  +--| (100)
+|  |  |           +--iyGasPulc2.1.fasta
+|  |  |        +--| (100)
+|  |  |        |  +--iyChaSisp2.1.fasta
+|  |  |     +--| (99)
+|  |  |     |  |                             +--iyBomHypn1.1.fa
+|  |  |     |  |                          +--| (100)
+|  |  |     |  |                          |  +--iyNomFabr1.1.fa
+|  |  |     |  |                       +--| (100)
+|  |  |     |  |                       |  |  +--iyStePhae1.1.fa
+|  |  |     |  |                       |  +--| (100)
+|  |  |     |  |                       |     |  +--iyCoeConi1.1.fasta
+|  |  |     |  |                       |     +--| (100)
+|  |  |     |  |                       |        +--iyMegLign1.1.fasta
+|  |  |     |  |                    +--| (100)
+|  |  |     |  |                    |  |     +--iySphEphi1.1.fasta
+|  |  |     |  |                    |  |  +--| (100)
+|  |  |     |  |                    |  |  |  |  +--iyLasVill1.1.fasta
+|  |  |     |  |                    |  |  |  +--| (100)
+|  |  |     |  |                    |  |  |     +--iySelTumu1.1.fa
+|  |  |     |  |                    |  +--| (100)
+|  |  |     |  |                    |     +--iyAndDors1.1.fa
+|  |  |     |  |                 +--| (100)
+|  |  |     |  |                 |  +--iyMacEuro1.1.fa
+|  |  |     |  |              +--| (100)
+|  |  |     |  |              |  |  +--iyCerRyby1.1.fa
+|  |  |     |  |              |  +--| (99)
+|  |  |     |  |              |     |  +--iyMimDahl1.1.fa
+|  |  |     |  |              |     +--| (100)
+|  |  |     |  |              |        +--iyPemLugu1.1.fasta
+|  |  |     |  |           +--| (98)
+|  |  |     |  |           |  +--iyNysSpin1.1.fa
+|  |  |     |  |        +--| (100)
+|  |  |     |  |        |  |     +--iyEctCont1.1.fa
+|  |  |     |  |        |  |  +--| (100)
+|  |  |     |  |        |  |  |  +--iyTryClav1.1.fasta
+|  |  |     |  |        |  +--| (100)
+|  |  |     |  |        |     +--iyAmmPube2.1.fasta
+|  |  |     |  |     +--| (100)
+|  |  |     |  |     |  +--iyLasBrun3.1.fasta
+|  |  |     |  |  +--| (100)
+|  |  |     |  |  |  |  +--iyTipFemo1.1.fa
+|  |  |     |  |  |  +--| (100)
+|  |  |     |  |  |     |  +--iyAnoNige1.1.fa
+|  |  |     |  |  |     +--| (100)
+|  |  |     |  |  |        +--iyPriPert1.1.fasta
+|  |  |     |  +--| (100)
+|  |  |     |     |  +--iyVesVulg1.1.fa
+|  |  |     |     +--| (100)
+|  |  |     |        +--iyAncNigr1.1.fa
+|  |  |  +--| (100)
+|  |  |  |  |           +--iyBuaLabo1.1.fa
+|  |  |  |  |        +--| (100)
+|  |  |  |  |        |  |     +--iyVulBima1.1.fasta
+|  |  |  |  |        |  |  +--| (100)
+|  |  |  |  |        |  |  |  |  +--iyIchXant1.1.fasta
+|  |  |  |  |        |  |  |  +--| (100)
+|  |  |  |  |        |  |  |     |  +--iyExeIsch1.1.fasta
+|  |  |  |  |        |  |  |     +--| (100)
+|  |  |  |  |        |  |  |        +--iyAmbArma2.1.fa
+|  |  |  |  |        |  +--| (100)
+|  |  |  |  |        |     +--iyApaInim1.hap1.1.fasta
+|  |  |  |  |     +--| (100)
+|  |  |  |  |     |  |        +--iyEphMani1.1.fasta
+|  |  |  |  |     |  |     +--| (100)
+|  |  |  |  |     |  |     |  +--iyDolMeso1.1.fasta
+|  |  |  |  |     |  |  +--| (100)
+|  |  |  |  |     |  |  |  +--iyCylCali1.1.fasta
+|  |  |  |  |     |  +--| (100)
+|  |  |  |  |     |     |  +--iySusPulc1.1.fasta
+|  |  |  |  |     |     +--| (100)
+|  |  |  |  |     |        +--iyDipLaet1.1.fasta
+|  |  |  |  |  +--| (100)
+|  |  |  |  |  |  |        +--iyCamRapt1.1.fasta
+|  |  |  |  |  |  |     +--| (100)
+|  |  |  |  |  |  |     |  +--iyOphLute1.1.fa
+|  |  |  |  |  |  |  +--| (100)
+|  |  |  |  |  |  |  |  +--iyHetAmic1.1.fasta
+|  |  |  |  |  |  +--| (100)
+|  |  |  |  |  |     +--iyDysLute2.1.fasta
+|  |  |  |  +--| (100)
+|  |  |  |     |     +--iyZelAlbi1.1.fasta
+|  |  |  |     |  +--| (100)
+|  |  |  |     |  |  +--iyMicDepi1.1.fasta
+|  |  |  |     +--| (100)
+|  |  |  |        +--iyAleSimi1.hap1.1.fasta
+|  |  +--| (100)
+|  |     +--iyCepSpin2.1.fasta
++--| (100)
+|  +--iyArgPaga1.1.fasta
+|
+|           +--iyTenMeso1.1.fasta
+|        +--| (100)
+|        |  +--iyRhoChlo1.1.fa
+|     +--| (100)
+|     |  +--iyMacAlbo1.1.fasta
+|  +--| (100)
+|  |  +--iyPhyAter2.1.fasta
++--| (100)
+   +--iyAbiCand1.1.fasta
+
+
+Consensus tree in newick format: 
+
+(iyAthRosa1.1.fa:0.0937431190,((((((((((((((((((((((((((((gfPanStip1.1.fasta:0.0902709649,gfMycGale1.hap1.1.fasta:0.0674733736)100:0.1401644690,(gfArmOsto1.1.fasta:0.1299717884,gfFlaVelt1.2.fasta:0.2342831696)100:0.1038937222)100:0.0219982651,((((gfCopMica1.1.fasta:0.2868609372,(gfAgaBisp1.1.fa:0.1055534943,gfChlBrun1.1.fasta:0.0786703235)100:0.1518196149)100:0.0335199910,((gfAgrPrae1.1.fasta:0.1762774304,gfInoObsi1.1.fasta:0.2261884480)100:0.0272013015,gfCorTriu1.hap1.1.fasta:0.1403721102)100:0.0639857839)100:0.0283793271,(gfVolSurr1.1.fasta:0.2483344235,gfAmaRube1.hap1.1.fasta:0.2375853194)100:0.0328566099)100:0.0193368876,(gfEntClyp1.2.fasta:0.1704412007,(gfTriHemi4.1.fasta:0.1366127700,gfLepSord1.hap1.1.fasta:0.1094821889)100:0.0207321468)100:0.0372666370)100:0.0228188493)100:0.0214716725,gfPleOstr1.1.fa:0.2607018302)100:0.0282676877,(gfHygPuni3.1.fasta:0.1466509026,(gfGliIrri2.hap1.1.fasta:0.1518833737,gfPorCaly1.1.fasta:0.1337012129)100:0.0519360728)100:0.0523098906)100:0.0162528461,(gfRamCorn1.1.fasta:0.1748322150,gfClaFumo1.1.fasta:0.2939241098)100:0.0393384035)100:0.0243223875,(gfButSuba1.1.fasta:0.0661126462,gfAurGent2.1.fasta:0.0740787687)100:0.2255725596)100:0.0361515206,(gfGanResi1.1.fasta:0.1998041266,((gfLaeSulp1.1.fa:0.1310490040,gfBolQuer1.1.fasta:0.1574663288)100:0.0375995196,gfSpaMino1.hap1.1.fasta:0.1492652921)100:0.0313040318)100:0.0751441962)100:0.0220136478,((gfRusVesc1.hap1.1.fasta:0.0969986025,gfLacBlen1.hap1.1.fasta:0.1004448553)100:0.1610730045,gfHerErin3.1.fasta:0.1699485857)100:0.0794276926)100:0.1044426868,gfPhaAlbo1.hap1.1.fasta:0.3060529487)100:0.2285235146,gfTauPull1.1.fasta:0.5997136259)100:0.3370541657,(((((grLepFlav1.1.fasta:0.3431826208,((grCorFumo1.1.fasta:0.1600222159,grSimLame1.1.fasta:0.1461145396)100:0.0513818184,grTriPseu1.1.fa:0.1406900869)100:0.1357161757)100:0.1484797253,gyLeoLubr2.1.fasta:0.2460880068)100:0.1093344344,((glEphLana1.1.fasta:0.2323171659,glLicPygm2.1.fasta:0.2254590227)100:0.1570097489,((glUmbDeus1.1.fasta:0.1452798932,(((glPlaGlau9.1.fasta:0.1248435845,glClaSqua9.2.fasta:0.1238003334)100:0.0421936033,glRamSili2.1.fasta:0.3036158182)100:0.0502830577,glFlaMari1.1.fasta:0.2648437805)100:0.0505332546)100:0.0702785542,gpAraPeru1.1.fasta:0.3303835336)100:0.0442835096)100:0.0336255922)100:0.0611801485,gdRhiKalk1.hap1.1.fasta:0.3578876297)100:0.3966256139,gsMetZobe1.1.fa:1.2326422724)100:0.2480653522)100:0.1256412532,(gzMucPiri1.1.fa:0.5445540850,gzEntParv1.1.fasta:0.4856532010)100:0.1434846495)100:0.2989353895,((((((((((((cbRhyLore1.1.fa:0.0177070478,cbHylTriq8.1.fasta:0.0135409836)100:0.0027873898,cbRhyConf1.1.fasta:0.0221571415)100:0.0012042330,cbThuTama2.1.fa:0.0482333728)95:0.0015136007,cbCalCord2.1.fasta:0.0227158799)95:0.0033888037,cbIsoPulc3.1.fasta:0.0161343474)100:0.1219406534,cbPolSexa1.1.fasta:0.1017789833)100:0.0474686265,caAndHook4.1.fasta:0.0957643334)100:0.0503076463,csSphGirg1.1.fasta:0.1450587719)100:0.1011551817,(cjHerHutc3.1.fasta:0.1649368513,cmLunCruc20.1.fasta:0.1541102369)100:0.1075271594)100:0.1115800704,((((((((((((dhQueCerr2.1.fasta:0.0103628175,dhQueIlex1.hap1.1.fasta:0.0103604693)100:0.0017569692,(dhQuePetr1.hap1.1.fasta:0.0063649459,dhQueRobu3.1.fa:0.0059898487)100:0.0058433655)100:0.0390226898,dhFagSylv1.hap1.1.fasta:0.0431253711)100:0.0246687198,(((((dhAlnGlut1.1.fa:0.0060869844,dhAlnInca1.hap1.1.fasta:0.0086035367)100:0.0032246815,dhAlnCord1.hap1.1.fasta:0.0105903970)100:0.0182938320,dhCorColu1.hap1.1.fasta:0.0312074914)100:0.0035938700,dhBetPend1.hap1.1.fasta:0.0233272774)100:0.0328333880,dhMyrGale1.1.fasta:0.0761612352)100:0.0125967782)100:0.0330430042,(((drAstGlyc1.1.fasta:0.0624396592,(drTriFrag1.1.fa:0.0509864947,drMedArab1.1.fa:0.0472456718)100:0.0384878917)100:0.0181726706,drLotPedu3.1.fasta:0.0709742560)100:0.0185823296,drUleMino1.hap1.1.fasta:0.0763369419)100:0.0951138926)100:0.0089546734,((drParJuda1.1.fa:0.1135368048,drUrtUren1.1.fa:0.1413525252)100:0.0716343740,((drFilUlma1.1.fa:0.0853524962,(((drPotAnse1.1.fa:0.0532990130,drFraVesc1.hap1.1.fasta:0.0339408450)100:0.0105216105,drRosaCani1.1.fa:0.0625660397)100:0.0145513755,(drGeuRiva1.hap1.1.fasta:0.0178117384,drGeuUrba1.1.fa:0.0146187867)100:0.0580990389)100:0.0159345085)100:0.0478135184,(drMalDome5.1.fa:0.0085482553,drMalSylv7.1.fa:0.0109605844)100:0.0731043352)100:0.0471401759)100:0.0216212705)100:0.0123001140,((((ddSalCapr1.1.fasta:0.0316076716,ddPopNigr1.1.fasta:0.0238390113)100:0.0791154649,(ddEupPepu3.1.fa:0.1116777171,ddMerAnnu1.1.fa:0.0991857302)100:0.0297483152)100:0.0349128812,(drAilAlti1.1.fa:0.0774195048,drAceCamp1.1.fasta:0.0828525985)100:0.0427927040)99:0.0116066866,(((ddNasOffi1.1.fasta:0.0351596560,(ddCarHirs1.hap1.1.fasta:0.0475729472,ddBarVulg1.1.fasta:0.0241973071)100:0.0057466012)100:0.0166532233,ddAraThal4.1.fa:0.0446131193)100:0.1911956882,drChaAngu1.1.fa:0.1820902881)99:0.0261970022)99:0.0097332060)100:0.0191117329,drSaxAizo1.hap1.1.fasta:0.1916648782)100:0.0099665482,(((((((((daLycEuro1.1.fa:0.0406903659,daPruVulg3.hap1.1.fasta:0.0609583454)100:0.0559945439,((daAjuCham1.1.fasta:0.0627993704,(daLamPurp1.hap1.1.fasta:0.0370652818,daBalNigr1.1.fa:0.0290856764)100:0.0503553401)100:0.0068797457,daScuGale1.1.fa:0.0610282366)100:0.0131492090)100:0.0175198104,daPauTome1.hap1.1.fasta:0.0383928651)100:0.0070641464,daVerOffi1.1.fasta:0.0817237743)100:0.0178705874,((daLinVulg1.1.fa:0.0626348749,daMisOron1.1.fa:0.0454378120)100:0.0418905251,daVerTrip1.1.fasta:0.1615537396)100:0.0207544015)100:0.0655328829,((daSheArve1.1.fa:0.0601481054,(daCruLaev1.1.fasta:0.0494702468,daGalUlig1.hap1.1.fasta:0.0409215404)100:0.0117712634)100:0.1682776928,(daSolDulc1.1.fa:0.1159252463,daConArve2.hap1.1.fasta:0.1205639001)100:0.0278021611)99:0.0095608638)100:0.0233902733,drIleAqui2.1.fasta:0.0944710859)100:0.0092306155,(((((((daFilPyra1.hap1.1.fasta:0.0550479420,daCalOffi1.1.fasta:0.0679205814)100:0.0070254057,daSenSylv1.hap1.1.fasta:0.0851111758)100:0.0071017208,(daPulDyse1.1.fa:0.0257252760,daInuSali1.hap1.1.fasta:0.0266785438)100:0.0278441935)100:0.0092976657,daTraPrat1.hap1.1.fasta:0.0673118352)100:0.0058167258,(daArcMinu1.1.fa:0.0217905700,daCirDiss1.hap1.1.fasta:0.0350540746)100:0.0218353964)100:0.0850052945,daLobUren4.hap1.1.fasta:0.1018120982)100:0.0319392591,(ddHotPalu2.hap1.1.fasta:0.1158262409,drHedHeli1.1.fa:0.0552013785)100:0.0488606247)100:0.0177699148)100:0.0136903682,(ddImpParv1.hap1.1.fasta:0.1780231596,ddPriVulg1.1.fasta:0.1812831101)100:0.0295164334)100:0.0222798568)100:0.0113492961,(((dcPerMacu1.1.fasta:0.0210271525,dcPerAmph1.hap1.1.fasta:0.0225474800)100:0.0523398743,(dcFalConv1.1.fasta:0.0354556342,dcPolAvic1.1.fa:0.0517886649)100:0.0428716344)100:0.1132407471,((dcCheAlbu1.1.fasta:0.0710598586,dcSalRamo1.1.fasta:0.0880413951)100:0.0391038426,(((dcAgrGith1.1.fasta:0.0826209686,(dcMoeTrin1.hap1.1.fasta:0.0430095899,dcAreSerp1.hap1.1.fasta:0.0504748185)100:0.0387071499)100:0.0173414760,dcSpeMari1.1.fasta:0.0856382985)100:0.0295073914,dcPolTetr1.hap1.1.fasta:0.1046324101)100:0.0375739926)100:0.0690098616)100:0.0621425318)100:0.0394058120,(((dmAquVulg1.hap1.1.fasta:0.0374628477,dmThaMinu1.hap1.1.fasta:0.0389052363)100:0.0604983422,dmRanScel1.hap1.1.fasta:0.1304556406)100:0.0461062955,dmBerVulg1.1.fasta:0.1282282852)100:0.0390784979)100:0.0349841643,(((((((lpLuzPall1.1.fasta:0.0144325156,lpLuzSylv1.1.fa:0.0109689294)100:0.0878153267,(lpJunSqua1.hap1.1.fasta:0.0673681387,(lpJunBufo1.hap1.1.fasta:0.0728765737,lpJunEffu1.1.fa:0.0288091274)100:0.0308142542)100:0.0442298692)100:0.0664151436,((lpCarDepa1.1.fa:0.0338432191,((lpSciSylv1.hap1.1.fasta:0.0114401445,lpEriAngu1.1.fasta:0.0135672655)100:0.0105732159,lpTriCesp1.1.fasta:0.0183671590)98:0.0032580522)100:0.0196854278,((lpCypFusc1.hap1.1.fasta:0.0510345313,((lpSchTabe1.hap1.1.fasta:0.0079982959,lpSchTriq1.1.fasta:0.0089454881)100:0.0038128244,lpSchLacu1.fa:0.0070122931)100:0.0370283827)100:0.0105670817,lpEleQuin1.1.fasta:0.0595991514)100:0.0060186863)100:0.0786455478)100:0.0884950420,((lpLeeOryz1.hap1.1.fasta:0.0700966364,((lpBroSter1.1.fasta:0.0632400081,lpHorVulg1.hap1.1.fasta:0.0347234533)100:0.0188819800,((lpPolViri1.hap1.1.fasta:0.0301635043,lpHieOdor1.hap1.1.fasta:0.0504821607)100:0.0071237634,(lpPoaChai1.hap1.1.fasta:0.0273164061,lpPhlPrat1.hap1.1.fasta:0.0242891466)100:0.0114554228)100:0.0162576701)100:0.0483099959)100:0.0092374932,(lpDigSang1.hap1.1.fasta:0.0590451571,lpPhrAust1.1.fa:0.0434289440)100:0.0237710618)100:0.1471552160)100:0.0335689004,lpSpaEmer1.hap1.1.fasta:0.1154246546)100:0.0413450681,(ldNarOssi1.1.fasta:0.1448351426,lsIriFoet1.hap1.1.fasta:0.1604981905)52:0.0154971418)100:0.0360168762,(laLemMinu1.hap1.1.fasta:0.2747365574,(laApoDist1.hap1.1.fasta:0.1530934565,(laPotNata1.hap1.1.fasta:0.1490165860,laTriMari1.1.fasta:0.1646167903)100:0.0328862595)100:0.0502873116)100:0.0243616883)100:0.0375273639)100:0.2400333292)100:0.3152510510,((ucMarCocc1.1.fasta:0.6347768132,(ucDunPrim2.1.fa:0.5255147667,ucPseBory1.1.fasta:0.5059522650)100:0.1726971968)100:0.1701354340,ucPycProv1.1.fa:1.2509614017)100:0.1285056949)100:0.2870286296,(paTetJugo1.1.fa:1.1669062202,(pEimTen1.1.fa:0.2622636285,pxEimPrae1.1.fasta:0.2848361277)100:1.5870131308)100:0.1185113724)100:0.1395646207)100:0.2992383886,ocSycCili1.1.fasta:0.7222182101)100:0.0916131726,(jrHalOcto1.1.fa:0.6253469020,(jaRicFlor1.1.fa:0.2418692258,(jaNemVect1.1.fa:0.1999608646,jaDiaLine6.1.fa:0.2145971562)100:0.0867875269)100:0.1461143804)100:0.0869751398)100:0.0899629035,(((((((((mCanLor1.2.fa:0.0240841889,mMelMel3.2.fa:0.0217831699)100:0.0120406554,(mRhiSin1.1.fa:0.0355149795,mDicBic1.1.fa:0.0246810645)54:0.0020000488)53:0.0016349188,(mOrcOrc1.1.fa:0.0269320612,mCerEla1.1.fa:0.0310570674)100:0.0111196429)100:0.0052695308,mLemCat1.1.fa:0.0355565613)100:0.0068971430,mEleMax1.1.fa:0.0381820102)100:0.0907595130,((((bCorHaw1.1.fa:0.0169197561,bTaeGut1.4.fa:0.0286772358)100:0.0261238526,(bPorHoc1.1.fa:0.0350116044,(((bFalBia1.1.fa:0.0038208083,bFalChe1.1.fa:0.0023852541)100:0.0020817140,bFalPer1.1.fa:0.0032598040)100:0.0282382585,bAccGen1.1.fa:0.0218672114)100:0.0042947817)100:0.0044069616)100:0.0109155460,(bGalGal1.GRCg7b.fa:0.0137991360,bLagMut1.1.fa:0.0173971757)100:0.0261520571)100:0.0557341993,rVipLat1.1.fa:0.1189930045)100:0.0236344117)100:0.0636782213,((((((fThuAlb1.1.fa:0.0050698206,fThuMac1.1.fa:0.0047819026)100:0.0323544706,(fPhoGun1.2.fa:0.0332186946,fTauBub2.1.fa:0.0416965915)100:0.0314521482)100:0.0044235618,(fToxJac2.1.fa:0.0305738184,fTraTra1.2.fa:0.0495388604)100:0.0066770796)100:0.0085865257,fTelBon1.1.fa:0.0616077971)100:0.0717115720,(((fBarBab1.1.fa:0.0458058181,fDanRer4.1.fa:0.0461930350)100:0.0429228245,fPanHyp1.1.fa:0.0789885372)100:0.0216468613,fAloSap1.1.fa:0.0970062667)100:0.0201442618)100:0.0670894987,fAciRut3.2.fa:0.1017937701)100:0.0465142037)100:0.2340555887,kaAplTurb1.1.fa:0.7174785299)100:0.0640789110,eaMarGlac1.2.fa:0.4131467191)100:0.0345477281)100:0.0493325340,(((((wrPisGeom1.1.fa:0.7987148083,wcLumRube1.1.fa:0.3293347701)100:0.1556300858,((wpSthLimi1.1.fa:0.1786651542,wpLepClav1.1.fa:0.1490504899)100:0.1359223980,wpAliVire1.1.fa:0.3070658933)100:0.0483148482)100:0.0421173143,tnLinLong1.2.fa:0.3471800133)100:0.0268625064,(((xbGarTell2.1.fa:0.1779254001,(xbTriCroc3.1.fa:0.0287213502,xbTriGiga4.1.fa:0.0247073013)100:0.1636892490)100:0.1432205562,xbLimFort5.1.fa:0.2731840824)100:0.0456176824,(((xgPatPell1.1.fa:0.0225657819,xgPatVulg1.1.fa:0.0159068445)100:0.2697999064,((xgSteCine2.1.fa:0.0318268989,xgPhoLine1.1.fa:0.0342025982)100:0.0076646090,xgGibMagu1.1.fa:0.0364273184)100:0.2108465879)100:0.0344248215,xgBioGlab47.1.fa:0.4176551662)100:0.0471303458)100:0.0863328021)100:0.0395372902,((tzBugStol2.1.fa:0.1712868666,tzCryPall5.1.fa:0.1864688171)100:0.0490484493,tzMemMemb1.1.fa:0.1678736157)100:0.5665465933)100:0.0498768536)100:0.0922843461,qqMetBour1.1.fa:0.5428850164)74:0.0609026531,(qxSacCarc1.2.fa:0.7883377000,nxTriColu2.1.fasta:1.2242049661)74:0.1264647218)95:0.0623319652,((qeAllFusc8.1.fasta:0.1424983164,qeDicMinu4.1.fasta:0.1419010959)100:0.1936358421,(qeOrcFlav1.1.fasta:0.1249010511,qeLepCurv1.1.fasta:0.1290855337)100:0.2415578282)100:0.4570279378)100:0.1064925188,izTheDome1.hap1.1.fasta:0.2446924505)93:0.0259471995,(((ieCloDipt1.1.fasta:0.0913090168,ieProBifi2.1.fasta:0.0606751080)100:0.2279869308,(ieSipAlte2.1.fasta:0.1065131636,ieEcdTorr1.1.fasta:0.1214486980)100:0.0873050218)100:0.2417418783,(ioIscEleg1.1.fa:0.0606530121,ioPlaPenn1.1.fa:0.0568632040)100:0.3047068513)93:0.0387482802)100:0.0341949977,((((ipLeuNigr2.1.fa:0.1507822858,(ipNemPict2.1.fa:0.0775439057,ipNemDubi1.1.fa:0.0814736872)100:0.1570713003)100:0.0545924544,ipIsoGram3.1.fa:0.1598395694)100:0.1066403581,ibEctPall1.hap1.1.fasta:0.2059509657)100:0.0318140922,igLabMino1.1.fasta:0.4531432574)100:0.0349902462)100:0.0281348271,(((iuLoeVari1.hap1.1.fasta:0.0716448737,iuPsoGibb1.1.fasta:0.1033489685)100:0.1186706190,iuMesFusc1.1.fasta:0.1814307503)100:0.3361042787,((ihAcaHaem1.1.fa:0.1079847962,ihAelAcum1.1.fa:0.0790498710)100:0.3508113129,ihIcePurc2.1.fa:0.6048131964)100:0.0814775894)100:0.0446140214)100:0.0448132372,((((((icMalBipu1.1.fa:0.3065434229,(((((((icPriAter1.hap1.1.fasta:0.0893584300,icDiaBole1.1.fasta:0.1076907029)100:0.0304017814,icTenMoli1.1.fasta:0.0862379932)100:0.0481509511,icPycFuli2.1.fasta:0.1715249947)100:0.0259952271,(icPyrSerr1.1.fa:0.1449314345,icSalPlan1.1.fasta:0.1894706482)100:0.0266513833)100:0.0157247291,icAnaMacu3.1.fasta:0.2152615378)100:0.0576980881,((((icAspAene1.1.fasta:0.2154282315,((icKykRobo1.hap1.1.fasta:0.1247002619,icPolCerv1.1.fa:0.0946029235)100:0.0306942262,icPlaCyli4.1.fasta:0.3006238730)100:0.0404229855)100:0.0470005343,icApoCory1.1.fa:0.2246126078)100:0.0461194660,((((icLonFlav1.hap1.1.fasta:0.1265364036,(icLocCrat2.1.fasta:0.0210292664,icGalNymp1.1.fasta:0.0237101198)100:0.0976617269)100:0.0655557682,icChrOric1.1.fa:0.1364276632)100:0.0258483764,icBruVari1.hap1.1.fasta:0.1943429655)100:0.0252473771,(icGraRufi3.hap1.1.fasta:0.0422594857,icLepMacu1.1.fa:0.0344626606)100:0.0743241975)100:0.0354539734)100:0.0207941164,((icCryAcut1.1.fasta:0.1913247086,icPedDerm1.1.fasta:0.1715767889)100:0.0338994131,icBraGlab1.1.fasta:0.2158418351)100:0.0158895934)100:0.0404376730)100:0.0150473041,(((((icAdaBipu1.1.fa:0.0766474643,icCocSept1.1.fa:0.0628987559)100:0.0170851122,icHarAxyr1.1.fa:0.0886392142)100:0.0153942978,(icHalSede1.1.fa:0.0500582329,icMyrOcto1.1.fasta:0.0496229050)100:0.0257052137)100:0.1150246131,icCocRufa1.hap1.1.fasta:0.0899412247)100:0.1171194571,icEndCocc1.1.fasta:0.1647523193)100:0.0834787908)79:0.0153391874)100:0.0622448283,((((icOthPunc1.1.fasta:0.1327444445,((icPhiCogn1.1.fa:0.1022122978,icOcyOlen1.1.fa:0.0639441049)100:0.0324619606,icQueLate1.hap1.1.fasta:0.0864909751)100:0.0552003012)100:0.0511401547,((icNicInve2.1.fasta:0.1892922462,icSilAtra2.1.fa:0.1515320645)100:0.0398983231,icScaQuad2.1.fasta:0.2167833267)100:0.0192071715)98:0.0207615610,icSteBima1.1.fasta:0.2373885715)100:0.0761326271,(icAphGran1.1.fasta:0.2027826484,((icAmpSols1.1.fasta:0.0670553472,icMelMelo1.1.fa:0.0657353231)100:0.0440605514,icCetAura1.1.fasta:0.1168304010)100:0.0853394837)100:0.0914448227)100:0.0330535953)100:0.0199995399,((((icCanRust1.1.fa:0.0348799899,(icRhaFulv1.1.fa:0.0511438078,icPodAlpi1.1.fa:0.0365916137)100:0.0106577790)100:0.1661997020,icMalMini1.1.fasta:0.1566178987)100:0.0797575678,(icDalMarg2.1.fasta:0.1067837984,(icLimPone1.hap1.1.fasta:0.0854591684,icAgrMuri1.1.fa:0.1136316182)100:0.0229379098)100:0.0304611762)100:0.0698318443,icAgrCyan1.1.fasta:0.2926059890)100:0.0348183195)100:0.1037319031,((icCarProb1.1.fasta:0.1161665285,((icNebBrev1.1.fa:0.0063407476,icNebSali1.1.fa:0.0067188415)100:0.0576733019,icLeiSpin1.1.fa:0.0644089041)100:0.1003958481)100:0.0248395091,(((icOphArdo1.1.fa:0.0217237470,icHarRubr1.1.fasta:0.0213986500)100:0.0786278041,(icAgoFuli1.1.fasta:0.0723031349,icDroQuad1.1.fasta:0.0904066843)100:0.0163077649)98:0.0092145863,(icPteMadi1.1.fa:0.0625021738,icAbaPara2.1.fasta:0.0644667685)100:0.0140762057)100:0.0766024250)100:0.1430231627)100:0.0695135242,inChrCarn1.1.fa:0.3608922028)100:0.0584202929,(((((((((((((((idPheCory1.1.fa:0.0185255232,idIliLine1.hap1.1.fasta:0.0230964788)100:0.0684228358,((idSicFerr1.1.fa:0.1064826210,idPhyRufi1.1.fasta:0.1448794077)100:0.0143383371,idMyoTess1.2.fasta:0.0961875144)100:0.0302473551)100:0.0284172260,idLycDeci1.1.fasta:0.1034906331)100:0.0319536898,((((idLeuObtu2.1.fasta:0.0618143957,(((idPolAmen1.1.fa:0.0586923352,(((idLypDubi1.1.fasta:0.0603099193,idTacFera2.1.fa:0.0567185148)100:0.0105821364,idEpiSucc1.1.fa:0.0834555663)100:0.0058251353,idGymRotn1.1.fa:0.0648678366)100:0.0102464272)100:0.0069305360,((idProAzur1.1.fa:0.0421667605,(idMelRora1.1.fasta:0.0682138143,idPhyMeln1.1.fa:0.0485292248)100:0.0218384272)100:0.0039629356,(idBelPand1.1.fa:0.0423388060,idStoLuna1.1.fa:0.0517065091)100:0.0067900342)97:0.0032405929)100:0.0141568851,idSarRose1.1.fa:0.0666429525)100:0.0210484219)100:0.0234493557,idHydCyrt1.1.fasta:0.0887184027)100:0.0809772004,idDroImmi1.1.fasta:0.2495683602)100:0.0253306736,(idHetRotu1.1.fasta:0.0901249247,idCluTigr1.1.fa:0.1443244135)100:0.0172295458)100:0.0303206275)100:0.0605638421,idNepScut1.1.fasta:0.1237345514)100:0.0378531403,((((idSphTaen1.1.fa:0.0723128325,idMelCint3.1.fasta:0.0343890846)100:0.0090172899,(idEupCoro1.1.fasta:0.0377987866,idEpiEuco1.1.fasta:0.0346793044)100:0.0102838572)100:0.0323224179,idMelMell2.1.fasta:0.0654731457)100:0.0296143127,((idSyrPipi1.1.fa:0.0712095024,idEriIntr1.1.fasta:0.0958140771)100:0.0175206311,((idCheUrba1.1.fasta:0.0543519410,idFerCupr2.1.fasta:0.0575861053)100:0.0188237073,idChaNemo1.1.fasta:0.0579698504)100:0.0068081153)100:0.0097606093)100:0.0942645245)100:0.1005856203,idEmpSter1.1.fasta:0.2037084712)100:0.0318536973,(idMacAtri3.1.fa:0.0454278221,idPamGerm1.hap1.1.fasta:0.0377887692)100:0.1551785118)98:0.0154618917,(idBomDisc1.1.fa:0.1236653237,idAntAnth1.1.fasta:0.1143207579)100:0.1066598834)100:0.0242431095,(idBerChal2.1.fasta:0.1075863111,(idNemPant2.1.fasta:0.1206653280,idMicPoli1.1.fasta:0.1151750885)100:0.0555621242)100:0.0847872641)96:0.0144884722,(idAthIbis2.2.fasta:0.2502449441,idChrAsil3.1.fasta:0.1868120855)100:0.0269755727)97:0.0237727631,idAcrOrbc1.1.fasta:0.2950128160)100:0.0847916677,idBibMarc1.1.fa:0.2897800970)100:0.0429454463,idNepFlae1.1.fa:0.2967880008)100:0.2303424585,((((((((((ilBisBetu1.1.fa:0.1389831156,(ilThoDeci1.1.fa:0.0342489301,ilHydMica1.1.fa:0.0312347676)100:0.0730642666)71:0.0133900518,(ilDeiPorc1.1.fa:0.1095713994,ilWatBina1.1.fa:0.1117759453)71:0.0136872914)100:0.0151698255,ilAgoAren1.1.fa:0.1035862691)93:0.0075712063,((ilParStra1.1.fa:0.1209748088,ilEmmMono1.1.fa:0.1738313228)99:0.0188516926,((ilPieNapi4.1.fa:0.1378310072,ilParAegt1.1.fa:0.1109569123)100:0.0209329033,ilPyrMalv3.1.fa:0.1180001384)100:0.0286820080)97:0.0096029940)98:0.0086604496,(ilZeuPyri1.1.fa:0.1199245445,ilSesBemb1.1.fa:0.1125974749)100:0.0135880091)98:0.0128279638,ilNotUddm1.1.fa:0.1311085568)100:0.0270640655,ilYpsScab1.1.fa:0.1182547579)100:0.0455470375,ilTinTrin1.1.fa:0.2132912240)100:0.1818421996,ilMicArun2.1.fa:0.2887753469)100:0.0641457042,((((iiLimRhom1.1.fa:0.0083465300,iiLimMarm1.1.fa:0.0068329928)100:0.0026849789,iiLimLuna2.1.fa:0.0119060186)100:0.0023023032,iiGlyPell1.1.fa:0.0090551437)100:0.0026586169,iiLimAuri1.1.fasta:0.0097564295)100:0.2585602083)100:0.1629664430)100:0.0653144957)100:0.0509078294)100:0.2169216889,((((iyGasPulc2.1.fasta:0.0843138404,iyChaSisp2.1.fasta:0.0959338331)100:0.1749604105,((((((((((iyBomHypn1.1.fa:0.0766674890,iyNomFabr1.1.fa:0.0867950614)100:0.0169871676,(iyStePhae1.1.fa:0.0498264710,(iyCoeConi1.1.fasta:0.0327205010,iyMegLign1.1.fasta:0.0267282650)100:0.0328856802)100:0.0386552167)100:0.0154281117,((iySphEphi1.1.fasta:0.0297272187,(iyLasVill1.1.fasta:0.0358472704,iySelTumu1.1.fa:0.0249156691)100:0.0093706308)100:0.0774694737,iyAndDors1.1.fa:0.0832989374)100:0.0139589776)100:0.0078433611,iyMacEuro1.1.fa:0.0791394966)100:0.0324601743,(iyCerRyby1.1.fa:0.1105332199,(iyMimDahl1.1.fa:0.0920497603,iyPemLugu1.1.fasta:0.1062317585)100:0.0117303229)99:0.0073951364)100:0.0166732427,iyNysSpin1.1.fa:0.1156112177)98:0.0083618814,((iyEctCont1.1.fa:0.1155432644,iyTryClav1.1.fasta:0.1210449793)100:0.0487130631,iyAmmPube2.1.fasta:0.1326596780)100:0.0149681531)100:0.0287683655,iyLasBrun3.1.fasta:0.1587956814)100:0.0131313544,(iyTipFemo1.1.fa:0.1555139926,(iyAnoNige1.1.fa:0.0776782987,iyPriPert1.1.fasta:0.0612136406)100:0.0975966309)100:0.0226929120)100:0.0103813368,(iyVesVulg1.1.fa:0.0690755313,iyAncNigr1.1.fa:0.0654328523)100:0.0943828176)100:0.0515602320)99:0.0144069113,((((iyBuaLabo1.1.fa:0.0547107562,((iyVulBima1.1.fasta:0.0201279238,(iyIchXant1.1.fasta:0.0090204951,(iyExeIsch1.1.fasta:0.0076861142,iyAmbArma2.1.fa:0.0107083730)100:0.0034697222)100:0.0081478837)100:0.0143727625,iyApaInim1.hap1.1.fasta:0.0382036261)100:0.0285125684)100:0.0294110136,(((iyEphMani1.1.fasta:0.0178670810,iyDolMeso1.1.fasta:0.0178154814)100:0.0305926528,iyCylCali1.1.fasta:0.0612740954)100:0.0074665369,(iySusPulc1.1.fasta:0.0573008664,iyDipLaet1.1.fasta:0.0694076160)100:0.0325596476)100:0.0323130627)100:0.0118573221,(((iyCamRapt1.1.fasta:0.0764720043,iyOphLute1.1.fa:0.0799781194)100:0.0137759605,iyHetAmic1.1.fasta:0.1004737264)100:0.0300274085,iyDysLute2.1.fasta:0.0697386764)100:0.0209737318)100:0.0688143649,((iyZelAlbi1.1.fasta:0.1307527860,iyMicDepi1.1.fasta:0.1784097023)100:0.0374677215,iyAleSimi1.hap1.1.fasta:0.1573424033)100:0.0616449724)100:0.0519673132)100:0.0215768657,iyCepSpin2.1.fasta:0.1336660187)100:0.0392730168)100:0.0613459080,iyArgPaga1.1.fasta:0.1306990658)100:0.0388764692,((((iyTenMeso1.1.fasta:0.0258220271,iyRhoChlo1.1.fa:0.0263520569)100:0.0127101409,iyMacAlbo1.1.fasta:0.0292989700)100:0.0204160181,iyPhyAter2.1.fasta:0.0605052149)100:0.0222025869,iyAbiCand1.1.fasta:0.0954734692)100:0.0131714754);
+
+ALISIM COMMAND
+--------------
+To simulate an alignment of the same length as the original alignment, using the tree and model parameters estimated from this analysis, you can use the following command:
+
+--alisim simulated_MSA -t trees/run_notpartitioned.treefile -m "Q.insect+I{0.0294703}+R10{0.0914757,0.0350379,0.108833,0.138432,0.13385,0.302802,0.150104,0.535332,0.146151,0.844521,0.121955,1.25311,0.0945178,1.80558,0.0663339,2.55652,0.040503,3.67022,0.0168062,5.69398}" --length 103928
+
+To mimic the alignment used to produce this analysis, i.e. simulate an alignment of the same length as the original alignment, using the tree and model parameters estimated from this analysis *and* copying the same gap positions as the original alignment, you can use the following command:
+
+iqtree -s concatenated_alignment/concatenated_alignment_255busco_432species --alisim mimicked_MSA
+
+To simulate any number of alignments in either of the two commandlines above, use the --num-alignments options, for example mimic 100 alignments you would use the command line:
+
+iqtree -s concatenated_alignment/concatenated_alignment_255busco_432species --alisim mimicked_MSA --num-alignments 100
+
+For more information on using AliSim, please visit: www.iqtree.org/doc/AliSim
+
+TIME STAMP
+----------
+
+Date and time: Tue Sep 30 11:38:05 2025
+Total CPU time used: 2743504.402 seconds (762h:5m:4s)
+Total wall-clock time used: 95536.72631 seconds (26h:32m:16s)
+
