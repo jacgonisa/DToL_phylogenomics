@@ -69,13 +69,15 @@ iqtree \
 
 ```
 
-## Time-calibration & dating (325-species chronogram)
+## Species tree, calibration & plotting (325-species)
 
-Once the ML supermatrix tree is built, it is time-calibrated with `chronos`
-(penalised likelihood) and validated against TimeTree. See
-[`calibration_325sp/`](calibration_325sp/) for the full reproducible pipeline:
-TimeTree constraint retrieval (median / adjusted / range via the TimeTree API),
-the 64-point calibration set (`over_calib.tsv`; rule = TimeTree CI range where
-available, else median ±20%), chronos dating with convergence checking, the
-node-age concordance benchmark, and the supplementary calibration table.
-Calibrated trees are in `calibration_325sp/trees/`.
+See [`01_species_tree/`](01_species_tree/) for the full pipeline downstream of
+proteome annotation:
+- **Tree building** — the 325-species **FastSpeciesTree** (supermatrix, IQ-TREE;
+  BLAST gene selection → MAFFT → IQ-TREE). This supersedes the BUSCO strategy
+  described above.
+- **Time-calibration** — `chronos` (penalised likelihood) with the 64-point
+  calibration set (`over_calib.tsv`; rule = TimeTree CI range where available,
+  else median ±20%), restarts until convergence; TimeTree constraint retrieval
+  via the TimeTree API; node-age concordance benchmark + supplementary table.
+- **Plotting** — annotated fan chronograms (clade + centromere architecture).

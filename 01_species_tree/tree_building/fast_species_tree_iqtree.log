@@ -1,0 +1,955 @@
+
+Fast Species Tree 
+Link:
+V 1.0 (2025)
+Author: Jonathan Holmes
+Please cite: https://www.biorxiv.org/content/10.64898/2026.01.20.700630v1
+
+
+Please cite the tools Fast Species Tree relies on
+---------------------------------------
+DIAMOND:       https://www.nature.com/articles/s41592-021-01101-x
+VeryFastTree:  https://pubmed.ncbi.nlm.nih.gov/32573652/
+BUSCO:         https://pubmed.ncbi.nlm.nih.gov/31020564/.
+IQTREE:        https://pmc.ncbi.nlm.nih.gov/articles/PMC4271533/
+Numpy:         https://pubmed.ncbi.nlm.nih.gov/32939066/
+scikit-learn:  https://pmc.ncbi.nlm.nih.gov/articles/PMC3930868/
+
+Running FastSpeciesTree (mode: SENSITIVE)
+----------------------------------------------
+Input path = /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/
+Output path = /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/fast_species_tree_iqtree
+Running on 32 cores
+2026-04-06 22:04:29.597915
+
+
+Making blast database
+---------------------
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ucPycProv1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/nxTriColu_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfBolQuer_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfChlBrun_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyCerRyby1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyTipFemo1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iuPsoGibb_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/qxSacCarc1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icQueLate_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilAgoAren1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilPyrMalv3_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idBelPand1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ieEcdTorr_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/mCanLor1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icPolCerv1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpJunEffu1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilHydMica1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cbRhyLore1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cbHylTriq_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bAccGen1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icChrOric1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fTauBub2_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilTinTrin1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/tnLinLong1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idAntAnth_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyAmbArma2_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/tzMemMemb1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cbPolSexa_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bTaeGut1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daSheArve1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fToxJac2_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daSamNigr1.1_genomic.fna.F2B.ChrOnlyRenamed_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idEpiSucc1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/jaNemVect1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/mEleMax1_combined_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/paTetJugo1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gyLeoLubr_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daScuGale1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/jrHalOcto1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iiLimMarm1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyVesVulg1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idBibMarc1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bLagMut1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icAgrCyan_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iiLimLuna2_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ihAelAcum1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ddHotPalu_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpCarDepa1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drGeuRiva_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idAthIbis_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cbCalCord2_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daLinVulg1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/grLepFlav_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/wpAliVire1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icNebSali1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpSchTabe_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icCanRust1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpHorVulg1.hap1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dhCorColu_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ioPlaPenn1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyOphLute1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilBisBetu1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icRhaFulv1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drFilUlma1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iiLimAuri_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daBalNigr1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idHydCyrt_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/qeDicMinu_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idSyrPipi1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/kaAplTurb1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drAstGlyc_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icPteMadi1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ddPopNigr_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilEmmMono1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ieCloDipt_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iySelTumu1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dcPolTetr_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ieProBifi_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilPieNapi4_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfClaFumo_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cbIsoPulc3_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyStePhae1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyAncNigr1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xgBioGlab47_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfFlaVelt_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyBuaLabo1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icMalBipu1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bCorHaw1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilNotUddm1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfAgaBisp1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ioIscEleg1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drAilAlti1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icOphArdo1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfRusVesc_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/mRhiSin1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyMimDahl1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpSchLacu1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dcSpeMari_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ipIsoGram3_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fTelBon1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpEleQuin_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fPanHyp1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpTriCesp_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/mOrcOrc1_combined_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fThuMac1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dmBerVulg_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/rVipLat1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fTraTra1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iuLoeVari_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icAgoFuli_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idPamGerm_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/grCorFumo_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyMacEuro1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfGliIrri_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/jaDiaLine6_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpBroSter1.1_helixer_filtered_rename_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyCoeConi_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icOcyOlen1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/jaRicFlor1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ipNemPict2_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilMicArun2_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idNepFlae1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilWatBina1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyMacAlbo_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xbTriGiga4_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drPotAnse1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpLuzPall_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/csSphGirg_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfLacBlen_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfLepSord_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icPhiCogn1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idCluTigr1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/wpLepClav1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/laTriMari_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/eaMarGlac1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cjHerHutc_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bFalPer1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyPriPert_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyLasVill_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idTacFera2_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyAthRosa1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drUrtUren1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daArcMinu1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilDeiPorc1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daSolDulc1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icCetAura_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icNebBrev1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cmLunCruc20.1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpPhrAust1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfGanResi_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/tzCryPall5_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xgGibMagu1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drMedArab1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfAmaRube_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drTriFrag1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfAurGent_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dhQueRobu3_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfPhaAlbo_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fDanRer4_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idMacAtri3_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ddMerAnnu1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyAnoNige1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfTauPull_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idPheCory1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilThoDeci1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyApaInim_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cbRhyConf_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ipLeuNigr2_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icSilAtra2_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fBarBab1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drParJuda1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/igLabMino_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/wcLumRube1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/grSimLame_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idAcrOrbc_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/mDicBic1_combined_29072024_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xgPatPell1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/glFlaMari_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bGalGal1_GRCg7b_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/glEphLana_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icHalSede1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpJunSqua_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fAloSap1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ieSipAlte_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/glRamSili_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xbTriCroc3_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icMelMelo1_combined_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icLeiSpin1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/caAndHook_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfRamCorn_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ddEupPepu3_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/mCerEla1_combined_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpSciSylv_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idStoLuna1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dmAquVulg_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icCocSept1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fThuAlb1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfHerErin_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icLepMacu1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dcPolAvic1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ucDunPrim2_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ipNemDubi1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iuMesFusc_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icApoCory1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpLeeOryz_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fPhoGun1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ddAraThal4_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilParStra1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idMelRora_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ucMarCocc_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idSicFerr1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ldNarOssi_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyPemLugu_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/grTriPseu1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfArmOsto_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lsIriFoet1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyNomFabr1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idGymRotn1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/glLicPygm_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyAndDors1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyRhoChlo1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpPoaChai_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfCorTriu_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bPorHoc1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daLycEuro1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfInoObsi_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyNysSpin1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ihAcaHaem1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/mLemCat1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xbGarTell2_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ihIcePurc2_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfButSuba_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ocSycCili_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpLuzSylv1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpSpaEmer_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cbThuTama2_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/pEimTen1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idPolAmen1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/glUmbDeus_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/qqMetBour1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilYpsScab1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfPleOstr1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilParAegt1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyBomHypn1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iiGlyPell1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icCarProb_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfPorCaly_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icNicInve_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/glClaSqua_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfTriHemi_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilSesBemb1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfAgrPrae_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gzMucPiri1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/glPlaGlau_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfCopMica_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icAdaBipu1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfSpaMino_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/wrPisGeom1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icPyrSerr1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bFalBia1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gpAraPeru_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/pxEimPrae_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bFalChe1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/laLemMinu1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ddCarHirs_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idSphTaen1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drChaAngu1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gdRhiKalk_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icScaQuad_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyVulBima_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyAbiCand_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gzEntParv_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpJunBufo_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/inChrCarn1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icHarAxyr1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ibEctPall_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/qeOrcFlav_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idPhyMeln1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daPulDyse1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/mMelMel3_combined_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/wpSthLimi1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfHygPuni_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xgPhoLine1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpSchTriq_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daMisOron1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drHedHeli1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpCypFusc_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iiLimRhom1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dcMoeTrin_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/tzBugStol2_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gsMetZobe1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dmThaMinu_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpPhlPrat_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfPanStip_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/laPotNata_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ddBarVulg_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfMycGale_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/laAliPlan1.1_helixer_filtered_rename_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpEriAngu_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dhAlnGlut1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xgSteCine2_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xgPatVulg1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idProAzur1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfEntClyp_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilZeuPyri1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xbLimFort5_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpPolViri_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idSarRose1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drMalSylv7_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drMalDome5_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpDigSang_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icPodAlpi1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/qeAllFusc_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ucPseBory_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/laApoDist1.hap1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfLaeSulp1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fAciRut3_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idBomDisc1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icAgrMuri1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dcAreSerp_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drGeuUrba1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpHieOdor1.hap1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyEctCont1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/qeLepCurv_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daTanVulg1_GCA_964264315-chromosomes.fasta.F2B.ChrOnly.renamed_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/rosCan_S27_v1_helixer.pep
+Completed blast database :  /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfVolSurr_helixer.pep
+Made Blast database in: 11.436809062957764s
+
+Running BLAST
+-------------
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/nxTriColu_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ucPycProv1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfChlBrun_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfBolQuer_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/qxSacCarc1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyTipFemo1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iuPsoGibb_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyCerRyby1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilAgoAren1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icQueLate_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ieEcdTorr_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idEpiSucc1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilPyrMalv3_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idBelPand1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilHydMica1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpJunEffu1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idAntAnth_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/mCanLor1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bAccGen1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icPolCerv1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cbRhyLore1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icChrOric1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cbHylTriq_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/tnLinLong1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fTauBub2_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daSheArve1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fToxJac2_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/tzMemMemb1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyAmbArma2_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilTinTrin1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daSamNigr1.1_genomic.fna.F2B.ChrOnlyRenamed_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cbPolSexa_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bTaeGut1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyVesVulg1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/jaNemVect1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/paTetJugo1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gyLeoLubr_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/mEleMax1_combined_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/jrHalOcto1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ihAelAcum1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iiLimMarm1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iiLimLuna2_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daScuGale1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idBibMarc1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idAthIbis_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bLagMut1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpHorVulg1.hap1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ddPopNigr_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daLinVulg1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpCarDepa1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ddHotPalu_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icNebSali1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icAgrCyan_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icCanRust1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drFilUlma1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drGeuRiva_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/wpAliVire1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cbCalCord2_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dhCorColu_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/qeDicMinu_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpSchTabe_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/grLepFlav_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/kaAplTurb1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iiLimAuri_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyOphLute1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daBalNigr1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ioPlaPenn1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idHydCyrt_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icPteMadi1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilBisBetu1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icRhaFulv1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ipIsoGram3_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drAstGlyc_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ieProBifi_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfRusVesc_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idSyrPipi1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfClaFumo_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dcPolTetr_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ieCloDipt_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilEmmMono1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iySelTumu1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilPieNapi4_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cbIsoPulc3_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bCorHaw1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xgBioGlab47_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/rVipLat1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyBuaLabo1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drAilAlti1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyStePhae1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyAncNigr1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpEleQuin_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fTelBon1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icMalBipu1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpSchLacu1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icOphArdo1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/mOrcOrc1_combined_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyMimDahl1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilNotUddm1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfFlaVelt_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfAgaBisp1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dmBerVulg_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fThuMac1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ioIscEleg1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fTraTra1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iuLoeVari_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fPanHyp1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpTriCesp_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dcSpeMari_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/mRhiSin1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ipNemPict2_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icOcyOlen1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xbTriGiga4_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilMicArun2_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpLuzPall_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icAgoFuli_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyMacAlbo_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfGliIrri_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilWatBina1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idPamGerm_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/csSphGirg_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/jaDiaLine6_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpBroSter1.1_helixer_filtered_rename_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/jaRicFlor1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfLacBlen_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyMacEuro1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfLepSord_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idCluTigr1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drPotAnse1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idNepFlae1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icPhiCogn1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyCoeConi_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/grCorFumo_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/wpLepClav1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/caAndHook_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drUrtUren1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daArcMinu1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icCetAura_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilDeiPorc1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cjHerHutc_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idMacAtri3_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyAthRosa1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/eaMarGlac1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xgGibMagu1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyPriPert_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icNebBrev1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/laTriMari_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bFalPer1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idTacFera2_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfGanResi_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyLasVill_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cmLunCruc20.1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpPhrAust1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilThoDeci1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ucMarCocc_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/tzCryPall5_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drMedArab1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ddMerAnnu1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idPheCory1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drTriFrag1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyApaInim_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfAurGent_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daSolDulc1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drParJuda1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/igLabMino_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfAmaRube_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icSilAtra2_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/glRamSili_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fDanRer4_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpJunSqua_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfTauPull_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dhQueRobu3_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fBarBab1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfPhaAlbo_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/wcLumRube1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/mCerEla1_combined_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/mDicBic1_combined_29072024_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xgPatPell1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icLeiSpin1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idAcrOrbc_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cbRhyConf_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fAloSap1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/glFlaMari_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icHalSede1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ipLeuNigr2_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/grSimLame_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfRamCorn_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyAnoNige1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bGalGal1_GRCg7b_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xbTriCroc3_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfHerErin_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fPhoGun1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icMelMelo1_combined_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ieSipAlte_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/glEphLana_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpSciSylv_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dcPolAvic1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idStoLuna1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icCocSept1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpLeeOryz_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icLepMacu1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icApoCory1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fThuAlb1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ucDunPrim2_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ddAraThal4_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iuMesFusc_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilParStra1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idGymRotn1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ddEupPepu3_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idSicFerr1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyPemLugu_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ocSycCili_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ldNarOssi_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lsIriFoet1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/grTriPseu1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ihAcaHaem1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ipNemDubi1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfArmOsto_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/mLemCat1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyAndDors1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpPoaChai_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfCorTriu_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daLycEuro1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/glLicPygm_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyNomFabr1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpLuzSylv1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xbGarTell2_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dmAquVulg_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idMelRora_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfInoObsi_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bPorHoc1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/pEimTen1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ihIcePurc2_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/cbThuTama2_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpSpaEmer_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyNysSpin1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idPolAmen1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfButSuba_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilYpsScab1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iiGlyPell1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfPleOstr1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyRhoChlo1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilParAegt1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/qqMetBour1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfPorCaly_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icCarProb_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/glUmbDeus_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/wrPisGeom1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bFalBia1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icNicInve_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfTriHemi_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyBomHypn1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfCopMica_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfSpaMino_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/glClaSqua_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilSesBemb1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/glPlaGlau_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icAdaBipu1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/bFalChe1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ddCarHirs_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/pxEimPrae_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gzMucPiri1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icPyrSerr1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gdRhiKalk_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/laLemMinu1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfAgrPrae_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gpAraPeru_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idSphTaen1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/wpSthLimi1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icHarAxyr1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drChaAngu1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icScaQuad_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ibEctPall_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/qeOrcFlav_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyAbiCand_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/mMelMel3_combined_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gzEntParv_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daMisOron1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drMalDome5_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daPulDyse1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyVulBima_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xgPhoLine1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iiLimRhom1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/inChrCarn1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpSchTriq_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idPhyMeln1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpJunBufo_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfHygPuni_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpCypFusc_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drHedHeli1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dmThaMinu_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idProAzur1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpPhlPrat_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/tzBugStol2_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfPanStip_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dcMoeTrin_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xgSteCine2_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpPolViri_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gsMetZobe1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfMycGale_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ddBarVulg_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpEriAngu_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dhAlnGlut1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xgPatVulg1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/laPotNata_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/xbLimFort5_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ilZeuPyri1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/laAliPlan1.1_helixer_filtered_rename_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfEntClyp_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idSarRose1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpDigSang_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/ucPseBory_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/qeAllFusc_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drMalSylv7_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icPodAlpi1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/laApoDist1.hap1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/icAgrMuri1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/fAciRut3_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfLaeSulp1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/idBomDisc1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/dcAreSerp_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/lpHieOdor1.hap1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/drGeuUrba1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/qeLepCurv_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/iyEctCont1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/daTanVulg1_GCA_964264315-chromosomes.fasta.F2B.ChrOnly.renamed_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/rosCan_S27_v1_helixer.pep
+Completed blast for: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/all_proteomes/gfVolSurr_helixer.pep
+
+
+BLAST will be sent to: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/fast_species_tree_iqtree/Results/BLAST_hit_matrix.csv
+Completed Blast in: 56.83122229576111s
+
+Selecting Genes
+---------------
+For n_clusters =2 the average silhouette_score is :0.4462306190174517
+For n_clusters =3 the average silhouette_score is :0.23816324618292795
+For n_clusters =4 the average silhouette_score is :0.19465334078563462
+For n_clusters =5 the average silhouette_score is :0.11770807997301612
+For n_clusters =6 the average silhouette_score is :0.10718421005153438
+For n_clusters =7 the average silhouette_score is :0.08842500410241023
+For n_clusters =8 the average silhouette_score is :0.08273908174455888
+For n_clusters =9 the average silhouette_score is :0.0953115968001041
+For n_clusters =10 the average silhouette_score is :0.07164498530630864
+For n_clusters =11 the average silhouette_score is :0.06518938230345006
+For n_clusters =12 the average silhouette_score is :0.0732744224461371
+For n_clusters =12 the average silhouette_score is :0.0732744224461371
+For n_clusters =13 the average silhouette_score is :0.0671876679187131
+For n_clusters =14 the average silhouette_score is :0.06814998803001224
+For n_clusters =15 the average silhouette_score is :0.06718686799052763
+For n_clusters =16 the average silhouette_score is :0.07615304859696832
+For n_clusters =17 the average silhouette_score is :0.07029762756160869
+For n_clusters =18 the average silhouette_score is :0.06579574352994118
+For n_clusters =19 the average silhouette_score is :0.061428431187432346
+For n_clusters =20 the average silhouette_score is :0.061615112667895586
+identified: 2 clusters
+Cluster: 0
+gfHerErin_helixer.pep,kaAplTurb1_helixer.pep,icPyrSerr1_helixer.pep,laApoDist1.hap1_helixer.pep,mDicBic1_combined_29072024_helixer.pep,idMelRora_helixer.pep,bGalGal1_GRCg7b_helixer.pep,tzMemMemb1_helixer.pep,grTriPseu1_helixer.pep,gfFlaVelt_helixer.pep,cjHerHutc_helixer.pep,idBelPand1_helixer.pep,daLycEuro1_helixer.pep,ioIscEleg1_helixer.pep,ilParAegt1_helixer.pep,idSyrPipi1_helixer.pep,iyOphLute1_helixer.pep,igLabMino_helixer.pep,csSphGirg_helixer.pep,drMalDome5_helixer.pep,glClaSqua_helixer.pep,gfAmaRube_helixer.pep,idAthIbis_helixer.pep,gfLaeSulp1_helixer.pep,dmAquVulg_helixer.pep,idPamGerm_helixer.pep,qeAllFusc_helixer.pep,bTaeGut1_helixer.pep,iyVesVulg1_helixer.pep,icQueLate_helixer.pep,iyAndDors1_helixer.pep,lpCarDepa1_helixer.pep,icHalSede1_helixer.pep,gzEntParv_helixer.pep,lpJunSqua_helixer.pep,fTraTra1_helixer.pep,gfTriHemi_helixer.pep,gfPanStip_helixer.pep,iyAncNigr1_helixer.pep,cbThuTama2_helixer.pep,iyRhoChlo1_helixer.pep,glLicPygm_helixer.pep,iyAnoNige1_helixer.pep,dcPolTetr_helixer.pep,ieProBifi_helixer.pep,iyPemLugu_helixer.pep,lpTriCesp_helixer.pep,ihAcaHaem1_helixer.pep,jrHalOcto1_helixer.pep,ilParStra1_helixer.pep,ilZeuPyri1_helixer.pep,iiLimLuna2_helixer.pep,lpPhrAust1_helixer.pep,cbCalCord2_helixer.pep,icHarAxyr1_helixer.pep,idGymRotn1_helixer.pep,ieSipAlte_helixer.pep,idPolAmen1_helixer.pep,gfRamCorn_helixer.pep,inChrCarn1_helixer.pep,cbPolSexa_helixer.pep,mLemCat1_helixer.pep,daLinVulg1_helixer.pep,icOphArdo1_helixer.pep,jaNemVect1_helixer.pep,daBalNigr1_helixer.pep,bLagMut1_helixer.pep,cmLunCruc20.1_helixer.pep,ipLeuNigr2_helixer.pep,iyCoeConi_helixer.pep,lpEriAngu_helixer.pep,lpEleQuin_helixer.pep,idTacFera2_helixer.pep,icPteMadi1_helixer.pep,daSolDulc1_helixer.pep,ddAraThal4_helixer.pep,lpHieOdor1.hap1_helixer.pep,caAndHook_helixer.pep,idMacAtri3_helixer.pep,glRamSili_helixer.pep,mRhiSin1_helixer.pep,lpLuzPall_helixer.pep,laTriMari_helixer.pep,lpSchTabe_helixer.pep,ipNemPict2_helixer.pep,ddHotPalu_helixer.pep,gfAgaBisp1_helixer.pep,icMelMelo1_combined_helixer.pep,lpSpaEmer_helixer.pep,bAccGen1_helixer.pep,fAciRut3_helixer.pep,icNebBrev1_helixer.pep,lpSchLacu1_helixer.pep,gfAgrPrae_helixer.pep,mMelMel3_combined_helixer.pep,dmBerVulg_helixer.pep,icAgrMuri1_helixer.pep,drGeuUrba1_helixer.pep,bCorHaw1_helixer.pep,icPodAlpi1_helixer.pep,xbTriGiga4_helixer.pep,icAgoFuli_helixer.pep,ieEcdTorr_helixer.pep,ilNotUddm1_helixer.pep,lpCypFusc_helixer.pep,idBomDisc1_helixer.pep,ilTinTrin1_helixer.pep,grLepFlav_helixer.pep,iyBomHypn1_helixer.pep,iyMacEuro1_helixer.pep,iyStePhae1_helixer.pep,ilPyrMalv3_helixer.pep,qqMetBour1_helixer.pep,glPlaGlau_helixer.pep,lpSciSylv_helixer.pep,idNepFlae1_helixer.pep,gfInoObsi_helixer.pep,dhAlnGlut1_helixer.pep,grCorFumo_helixer.pep,cbRhyConf_helixer.pep,dmThaMinu_helixer.pep,iyApaInim_helixer.pep,gfAurGent_helixer.pep,iyMimDahl1_helixer.pep,gfPorCaly_helixer.pep,gfGanResi_helixer.pep,lpJunBufo_helixer.pep,bFalPer1_helixer.pep,gfPhaAlbo_helixer.pep,cbHylTriq_helixer.pep,ilYpsScab1_helixer.pep,icNebSali1_helixer.pep,paTetJugo1_helixer.pep,iuMesFusc_helixer.pep,gfBolQuer_helixer.pep,icCocSept1_helixer.pep,drAstGlyc_helixer.pep,daPulDyse1_helixer.pep,glUmbDeus_helixer.pep,iyLasVill_helixer.pep,drMedArab1_helixer.pep,iyMacAlbo_helixer.pep,gfSpaMino_helixer.pep,wpAliVire1_helixer.pep,idStoLuna1_helixer.pep,drPotAnse1_helixer.pep,iyVulBima_helixer.pep,ldNarOssi_helixer.pep,iyPriPert_helixer.pep,icSilAtra2_helixer.pep,gzMucPiri1_helixer.pep,xbTriCroc3_helixer.pep,gpAraPeru_helixer.pep,icLeiSpin1_helixer.pep,lpBroSter1.1_helixer_filtered_rename_helixer.pep,gfEntClyp_helixer.pep,ilPieNapi4_helixer.pep,iyBuaLabo1_helixer.pep,lpSchTriq_helixer.pep,dcSpeMari_helixer.pep,dhQueRobu3_helixer.pep,ihIcePurc2_helixer.pep,lpDigSang_helixer.pep,qxSacCarc1_helixer.pep,rosCan_S27_v1_helixer.pep,laAliPlan1.1_helixer_filtered_rename_helixer.pep,fTauBub2_helixer.pep,qeOrcFlav_helixer.pep,ieCloDipt_helixer.pep,mOrcOrc1_combined_helixer.pep,mCanLor1_helixer.pep,lpLeeOryz_helixer.pep,iyAbiCand_helixer.pep,gdRhiKalk_helixer.pep,ddEupPepu3_helixer.pep,idPhyMeln1_helixer.pep,laPotNata_helixer.pep,gfChlBrun_helixer.pep,ilEmmMono1_helixer.pep,cbRhyLore1_helixer.pep,grSimLame_helixer.pep,iyNysSpin1_helixer.pep,iiLimMarm1_helixer.pep,icPolCerv1_helixer.pep,daArcMinu1_helixer.pep,icOcyOlen1_helixer.pep,iuLoeVari_helixer.pep,ibEctPall_helixer.pep,gfCopMica_helixer.pep,xgPatPell1_helixer.pep,idBibMarc1_helixer.pep,icAgrCyan_helixer.pep,icAdaBipu1_helixer.pep,daScuGale1_helixer.pep,ipIsoGram3_helixer.pep,bFalBia1_helixer.pep,dcMoeTrin_helixer.pep,iiLimAuri_helixer.pep,ioPlaPenn1_helixer.pep,ilHydMica1_helixer.pep,lsIriFoet1_helixer.pep,bPorHoc1_helixer.pep,jaDiaLine6_helixer.pep,iiGlyPell1_helixer.pep,gfCorTriu_helixer.pep,drParJuda1_helixer.pep,iuPsoGibb_helixer.pep,gsMetZobe1_helixer.pep,drUrtUren1_helixer.pep,daMisOron1_helixer.pep,glFlaMari_helixer.pep,jaRicFlor1_helixer.pep,fTelBon1_helixer.pep,idAntAnth_helixer.pep,icCanRust1_helixer.pep,ddMerAnnu1_helixer.pep,iyCerRyby1_helixer.pep,gfLepSord_helixer.pep,ihAelAcum1_helixer.pep,icMalBipu1_helixer.pep,iySelTumu1_helixer.pep,idPheCory1_helixer.pep,idCluTigr1_helixer.pep,gfHygPuni_helixer.pep,idSicFerr1_helixer.pep,icCetAura_helixer.pep,ucMarCocc_helixer.pep,idSphTaen1_helixer.pep,daSheArve1_helixer.pep,icCarProb_helixer.pep,xgGibMagu1_helixer.pep,lpPhlPrat_helixer.pep,icRhaFulv1_helixer.pep,fBarBab1_helixer.pep,bFalChe1_helixer.pep,ilBisBetu1_helixer.pep,wpSthLimi1_helixer.pep,daTanVulg1_GCA_964264315-chromosomes.fasta.F2B.ChrOnly.renamed_helixer.pep,dcAreSerp_helixer.pep,drFilUlma1_helixer.pep,gfVolSurr_helixer.pep,xgSteCine2_helixer.pep,gfRusVesc_helixer.pep,fPhoGun1_helixer.pep,ilWatBina1_helixer.pep,qeLepCurv_helixer.pep,gfGliIrri_helixer.pep,idEpiSucc1_helixer.pep,gfTauPull_helixer.pep,qeDicMinu_helixer.pep,icChrOric1_helixer.pep,gyLeoLubr_helixer.pep,lpPoaChai_helixer.pep,idHydCyrt_helixer.pep,fPanHyp1_helixer.pep,drAilAlti1_helixer.pep,glEphLana_helixer.pep,gfButSuba_helixer.pep,xbGarTell2_helixer.pep,iyEctCont1_helixer.pep,gfClaFumo_helixer.pep,drHedHeli1_helixer.pep,ilMicArun2_helixer.pep,icPhiCogn1_helixer.pep,wpLepClav1_helixer.pep,gfLacBlen_helixer.pep,laLemMinu1_helixer.pep,drMalSylv7_helixer.pep,xgPhoLine1_helixer.pep,fToxJac2_helixer.pep,drChaAngu1_helixer.pep,iyNomFabr1_helixer.pep,lpLuzSylv1_helixer.pep,iyAmbArma2_helixer.pep,fDanRer4_helixer.pep,icNicInve_helixer.pep,xgBioGlab47_helixer.pep,xbLimFort5_helixer.pep,idAcrOrbc_helixer.pep,ilThoDeci1_helixer.pep,lpPolViri_helixer.pep,ilSesBemb1_helixer.pep,tnLinLong1_helixer.pep,eaMarGlac1_helixer.pep,ocSycCili_helixer.pep,dcPolAvic1_helixer.pep,idProAzur1_helixer.pep,lpJunEffu1_helixer.pep,xgPatVulg1_helixer.pep,mCerEla1_combined_helixer.pep,fAloSap1_helixer.pep,ddCarHirs_helixer.pep,ipNemDubi1_helixer.pep,wcLumRube1_helixer.pep,iiLimRhom1_helixer.pep,dhCorColu_helixer.pep,iyTipFemo1_helixer.pep,icLepMacu1_helixer.pep,fThuAlb1_helixer.pep,tzCryPall5_helixer.pep,cbIsoPulc3_helixer.pep,ddPopNigr_helixer.pep,idSarRose1_helixer.pep,mEleMax1_combined_helixer.pep,daSamNigr1.1_genomic.fna.F2B.ChrOnlyRenamed_helixer.pep,icApoCory1_helixer.pep,rVipLat1_helixer.pep,fThuMac1_helixer.pep,tzBugStol2_helixer.pep,ddBarVulg_helixer.pep,lpHorVulg1.hap1_helixer.pep,ilDeiPorc1_helixer.pep,ilAgoAren1_helixer.pep,drTriFrag1_helixer.pep,iyAthRosa1_helixer.pep,gfPleOstr1_helixer.pep
+Cluster: 1
+ucPycProv1_helixer.pep,pEimTen1_helixer.pep,wrPisGeom1_helixer.pep,nxTriColu_helixer.pep,icScaQuad_helixer.pep,ucPseBory_helixer.pep,pxEimPrae_helixer.pep,drGeuRiva_helixer.pep,gfMycGale_helixer.pep,ucDunPrim2_helixer.pep,gfArmOsto_helixer.pep
+
+194 genes used
+
+Genes selected:
+---------------
+1001705at2759	WD40 repeat	https://v10-1.orthodb.org/?query=1001705at2759
+100698at2759	Helicase, C-terminal	https://v10-1.orthodb.org/?query=100698at2759
+1010730at2759	Winged helix-like DNA-binding domain superfamily	https://v10-1.orthodb.org/?query=1010730at2759
+1019762at2759	Signal recognition particle subunit SRP68	https://v10-1.orthodb.org/?query=1019762at2759
+1030907at2759	Golgi to ER traffic protein 4	https://v10-1.orthodb.org/?query=1030907at2759
+1032689at2759	tRNA (1-methyladenosine) methyltransferase catalytic subunit Gcd14	https://v10-1.orthodb.org/?query=1032689at2759
+1038775at2759	Eukaryotic translation initiation factor 3 subunit F	https://v10-1.orthodb.org/?query=1038775at2759
+1041560at2759	Mitochondrial import inner membrane translocase subunit TIM44	https://v10-1.orthodb.org/?query=1041560at2759
+1051021at2759	ALG11 mannosyltransferase	https://v10-1.orthodb.org/?query=1051021at2759
+1057950at2759	MEMO1 family	https://v10-1.orthodb.org/?query=1057950at2759
+1065019at2759	Diphosphomevalonate decarboxylase	https://v10-1.orthodb.org/?query=1065019at2759
+1076134at2759	F-actin-capping protein subunit alpha/beta	https://v10-1.orthodb.org/?query=1076134at2759
+1079130at2759	Glycosyl transferase, family 4	https://v10-1.orthodb.org/?query=1079130at2759
+1079827at2759	Ribosomal biogenesis NSA2 family	https://v10-1.orthodb.org/?query=1079827at2759
+1085752at2759	Atg6/Beclin	https://v10-1.orthodb.org/?query=1085752at2759
+1087488at2759	CTLH, C-terminal LisH motif	https://v10-1.orthodb.org/?query=1087488at2759
+1094121at2759	ESCRT-II complex, Vps25 subunit	https://v10-1.orthodb.org/?query=1094121at2759
+1096688at2759	GPN-loop GTPase	https://v10-1.orthodb.org/?query=1096688at2759
+1106766at2759	Nuclear pore localisation protein NPL4, C-terminal	https://v10-1.orthodb.org/?query=1106766at2759
+1108845at2759	COP9 signalosome complex subunit 2	https://v10-1.orthodb.org/?query=1108845at2759
+1111142at2759	Transcription factor IIIC subunit 5, HTH domain	https://v10-1.orthodb.org/?query=1111142at2759
+1128607at2759	Electron transfer flavoprotein, alpha subunit, C-terminal	https://v10-1.orthodb.org/?query=1128607at2759
+1138059at2759	Methyltransferase type 11	https://v10-1.orthodb.org/?query=1138059at2759
+1157302at2759	Eukaryotic translation initiation factor 6	https://v10-1.orthodb.org/?query=1157302at2759
+1161199at2759	Coatomer subunit epsilon	https://v10-1.orthodb.org/?query=1161199at2759
+1182451at2759	SNARE	https://v10-1.orthodb.org/?query=1182451at2759
+1193442at2759	Bystin	https://v10-1.orthodb.org/?query=1193442at2759
+1194691at2759	26S Proteasome non-ATPase regulatory subunit 6	https://v10-1.orthodb.org/?query=1194691at2759
+1194797at2759	Eukaryotic translation initiation factor 3 subunit B	https://v10-1.orthodb.org/?query=1194797at2759
+1197019at2759	HORMA domain	https://v10-1.orthodb.org/?query=1197019at2759
+1200489at2759	Exosome complex component CSL4, C-terminal	https://v10-1.orthodb.org/?query=1200489at2759
+1220881at2759	TFIIH subunit Tfb4/GTF2H3	https://v10-1.orthodb.org/?query=1220881at2759
+1222562at2759	Ribosome biogenesis protein	https://v10-1.orthodb.org/?query=1222562at2759
+1228942at2759	Proteasome subunit beta	https://v10-1.orthodb.org/?query=1228942at2759
+1233814at2759	Vacuolar protein sorting-associated protein 29	https://v10-1.orthodb.org/?query=1233814at2759
+1236198at2759	G10 protein	https://v10-1.orthodb.org/?query=1236198at2759
+1247641at2759	N-acetylglucosaminyl transferase component	https://v10-1.orthodb.org/?query=1247641at2759
+1248958at2759	Exportin-2, central domain	https://v10-1.orthodb.org/?query=1248958at2759
+1249159at2759	GINS complex, subunit Psf1	https://v10-1.orthodb.org/?query=1249159at2759
+1251252at2759	Mediator complex, subunit Med6	https://v10-1.orthodb.org/?query=1251252at2759
+1257440at2759	PUA domain	https://v10-1.orthodb.org/?query=1257440at2759
+1258856at2759	Vps16, C-terminal	https://v10-1.orthodb.org/?query=1258856at2759
+1259741at2759	GPI-anchor transamidase	https://v10-1.orthodb.org/?query=1259741at2759
+1260807at2759	Protohaem IX farnesyltransferase	https://v10-1.orthodb.org/?query=1260807at2759
+1264469at2759	Ubiquinone biosynthesis protein Coq4	https://v10-1.orthodb.org/?query=1264469at2759
+1266231at2759	Ribosomal biogenesis, methyltransferase, EMG1/NEP1	https://v10-1.orthodb.org/?query=1266231at2759
+1269244at2759	RWD domain	https://v10-1.orthodb.org/?query=1269244at2759
+1269649at2759	K Homology domain	https://v10-1.orthodb.org/?query=1269649at2759
+1275837at2759	26S Proteasome non-ATPase regulatory subunit 7/8	https://v10-1.orthodb.org/?query=1275837at2759
+1287094at2759	Snf7 family	https://v10-1.orthodb.org/?query=1287094at2759
+1287401at2759	Cytochrome c oxidase assembly protein CtaG/Cox11	https://v10-1.orthodb.org/?query=1287401at2759
+1304061at2759	RNA polymerase II subunit A	https://v10-1.orthodb.org/?query=1304061at2759
+1309031at2759	CDC45 family	https://v10-1.orthodb.org/?query=1309031at2759
+1312453at2759	WD40-repeat-containing domain	https://v10-1.orthodb.org/?query=1312453at2759
+1314980at2759	Cleavage and polyadenylation specificity factor subunit 2	https://v10-1.orthodb.org/?query=1314980at2759
+1322299at2759	U4/U6 small nuclear ribonucleoprotein Prp3	https://v10-1.orthodb.org/?query=1322299at2759
+1322642at2759	Endonuclease III homolog	https://v10-1.orthodb.org/?query=1322642at2759
+1323575at2759	GNAT domain	https://v10-1.orthodb.org/?query=1323575at2759
+1324510at2759	NADPH	https://v10-1.orthodb.org/?query=1324510at2759
+1342242at2759	Aminomethyltransferase, folate-binding domain	https://v10-1.orthodb.org/?query=1342242at2759
+1346165at2759	DNA primase, small subunit	https://v10-1.orthodb.org/?query=1346165at2759
+1346432at2759	U3 small nucleolar RNA-associated protein 11	https://v10-1.orthodb.org/?query=1346432at2759
+1348942at2759	TAP46-like protein	https://v10-1.orthodb.org/?query=1348942at2759
+1358374at2759	Zinc finger, CCCH-type	https://v10-1.orthodb.org/?query=1358374at2759
+1370285at2759	Conserved oligomeric Golgi complex subunit 6	https://v10-1.orthodb.org/?query=1370285at2759
+1370304at2759	-alpha-acetyltransferase 35, NatC auxiliary subunit	https://v10-1.orthodb.org/?query=1370304at2759
+1377237at2759	TIP41-like protein	https://v10-1.orthodb.org/?query=1377237at2759
+1379600at2759	Vps53-like, N-terminal	https://v10-1.orthodb.org/?query=1379600at2759
+1380409at2759	NFACT, RNA-binding domain	https://v10-1.orthodb.org/?query=1380409at2759
+1382842at2759	DNA replication complex GINS protein PSF2	https://v10-1.orthodb.org/?query=1382842at2759
+1404162at2759	Origin recognition complex, subunit 2	https://v10-1.orthodb.org/?query=1404162at2759
+1405073at2759	PUA domain	https://v10-1.orthodb.org/?query=1405073at2759
+1405146at2759	26S Proteasome non-ATPase regulatory subunit 9	https://v10-1.orthodb.org/?query=1405146at2759
+1423847at2759	RNA 3'-terminal phosphate cyclase domain	https://v10-1.orthodb.org/?query=1423847at2759
+142542at2759	Transcription initiation factor TFIID subunit 2	https://v10-1.orthodb.org/?query=142542at2759
+1426075at2759	Trafficking protein particle complex subunit 2	https://v10-1.orthodb.org/?query=1426075at2759
+1430056at2759	RNA polymerase Rpb7-like , N-terminal	https://v10-1.orthodb.org/?query=1430056at2759
+1432328at2759	Autophagy-related protein 3	https://v10-1.orthodb.org/?query=1432328at2759
+1441854at2759	Deoxyhypusine hydroxylase	https://v10-1.orthodb.org/?query=1441854at2759
+1450538at2759	Vta1, C-terminal	https://v10-1.orthodb.org/?query=1450538at2759
+1454155at2759	Cdk-activating kinase assembly factor MAT1, centre	https://v10-1.orthodb.org/?query=1454155at2759
+1455730at2759	SKI-interacting protein, SKIP	https://v10-1.orthodb.org/?query=1455730at2759
+1479417at2759	SF3B4, RNA recognition motif 1	https://v10-1.orthodb.org/?query=1479417at2759
+1488235at2759	Adenylate kinase isoenzyme 6	https://v10-1.orthodb.org/?query=1488235at2759
+1490022at2759	SUI1 domain	https://v10-1.orthodb.org/?query=1490022at2759
+1504863at2759	Trafficking protein particle complex subunit	https://v10-1.orthodb.org/?query=1504863at2759
+1513531at2759	Pre-mRNA-splicing factor Isy1	https://v10-1.orthodb.org/?query=1513531at2759
+1525971at2759	Ubiquitin-like protein ATG12	https://v10-1.orthodb.org/?query=1525971at2759
+1530008at2759	H/ACA ribonucleoprotein complex subunit	https://v10-1.orthodb.org/?query=1530008at2759
+1538526at2759	Ribosomal protein L7Ae/L30e/S12e/Gadd45	https://v10-1.orthodb.org/?query=1538526at2759
+1545004at2759	LSM domain, eukaryotic/archaea-type	https://v10-1.orthodb.org/?query=1545004at2759
+1552706at2759	Signal recognition particle, SRP19 subunit	https://v10-1.orthodb.org/?query=1552706at2759
+1558822at2759	LSM domain, eukaryotic/archaea-type	https://v10-1.orthodb.org/?query=1558822at2759
+156083at2759	Pre-mRNA-processing-splicing factor 8	https://v10-1.orthodb.org/?query=156083at2759
+1563319at2759	NADH:ubiquinone oxidoreductase intermediate-associated protein 30	https://v10-1.orthodb.org/?query=1563319at2759
+1567796at2759	Prefoldin	https://v10-1.orthodb.org/?query=1567796at2759
+1576404at2759	Pre-mRNA-splicing factor  Cwf15/Cwc15	https://v10-1.orthodb.org/?query=1576404at2759
+1588798at2759	Anamorsin	https://v10-1.orthodb.org/?query=1588798at2759
+160593at2759	Translational activator Gcn1	https://v10-1.orthodb.org/?query=160593at2759
+1623701at2759	TMEM85/ER membrane protein complex subunit 4	https://v10-1.orthodb.org/?query=1623701at2759
+1626636at2759	Zinc finger, double-stranded RNA binding	https://v10-1.orthodb.org/?query=1626636at2759
+1633672at2759	LSM domain, eukaryotic/archaea-type	https://v10-1.orthodb.org/?query=1633672at2759
+1645187at2759	PDCD5-like	https://v10-1.orthodb.org/?query=1645187at2759
+166920at2759	Condensin complex subunit 1	https://v10-1.orthodb.org/?query=166920at2759
+176625at2759	Nrap protein, domain 3	https://v10-1.orthodb.org/?query=176625at2759
+179362at2759	Rad50/SbcC-type AAA domain	https://v10-1.orthodb.org/?query=179362at2759
+245208at2759	Splicing factor 3B subunit 1	https://v10-1.orthodb.org/?query=245208at2759
+257318at2759	digestive organ expansion factor homolog	https://v10-1.orthodb.org/?query=257318at2759
+261419at2759	Ribosome control protein 1	https://v10-1.orthodb.org/?query=261419at2759
+270107at2759	GPI ethanolamine phosphate transferase 1	https://v10-1.orthodb.org/?query=270107at2759
+271586at2759	Tetratricopeptide repeat	https://v10-1.orthodb.org/?query=271586at2759
+290630at2759	WD40 repeat	https://v10-1.orthodb.org/?query=290630at2759
+293315at2759	DNA polymerase	https://v10-1.orthodb.org/?query=293315at2759
+296129at2759	RNA cytidine acetyltransferase	https://v10-1.orthodb.org/?query=296129at2759
+299766at2759	DNA polymerase, Y-family, little finger domain	https://v10-1.orthodb.org/?query=299766at2759
+306227at2759	Vacuole morphology and inheritance protein 14	https://v10-1.orthodb.org/?query=306227at2759
+324863at2759	RuvA domain 2-like	https://v10-1.orthodb.org/?query=324863at2759
+331411at2759	Tetratricopeptide-like helical domain superfamily	https://v10-1.orthodb.org/?query=331411at2759
+341721at2759	Nucleolar complex-associated protein 3	https://v10-1.orthodb.org/?query=341721at2759
+345441at2759	Phosphoacetylglucosamine mutase	https://v10-1.orthodb.org/?query=345441at2759
+355408at2759	Tetratricopeptide repeat-containing domain	https://v10-1.orthodb.org/?query=355408at2759
+369837at2759	Translation initiation factor eIF-2B subunit epsilon	https://v10-1.orthodb.org/?query=369837at2759
+375960at2759	DNA polymerase epsilon subunit	https://v10-1.orthodb.org/?query=375960at2759
+383503at2759	Splicing factor 3A subunit 3	https://v10-1.orthodb.org/?query=383503at2759
+390348at2759	Pyridoxal phosphate-dependent transferase	https://v10-1.orthodb.org/?query=390348at2759
+39650at2759	DNA polymerase epsilon catalytic subunit	https://v10-1.orthodb.org/?query=39650at2759
+396755at2759	Tetratricopeptide repeat	https://v10-1.orthodb.org/?query=396755at2759
+426305at2759	Sda1	https://v10-1.orthodb.org/?query=426305at2759
+453044at2759	Zinc finger, ZPR1-type	https://v10-1.orthodb.org/?query=453044at2759
+464990at2759	Eukaryotic translation initiation factor 2A	https://v10-1.orthodb.org/?query=464990at2759
+491869at2759	Protein arginine methyltransferase NDUFAF7	https://v10-1.orthodb.org/?query=491869at2759
+513979at2759	DNA polymerase alpha subunit B	https://v10-1.orthodb.org/?query=513979at2759
+543764at2759	tRNA (adenine(58)-N(1))-methyltransferase non-catalytic subunit TRM6	https://v10-1.orthodb.org/?query=543764at2759
+549762at2759	Ubiquitin-like modifier-activating enzyme Atg7	https://v10-1.orthodb.org/?query=549762at2759
+551907at2759	CCAAT-binding factor	https://v10-1.orthodb.org/?query=551907at2759
+570797at2759	Winged helix-like DNA-binding domain superfamily	https://v10-1.orthodb.org/?query=570797at2759
+582756at2759	RFT1	https://v10-1.orthodb.org/?query=582756at2759
+598949at2759	AP-3 complex subunit delta	https://v10-1.orthodb.org/?query=598949at2759
+604979at2759	WD40-repeat-containing domain	https://v10-1.orthodb.org/?query=604979at2759
+625387at2759	TRAPP III complex, Trs85	https://v10-1.orthodb.org/?query=625387at2759
+655400at2759	Ubiquinone biosynthesis monooxygenase COQ6	https://v10-1.orthodb.org/?query=655400at2759
+664730at2759	Pyridoxal phosphate-dependent transferase	https://v10-1.orthodb.org/?query=664730at2759
+671536at2759	Tetratricopeptide repeat	https://v10-1.orthodb.org/?query=671536at2759
+671846at2759	Nuclear pore protein 84/107	https://v10-1.orthodb.org/?query=671846at2759
+673132at2759	Aminomethyltransferase	https://v10-1.orthodb.org/?query=673132at2759
+674160at2759	Armadillo-type fold	https://v10-1.orthodb.org/?query=674160at2759
+674169at2759	P-loop containing nucleoside triphosphate hydrolase	https://v10-1.orthodb.org/?query=674169at2759
+679187at2759	Gamma-tubulin complex component	https://v10-1.orthodb.org/?query=679187at2759
+692986at2759	Conserved oligomeric Golgi complex, subunit 3	https://v10-1.orthodb.org/?query=692986at2759
+708105at2759	Histone acetyltransferase type B catalytic subunit	https://v10-1.orthodb.org/?query=708105at2759
+719531at2759	PIGA, GPI anchor biosynthesis	https://v10-1.orthodb.org/?query=719531at2759
+720340at2759	Cell division control protein 73, C-terminal	https://v10-1.orthodb.org/?query=720340at2759
+721605at2759	NAD(P)-binding domain	https://v10-1.orthodb.org/?query=721605at2759
+722805at2759	WD40/YVTN repeat-like-containing domain superfamily	https://v10-1.orthodb.org/?query=722805at2759
+734666at2759	60S ribosomal export protein NMD3	https://v10-1.orthodb.org/?query=734666at2759
+736068at2759	DNA polymerase alpha/delta/epsilon, subunit B	https://v10-1.orthodb.org/?query=736068at2759
+751335at2759	ATPase, V1 complex, subunit H	https://v10-1.orthodb.org/?query=751335at2759
+761109at2759	Tetratricopeptide repeat	https://v10-1.orthodb.org/?query=761109at2759
+768809at2759	Zinc finger C2H2-type	https://v10-1.orthodb.org/?query=768809at2759
+774318at2759	Dol-P-Man	https://v10-1.orthodb.org/?query=774318at2759
+777920at2759	Pescadillo	https://v10-1.orthodb.org/?query=777920at2759
+801857at2759	tRNA-dihydrouridine synthase	https://v10-1.orthodb.org/?query=801857at2759
+814241at2759	Clp1, N-terminal beta-sandwich domain	https://v10-1.orthodb.org/?query=814241at2759
+817008at2759	Aminoacyl-tRNA synthetase, class Ic	https://v10-1.orthodb.org/?query=817008at2759
+834694at2759	Mre11, DNA-binding	https://v10-1.orthodb.org/?query=834694at2759
+836599at2759	26S proteasome non-ATPase regulatory subunit 3	https://v10-1.orthodb.org/?query=836599at2759
+855834at2759	RNA polymerase I specific transcription initiation factor RRN3	https://v10-1.orthodb.org/?query=855834at2759
+865202at2759	Initiation factor 2B-related	https://v10-1.orthodb.org/?query=865202at2759
+869548at2759	Winged helix-like DNA-binding domain superfamily	https://v10-1.orthodb.org/?query=869548at2759
+878143at2759	CAAX prenyl protease 1	https://v10-1.orthodb.org/?query=878143at2759
+87842at2759	Pep3/Vps18/deep orange	https://v10-1.orthodb.org/?query=87842at2759
+887370at2759	GPI transamidase component PIG-T	https://v10-1.orthodb.org/?query=887370at2759
+891751at2759	CCAAT-binding factor	https://v10-1.orthodb.org/?query=891751at2759
+905026at2759	Tetratricopeptide repeat	https://v10-1.orthodb.org/?query=905026at2759
+911863at2759	Protein phosphatase methylesterase 1	https://v10-1.orthodb.org/?query=911863at2759
+917326at2759	Sec1-like protein	https://v10-1.orthodb.org/?query=917326at2759
+918816at2759	DNA methyltransferase 1-associated 1	https://v10-1.orthodb.org/?query=918816at2759
+919955at2759	26S Proteasome non-ATPase regulatory subunit 13	https://v10-1.orthodb.org/?query=919955at2759
+923657at2759	Surfeit locus 1/Shy1	https://v10-1.orthodb.org/?query=923657at2759
+924753at2759	tRNA guanosine-2'-O-methyltransferase, TRM11	https://v10-1.orthodb.org/?query=924753at2759
+931188at2759	Zinc finger, RING/FYVE/PHD-type	https://v10-1.orthodb.org/?query=931188at2759
+937686at2759	Winged helix-like DNA-binding domain superfamily	https://v10-1.orthodb.org/?query=937686at2759
+939345at2759	Repressor of RNA polymerase III transcription MAF1	https://v10-1.orthodb.org/?query=939345at2759
+944899at2759	KRR1 small subunit processome component	https://v10-1.orthodb.org/?query=944899at2759
+946128at2759	TFIIH p62 subunit, N-terminal	https://v10-1.orthodb.org/?query=946128at2759
+956854at2759	Tetratricopeptide repeat	https://v10-1.orthodb.org/?query=956854at2759
+97116at2759	WD40/YVTN repeat-like-containing domain superfamily	https://v10-1.orthodb.org/?query=97116at2759
+973442at2759	Elongator complex protein 4	https://v10-1.orthodb.org/?query=973442at2759
+974865at2759	Brix domain	https://v10-1.orthodb.org/?query=974865at2759
+975158at2759	Dolichyl-diphosphooligosaccharide--protein glycosyltransferase 48kDa subunit	https://v10-1.orthodb.org/?query=975158at2759
+975557at2759	cell division cycle 5-like protein	https://v10-1.orthodb.org/?query=975557at2759
+976469at2759	Eukaryotic translation initiation factor 3 subunit H	https://v10-1.orthodb.org/?query=976469at2759
+981902at2759	Winged helix-like DNA-binding domain superfamily	https://v10-1.orthodb.org/?query=981902at2759
+996662at2759	Exoribonuclease, phosphorolytic domain 1	https://v10-1.orthodb.org/?query=996662at2759
+
+Selected genes can be found in: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/fast_species_tree_iqtree/Results/Selected_Genes_Blast_matrix.csv
+Genes selected in: 0.5878908634185791s
+
+Generating Psuedo-Alignment
+---------------------------
+
+0 of 327 Protoemes below inclusion threshold (5%)
+
+Trimming Psuedo-Alignment
+-------------------------
+Completed Trimming in: 4.051780462265015s
+Individual gene alignments are in: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/fast_species_tree_iqtree/gene_alignments
+The concatinated alignemnt is found in: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/fast_species_tree_iqtree/Results/psuedo_alignment
+Alignment complete in: 33.2055459022522s
+
+Making tree using: SENSITIVE
+-----------------------
+Running IQ-Tree  using : iqtree -T 32 -s /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/fast_species_tree_iqtree/Results/psuedo_alignment.fasta -p /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/fast_species_tree_iqtree/Results/IQTree_Partition_file.partitions -B 1000 --alrt 1000 -st AA -mset LG,JTT,Q.BIRD,Q.MAMMAL,Q.INSECT,Q.PLANT,Q.YEAST -mrate I,G,I+G --prefix /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/fast_species_tree_iqtree/Results/fast_species_tree_iqtree -m MFP
+
+IQTREE can be run on the untrimmed alignment using:
+iqtree -T 32 -s /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/fast_species_tree_iqtree/Results/trim_psuedo_alignment.fasta -p /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/fast_species_tree_iqtree/Results/trim_IQTree_Partition_file.partitions -B 1000 --alrt 1000 -st AA -mset LG,JTT,Q.BIRD,Q.MAMMAL,Q.INSECT,Q.PLANT,Q.YEAST -mrate I,G,I+G --prefix /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/fast_species_tree_iqtree/Results/fast_species_tree_iqtree -m MFP
+Tree complete in: 24597.0827524662s
+
+
+
+Species Tree generated and Run finished
+---------------------------------------
+
+Fast Species Tree 
+Link:
+V 1.0 (2025)
+Author: Jonathan Holmes
+Please cite: https://www.biorxiv.org/content/10.64898/2026.01.20.700630v1
+
+The species tree can be found in: /rds/project/rds-0qnJWliPEjo/003Proteins_REVIEW_ANNOTATION/fast_species_tree_iqtree/Results/
+total time taken: 24701.159684181213s
+
+

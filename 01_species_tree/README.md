@@ -1,18 +1,35 @@
-# 325-species DToL chronogram — calibration pipeline
+# 01 — Species tree: building, calibration & plotting (325 species)
 
-Reproducible pipeline for dating the 325-species FastSpeciesTree (supermatrix ML
-tree) and validating it against TimeTree.
+Builds the 325-species **FastSpeciesTree**, time-calibrates it with `chronos`,
+validates against TimeTree, and renders the annotated tree figures.
 
-> **Note on paths:** the scripts carry absolute paths from the original analysis
-> directory (`/home/jg2070/Desktop/dtol_review_August/...`). To run them
+> **Note on paths:** the R/python scripts carry absolute paths from the original
+> analysis directory (`/home/jg2070/Desktop/dtol_review_August/...`). To run them
 > elsewhere, edit the `BASE`/`SP`/`SRC`/`ROOT` path variables at the top of each
-> script to point at this `calibration_325sp/` folder. The `data/`, `trees/` and
-> `figures/` here are the committed outputs of that pipeline.
+> script to point at this `01_species_tree/` folder. The `data/`, `trees/` and
+> `figures/` here are the committed outputs.
 
-## 0. Input tree
-- `fast_species_tree_325sp_renamed.nwk` — ML supermatrix tree (325 tips, branch
-  lengths in substitutions/site). Midpoint-rooted + `multi2di` inside the
-  calibration script.
+## 0. Tree building — FastSpeciesTree (supermatrix, IQ-TREE)
+
+The species tree is a **supermatrix ML tree**, NOT the BUSCO strategy in the
+repo root README. It was built with the `FastSpeciesTree` pipeline (mode
+SENSITIVE): BLAST-based single-copy gene selection across the annotated
+proteomes → per-gene MAFFT alignment → concatenated pseudo-alignment (+ IQ-TREE
+partition file) → IQ-TREE with per-partition model selection. Full run log:
+[`tree_building/fast_species_tree_iqtree.log`](tree_building/fast_species_tree_iqtree.log).
+
+The tree-inference command (both untrimmed and trimmed pseudo-alignments):
+```
+iqtree -T 32 \
+  -s Results/psuedo_alignment.fasta \
+  -p Results/IQTree_Partition_file.partitions \
+  -B 1000 --alrt 1000 -st AA \
+  -mset LG,JTT,Q.BIRD,Q.MAMMAL,Q.INSECT,Q.PLANT,Q.YEAST \
+  -mrate I,G,I+G -m MFP \
+  --prefix Results/fast_species_tree_iqtree
+```
+Result: `trees/fast_species_tree_325sp_renamed.nwk` — 325 tips, branch lengths in
+substitutions/site (midpoint-rooted + `multi2di` inside the calibration script).
 
 ## 1. TimeTree reference data
 ```
@@ -72,15 +89,24 @@ Rscript make_calibration_table_64_325sp.R
 Rscript plot_calibration_combined_benchmark_publication_325sp.R
 ```
 → `figures/calibration_combined_qc_benchmark_325sp_publication.{pdf,png}`
-- Panel A: 64 calibration nodes — red diamond = TimeTree median, blue diamond =
-  adjusted, red line = TimeTree range, black circle = calibrated age; grey line
-  + `*` = literature (not TimeTree); y-labels coloured by clade.
-- Panels B–E: node-age concordance for chronos correlated / relaxed /
-  rate-smoothed (root only) / uncalibrated.
+- Panel A: 64 calibration nodes — red diamond = TimeTree median, red line =
+  TimeTree range (= the imposed constraint for nodes with a real range, else
+  median ±20%), black circle = calibrated age; grey line + `*` = literature
+  (not TimeTree); y-labels coloured by clade.
+- Panels B–E: node-age concordance vs TimeTree (Spearman + R², 1:1 line) for
+  chronos correlated / relaxed / rate-smoothed (root only) / uncalibrated.
 
-## 7. Tree figures
-`plot_tree_v5_chronos.R` / `plot_tree_v5_treepl.R` →
-`figures/centromere_annotation_tree_FASTSPECIES_325sp_v1_{chronos,treePL}.{pdf,png}`.
+## 7. Annotated tree figures
+```
+Rscript plot_tree_v5_chronos.R     # chronos-correlated chronogram (Figure 1 style)
+Rscript plot_tree_v5_treepl.R      # treePL chronogram
+```
+Fan chronogram coloured by clade + centromere architecture (Satellite /
+Transposon / Mixed / Holocentric). Inputs: the calibrated `*_fa.nwk` tree
+(the calibration script writes a `.fa`-tipped sibling automatically),
+`data/DTOL_327_master_March.xlsx` (species metadata) and
+`data/branch_symbol_anno.tsv` (iTOL-style architecture symbols).
+Outputs: `figures/centromere_annotation_tree_FASTSPECIES_325sp_v1_{chronos,treePL}.{pdf,png}`.
 
 ## 8. Ancestral state reconstruction
 Separate pipeline: `2026_trees/annotation_centromeres/ASR_March2026_327species/`.
