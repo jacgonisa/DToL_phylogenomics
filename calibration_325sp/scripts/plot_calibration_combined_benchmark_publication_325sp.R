@@ -161,7 +161,9 @@ p_d <- build_parrett("parrett_ratesmoothed.tsv",       "D", "rate-smoothed (root
 p_e <- build_parrett("parrett_uncalibrated.tsv",       "E", "uncalibrated (rate-smoothed, no calib) vs TimeTree")
 
 # ── Combine ───────────────────────────────────────────────────────────────────
-p_combined <- (p_a / (p_b | p_c | p_d | p_e)) +
+# collect the shared Group / log10(pairs) legends of the B-E row into one
+p_row <- (p_b | p_c | p_d | p_e) + plot_layout(guides = "collect")
+p_combined <- (p_a / p_row) +
   plot_layout(heights = c(2.6, 1.6)) +
   plot_annotation(
     title   = "Supplementary Figure - Calibration validation: 325-species DToL chronogram",
