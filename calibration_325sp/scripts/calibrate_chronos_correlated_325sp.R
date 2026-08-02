@@ -62,4 +62,8 @@ fit <- as.phylo(best)
 fit$tip.label <- sub("\\.(fa|fasta)$","", fit$tip.label)   # strip .fa to match published tips
 outpath <- if (startsWith(OUT,"/")) OUT else file.path(SP, OUT)
 write.tree(fit, outpath)
-cat("root age:", round(max(node.depth.edgelength(fit)),1), " | Saved:", outpath, "\n")
+# also write a .fa-tipped sibling (kept in sync for plot_tree_v5_chronos.R)
+fit_fa <- fit; fit_fa$tip.label <- paste0(fit_fa$tip.label, ".fa")
+write.tree(fit_fa, sub("\\.nwk$", "_fa.nwk", outpath))
+cat("root age:", round(max(node.depth.edgelength(fit)),1), " | Saved:", outpath,
+    "(+ _fa sibling)\n")
