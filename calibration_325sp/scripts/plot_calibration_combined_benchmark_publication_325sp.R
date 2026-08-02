@@ -101,26 +101,22 @@ p_a <- ggplot(df) +
                                  "Literature-derived constraint" = "#555555"),
                       guide = guide_legend(order = 2,
                         override.aes = list(linewidth = 1.1))) +
-  # TimeTree adjusted (blue diamond) + median (red diamond) + calibrated age (circle)
-  geom_point(aes(x = tt_adjusted, y = node_f, fill = "TimeTree adjusted"),
-             shape = 23, size = 2.3, colour = "white", stroke = 0.3, na.rm = TRUE) +
+  # TimeTree median (red diamond) + calibrated age (black circle)
   geom_point(aes(x = tt_median, y = node_f, fill = "TimeTree median"),
              shape = 23, size = 2.3, colour = "white", stroke = 0.3, na.rm = TRUE) +
   geom_point(aes(x = our_age, y = node_f, fill = "Calibrated age (chronos correlated)"),
              shape = 21, size = 2.3, colour = "white", stroke = 0.3, na.rm = TRUE) +
   scale_fill_manual(name = NULL,
-                    breaks = c("Calibrated age (chronos correlated)",
-                               "TimeTree median", "TimeTree adjusted"),
+                    breaks = c("Calibrated age (chronos correlated)", "TimeTree median"),
                     values = c("Calibrated age (chronos correlated)" = "black",
-                               "TimeTree median" = "#d62728",
-                               "TimeTree adjusted" = "#1f77b4"),
+                               "TimeTree median" = "#d62728"),
                     guide = guide_legend(order = 3, override.aes = list(
-                      shape = c(21, 23, 23), size = 2.8))) +
+                      shape = c(21, 23), size = 2.8))) +
   scale_x_continuous(name = "Age (Mya)", expand = expansion(mult = c(0.01, 0.10))) +
   scale_y_discrete(name = NULL) +
   labs(tag = "A",
        title    = sprintf("Calibration nodes: TimeTree range vs calibrated age (%d nodes)", nrow(df)),
-       subtitle = "Red diamond = TimeTree MEDIAN  |  blue diamond = TimeTree ADJUSTED (basis of the over* constraints)  |  red line = TimeTree range  |  black circle = calibrated age  |  grey line + * = literature (not TimeTree)  |  y labels by clade") +
+       subtitle = "Red diamond = TimeTree median  |  red line = TimeTree range (constraint for most nodes)  |  black circle = calibrated age  |  grey line + * = literature (not TimeTree)  |  y labels by clade") +
   theme_bw(base_size = 10) +
   theme(axis.text.y = element_text(size = 7.5, colour = ycols),
         axis.text.x = element_text(size = 9),
@@ -136,20 +132,16 @@ build_parrett <- function(fname, tag, ttl) {
   d$broad <- factor(d$broad, levels = names(broad_pal))
   r2  <- round(summary(lm(our_age ~ tt_node_age, d))$r.squared, 3)
   rho <- round(cor(d$tt_node_age, d$our_age, method = "spearman"), 3)
-  rmse<- round(sqrt(mean((d$our_age - d$tt_node_age)^2)), 1)
-  sh  <- d[d$tt_node_age < 100, ]
-  r2s <- round(summary(lm(our_age ~ tt_node_age, sh))$r.squared, 3)
   mx  <- max(c(d$tt_node_age, d$our_age), na.rm = TRUE)
   ggplot(d, aes(tt_node_age, our_age, colour = broad)) +
     geom_abline(slope = 1, intercept = 0, linetype = "dashed",
-                colour = "grey50", linewidth = 0.55) +
+                colour = "grey20", linewidth = 0.7) +
     geom_smooth(aes(tt_node_age, our_age), inherit.aes = FALSE, method = "lm",
-                se = TRUE, colour = "grey20", linewidth = 0.6, alpha = 0.12) +
+                se = TRUE, colour = "#1565C0", linewidth = 0.6, alpha = 0.12) +
     geom_point(aes(size = log10(n_pairs + 1)), alpha = 0.70, shape = 16) +
-    annotate("text", x = mx * 0.04, y = mx * 0.90, hjust = 0, size = 3,
+    annotate("text", x = mx * 0.04, y = mx * 0.90, hjust = 0, size = 3.2,
              colour = "grey20", lineheight = 1.4,
-             label = sprintf("Spearman = %.3f\nR² = %.3f  (shallow R² = %.3f)\nRMSE = %.1f My",
-                             rho, r2, r2s, rmse)) +
+             label = sprintf("Spearman = %.3f\nR² = %.3f", rho, r2)) +
     scale_colour_manual(values = broad_pal, name = "Group", na.value = "grey60") +
     scale_size_continuous(name = "log10(pairs)", range = c(1, 4)) +
     scale_x_continuous(name = "TimeTree node age (Mya)", limits = c(0, mx * 1.03), expand = expansion(0)) +
@@ -175,11 +167,11 @@ p_combined <- (p_a / (p_b | p_c | p_d | p_e)) +
     title   = "Supplementary Figure - Calibration validation: 325-species DToL chronogram",
     caption = paste0(
       "A: The 64 calibration nodes (y-axis labels coloured by clade). Red diamond = TimeTree ",
-      "median (precomputed_age); blue diamond = TimeTree adjusted time (adjusted_age) - the value ",
-      "the over* shallow constraints were actually anchored on (median where no adjusted exists); ",
-      "red line = TimeTree range (precomputed_ci_low-high); black circle = calibrated age (chronos ",
-      "correlated). Grey line + * = literature-derived constraint for the two nodes absent from TimeTree: ",
-      "Limnephilidae (2026 Limnephilidae phylogenomics study) and Luzula (crown ~10 Ma, literature).  ",
+      "median (precomputed_age); red line = TimeTree range (precomputed_ci_low-high) - the ",
+      "imposed constraint for nodes with a real range (else median +/-20%); black circle = ",
+      "calibrated age (chronos correlated). Grey line + * = literature-derived constraint for the ",
+      "two nodes absent from TimeTree: Limnephilidae (2026 Limnephilidae phylogenomics study) and ",
+      "Luzula (crown ~10 Ma, literature).  ",
       "B-E: PAReTT node-age concordance with TimeTree (all shared species pairs) for ",
       "chronos correlated (B), chronos relaxed (C), rate-smoothed chronos with only the ",
       "root age fixed (D) and uncalibrated penalized-likelihood rate-smoothing with no ",
