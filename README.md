@@ -69,3 +69,13 @@ iqtree \
 
 ```
 
+## Time-calibration & dating (325-species chronogram)
+
+Once the ML supermatrix tree is built, it is time-calibrated with `chronos`
+(penalised likelihood) and validated against TimeTree. See
+[`calibration_325sp/`](calibration_325sp/) for the full reproducible pipeline:
+TimeTree constraint retrieval (median / adjusted / range via the TimeTree API),
+the 64-point calibration set (`over_calib.tsv`; rule = TimeTree CI range where
+available, else median ±20%), chronos dating with convergence checking, the
+node-age concordance benchmark, and the supplementary calibration table.
+Calibrated trees are in `calibration_325sp/trees/`.
