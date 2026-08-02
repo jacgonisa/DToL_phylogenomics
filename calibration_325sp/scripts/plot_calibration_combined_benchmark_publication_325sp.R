@@ -81,49 +81,51 @@ p_a <- ggplot(df) +
   geom_point(aes(x = ord_age, y = node_f, colour = clade), alpha = 0, na.rm = TRUE) +
   scale_colour_manual(values = clade_pal, name = "Clade",
                       guide = guide_legend(order = 1,
-                        override.aes = list(alpha = 1, shape = 15, size = 3.2))) +
+                        override.aes = list(alpha = 1, shape = 15, size = 4.2))) +
   new_scale_colour() +
   # TimeTree range (CI): one line per node, where TimeTree reports a range
   geom_segment(aes(x = tt_ci_low, xend = tt_ci_high, y = node_f, yend = node_f,
                    colour = "TimeTree range (CI)"),
-               linewidth = 0.7, lineend = "butt", na.rm = TRUE) +
+               linewidth = 0.95, lineend = "butt", na.rm = TRUE) +
   # literature-derived constraint (Limnephilidae, Luzula) - not in TimeTree
   geom_segment(data = df[df$is_lit, ],
                aes(x = age_min, xend = age_max, y = node_f, yend = node_f,
                    colour = "Literature-derived constraint"),
-               linewidth = 0.7, lineend = "butt", na.rm = TRUE) +
+               linewidth = 0.95, lineend = "butt", na.rm = TRUE) +
   geom_text(data = df[df$is_lit, ],
             aes(x = age_max, y = node_f, label = "not TimeTree-derived"),
-            hjust = -0.06, size = 2.5, colour = "#555555", fontface = "italic",
+            hjust = -0.06, size = 3.1, colour = "#555555", fontface = "italic",
             na.rm = TRUE) +
   scale_colour_manual(name = NULL,
                       values = c("TimeTree range (CI)" = "#d62728",
                                  "Literature-derived constraint" = "#555555"),
                       guide = guide_legend(order = 2,
-                        override.aes = list(linewidth = 1.1))) +
+                        override.aes = list(linewidth = 1.5))) +
   # TimeTree median (red diamond) + calibrated age (black circle)
   geom_point(aes(x = tt_median, y = node_f, fill = "TimeTree median"),
-             shape = 23, size = 2.3, colour = "white", stroke = 0.3, na.rm = TRUE) +
+             shape = 23, size = 2.9, colour = "white", stroke = 0.35, na.rm = TRUE) +
   geom_point(aes(x = our_age, y = node_f, fill = "Calibrated age (chronos correlated)"),
-             shape = 21, size = 2.3, colour = "white", stroke = 0.3, na.rm = TRUE) +
+             shape = 21, size = 2.9, colour = "white", stroke = 0.35, na.rm = TRUE) +
   scale_fill_manual(name = NULL,
                     breaks = c("Calibrated age (chronos correlated)", "TimeTree median"),
                     values = c("Calibrated age (chronos correlated)" = "black",
                                "TimeTree median" = "#d62728"),
                     guide = guide_legend(order = 3, override.aes = list(
-                      shape = c(21, 23), size = 2.8))) +
+                      shape = c(21, 23), size = 3.6))) +
   scale_x_continuous(name = "Age (Mya)", expand = expansion(mult = c(0.01, 0.10))) +
   scale_y_discrete(name = NULL) +
   labs(tag = "A",
        title    = sprintf("Calibration nodes: TimeTree range vs calibrated age (%d nodes)", nrow(df)),
        subtitle = "Red diamond = TimeTree median  |  red line = TimeTree range (constraint for most nodes)  |  black circle = calibrated age  |  grey line + * = literature (not TimeTree)  |  y labels by clade") +
-  theme_bw(base_size = 10) +
-  theme(axis.text.y = element_text(size = 7.5, colour = ycols),
-        axis.text.x = element_text(size = 9),
-        legend.position = "right", legend.text = element_text(size = 8.5),
-        plot.tag = element_text(face = "bold", size = 13),
-        plot.title = element_text(face = "bold", size = 11),
-        plot.subtitle = element_text(size = 8, colour = "grey40"),
+  theme_bw(base_size = 13) +
+  theme(axis.text.y = element_text(size = 9, colour = ycols),
+        axis.text.x = element_text(size = 12),
+        axis.title.x = element_text(size = 14, face = "bold"),
+        legend.position = "right", legend.text = element_text(size = 11.5),
+        legend.title = element_text(size = 13, face = "bold"),
+        plot.tag = element_text(face = "bold", size = 19),
+        plot.title = element_text(face = "bold", size = 16),
+        plot.subtitle = element_text(size = 10, colour = "grey35"),
         panel.grid.major.y = element_blank(), panel.grid.minor = element_blank())
 
 # ── Panels B-E: PAReTT node-age comparison, one panel per dating method ───────
@@ -135,30 +137,32 @@ build_parrett <- function(fname, tag, ttl) {
   mx  <- max(c(d$tt_node_age, d$our_age), na.rm = TRUE)
   ggplot(d, aes(tt_node_age, our_age, colour = broad)) +
     geom_abline(slope = 1, intercept = 0, linetype = "dashed",
-                colour = "grey20", linewidth = 0.7) +
+                colour = "grey20", linewidth = 0.95) +
     geom_smooth(aes(tt_node_age, our_age), inherit.aes = FALSE, method = "lm",
-                se = TRUE, colour = "#1565C0", linewidth = 0.6, alpha = 0.12) +
-    geom_point(aes(size = log10(n_pairs + 1)), alpha = 0.70, shape = 16) +
-    annotate("text", x = mx * 0.04, y = mx * 0.90, hjust = 0, size = 3.2,
+                se = TRUE, colour = "#1565C0", linewidth = 0.85, alpha = 0.12) +
+    geom_point(aes(size = log10(n_pairs + 1)), alpha = 0.72, shape = 16) +
+    annotate("text", x = mx * 0.04, y = mx * 0.90, hjust = 0, size = 4.3,
              colour = "grey20", lineheight = 1.4,
              label = sprintf("Spearman = %.3f\nR² = %.3f", rho, r2)) +
     scale_colour_manual(values = broad_pal, name = "Group", na.value = "grey60") +
-    scale_size_continuous(name = "log10(pairs)", range = c(1, 4)) +
+    scale_size_continuous(name = "log10(pairs)", range = c(1.8, 5.5)) +
     scale_x_continuous(name = "TimeTree node age (Mya)", limits = c(0, mx * 1.03), expand = expansion(0)) +
     scale_y_continuous(name = "Estimated node age (Mya)", limits = c(0, mx * 1.03), expand = expansion(0)) +
     labs(tag = tag, title = ttl,
          subtitle = sprintf("%d node-age comparisons; dashed = 1:1 line", nrow(d))) +
-    theme_bw(base_size = 10) +
-    theme(plot.tag = element_text(face = "bold", size = 13),
-          plot.title = element_text(face = "bold", size = 11),
-          plot.subtitle = element_text(size = 8, colour = "grey40"),
-          legend.position = "right", legend.text = element_text(size = 8),
-          axis.text = element_text(size = 9), panel.grid.minor = element_blank())
+    theme_bw(base_size = 13) +
+    theme(plot.tag = element_text(face = "bold", size = 19),
+          plot.title = element_text(face = "bold", size = 15),
+          plot.subtitle = element_text(size = 10, colour = "grey35"),
+          axis.title = element_text(size = 14, face = "bold"),
+          legend.position = "right", legend.text = element_text(size = 11.5),
+          legend.title = element_text(size = 13, face = "bold"),
+          axis.text = element_text(size = 12), panel.grid.minor = element_blank())
 }
-p_b <- build_parrett("parrett_chronos_correlated.tsv", "B", "chronos correlated vs TimeTree")
-p_c <- build_parrett("parrett_chronos_relaxed.tsv",    "C", "chronos relaxed vs TimeTree")
-p_d <- build_parrett("parrett_ratesmoothed.tsv",       "D", "rate-smoothed (root only) vs TimeTree")
-p_e <- build_parrett("parrett_uncalibrated.tsv",       "E", "uncalibrated (rate-smoothed, no calib) vs TimeTree")
+p_b <- build_parrett("parrett_chronos_correlated.tsv", "B", "chronos correlated")
+p_c <- build_parrett("parrett_chronos_relaxed.tsv",    "C", "chronos relaxed")
+p_d <- build_parrett("parrett_ratesmoothed.tsv",       "D", "rate-smoothed (root only)")
+p_e <- build_parrett("parrett_uncalibrated.tsv",       "E", "uncalibrated (no calibration)")
 
 # ── Combine ───────────────────────────────────────────────────────────────────
 # collect the shared Group / log10(pairs) legends of the B-E row into one
@@ -179,15 +183,15 @@ p_combined <- (p_a / p_row) +
       "root age fixed (D) and uncalibrated penalized-likelihood rate-smoothing with no ",
       "calibration points (E, chronos relaxed, lambda=1); dashed = 1:1."
     ),
-    theme = theme(plot.title = element_text(face = "bold", size = 13),
-                  plot.caption = element_text(size = 8, colour = "grey40", hjust = 0),
+    theme = theme(plot.title = element_text(face = "bold", size = 17),
+                  plot.caption = element_text(size = 10, colour = "grey35", hjust = 0),
                   plot.background = element_rect(fill = "white", colour = NA))
   )
 
 for (ext in c(".pdf", ".png")) {
   out <- file.path(FIG_DIR, paste0("calibration_combined_qc_benchmark_325sp_publication", ext))
-  ggsave(out, p_combined, width = 18, height = 18,
-         dpi = if (ext == ".png") 300 else 100, bg = "white")
+  ggsave(out, p_combined, width = 18.5, height = 20,
+         dpi = if (ext == ".png") 320 else 100, bg = "white")
   cat("Saved:", basename(out), "\n")
 }
 file.copy(file.path(FIG_DIR, "calibration_combined_qc_benchmark_325sp_publication.pdf"),
