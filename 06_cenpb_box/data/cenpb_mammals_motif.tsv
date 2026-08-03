@@ -1,0 +1,9 @@
+species	genus	n_records	n_sites	total_IC_bits	consensus
+mrhisin	Rhinolophus	61738	8000	31.3	GTTCGTAGGAAGCGGGT
+mcerela	Cervus	224055	36	22.9	CTTCGTTGGAAGCGGGA
+mdicbic	Diceros	335103	0	0.0	-
+mlemcat	Lemur	806044	0	0.0	-
+mmelmel	Meles	87864	2	0.0	-
+morcorc	Orcinus	0	0	0.0	-
+mcanlor	Canis	22116	21	0.0	-
+melemax	Elephas	32556	0	0.0	-
