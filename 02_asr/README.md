@@ -38,3 +38,26 @@ Cycles (Mk ASR):
 
 Figures: `outputs/all_models/model_comparison_table.{png,pdf}`,
 `outputs/cycles_mk_parsimony/{dataset}_chronos_correlated_{mk,parsimony}_{rectangular,fan}.{png,pdf}`.
+
+## 3-state model set (H / Sat / Trans) — full 8-model comparison
+
+The 4-state table above (`40_all_models_table.R`) fits only 5 models. For the
+paper we use the **3-state** analysis: Mixed (Satellite/transposon, n=11) and
+Unknown/Monocentric-unknown taxa are pruned to NA, leaving H/Sat/Trans, and the
+**full 8-model set** is fit:
+ER, SYM, ARD, ARD_irrevH, ARD_irrevH_noDirectST, ARD_irrevH_symST,
+ARD_irrevH_noSatToTrans, ARD_irrevH_noTransToSat.
+
+Script: `scripts/40b_all_models_3state.R` (reads this repo's own
+`inputs/{ds}_chronos_correlated/`; AICc + AIC Akaike weights).
+
+### Results on the chronos-correlated tree (`outputs/all_models_3state/`)
+| Dataset | Best (AICc) | w | note |
+|---|---|---|---|
+| Full tree | **ARD_irrevH_symST** | 0.39 | ARD_irrevH within ΔAICc≈0.4 |
+| Metazoa | **ARD_irrevH** | 0.63 | H irreversible |
+| Viridiplantae | **SYM** | 0.55 | ARD_irrevH_symST within ΔAICc 1.9 |
+
+The two one-directional models (noSatToTrans / noTransToSat) always carry
+≈0 weight — evidence for **bidirectional Satellite<->Transposon cycling**.
+Figures: `outputs/all_models_3state/all_models_3state_weights.{png,pdf}`.
