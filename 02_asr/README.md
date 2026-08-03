@@ -61,4 +61,5 @@ Script: `scripts/40b_all_models_3state.R` (reads this repo's own
 The two one-directional models (noSatToTrans / noTransToSat) always carry
 ≈0 weight — evidence for **bidirectional Satellite<->Transposon cycling**.
 Figures: `outputs/all_models_3state/all_models_3state_weights.{png,pdf}`;
-model diagrams (allowed transitions per model): `outputs/all_models_3state/model_schematics_3state.{png,pdf}`.
+model diagrams (allowed transitions per model): `outputs/all_models_3state/model_schematics_3state.{png,pdf}`;
+rate-flow diagrams (best model per dataset, the Sat<->Trans cycle): `outputs/all_models_3state/flow_diagrams_3state_bestmodel.{png,pdf}`.

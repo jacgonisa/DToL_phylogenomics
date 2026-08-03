@@ -97,10 +97,8 @@ print(as.data.frame(tbl %>% select(dataset, model, k, logL, AICc, dAICc, w_AICc)
 # ── weight dot plot (AIC + AICc facets, red one-directional labels) ───────────
 model_order <- c("ER","SYM","ARD","ARD_irrevH_noDirectST","ARD_irrevH_symST",
                  "ARD_irrevH_noSatToTrans","ARD_irrevH_noTransToSat","ARD_irrevH")
-red_models  <- c("ARD_irrevH_noSatToTrans","ARD_irrevH_noTransToSat")
 ds_pal   <- c(`Full tree`="#E41A1C", Metazoa="#377EB8", Viridiplantae="#2E7D32")
 ds_shape <- c(`Full tree`=16, Metazoa=17, Viridiplantae=15)
-lab_cols <- ifelse(model_order %in% red_models, "#c62828", "black")
 
 plt <- tbl %>%
   tidyr::pivot_longer(c(w_AIC, w_AICc), names_to="criterion", values_to="w") %>%
@@ -116,14 +114,68 @@ plt <- tbl %>%
   scale_y_discrete(limits=rev(model_order)) +
   facet_wrap(~criterion, ncol=2) +
   labs(title="3-state ASR model weights — chronos-correlated (325-sp)",
-       subtitle="Red labels = one-directional models (near-zero weight supports bidirectional Sat<->Trans cycling)",
+       subtitle="One-directional models (noSatToTrans/noTransToSat) carry ~0 weight: bidirectional Sat<->Trans cycling",
        x="Akaike weight", y=NULL) +
   theme_bw(base_size=12) +
   theme(panel.grid.minor=element_blank(), panel.grid.major.y=element_blank(),
         legend.position="bottom", strip.text=element_text(face="bold"),
-        axis.text.y=element_text(colour=rev(lab_cols)),
         plot.subtitle=element_text(size=9, colour="grey40"))
 
 ggsave(file.path(out_dir,"all_models_3state_weights.pdf"), plt, width=10, height=5)
 ggsave(file.path(out_dir,"all_models_3state_weights.png"), plt, width=10, height=5, dpi=300)
+
+# ── Rate-flow diagrams (best model per dataset) ───────────────────────────────
+suppressPackageStartupMessages({ library(igraph); library(ggraph); library(patchwork) })
+
+node_pos <- data.frame(state=states3, x=c(0,-1,1), y=c(1,0,0),
+  label=c("Holo-\ncentric","Satellite","Transposon"),
+  color=c("#2d7d32","#E53935","#FB8C00"), stringsAsFactors=FALSE)
+
+fit_Q <- function(ds_id, model_spec) {
+  dat <- load3(ds_id)
+  fit <- fitMk(dat$tree, dat$char, model=model_spec, states=states3, control=list(maxit=3000))
+  as.Qmatrix(fit)
+}
+flow_one <- function(Q, title_str) {
+  ed <- expand.grid(from=states3, to=states3, stringsAsFactors=FALSE) %>%
+    filter(from!=to) %>% mutate(rate=mapply(function(i,j) Q[i,j], from, to)) %>%
+    filter(rate>1e-10) %>% mutate(rate_display=pmin(rate,1), log_rate=log10(rate))
+  g <- graph_from_data_frame(ed, directed=TRUE, vertices=node_pos %>% rename(name=state))
+  ggraph(g, layout="manual", x=node_pos$x, y=node_pos$y) +
+    geom_edge_arc(aes(width=rate_display, color=log_rate, label=sprintf("%.4f",rate)),
+      strength=0.25, arrow=arrow(length=unit(3,"mm"),type="closed"),
+      end_cap=circle(7,"mm"), start_cap=circle(7,"mm"),
+      label_size=2.8, label_colour="grey20", angle_calc="along",
+      label_dodge=unit(2.5,"mm"), show.legend=c(width=FALSE,color=TRUE)) +
+    geom_node_point(aes(color=I(color)), size=15) +
+    geom_node_text(aes(label=label), size=2.7, fontface="bold", color="white", lineheight=0.85) +
+    scale_edge_width_continuous(range=c(0.5,4)) +
+    scale_edge_color_gradient2(low="#74add1", mid="#ffffbf", high="#d73027",
+      midpoint=median(ed$log_rate), name="log10(rate/My)",
+      guide=guide_edge_colorbar(title.position="top")) +
+    labs(title=title_str) + coord_cartesian(xlim=c(-1.7,1.7), ylim=c(-1.5,1.5)) +
+    theme_void(base_size=11) +
+    theme(plot.title=element_text(face="bold",size=12,hjust=0.5),
+          legend.position="bottom", legend.key.width=unit(1.1,"cm"))
+}
+
+model_dm <- models  # named list, same specs used for fitting
+best_per_ds <- tbl %>% filter(best) %>% select(dataset, model)
+ds_id_map <- setNames(names(datasets), unname(datasets))
+
+flows <- lapply(seq_len(nrow(best_per_ds)), function(i) {
+  dsl <- best_per_ds$dataset[i]; mn <- best_per_ds$model[i]
+  Q <- fit_Q(ds_id_map[[dsl]], model_dm[[mn]])
+  flow_one(Q, sprintf("%s — %s", dsl, mn))
+})
+p_flow <- wrap_plots(flows, nrow=1, guides="collect") &
+  theme(legend.position="bottom")
+p_flow <- p_flow + plot_annotation(
+  title="Centromere-architecture transition rates (best 3-state model per dataset, chronos-correlated)",
+  subtitle="Arrow width ~ rate; colour = log10(rate/My). Bidirectional Sat<->Trans = the a-o cycle.",
+  theme=theme(plot.title=element_text(face="bold",size=12),
+              plot.subtitle=element_text(size=9,colour="grey40")))
+ggsave(file.path(out_dir,"flow_diagrams_3state_bestmodel.pdf"), p_flow, width=15, height=6)
+ggsave(file.path(out_dir,"flow_diagrams_3state_bestmodel.png"), p_flow, width=15, height=6, dpi=300)
+
 cat("\nOutputs in:", out_dir, "\n")
