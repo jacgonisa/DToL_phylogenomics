@@ -160,7 +160,18 @@ flow_one <- function(Q, title_str) {
 }
 
 model_dm <- models  # named list, same specs used for fitting
-best_per_ds <- tbl %>% filter(best) %>% select(dataset, model)
+# best model per dataset, but for Viridiplantae use the 2nd-best: the top model
+# (SYM) is symmetric and hides H-irreversibility; ARD_irrevH_symST is within
+# dAICc ~1.9 and consistent with the H-sink story shown for Full/Metazoa.
+rank_per_ds <- tbl %>% group_by(dataset) %>% arrange(AICc) %>%
+  mutate(rk = row_number()) %>% ungroup()
+best_per_ds <- rank_per_ds %>%
+  filter((dataset != "Viridiplantae" & rk == 1) |
+         (dataset == "Viridiplantae" & rk == 2)) %>%
+  mutate(dataset = factor(dataset, levels = unname(datasets))) %>%
+  arrange(dataset) %>%
+  mutate(dataset = as.character(dataset)) %>%
+  select(dataset, model)
 ds_id_map <- setNames(names(datasets), unname(datasets))
 
 flows <- lapply(seq_len(nrow(best_per_ds)), function(i) {
@@ -172,7 +183,7 @@ p_flow <- wrap_plots(flows, nrow=1, guides="collect") &
   theme(legend.position="bottom")
 p_flow <- p_flow + plot_annotation(
   title="Centromere-architecture transition rates (best 3-state model per dataset, chronos-correlated)",
-  subtitle="Arrow width ~ rate; colour = log10(rate/My). Bidirectional Sat<->Trans = the a-o cycle.",
+  subtitle="Arrow width ~ rate; colour = log10(rate/My). Viridiplantae shows 2nd-best (ARD_irrevH_symST; SYM within dAICc 1.9). Bidirectional Sat<->Trans = the a-o cycle.",
   theme=theme(plot.title=element_text(face="bold",size=12),
               plot.subtitle=element_text(size=9,colour="grey40")))
 ggsave(file.path(out_dir,"flow_diagrams_3state_bestmodel.pdf"), p_flow, width=15, height=6)
