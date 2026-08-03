@@ -183,7 +183,7 @@ p_flow <- p_flow + plot_annotation(
   subtitle="ARD_irrevH shown for all (H irreversible; Sat->Trans vs Trans->Sat as separate rates). Bidirectional Sat<->Trans = the a-o cycle.",
   theme=theme(plot.title=element_text(face="bold",size=12),
               plot.subtitle=element_text(size=9,colour="grey40")))
-ggsave(file.path(out_dir,"flow_diagrams_3state_bestmodel.pdf"), p_flow, width=15, height=6)
-ggsave(file.path(out_dir,"flow_diagrams_3state_bestmodel.png"), p_flow, width=15, height=6, dpi=300)
+ggsave(file.path(out_dir,"flow_diagrams_3state_ARD_irrevH.pdf"), p_flow, width=15, height=6)
+ggsave(file.path(out_dir,"flow_diagrams_3state_ARD_irrevH.png"), p_flow, width=15, height=6, dpi=300)
 
 cat("\nOutputs in:", out_dir, "\n")
