@@ -1,0 +1,90 @@
+Species	Species.1	symbol	size	colour	border	width	architecture
+ucMarCocc1.1	ucMarCocc1.1	rectangle	2	#808080	yes	1	Unknown
+ucDunPrim2.1	ucDunPrim2.1	rectangle	2	#808080	yes	1	Unknown
+ucPseBory1.1	ucPseBory1.1	rectangle	2	#808080	yes	1	Unknown
+csSphGirg1.1	csSphGirg1.1	circle	2	#3a86ff	yes	1	Transposon
+cbPolSexa1.1	cbPolSexa1.1	circle	2	#3a86ff	yes	1	Transposon
+cbIsoPulc3.1	cbIsoPulc3.1	circle	2	#3a86ff	yes	1	Transposon
+cbThuTama2.1	cbThuTama2.1	circle	2	#3a86ff	yes	1	Transposon
+cbRhyConf1.1	cbRhyConf1.1	rectangle	2	#808080	yes	1	Unknown
+cbCalCord2.1	cbCalCord2.1	circle	2	#3a86ff	yes	1	Transposon
+cbHylTriq8.1	cbHylTriq8.1	circle	2	#3a86ff	yes	1	Transposon
+cbRhyLore1.1	cbRhyLore1.1	circle	2	#3a86ff	yes	1	Transposon
+caAndHook4.1	caAndHook4.1	circle	2	#3a86ff	yes	1	Transposon
+cjHerHutc3.1	cjHerHutc3.1	circle	2	#3a86ff	yes	1	Transposon
+cmLunCruc20.1	cmLunCruc20.1	rectangle	2	#808080	yes	1	Unknown
+laAliPlan1.1	laAliPlan1.1	circle	2	#ff006e	yes	1	Satellite
+laApoDist1.hap1.1	laApoDist1.hap1.1	circle	2	#ff006e	yes	1	Satellite
+laPotNata1.hap1.1	laPotNata1.hap1.1	circle	2	#ff006e	yes	1	Satellite
+laTriMari1.1	laTriMari1.1	circle	2	#8338ec	yes	1	Satellite/transposon
+laLemMinu1.hap1.1	laLemMinu1.hap1.1	rectangle	2	#808080	yes	1	Unknown
+ldNarOssi1.1	ldNarOssi1.1	circle	2	#3a86ff	yes	1	Transposon
+lsIriFoet1.hap1.1	lsIriFoet1.hap1.1	circle	2	#ff006e	yes	1	Satellite
+lpSpaEmer1.hap1.1	lpSpaEmer1.hap1.1	circle	2	#3a86ff	yes	1	Transposon
+lpPhrAust1.1	lpPhrAust1.1	circle	2	#3a86ff	yes	1	Transposon
+lpDigSang1.hap1.1	lpDigSang1.hap1.1	circle	2	#ff006e	yes	1	Satellite
+lpLeeOryz1.hap1.1	lpLeeOryz1.hap1.1	circle	2	#ff006e	yes	1	Satellite
+lpPhlPrat1.hap1.1	lpPhlPrat1.hap1.1	circle	2	#ff006e	yes	1	Satellite
+lpPoaChai1.hap1.1	lpPoaChai1.hap1.1	circle	2	#3a86ff	yes	1	Transposon
+lpPolViri1.hap1.1	lpPolViri1.hap1.1	circle	2	#3a86ff	yes	1	Transposon
+lpHieOdor1.hap1.1	lpHieOdor1.hap1.1	circle	2	#3a86ff	yes	1	Transposon
+lpBroSter1.1	lpBroSter1.1	circle	2	#3a86ff	yes	1	Transposon
+lpHorVulg1.hap1.1	lpHorVulg1.hap1.1	circle	2	#3a86ff	yes	1	Transposon
+lpEleQuin1.1	lpEleQuin1.1	triangle left	2	#fb5609	yes	1	Holocentric
+lpCypFusc1.hap1.1	lpCypFusc1.hap1.1	triangle left	2	#fb5609	yes	1	Holocentric
+lpSchLacu1	lpSchLacu1	triangle left	2	#fb5609	yes	1	Holocentric
+lpSchTriq1.1	lpSchTriq1.1	triangle left	2	#fb5609	yes	1	Holocentric
+lpSchTabe1.hap1.1	lpSchTabe1.hap1.1	triangle left	2	#fb5609	yes	1	Holocentric
+lpCarDepa1.1	lpCarDepa1.1	triangle left	2	#fb5609	yes	1	Holocentric
+lpTriCesp1.1	lpTriCesp1.1	rectangle	2	#808080	yes	1	Unknown
+lpEriAngu1.1	lpEriAngu1.1	triangle left	2	#fb5609	yes	1	Holocentric
+lpSciSylv1.hap1.1	lpSciSylv1.hap1.1	triangle left	2	#fb5609	yes	1	Holocentric
+lpLuzPall1.1	lpLuzPall1.1	triangle left	2	#fb5609	yes	1	Holocentric
+lpLuzSylv1.1	lpLuzSylv1.1	triangle left	2	#fb5609	yes	1	Holocentric
+lpJunEffu1.1	lpJunEffu1.1	circle	2	#ff006e	yes	1	Satellite
+lpJunBufo1.hap1.1	lpJunBufo1.hap1.1	circle	2	#ff006e	yes	1	Satellite
+lpJunSqua1.hap1.1	lpJunSqua1.hap1.1	circle	2	#ff006e	yes	1	Satellite
+dmThaMinu1.hap1.1	dmThaMinu1.hap1.1	circle	2	#ff006e	yes	1	Satellite
+dmAquVulg1.hap1.1	dmAquVulg1.hap1.1	circle	2	#ff006e	yes	1	Satellite
+dmBerVulg1.1	dmBerVulg1.1	circle	2	#ff006e	yes	1	Satellite
+dcPolAvic1.1	dcPolAvic1.1	circle	2	#ff006e	yes	1	Satellite
+dcSpeMari1.1	dcSpeMari1.1	circle	2	#ff006e	yes	1	Satellite
+dcMoeTrin1.hap1.1	dcMoeTrin1.hap1.1	circle	2	#ff006e	yes	1	Satellite
+dcAreSerp1.hap1.1	dcAreSerp1.hap1.1	circle	2	#ff006e	yes	1	Satellite
+dcPolTetr1.hap1.1	dcPolTetr1.hap1.1	circle	2	#ff006e	yes	1	Satellite
+drAstGlyc1.1	drAstGlyc1.1	circle	2	#ff006e	yes	1	Satellite
+drMedArab1.1	drMedArab1.1	circle	2	#ff006e	yes	1	Satellite
+drTriFrag1.1	drTriFrag1.1	circle	2	#ff006e	yes	1	Satellite
+dhQueRobu3.1	dhQueRobu3.1	circle	2	#ff006e	yes	1	Satellite
+dhCorColu1.hap1.1	dhCorColu1.hap1.1	circle	2	#ff006e	yes	1	Satellite
+dhAlnGlut1.1	dhAlnGlut1.1	circle	2	#3a86ff	yes	1	Transposon
+drParJuda1.1	drParJuda1.1	circle	2	#ff006e	yes	1	Satellite
+drUrtUren1.1	drUrtUren1.1	circle	2	#3a86ff	yes	1	Transposon
+drMalDome5.1	drMalDome5.1	circle	2	#3a86ff	yes	1	Transposon
+drMalSylv7.1	drMalSylv7.1	circle	2	#3a86ff	yes	1	Transposon
+drFilUlma1.1	drFilUlma1.1	circle	2	#3a86ff	yes	1	Transposon
+drPotAnse1.1	drPotAnse1.1	circle	2	#ff006e	yes	1	Satellite
+rosCan_S27_v1	rosCan_S27_v1	circle	2	#8338ec	yes	1	Satellite/transposon
+drGeuRiva1.hap1.1	drGeuRiva1.hap1.1	circle	2	#ff006e	yes	1	Satellite
+drGeuUrba1.1	drGeuUrba1.1	circle	2	#3a86ff	yes	1	Transposon
+drChaAngu1.1	drChaAngu1.1	circle	2	#ff006e	yes	1	Satellite
+ddBarVulg1.1	ddBarVulg1.1	circle	2	#ff006e	yes	1	Satellite
+ddCarHirs1.hap1.1	ddCarHirs1.hap1.1	circle	2	#3a86ff	yes	1	Transposon
+ddAraThal4.1	ddAraThal4.1	circle	2	#ff006e	yes	1	Satellite
+drAilAlti1.1	drAilAlti1.1	circle	2	#3a86ff	yes	1	Transposon
+ddPopNigr1.1	ddPopNigr1.1	circle	2	#ff006e	yes	1	Satellite
+ddEupPepu3.1	ddEupPepu3.1	circle	2	#ff006e	yes	1	Satellite
+ddMerAnnu1.1	ddMerAnnu1.1	circle	2	#ff006e	yes	1	Satellite
+daSamNigr1.1	daSamNigr1.1	circle	2	#3a86ff	yes	1	Transposon
+drHedHeli1.1	drHedHeli1.1	circle	2	#ff006e	yes	1	Satellite
+ddHotPalu2.hap1.1	ddHotPalu2.hap1.1	circle	2	#ff006e	yes	1	Satellite
+daPulDyse1.1	daPulDyse1.1	circle	2	#ff006e	yes	1	Satellite
+daTanVulg1.hap1.1	daTanVulg1.hap1.1	circle	2	#ff006e	yes	1	Satellite
+daArcMinu1.1	daArcMinu1.1	circle	2	#8338ec	yes	1	Satellite/transposon
+daLycEuro1.1	daLycEuro1.1	circle	2	#8338ec	yes	1	Satellite/transposon
+daScuGale1.1	daScuGale1.1	circle	2	#ff006e	yes	1	Satellite
+daBalNigr1.1	daBalNigr1.1	circle	2	#ff006e	yes	1	Satellite
+daMisOron1.1	daMisOron1.1	circle	2	#ff006e	yes	1	Satellite
+daLinVulg1.1	daLinVulg1.1	circle	2	#ff006e	yes	1	Satellite
+daSheArve1.1	daSheArve1.1	circle	2	#ff006e	yes	1	Satellite
+daSolDulc1.1	daSolDulc1.1	circle	2	#3a86ff	yes	1	Transposon

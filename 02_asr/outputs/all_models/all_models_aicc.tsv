@@ -1,0 +1,16 @@
+dataset	model	desc	k	logL	AICc	dAICc	weight	best
+Full tree (chronos correlated)	ARD_irrevH	ARD + H irreversible	9	-207.628	433.91	0	0.756	TRUE
+Full tree (chronos correlated)	TerminalTrans	ARD_irrevH + Trans irreversible (sink)	7	-211.096	436.59	2.68	0.198	FALSE
+Full tree (chronos correlated)	ARD	All rates different	12	-207.22	439.58	5.67	0.044	FALSE
+Full tree (chronos correlated)	SYM	Symmetric rates	6	-216.665	445.63	11.72	0.002	FALSE
+Full tree (chronos correlated)	ER	Equal rates	1	-246.612	495.24	61.33	0	FALSE
+Metazoa (chronos correlated)	ARD_irrevH	ARD + H irreversible	9	-119.183	257.48	0	0.968	TRUE
+Metazoa (chronos correlated)	ARD	All rates different	12	-119.183	264.33	6.85	0.032	FALSE
+Metazoa (chronos correlated)	TerminalTrans	ARD_irrevH + Trans irreversible (sink)	7	-129.931	274.54	17.06	0	FALSE
+Metazoa (chronos correlated)	ER	Equal rates	1	-147.727	297.48	40	0	FALSE
+Metazoa (chronos correlated)	SYM	Symmetric rates	6	-143.76	300.03	42.55	0	FALSE
+Viridiplantae (chronos correlated)	SYM	Symmetric rates	6	-67.849	148.85	0	0.594	TRUE
+Viridiplantae (chronos correlated)	ARD_irrevH	ARD + H irreversible	9	-64.976	150.52	1.67	0.258	FALSE
+Viridiplantae (chronos correlated)	TerminalTrans	ARD_irrevH + Trans irreversible (sink)	7	-68.126	151.81	2.96	0.135	FALSE
+Viridiplantae (chronos correlated)	ARD	All rates different	12	-63.969	156.59	7.74	0.012	FALSE
+Viridiplantae (chronos correlated)	ER	Equal rates	1	-79.524	161.1	12.25	0.001	FALSE
