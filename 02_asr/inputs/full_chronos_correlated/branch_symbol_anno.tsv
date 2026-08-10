@@ -167,7 +167,7 @@ fPhoGun1.2	fPhoGun1.2	circle	2	#ff006e	yes	1	Satellite
 fThuAlb1.1	fThuAlb1.1	circle	2	#ff006e	yes	1	Satellite
 fThuMac1.1	fThuMac1.1	circle	2	#ff006e	yes	1	Satellite
 bCorHaw1.1	bCorHaw1.1	circle	2	#ff006e	yes	1	Satellite
-bTaeGut1.4	bTaeGut1.4	rectangle	2	#808080	yes	1	Unknown
+bTaeGut1.4	bTaeGut1.4	circle	2	#ff006e	yes	1	Satellite
 bPorHoc1.1	bPorHoc1.1	circle	2	#ff006e	yes	1	Satellite
 bAccGen1.1	bAccGen1.1	circle	2	#ff006e	yes	1	Satellite
 bFalPer1.1	bFalPer1.1	circle	2	#ff006e	yes	1	Satellite
