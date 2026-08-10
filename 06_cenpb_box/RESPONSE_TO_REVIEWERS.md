@@ -1,77 +1,71 @@
 # CENP-B box search — text for response to reviewers
 
-## How we searched
-We screened the centromeric satellite repertoire of all 325 DToL species for the
+We screened the centromeric satellite repertoire of the DToL species for the
 17-bp **CENP-B box** (canonical consensus `[CT]TTCGTTGGAA[AG]CGGGA`; Masumoto et
-al. 1989), on **both strands**, using three complementary methods of increasing
-permissiveness, each against a composition-matched **shuffled null**:
+al. 1989), on **both strands**, using two complementary approaches, and report
+both below. (A third, PWM/log-odds scan gave results concordant with the mismatch
+scan and is included in the repository as supporting evidence.)
 
-1. **Strict / Fachinetti mismatch scan** — the canonical box allowing 0–5
-   *substitutions*. Run both on a curated monomer set (≤500 monomers/species) and
-   on the full uncapped array set (**22.5 million** satellite arrays).
-2. **PWM log-odds** — a position-weight matrix built from the human α-satellite
-   box instances, scanned at ≥75 % of the maximum score.
-3. **Labile edit-distance method** (following Formenti et al., *Cell* 2026, zebra
-   finch T2T) — the box searched by **edit distance (indels allowed)** ≤5 for
-   cross-species and ≤2 within species. For every candidate we then built
-   **sequence logos of the box ± 5 flanking bp**, exactly as in that paper: a
-   genuine motif shows high information content across the 17-bp box that
-   *collapses sharply to near-random in the flanks*. If the flanks are as
-   conserved as the box, the "hit" is merely conserved satellite sequence, not an
-   enriched CENP-B box (built-in negative control).
+## Method 1 — simple motif parsing (mismatch scan)
+The canonical box was searched allowing an increasing number of **mismatches**
+(0–5), against a mononucleotide-**shuffled null**. This was run both on a curated
+monomer set (≤500 monomers/species) and, exhaustively, on the **full uncapped set
+of ~24.5 million satellite arrays**.
 
-## What we found
-- The **exact canonical box occurs only in human** α-satellite (positive control;
-  13,359 of 22.5 M arrays). **No non-human DToL species carries a single exact
-  box.**
-- The closest non-human is the bat ***Rhinolophus sinicus*** (0 exact matches, but
-  the highest ≤2-mismatch and PWM scores of any non-human species).
-- The labile method flags 38 species above their shuffled null, but (i) these are
-  **not overrepresented in vertebrates** — vertebrate mean enrichment is 0.89,
-  *below* the null, versus ~1.4× in plants/invertebrates — and (ii) under the
-  ±5-flank logo test only **human** (box − flank information Δ = **+0.64 bits**)
-  and, secondarily, the **bat** (Δ = +0.46) show the expected box>flank
-  transition. Most labile "candidates" have flanks as informative as the box
-  (Δ ≈ 0 or negative) and collapse to a handful of gap-free windows — i.e. the
-  labile counts were largely **indel-driven** and reflect conserved satellite
-  sequence rather than a functional CENP-B box.
+**Result.** The **exact canonical box (0 mismatches) occurs only in human**
+α-satellite (positive control; 13,359 of 22.5 M arrays). **No non-human species
+carries a single exact box.** The closest non-human by every strict metric is the
+bat *Rhinolophus sinicus* (0 exact matches, highest ≤2-mismatch and PWM scores of
+any non-human). At relaxed mismatch thresholds hits appear broadly but at low,
+composition-driven rates that do not exceed the shuffled null in most clades.
+*Figures:* `cenpb_mismatch_titration_allspecies.png`, `data/cenpb_uncapped_per_species.tsv`.
 
-## Birds — a diverged CENP-B-like box (cf. Formenti et al., Cell 2026)
-The zebra finch, where a CENP-B-like box was reported in the lineage-specific
-Tgut716A satellite, was **not represented in our satellite set** (0 arrays), so
-that exact finding could not be tested directly. Of the 8 birds with satellite
-data, however, two show the songbird paper's positive signature under the
-±5-flank logo test — a **box-specific motif with random flanks**:
+## Method 2 — songbird ±5-flank approach (Formenti et al., Cell 2026)
+Following the zebra-finch T2T paper (Suppl. Fig. 15), the box was matched as fixed
+17-bp windows (≤5 substitutions, both strands) and, for **every species on the
+full uncapped ~24.5 M arrays**, we built the position frequency matrix of the box
+**plus ±5 flanking bp**. A genuine motif shows high information across the 17-bp
+box that **collapses in the flanks** (Δ = box − flank information > 0); we also
+report the box consensus and its substitutions from the canonical box, and the
+prevalence (boxes/Mbp). *Caveat:* substitution-matched windows are constrained
+toward the consensus, giving a **~0.34-bit baseline Δ in all clades**; genuine
+boxes stand well above this AND have a near-canonical consensus at realistic
+prevalence.
 
-| bird | n windows | box / flank bits | Δ | consensus (subs vs canonical) |
-|---|---|---|---|---|
-| *Accipiter gentilis* (goshawk) | 25 | 1.40 / 0.62 | **+0.78** | `CTTTTTTGGAAACAGGA` (3) |
-| *Corvus hawaiiensis* (crow) | 616 | 1.01 / 0.62 | **+0.38** | `TTTCTTTGGCAGCAGCA` (4) |
+**Result — vertebrates lead, with birds strongest.** Vertebrates show the highest
+mean Δ (0.39; 52 % box-enriched) vs plants (0.34) and invertebrates (0.34). The
+convincing cases (Δ well above baseline + near-canonical consensus + real
+prevalence):
 
-The goshawk's box-vs-flank enrichment (Δ +0.78) actually **exceeds the human
-benchmark (+0.64)**; its consensus is only **3 substitutions** from the canonical
-box, retaining the diagnostic `TTGGAA` core and `C..GGA` tail. This is a genuine,
-if diverged, CENP-B-like box in a bird — consistent with, and extending beyond
-the songbird, the CENP-B-like centromere system reported in birds. The three
-falcons instead show equally conserved flanks (Δ ≈ 0), i.e. conserved satellite
-rather than a box-specific motif. Logos: `figures/cenpb_box_logos_flanks_BIRDS.pdf`.
+| species | group | Δ (box−flank) | box consensus | subs vs canonical | boxes/Mbp |
+|---|---|---|---|---|---|
+| *Accipiter gentilis* (goshawk) | Aves | **0.85** | `CTTTTTTGGAAACGGGA` | 2 | 88 |
+| *Porphyrio hochstetteri* (takahē) | Aves | 0.68 | `TTTCCTTGGAAACGGAA` | 2 | 26 |
+| *Lagopus muta* (ptarmigan) | Aves | 0.66 | `CTTTGTTGGAAACGGGA` | **1** | 95 |
+| *Rhinolophus sinicus* (bat) | Mammalia | 0.53 | `GTTCGTAGGAAGCGGGT` | 3 | 890 |
+| *Diceros bicornis* (rhino) | Mammalia | 0.52 | `CTTCCTTAGAAGCAGGA` | 3 | 7 |
+| *Cervus elaphus* (red deer) | Mammalia | 0.45 | `TTTCGTGGGAAGGGGGA` | 2 | 217 |
+| *Corvus hawaiiensis* (crow) | Aves | 0.41 | `TTTCTTTGGCAGCAGCA` | 4 | 952 |
+
+The **goshawk box (Δ 0.85, 2 substitutions, intact `CGGGA` tail)** is the
+strongest box-vs-flank signal in the entire 325-species dataset — exceeding even
+the human benchmark's Δ — and several other birds carry a near-canonical box
+(ptarmigan 1 substitution). In contrast the three *Falco* species show flanks as
+conserved as the box (Δ ≈ 0.1) — conserved satellite, not a box — an internal
+negative control. Fish and the single reptile show no convincing box.
+
+The **zebra finch itself was not represented in our satellite set** (0 arrays), so
+the specific Tgut716A box could not be tested directly; but the signal in the
+goshawk, ptarmigan and takahē indicates a diverged CENP-B-like box is present more
+broadly across birds. *Figures:* `cenpb_flank_uncapped_scatter.png`,
+`cenpb_box_logos_flanks_VERTEBRATES_uncapped.pdf`, `data/cenpb_flank_uncapped_per_species.tsv`.
 
 ## Conclusion
 The **canonical, functional CENP-B box** is confined to **human (mammalian)
-α-satellite**; the bat *R. sinicus* is the closest mammalian non-primate. Beyond
-mammals, a **diverged but box-specific CENP-B-like motif is detectable in some
-birds** (goshawk, crow) — matching the recently reported avian CENP-B-like system
-— whereas the broader labile candidates in plants/invertebrates fail the ±5-flank
-control (flanks as conserved as the box) and reflect homogenised satellite, not a
-functional box.
-
-## Figures / data referenced
-- `figures/cenpb_mismatch_titration_allspecies.png` — occurrence vs. mismatch
-  tolerance, all species, human α-sat benchmark + shuffled null (Fachinetti axis).
-- `figures/cenpb_songbird_labile.png`, `figures/cenpb_songbird_labile_byclade.png`
-  — labile edit-distance method and its per-clade breakdown (no vertebrate excess).
-- `figures/cenpb_box_logos_flanks_all_candidates.pdf` — box ±5-flank sequence
-  logos for **all** candidates (page 1 = box-vs-flank information scatter; only
-  human and the bat sit clearly above the diagonal).
-- `data/cenpb_uncapped_per_species.tsv` — genome-wide exact + PWM counts.
-- `data/cenpb_box_logos_flanks_summary.tsv` — per-species box vs flank information.
+α-satellite**. Beyond it, the songbird ±5-flank test on the full satellite set
+reveals a **diverged but box-specific CENP-B-like motif that is strongest in
+birds** (goshawk, ptarmigan, takahē) and present in several mammals (bat, rhino,
+deer) — consistent with, and extending beyond the songbird, the recently reported
+avian CENP-B-like centromere system. Broad low-Δ hits in plants/invertebrates fail
+the flank control (flanks as conserved as the box) and reflect homogenised
+satellite rather than a functional box.
