@@ -36,11 +36,34 @@ permissiveness, each against a composition-matched **shuffled null**:
   labile counts were largely **indel-driven** and reflect conserved satellite
   sequence rather than a functional CENP-B box.
 
+## Birds — a diverged CENP-B-like box (cf. Formenti et al., Cell 2026)
+The zebra finch, where a CENP-B-like box was reported in the lineage-specific
+Tgut716A satellite, was **not represented in our satellite set** (0 arrays), so
+that exact finding could not be tested directly. Of the 8 birds with satellite
+data, however, two show the songbird paper's positive signature under the
+±5-flank logo test — a **box-specific motif with random flanks**:
+
+| bird | n windows | box / flank bits | Δ | consensus (subs vs canonical) |
+|---|---|---|---|---|
+| *Accipiter gentilis* (goshawk) | 25 | 1.40 / 0.62 | **+0.78** | `CTTTTTTGGAAACAGGA` (3) |
+| *Corvus hawaiiensis* (crow) | 616 | 1.01 / 0.62 | **+0.38** | `TTTCTTTGGCAGCAGCA` (4) |
+
+The goshawk's box-vs-flank enrichment (Δ +0.78) actually **exceeds the human
+benchmark (+0.64)**; its consensus is only **3 substitutions** from the canonical
+box, retaining the diagnostic `TTGGAA` core and `C..GGA` tail. This is a genuine,
+if diverged, CENP-B-like box in a bird — consistent with, and extending beyond
+the songbird, the CENP-B-like centromere system reported in birds. The three
+falcons instead show equally conserved flanks (Δ ≈ 0), i.e. conserved satellite
+rather than a box-specific motif. Logos: `figures/cenpb_box_logos_flanks_BIRDS.pdf`.
+
 ## Conclusion
-A canonical, functional CENP-B box is confined to **human (mammalian)
-α-satellite** in this dataset; the bat *R. sinicus* is the only non-human that
-even approaches it. Outside mammals we find **no evidence for an enriched CENP-B
-box motif** — consistent with CENP-B being a mammal-specific feature.
+The **canonical, functional CENP-B box** is confined to **human (mammalian)
+α-satellite**; the bat *R. sinicus* is the closest mammalian non-primate. Beyond
+mammals, a **diverged but box-specific CENP-B-like motif is detectable in some
+birds** (goshawk, crow) — matching the recently reported avian CENP-B-like system
+— whereas the broader labile candidates in plants/invertebrates fail the ±5-flank
+control (flanks as conserved as the box) and reflect homogenised satellite, not a
+functional box.
 
 ## Figures / data referenced
 - `figures/cenpb_mismatch_titration_allspecies.png` — occurrence vs. mismatch
