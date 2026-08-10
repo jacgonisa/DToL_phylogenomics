@@ -31,11 +31,24 @@ a hard mismatch cap misses, while staying far stricter than the labile method.
 From Formenti et al., *Cell* 2026 (zebra finch T2T; Suppl. Fig. 15): the human
 CENP-B box searched by **edit distance (Levenshtein — indels allowed, not just
 substitutions)** with the paper's generous thresholds — **edit distance ≤5 for
-cross-species**, **≤2 for the same species (human)** — against a shuffled null
-(their ±5 flanking negative control). This is the deliberately *labile* axis for
-CENP-B-**like** box candidates in non-mammals, where the box is diverged. Their
-bird box sits in the Tgut716A satellite, with the pogo/Tigger transposase
-**TIGD4** as the putative CENP-B replacement.
+cross-species**, **≤2 for the same species (human)** — against a shuffled null.
+This is the deliberately *labile* axis for CENP-B-**like** box candidates in
+non-mammals, where the box is diverged. Their bird box sits in the Tgut716A
+satellite, with the pogo/Tigger transposase **TIGD4** as the putative CENP-B
+replacement.
+
+**±5-flank negative control** (`cenpb_logos_flanks.py`) — as in the songbird
+paper, for **every** candidate we build a sequence logo of the box plus ±5
+flanking bp. A genuine motif has high information content across the 17-bp box
+that collapses sharply to near-random in the flanks; if the flanks are as
+conserved as the box, the "hit" is just homogenised satellite sequence. We
+quantify this as **box − flank mean information (bits)**: only **human**
+(Δ = +0.64) and, secondarily, the **bat *R. sinicus*** (Δ = +0.46) show the
+expected transition; most labile candidates have Δ ≈ 0 or negative and collapse
+to a few gap-free windows (their labile counts were indel-driven).
+
+> **Reviewer response text:** see `RESPONSE_TO_REVIEWERS.md` for the brief
+> methods + findings paragraph.
 
 ## Key results
 
