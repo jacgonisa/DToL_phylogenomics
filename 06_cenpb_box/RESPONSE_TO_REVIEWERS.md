@@ -6,19 +6,30 @@ al. 1989), on **both strands**, using two complementary approaches, and report
 both below. (A third, PWM/log-odds scan gave results concordant with the mismatch
 scan and is included in the repository as supporting evidence.)
 
-## Method 1 — simple motif parsing (mismatch scan)
-The canonical box was searched allowing an increasing number of **mismatches**
-(0–5), against a mononucleotide-**shuffled null**. This was run both on a curated
-monomer set (≤500 monomers/species) and, exhaustively, on the **full uncapped set
-of ~24.5 million satellite arrays**.
+## Method 1 — exact IUPAC motif tiers (as in the functional-box paper)
+Following Barra/Fachinetti et al. (bioRxiv 2026.05.25.727640), we searched three
+**exact IUPAC** CENP-B box definitions (both strands) across the **full uncapped
+~24.5 M satellite arrays**, and compared each species' observed counts to a random
+expectation from its own base composition (obs/expected enrichment):
 
-**Result.** The **exact canonical box (0 mismatches) occurs only in human**
-α-satellite (positive control; 13,359 of 22.5 M arrays). **No non-human species
-carries a single exact box.** The closest non-human by every strict metric is the
-bat *Rhinolophus sinicus* (0 exact matches, highest ≤2-mismatch and PWM scores of
-any non-human). At relaxed mismatch thresholds hits appear broadly but at low,
-composition-driven rates that do not exceed the shuffled null in most clades.
-*Figures:* `cenpb_mismatch_titration_allspecies.png`, `data/cenpb_uncapped_per_species.tsv`.
+| tier | motif | note |
+|---|---|---|
+| canonical | `YTTCGTTGGAARCGGGA` | the functional box (degenerate only at pos 1 & 12) |
+| broad | `NTTCGNNNNANNCGGGN` | keeps the essential `TTCG…CGGG` core |
+| degenerated | `YTTCGNNNNANRCGGGN` | looser interior |
+
+**Result.** **No non-human species carries a single exact *canonical* box**
+(canonical = 0 in every clade; human α-satellite is the positive control, from the
+exact scan = human-only). For the looser tiers, one vertebrate stands out sharply:
+the bat **_Rhinolophus sinicus_** — **22,677 exact _broad_-motif hits (37× over
+random)** plus 289 degenerate — an order of magnitude above any other non-human.
+All other vertebrates have only trace exact hits (*Gallus* 12, *Trachurus* 12,
+*Lagopus* 10). Plants show degenerate-motif enrichment but zero canonical,
+matching the paper's observation that degenerate motifs occur stochastically and
+reflect neutral variation. *Figures:* `cenpb_paper_motifs.png`,
+`data/cenpb_paper_motifs_per_species.tsv`, `data/cenpb_paper_motifs_per_clade.tsv`.
+(An earlier mismatch-titration, `cenpb_mismatch_titration_allspecies.png`, gives a
+concordant but less clearly-tiered view and is retained as supporting.)
 
 ## Method 2 — songbird ±5-flank approach (Formenti et al., Cell 2026)
 Following the zebra-finch T2T paper (Suppl. Fig. 15), the box was matched as fixed
@@ -60,12 +71,29 @@ goshawk, ptarmigan and takahē indicates a diverged CENP-B-like box is present m
 broadly across birds. *Figures:* `cenpb_flank_uncapped_scatter.png`,
 `cenpb_box_logos_flanks_VERTEBRATES_uncapped.pdf`, `data/cenpb_flank_uncapped_per_species.tsv`.
 
+## Reconciling the two methods
+The two methods agree on the bat and disagree on birds, informatively:
+- The **exact-IUPAC method (Method 1)** is conservative and *position-aware*: it
+  requires the essential `TTCG…CGGG` core. Only the bat *R. sinicus* passes.
+- The **±5-flank method (Method 2)** is permissive: it tolerates substitutions
+  anywhere. Birds pass here, but their divergence falls **on the essential 5′ `CG`**
+  (goshawk consensus `CTTTTTTGGAAACGGGA` — the `CG` at positions 4–5 has become
+  `TT`), which is exactly why they score 0 under the exact broad motif.
+
+So the **bat _Rhinolophus sinicus_ is the only vertebrate robust to both methods**.
+The avian signal is real as a *diverged, box-shaped* motif but does not preserve
+the mammalian CENP-B essential positions — consistent with the songbird paper's
+own premise that birds may use a **TIGD4** homolog whose sequence preference need
+not match mammalian CENP-B. Whether the avian box is functional therefore cannot be
+settled from the mammalian motif alone.
+
 ## Conclusion
 The **canonical, functional CENP-B box** is confined to **human (mammalian)
-α-satellite**. Beyond it, the songbird ±5-flank test on the full satellite set
-reveals a **diverged but box-specific CENP-B-like motif that is strongest in
-birds** (goshawk, ptarmigan, takahē) and present in several mammals (bat, rhino,
-deer) — consistent with, and extending beyond the songbird, the recently reported
-avian CENP-B-like centromere system. Broad low-Δ hits in plants/invertebrates fail
-the flank control (flanks as conserved as the box) and reflect homogenised
+α-satellite**. Among all other species, the strongest and most robust signal — by
+both the exact-IUPAC and the flank method — is the bat **_Rhinolophus sinicus_**
+(37× broad-motif enrichment). Birds (goshawk, ptarmigan, takahē) carry a
+**diverged, box-shaped motif** that passes the permissive flank test but not the
+position-aware exact motif, because it has lost the CENP-B-essential 5′ CG — a
+plausible **TIGD4-type avian box** rather than a mammalian CENP-B box. Broad
+low-signal hits in plants/invertebrates fail both controls and reflect homogenised
 satellite rather than a functional box.
