@@ -22,7 +22,7 @@ dat <- data.frame(label=tr$tip.label, code=norm(tr$tip.label)) %>%
 dat$clade[is.na(dat$clade)] <- "no data"
 for (cc in c("canonMbp","broadMbp","degenMbp")) dat[[cc]][is.na(dat[[cc]])] <- 0
 dat$delta_pos <- ifelse(is.na(dat$delta), 0, pmax(dat$delta, 0))   # motif signal (flank Δ), Method 2
-# colour = excess identity to canonical over a dinucleotide-shuffle null (~0 = no CENP-B-likeness)
+dat$identity  <- ifelse(is.na(dat$subs), NA, 100*(17-dat$subs)/17) # % identity of consensus motif to canonical
 # 'box' = functional (protein-binding); sequence hits are motifs / candidate boxes.
 #   candidate box = box-specific (flank Δ≥0.5) AND near-canonical motif (≤2 subs)
 dat$candidate <- !is.na(dat$delta) & dat$delta>=0.5 & !is.na(dat$subs) & dat$subs<=2
@@ -37,10 +37,10 @@ p <- ggtree(tr, layout="fan", open.angle=14, size=0.2) %<+% dat +
   geom_tippoint(aes(color=clade), size=0.9) + scale_color_manual(values=ccol, name="clade")
 # ring 1 — Method 2 MOTIF signal: bar height = flank Δ, colour = identity to canonical motif
 p <- p + new_scale_fill() +
-  geom_fruit(geom=geom_col, mapping=aes(y=label, x=delta_pos, fill=excess),
+  geom_fruit(geom=geom_col, mapping=aes(y=label, x=delta_pos, fill=identity),
              pwidth=0.26, offset=0.06, axis.params=list(axis="x", text.size=1.5, nbreak=3)) +
-  scale_fill_gradient2(low="#2166AC", mid="#F7F7F7", high="#B2182B", midpoint=0, limits=c(-8,8),
-                       na.value="grey90", name="excess identity to\ncanonical vs null (%)")
+  scale_fill_gradientn(colours=c("#FFFFB2","#FD8D3C","#BD0026"), limits=c(70,100), na.value="grey90",
+                       name="motif identity to\ncanonical (%)")
 # ★ candidate box (box-specific + near-canonical motif)
 p <- p + geom_tippoint(aes(subset=(label %in% candtips)), shape=8, size=1.6, stroke=0.5, color="black")
 # rings 2-4 — Method 1 exact-motif density (hits/Mbp, log1p): canonical / broad / degenerate
@@ -55,9 +55,9 @@ p <- p + new_scale_fill() +
                     breaks=c("canonical","broad","degenerate"), name="M1 exact motif\n(hits/Mbp, log)") +
   geom_tiplab2(aes(subset=(label %in% toptips), label=code), size=2.3, offset=0.42, fontface="bold") +
   ggtitle("CENP-B motif signal across the DToL chronogram",
-          subtitle=paste0("Ring 1 = motif signal (flank Δ, M2), coloured by EXCESS identity to canonical over a shuffle null ",
-                          "(≈0 = not CENP-B-like above chance). Rings 2–4 = exact-motif density (canonical/broad/degenerate, M1). ",
-                          "★ = box-shaped candidate (",length(candtips)," sp; none CENP-B-like above null).")) +
+          subtitle=paste0("Ring 1 = motif signal (flank Δ, M2), coloured by identity of the consensus motif to canonical. ",
+                          "Rings 2–4 = exact-motif density (canonical/broad/degenerate, M1). ",
+                          "★ = box-like candidate (",length(candtips)," sp; strongest in birds — near-canonical but missing the CpG).")) +
   theme(legend.position="right", plot.title=element_text(face="bold", size=12),
         plot.subtitle=element_text(size=7.6, colour="grey30"))
 

@@ -66,12 +66,12 @@ binds the CENP-B protein. Here we detect <i>sequence</i> matches only, so we cal
 not tested).<br><br>
 <b>Bottom line.</b> The canonical CENP-B motif (<code>[CT]TTCGTTGGAA[AG]CGGGA</code>) as an
 exact match is confined to human α-satellite — <b>0 exact canonical motifs in any of the
-{n_sat} DToL species with satellites</b>. A permissive ±5-flank test flags <b>box-shaped</b>
-motifs in 20 species (strongest in <b>birds</b>: goshawk, ptarmigan, takahē), but a
-<b>dinucleotide-shuffle null shows none is more identical to the canonical CENP-B motif than
-chance</b> (per-window identity ≈ null). So <b>no candidate box exceeds the null anywhere in
-DToL</b> — the bird signal is a conserved satellite sub-region aligning to the box template,
-not a CENP-B-like motif.</div>
+{n_sat} DToL species with satellites</b>. A ±5-flank test flags <b>box-like</b> motifs in 20
+species, strongest in <b>birds</b>: the goshawk consensus <code>CTTTTTTGGAAACGGGA</code> is
+<b>15/17 identical</b> to the canonical box, differing only at the CpG (positions 4–5,
+CpG→TT). These are strong <b>candidate divergent boxes</b> — near-canonical but lacking the
+CENP-B-essential CpG (the exact broad motif, which fixes that CpG, therefore scores 0). Their
+functionality is untested (no protein-binding assay).</div>
 
 <h2>What was searched</h2>
 <p><span class="tag">input</span><code>all.satellites.txt</code> — every <b>candidate</b>
@@ -114,13 +114,15 @@ ptarmigan) are the most box-specific vertebrates; falcons sit on the diagonal (c
 satellite, not a candidate box).</div></div>
 <h3>Top vertebrates by flank Δ (box − flank)</h3>
 {tbl(vert_df.round(2))}
-<p class="sub">Box-shaped motifs (Δ≥0.5, ≤2 substitutions from canonical) occur in <b>20 species
-across clades</b>, strongest in birds. <b>Identity null:</b> running the pipeline on a
-dinucleotide-shuffle of each species shows per-window identity to canonical (≈70.6%) is
-<b>no higher than the shuffle null (≈71.5%)</b> — 0/105 species exceed it — so none is
-CENP-B-like above chance. (Points in the scatter are coloured by this excess-over-null.)
-Coherence to each species' <i>own</i> motif is high (85% vs 68% null) — satellites are real
-repeats, but not CENP-B boxes.</p>
+<p class="sub">Box-like motifs (Δ≥0.5, ≤2 substitutions from canonical) occur in <b>20 species
+across clades</b>, strongest in birds; the scatter is coloured by identity to the canonical
+motif (warm = box-like). <b>On the null:</b> a dinucleotide shuffle is <i>not</i> a valid null
+for the consensus identity — averaging near-canonical windows trivially regenerates canonical
+(shuffle consensus ≈100%), so "obs &lt; shuffle" is an artifact, not evidence against the
+motif. The fair null is on <i>occurrence</i> (does the box-like motif appear more than a
+composition-matched null): birds fail the <b>exact</b> broad motif only because it fixes the
+eroded CpG. What is robust: the goshawk motif is genuinely 15/17 box-like, and coherence to
+each species' own motif is high (85% vs 68% null) — satellites are real, coherent repeats.</p>
 
 <h2>CENP-B box across the chronogram</h2>
 <div class="fig">{img(FIG/'cenpb_box_tree_325sp.png')}<div class="cap">

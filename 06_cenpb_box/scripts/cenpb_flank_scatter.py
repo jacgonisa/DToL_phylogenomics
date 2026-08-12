@@ -11,10 +11,9 @@ import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 SAT=Path("/home/jg2070/Desktop/dtol_review_August/DToL_phylogenomics_publication_325genomes/05_satellite_similarity")
 df=pd.read_csv(SAT/"figures/cenpb_flank_uncapped_per_species.tsv",sep="\t"); d=df[df.n_windows>=5].copy()
-# colour = EXCESS identity to the canonical motif over a dinucleotide-shuffle null
-#   (per-window identity minus null; ~0 = no more CENP-B-like than chance)
-idn=pd.read_csv(SAT/"figures/cenpb_identity_null.tsv",sep="\t")[["species","excess_canon","id_canon_obs"]]
-d=d.merge(idn,on="species",how="left"); d["identity"]=d.excess_canon
+# colour = identity of the species' consensus motif to the canonical CENP-B motif
+#   (17 − substitutions)/17. Descriptive: how box-like the dominant motif is.
+d["identity"]=100*(17-d.subs_vs_canonical)/17
 b=pd.read_csv(SAT/"figures/cenpb_human_benchmark.tsv",sep="\t")
 hm={r.control:(r.mean_flank_bits,r.mean_box_bits) for _,r in b.iterrows()}
 ASAT=hm["alpha-satellite (positive)"]; HSAT=hm["HSat1/2/3 (negative)"]
@@ -23,7 +22,7 @@ plt.rcParams.update({"font.family":"sans-serif","font.sans-serif":["Arial","Helv
   "font.size":8,"axes.linewidth":0.7,"xtick.major.width":0.7,"ytick.major.width":0.7,
   "xtick.major.size":3,"ytick.major.size":3,"axes.labelsize":8,"legend.fontsize":6.6,
   "xtick.labelsize":7.5,"ytick.labelsize":7.5,"savefig.dpi":600})
-CM="RdBu_r"; VMIN,VMAX=-8,8                             # excess identity over null (diverging, 0-centred)
+CM="YlOrRd"; VMIN,VMAX=70,100                           # identity to canonical (%): warm = box-like
 shape={"Invertebrate":"o","Vertebrates":"^","Viridiplantae":"s","Fungi":"D","Protist":"v"}
 
 def bench(ax):
@@ -53,9 +52,9 @@ for _,r in v[(v.delta>=0.4)|v.name.str.contains("Accipiter|Lagopus|Porphyrio|Cer
     a2.annotate(r["name"].split()[0],(r.mean_flank_bits,r.mean_box_bits),fontsize=6.2,xytext=(3,2),textcoords="offset points")
 a2.set_xlim(0,2); a2.set_ylim(0,2); a2.set_xlabel("flank information (bits) — control"); a2.set_ylabel("motif information (bits)")
 a2.set_title("Vertebrates (size ∝ candidate boxes/Mbp)",fontsize=8.5,fontweight="bold",pad=3)
-a2.text(0.03,0.97,"red = more CENP-B-like\nthan shuffle null (few, weak)",transform=a2.transAxes,fontsize=6.2,color="0.35",va="top")
+a2.text(0.03,0.97,"warm = box-like\n(near-canonical motif)",transform=a2.transAxes,fontsize=6.2,color="0.35",va="top")
 a2.spines[["top","right"]].set_visible(False)
-cb=fig.colorbar(sc,ax=a2,fraction=0.046,pad=0.03); cb.set_label("excess identity to canonical over null (%)",fontsize=6.8)
+cb=fig.colorbar(sc,ax=a2,fraction=0.046,pad=0.03); cb.set_label("identity to canonical CENP-B motif (%)",fontsize=6.8)
 cb.ax.tick_params(labelsize=6.5)
 for ax,l in [(a1,"a"),(a2,"b")]: ax.text(-0.17,1.08,l,transform=ax.transAxes,fontsize=11,fontweight="bold",va="top")
 plt.tight_layout(w_pad=2.2)
