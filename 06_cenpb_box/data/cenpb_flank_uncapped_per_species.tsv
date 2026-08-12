@@ -21,13 +21,10 @@ iypemlugu	Pemphredon lugubris	Invertebrate		51082	44.85	1582	35.27	0.68	0.12	0.5
 lpjunsqua	Juncus squarrosus	Viridiplantae		157934	24.96	21715	869.83	1.4	0.85	0.55	TTTCGTTGGAAACGGAT	2.0
 iycoeconi	Coelioxys conoideus	Invertebrate		49454	45.54	60	1.32	0.72	0.18	0.54	TTTCGTTGGAAACGGGA	0.0
 lsirifoet	Iris foetidissima	Viridiplantae		281687	122.29	33659	275.25	1.01	0.47	0.54	CTTCGTTAGAAATGGGA	2.0
-dalyceuro	Lycopus europaeus	Viridiplantae		8664	4.02	1007	250.56	1.17	0.63	0.54	TTTCATCAGGAACGTGA	5.0
 eamarglac	Marthasterias glacialis	Invertebrate		30679	14.95	756	50.57	0.9	0.36	0.53	TTTCGTTGGAAGCCGGA	1.0
-jamemvect	jamemvect	Invertebrate		13281	7.18	87	12.12	1.07	0.55	0.53	TTTCGTTGCAAGCGGGA	1.0
 ioisceleg	Ischnura elegans	Invertebrate		12570	3.94	143	36.31	1.11	0.58	0.53	TTTTATTGGAAAGCGGA	4.0
 dmbervulg	Berberis vulgaris	Viridiplantae		709899	127.56	8480	66.48	0.82	0.28	0.53	TTTCGTTGGAAACGGGA	0.0
 lpcardepa	Carex depauperata	Viridiplantae		204120	16.47	1803	109.47	0.93	0.41	0.53	TTTTGTTGCAATCTGGA	4.0
-mrhisin	Rhinolophus sinicus	Vertebrates	Mammalia	61716	84.56	75291	890.4	0.97	0.44	0.53	GTTCGTAGGAAGCGGGT	3.0
 mdicbic	Diceros bicornis	Vertebrates	Mammalia	335103	76.32	566	7.42	0.94	0.42	0.52	CTTCCTTAGAAGCAGGA	3.0
 ichalsede	Halyzia sedecimguttata	Invertebrate		34304	4.43	268	60.47	0.96	0.44	0.52	CTTCGTTGAAAGCGGGA	1.0
 iilimmarm	Limnephilus marmoratus	Invertebrate		61594	12.64	1980	156.63	0.91	0.39	0.52	TTTCGTTAGAAACGGGA	1.0
@@ -53,8 +50,6 @@ icnicinve	Nicrophorus investigator	Invertebrate		47195	8.45	24	2.84	1.16	0.72	0.
 drgeuriva	Geum rivale	Viridiplantae		235532	37.53	128	3.41	0.99	0.54	0.45	TTTTGTTGGAAATGGGA	2.0
 mcerela	Cervus elaphus	Vertebrates	Mammalia	224055	178.21	38716	217.25	0.93	0.48	0.45	TTTCGTGGGAAGGGGGA	2.0
 mmelmel	Meles meles	Vertebrates	Mammalia	87864	12.48	725	58.1	1.11	0.67	0.45	TTTGGTAGCATAAGGGA	5.0
-drroscani	drroscani	Invertebrate		261308	41.39	2163	52.25	1.25	0.79	0.45	TTTCCCTAGAAGCGGGA	3.0
-dcastglyc	dcastglyc	Invertebrate		88737	14.68	13711	933.74	1.41	0.96	0.45	TTTCATATGAAATGGGA	4.0
 iccarprob	Carabus problematicus	Invertebrate		130427	26.8	17143	639.63	1.52	1.08	0.44	TTACGTTGAAATCCGAA	5.0
 ocsyccili	Sycon ciliatum	Invertebrate		26043	8.63	3851	446.16	1.02	0.58	0.44	CTGAGCTGGAAACGGGA	3.0
 lpjuneffu	Juncus effusus	Viridiplantae		163943	27.91	13648	489.01	0.95	0.52	0.43	TTTCGTTTGAAACGAGA	2.0
@@ -84,27 +79,22 @@ icnebbrev	Nebria brevicollis	Invertebrate		19128	2.63	12519	4765.38	1.77	1.4	0.3
 dmthaminu	Thalictrum minus	Viridiplantae		548156	98.26	1824	18.56	1.08	0.71	0.37	CTTCATTGGAAGTGTGA	3.0
 idantanth	Anthrax anthrax	Invertebrate		123511	52.17	7018	134.53	1.4	1.03	0.37	TTTCGTAGATAATGGTA	5.0
 dcpolavic	Polygonum aviculare	Viridiplantae		51994	9.22	163	17.69	1.14	0.78	0.36	TTTGGTTGGAAAAAGGA	3.0
-lpschltabe	lpschltabe	Invertebrate		273795	30.14	12679	420.68	1.37	1.01	0.36	TTTCGGCGGTACCGAGG	6.0
 lpcypfusc	Cyperus fuscus	Viridiplantae		6242	1.52	645	423.08	1.11	0.75	0.36	TTTCGTTGGAATCAGGA	2.0
 damisoron	Misopates orontium	Viridiplantae		31645	4.09	22	5.38	1.07	0.73	0.34	TTTTGGTGGAAAAGGGA	3.0
 idmacatri	Machimus atricapillus	Invertebrate		2789	0.38	158	411.52	1.75	1.4	0.34	TTGCTCTGGAAACGGTG	5.0
-iyarmarma	iyarmarma	Invertebrate		63220	9.35	3864	413.09	1.2	0.86	0.34	CTTCTTTGGTAGCTCGA	4.0
 ddeuppepu	Euphorbia peplus	Viridiplantae		131031	20.44	1591	77.83	0.86	0.52	0.33	TTTCGTTGGAAACGGGA	0.0
 dcmoetrin	Moehringia trinervia	Viridiplantae		314100	52.97	1495	28.22	1.44	1.11	0.33	TTTCATTTTAAACGTTA	5.0
 mcanlor	Canis lupus	Vertebrates	Mammalia	22116	16.24	1073	66.07	0.92	0.58	0.33	CTTCGTTGGAGGAGGGA	2.0
 laapodist	Aponogeton distachyos	Viridiplantae		259867	53.52	473	8.84	1.02	0.68	0.33	TTTCTTTGTAAAAGGGA	3.0
 drtrifrag	Trifolium fragiferum	Viridiplantae		36933	9.78	1297	132.63	0.99	0.66	0.33	TTTCGTTGGAAACGGCA	1.0
 iilimluna	Limnephilus lunatus	Invertebrate		41449	10.32	1984	192.16	1.15	0.81	0.33	TTTTGTTGGAATCGGGA	2.0
-jahalocto	jahalocto	Invertebrate		52420	3.06	1943	634.91	1.66	1.34	0.32	TTCCCTTGGGAACTGGG	5.0
 fdanrer	Danio rerio	Vertebrates	Fish	80307	14.89	101	6.79	1.16	0.85	0.31	CTGCGTTGGAAATTGGA	3.0
 lpluzpall	Luzula pallescens	Viridiplantae		641603	76.23	403	5.29	1.35	1.05	0.31	TTTGATTCGAAAAGGAA	5.0
-iynyspin	iynyspin	Invertebrate		3919	0.7	829	1177.29	1.45	1.14	0.31	TTTCGACGGAAAGGTAA	5.0
 ddarathal	Arabidopsis thaliana	Viridiplantae		79791	14.17	224	15.81	1.08	0.77	0.31	TTTCCTTGGAAGAAGGA	3.0
 icnebsali	Nebria salina	Invertebrate		38388	5.12	29250	5714.0	1.75	1.46	0.3	ATTCGTTTCAAATGAGA	5.0
 ftratra	Trachurus trachurus	Vertebrates	Fish	6659	1.21	6534	5416.14	1.87	1.57	0.3	TTTGGTTGAAATCGGGC	4.0
 tnlinlong	Lineus longissimus	Invertebrate		11432	1.74	16	9.22	1.31	1.01	0.3	TATCGTTAGTAGAGTGA	5.0
 iystephae	Stelis phaeoptera	Invertebrate		634325	32.86	38056	1158.12	1.5	1.21	0.29	TTTCGTTGCAAAAGCGG	4.0
-lpschltriq	lpschltriq	Invertebrate		1097272	78.46	64023	815.95	1.32	1.03	0.29	TTTCGGCGGTACCGAGG	6.0
 idhydcyrt	Hydrotaea cyrtoneurina	Invertebrate		137191	17.96	180	10.02	1.27	0.99	0.28	TATCGTTGGAAATGACC	5.0
 icmalbipu	Malachius bipustulatus	Invertebrate		20075	2.57	35	13.64	1.63	1.35	0.28	TTTCGTTAGAAGCCCAC	5.0
 iyanddors	Andrena dorsata	Invertebrate		1519	0.27	1475	5493.28	1.51	1.24	0.27	TGCCATTCGACGCGGGA	5.0
@@ -119,7 +109,6 @@ lpscisylv	Scirpus sylvaticus	Viridiplantae		18791	0.61	15	24.41	1.36	1.14	0.23	T
 bfalper	Falco peregrinus	Vertebrates	Aves	58861	10.24	6510	635.81	1.78	1.55	0.23	TTTGGTAGGCAGCTGAA	5.0
 icptemadi	Pterostichus madidus	Invertebrate		196235	30.69	431	14.04	1.3	1.08	0.22	TTTCTCTGGAAATAGAA	5.0
 iymimdahl	Mimumesa dahlbomi	Invertebrate		9509	3.25	8022	2470.89	1.81	1.58	0.22	CTCCGTCGGAAACATCA	5.0
-dhquebobu	dhquebobu	Invertebrate		167213	24.38	17476	716.68	1.18	0.97	0.21	CTTCATTTGAAGAGGAA	4.0
 bgalgal	Gallus gallus	Vertebrates	Aves	21417	0.95	20	20.95	1.01	0.81	0.21	TTTCGTTGGAAAGGGGA	1.0
 iytipfemo	Tiphia femorata	Invertebrate		7515	1.03	2227	2153.58	1.84	1.63	0.21	TTTCCTCGAAAACGGCT	5.0
 wplepclav	Lepidonotus clava	Invertebrate		11798	3.3	3201	970.35	1.89	1.68	0.21	TTTCGTTAGAATCAAAA	5.0
@@ -128,7 +117,6 @@ tzbugstol	Bugulina stolonifera	Invertebrate		16315	4.24	57	13.44	1.39	1.21	0.19	
 idphymeln	Phyto melanocephala	Invertebrate		26890	4.91	869	176.9	1.44	1.26	0.19	TATTGAAAGAAACGGGA	5.0
 iyophlute	Ophion luteus	Invertebrate		21215	3.42	199	58.25	1.49	1.31	0.18	TCTGATTGGAAGTAGGA	5.0
 icrhafulv	Rhagonycha fulva	Invertebrate		938153	71.27	52	0.73	1.61	1.43	0.18	TTTAGTTGGCAATTTGA	5.0
-morcroc	morcroc	Invertebrate		100639	20.87	2964	142.04	1.23	1.05	0.18	TTCCGTTGGCAGCGTGA	3.0
 lpdigsang	Digitaria sanguinalis	Viridiplantae		104747	17.57	4423	251.81	1.38	1.21	0.17	ATTCGTCGGAAGTTTGA	5.0
 iynomfabr	Nomada fabriciana	Invertebrate		38153	3.81	7461	1958.05	1.91	1.73	0.17	CTTCCGTCGATGCAGGA	5.0
 dmaquvulg	Aquilegia vulgaris	Viridiplantae		51495	16.93	2093	123.63	0.99	0.83	0.17	TTTCGTTCGAAATGGGA	2.0

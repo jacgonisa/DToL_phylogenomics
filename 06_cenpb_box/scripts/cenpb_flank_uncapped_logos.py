@@ -21,6 +21,9 @@ df=pd.read_csv(SAT/"figures/cenpb_flank_uncapped_per_species.tsv",sep="\t")
 vert=df[(df.clade=="Vertebrates")&(df.n_windows>=5)].sort_values("delta",ascending=False)
 want=set(vert.species); counts={sp:np.zeros((27,4)) for sp in want}; got={sp:0 for sp in want}
 nm=dict(zip(df.species,df.name)); vg=dict(zip(df.species,df.vgroup))
+# restrict to the 325 published species (tree tips)
+ALLOW=set(l.strip() for l in open(SAT/"species_325.txt") if l.strip() and not l.startswith("#"))
+want &= ALLOW; vert=vert[vert.species.isin(ALLOW)]
 
 for i,line in enumerate(open(ALL)):
     if i==0: continue

@@ -35,6 +35,8 @@ bmap={**{k:"Vertebrates" for k in vsub},"Fungi":"Fungi","Algae":"Viridiplantae",
       "Dicots":"Viridiplantae","Monocots":"Viridiplantae","Gymnosperms":"Viridiplantae","Alveolata":"Protist","Discoba":"Protist"}
 clade=dict(zip(tax.code,[bmap.get(t,"Invertebrate") for t in tax.taxa1]))
 vgroup=dict(zip(tax.code,[vsub.get(t,"") for t in tax.taxa1]))
+# restrict to the 325 published species (tree tips); all.satellites.txt carries extras
+ALLOW=set(l.strip() for l in open(SAT/"species_325.txt") if l.strip() and not l.startswith("#"))
 
 class A:
     __slots__=("c","bp","base","narr")
@@ -48,6 +50,7 @@ for i,line in enumerate(open(ALL)):
     if not m: continue
     if '"' not in line: continue
     sp=line.rstrip().rsplit('"',2)[-2].split(".")[0].lower()
+    if sp not in ALLOW: continue
     s=m.group(1).upper(); a=acc[sp]; a.narr+=1; a.bp+=len(s)
     for b in BASES: a.base[b]+=s.count(b)
     both=s+"#"+rc(s)

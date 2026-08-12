@@ -37,6 +37,8 @@ bmap={**{k:"Vertebrates" for k in vsub},"Fungi":"Fungi","Algae":"Viridiplantae",
       "Alveolata":"Protist","Discoba":"Protist"}
 clade=dict(zip(tax.code,[bmap.get(t,"Invertebrate") for t in tax.taxa1]))
 vgroup=dict(zip(tax.code,[vsub.get(t,"") for t in tax.taxa1]))
+# restrict to the 325 published species (tree tips); all.satellites.txt carries extras
+ALLOW=set(l.strip() for l in open(SAT/"species_325.txt") if l.strip() and not l.startswith("#"))
 
 class Acc:
     __slots__=("counts","nwin","narr","bp")
@@ -66,7 +68,7 @@ for i,line in enumerate(open(ALL)):
     m=seqre.search(line)
     if not m: continue
     sp=line.rstrip().rsplit('"',2)[-2].split(".")[0].lower() if '"' in line else None
-    if not sp: continue
+    if not sp or sp not in ALLOW: continue
     add(sp,m.group(1).upper()); n+=1
     if n % 2000000==0: print(f"  {n:,} arrays...",flush=True)
 print(f"total arrays: {n:,}",flush=True)

@@ -1,4 +1,0 @@
-clade	n_species	mean %box <=2mm	mean %box <=3mm	mean %null <=3mm	enrichment	canonical (/2000)	broad	degenerate	PWM/FIMO	n >=2 lines pos
-Invertebrate	102	0.031	0.832	0.354	2.35	0	0.6	3.6	0	1
-Vertebrates	24	0.041	1.383	1.005	1.38	0	21	27	35.8	1
-Viridiplantae	49	0.002	0.28	0.332	0.84	0	2.9	5.7	0	1

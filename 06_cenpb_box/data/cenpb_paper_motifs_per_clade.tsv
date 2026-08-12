@@ -1,4 +1,4 @@
 clade	n_species	canonical_perMbp	broad_perMbp	degenerated_perMbp	canonical_enrich	broad_enrich	degenerated_enrich	n_with_canonical
-Vertebrates	24	0.0	12.381	0.715	0.0	1.96	0.89	0
-Invertebrate	101	0.0	2.264	0.303	0.0	1.36	0.36	0
-Viridiplantae	49	0.0	3.521	2.669	0.0	3.14	11.43	0
+Vertebrates	23	0.0	1.259	0.597	0.0	0.45	0.84	0
+Invertebrate	91	0.0	2.393	0.32	0.0	1.46	0.37	0
+Viridiplantae	48	0.0	3.589	2.725	0.0	3.2	11.67	0

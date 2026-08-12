@@ -1,0 +1,3 @@
+control	n_arrays	Mbp	canonical	canonical_perMbp	canonical_enrich	broad	broad_perMbp	broad_enrich	degenerated	degenerated_perMbp	degenerated_enrich	n_windows	win_per_Mbp	mean_box_bits	mean_flank_bits	delta
+alpha-satellite (positive)	50000	8.55	13359	1562.456	5661214.37	18095	2116.374	675.92	17770	2078.363	2655.16	27765	3247.37	1.39	0.83	0.56
+HSat1/2/3 (negative)	7982	161.81	5	0.031	139.32	65	0.402	0.16	5	0.031	0.05	15113	93.4	1.19	0.96	0.23
