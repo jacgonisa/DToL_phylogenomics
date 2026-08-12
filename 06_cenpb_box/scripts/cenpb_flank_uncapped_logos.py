@@ -44,7 +44,44 @@ for i,line in enumerate(open(ALL)):
                 got[sp]+=1
                 if got[sp]>=CAP: break
 
+def count_from_fasta(path, cap=30000):
+    counts=np.zeros((27,4)); nwin=0; bp=0; buf=[]; seqs=[]
+    for ln in open(path):
+        if ln[0]==">":
+            if buf: seqs.append("".join(buf)); buf=[]
+        else: buf.append(ln.strip().upper())
+    if buf: seqs.append("".join(buf))
+    for s in seqs:
+        bp+=len(s); both=s+"#"+rc(s)
+        if not PRE.search(both): continue
+        for st in (s,rc(s)):
+            for m in PAT.finditer(st,overlapped=False):
+                a,b=m.start(),m.end()
+                if b-a!=17 or a-FLANK<0 or b+FLANK>len(st): continue
+                w=st[a-FLANK:b+FLANK]
+                if len(w)==27 and set(w)<=set("ACGT"):
+                    for k,ch in enumerate(w): counts[k,IDX[ch]]+=1
+                    nwin+=1
+        if nwin>=cap: break
+    return counts, nwin, bp
+
+def draw(pdf, counts, title):
+    prob=pd.DataFrame(counts/counts.sum(1,keepdims=True),columns=list("ACGT"))
+    info=logomaker.transform_matrix(prob,from_type="probability",to_type="information")
+    box=info.iloc[FLANK:FLANK+17].sum(1).mean(); fl=pd.concat([info.iloc[:FLANK],info.iloc[FLANK+17:]]).sum(1).mean()
+    fig,ax=plt.subplots(figsize=(8.5,2.6)); logomaker.Logo(info,ax=ax,color_scheme="classic",show_spines=False)
+    ax.axvline(FLANK-0.5,color="grey",ls="--",lw=1); ax.axvline(FLANK+17-0.5,color="grey",ls="--",lw=1)
+    ax.set_ylim(0,2); ax.set_ylabel("bits"); ax.set_xticks([])
+    ax.set_title(title.format(box=round(box,2),flank=round(fl,2),delta=round(box-fl,2)),fontsize=8,fontweight="bold")
+    plt.tight_layout(); pdf.savefig(fig,bbox_inches="tight"); plt.close(fig)
+
 pdf=PdfPages(SAT/"figures/cenpb_box_logos_flanks_VERTEBRATES_uncapped.pdf")
+# --- human HG002 benchmarks first: alpha-sat (positive), HSat (negative) ---
+ca,na,bpa=count_from_fasta(SAT/"cenpb_psi/human_alpha.fasta")
+draw(pdf,ca,f"HUMAN α-satellite (HG002, positive benchmark) | windows={{}} n={na} ({round(na/(bpa/1e6),0)}/Mbp) | box {{box}} vs flank {{flank}} bits (Δ={{delta:+.2f}})".replace("{}",str(na)))
+ch,nh,bph=count_from_fasta(SAT/"cenpb_psi/human_hsat.fasta")
+if nh>=10:
+    draw(pdf,ch,f"HUMAN HSat1/2/3 (HG002, negative control) | n={nh} ({round(nh/(bph/1e6),1)}/Mbp) | box {{box}} vs flank {{flank}} bits (Δ={{delta:+.2f}})")
 for _,r in vert.iterrows():
     sp=r.species; c=counts[sp]
     if c.sum()<5*10: continue
