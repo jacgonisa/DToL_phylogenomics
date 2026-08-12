@@ -66,17 +66,20 @@ binds the CENP-B protein. Here we detect <i>sequence</i> matches only, so we cal
 not tested).<br><br>
 <b>Bottom line.</b> The canonical CENP-B motif (<code>[CT]TTCGTTGGAA[AG]CGGGA</code>) as an
 exact match is confined to human α-satellite — <b>0 exact canonical motifs in any of the
-{n_sat} DToL species with satellites</b>. A permissive ±5-flank test flags box-specific,
-near-canonical <b>candidate boxes</b> in 20 species across clades, strongest in <b>birds</b>
-(goshawk, ptarmigan, takahē); these have lost the CENP-B-essential 5′ CG — a likely
-TIGD4-type avian candidate box, not a mammalian CENP-B box.</div>
+{n_sat} DToL species with satellites</b>. A permissive ±5-flank test flags <b>box-shaped</b>
+motifs in 20 species (strongest in <b>birds</b>: goshawk, ptarmigan, takahē), but a
+<b>dinucleotide-shuffle null shows none is more identical to the canonical CENP-B motif than
+chance</b> (per-window identity ≈ null). So <b>no candidate box exceeds the null anywhere in
+DToL</b> — the bird signal is a conserved satellite sub-region aligning to the box template,
+not a CENP-B-like motif.</div>
 
 <h2>What was searched</h2>
-<p><span class="tag">input</span><code>all.satellites.txt</code> — every annotated satellite
-<i>array</i> across the DToL assemblies. Restricted to the <b>325 published species</b>
-(tree tips); 12 out-of-set species excluded. <b>"Uncapped"</b> = every array of each
-species, both strands (~{n_arr} arrays across the <b>{n_sat} of 325 species</b> that carry
-satellite annotations) — not a ≤500-monomer subsample.</p>
+<p><span class="tag">input</span><code>all.satellites.txt</code> — every <b>candidate</b>
+satellite-repeat <i>array</i> called across the DToL assemblies (candidates, not curated
+satellites). Restricted to the <b>325 published species</b> (tree tips); 12 out-of-set
+species excluded. <b>"Uncapped"</b> = every candidate array of each species, both strands
+(~{n_arr} arrays across the <b>{n_sat} of 325 species</b> that carry satellite annotations)
+— not a ≤500-monomer subsample.</p>
 
 <h2>Human HG002 benchmarks</h2>
 <p>Both methods were validated on human satellites: α-satellite (positive; carries the box)
@@ -111,8 +114,13 @@ ptarmigan) are the most box-specific vertebrates; falcons sit on the diagonal (c
 satellite, not a candidate box).</div></div>
 <h3>Top vertebrates by flank Δ (box − flank)</h3>
 {tbl(vert_df.round(2))}
-<p class="sub">Candidate boxes (Δ≥0.5, ≤2 substitutions from canonical) occur in <b>20 species
-across clades</b>, not only birds — but birds carry the strongest signal.</p>
+<p class="sub">Box-shaped motifs (Δ≥0.5, ≤2 substitutions from canonical) occur in <b>20 species
+across clades</b>, strongest in birds. <b>Identity null:</b> running the pipeline on a
+dinucleotide-shuffle of each species shows per-window identity to canonical (≈70.6%) is
+<b>no higher than the shuffle null (≈71.5%)</b> — 0/105 species exceed it — so none is
+CENP-B-like above chance. (Points in the scatter are coloured by this excess-over-null.)
+Coherence to each species' <i>own</i> motif is high (85% vs 68% null) — satellites are real
+repeats, but not CENP-B boxes.</p>
 
 <h2>CENP-B box across the chronogram</h2>
 <div class="fig">{img(FIG/'cenpb_box_tree_325sp.png')}<div class="cap">
@@ -121,14 +129,6 @@ across clades</b>, not only birds — but birds carry the strongest signal.</p>
 (broad matches/Mbp, Method 1). Tips coloured by clade. No functional box confirmed.</div></div>
 <p class="sub">Per-species logos (box ±5 flank), including the human α-sat and HSat controls:
 <code>figures/cenpb_box_logos_flanks_VERTEBRATES_uncapped.pdf</code>.</p>
-
-<h2>Conclusion</h2>
-<p>The canonical functional CENP-B box is a <b>human/mammalian α-satellite feature</b>; by the
-strict motif definition it is absent from all {n_sat} DToL species with satellites. The
-±5-flank test detects a <b>diverged, box-shaped motif strongest in birds</b>, but it lacks the
-CENP-B-essential 5′ CG — consistent with a <b>TIGD4-type avian box</b> rather than mammalian
-CENP-B (cf. the songbird paper). Broad low-signal hits in plants/invertebrates fail the
-composition-corrected controls and reflect homogenised satellite, not a functional box.</p>
 
 <footer>Reproducible scripts in <code>06_cenpb_box/scripts/</code>:
 <code>cenpb_paper_motifs.py</code>, <code>cenpb_flank_uncapped.py</code>,

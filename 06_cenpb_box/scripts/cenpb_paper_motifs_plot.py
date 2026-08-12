@@ -30,7 +30,8 @@ benchd={blab[r.control]:{t:r[f"{t}_enrich_dinuc"] for t in ["canonical","broad",
 tiers=["broad","degenerated"]; tlab={"broad":"broad","degenerated":"degenerate"}
 tcol={"broad":"#0072B2","degenerated":"#E69F00"}        # Okabe-Ito
 enr=lambda cl,t: per.loc[per.clade==cl,f"{t}_enrich_dinuc"].iloc[0]
-G=[("HSat 1/2/3\n(HG002, −)", {t:benchd["HSat (HG002)"][t] for t in tiers}),
+G=[("α-satellite\n(HG002, +)", {t:benchd["α-sat (HG002)"][t] for t in tiers}),
+   ("HSat 1/2/3\n(HG002, −)",  {t:benchd["HSat (HG002)"][t]  for t in tiers}),
    ("Vertebrates",   {t:enr("Vertebrates",t)   for t in tiers}),
    ("Invertebrates", {t:enr("Invertebrate",t)  for t in tiers}),
    ("Plants",        {t:enr("Viridiplantae",t) for t in tiers})]
@@ -43,23 +44,34 @@ plt.rcParams.update({
   "xtick.major.size":3,"ytick.major.size":3,"xtick.direction":"out","ytick.direction":"out",
   "axes.labelsize":8,"legend.fontsize":7,"xtick.labelsize":7.5,"ytick.labelsize":7.5,"savefig.dpi":600})
 
-fig,ax=plt.subplots(figsize=(5.0,3.3))
+# broken y-axis: alpha-sat enrichment is ~1000x the DToL clades
+fig,(top,bot)=plt.subplots(2,1,sharex=True,figsize=(5.4,4.0),
+                           gridspec_kw=dict(height_ratios=[1,1.5],hspace=0.07))
 for j,t in enumerate(tiers):
     vals=[g[1][t] for g in G]
-    ax.bar(x+(j-0.5)*w,vals,w,color=tcol[t],label=tlab[t],edgecolor="none",zorder=3)
-    for xi,v in zip(x+(j-0.5)*w,vals):
-        ax.annotate(f"{v:.2f}",(xi,v),ha="center",va="bottom",fontsize=6,color=tcol[t])
-ax.axhline(1,ls=(0,(4,3)),color="0.35",lw=0.9,zorder=2)
-ax.text(len(G)-0.55,1.03,"null (random)",ha="right",va="bottom",fontsize=6.5,color="0.35")
-ax.set_xticks(x); ax.set_xticklabels(labels)
-ax.set_ylabel("enrichment over dinucleotide null  (obs / exp)")
-ax.set_ylim(0,3.35)
-ax.set_title("Exact IUPAC CENP-B box enrichment",fontsize=9,fontweight="bold",pad=20)
-ax.text(0.5,1.045,f"canonical (functional) box = 0 in all DToL clades ({n_sat} species w/ satellites);\n"
-        "α-satellite (HG002,+) positive control off scale — broad 4,283× · degenerate 14,457×",
-        transform=ax.transAxes,ha="center",va="bottom",fontsize=6.3,color="0.3")
-ax.legend(frameon=False,handlelength=1.1,title="motif tier",title_fontsize=7,loc="upper center")
-ax.spines[["top","right"]].set_visible(False)
+    top.bar(x+(j-0.5)*w,vals,w,color=tcol[t],edgecolor="none",zorder=3)
+    bot.bar(x+(j-0.5)*w,vals,w,color=tcol[t],label=tlab[t],edgecolor="none",zorder=3)
+top.set_ylim(3.6,16000); bot.set_ylim(0,3.35)
+for j,t in enumerate(tiers):                              # alpha-sat values (top)
+    top.annotate(f"{G[0][1][t]:,.0f}×",(0+(j-0.5)*w,G[0][1][t]),ha="center",va="bottom",fontsize=6,color=tcol[t])
+for gi in range(1,len(G)):                                # small values (bottom)
+    for j,t in enumerate(tiers):
+        v=G[gi][1][t]
+        if v<3.35: bot.annotate(f"{v:.2f}",(gi+(j-0.5)*w,v),ha="center",va="bottom",fontsize=5.8,color=tcol[t])
+bot.axhline(1,ls=(0,(4,3)),color="0.35",lw=0.9,zorder=2)
+bot.text(1.42,1.05,"null (random)",ha="left",va="bottom",fontsize=6.3,color="0.35")
+# break marks
+top.spines["bottom"].set_visible(False); bot.spines["top"].set_visible(False); top.tick_params(bottom=False)
+dm=dict(marker=[(-1,-0.5),(1,0.5)],markersize=7,linestyle="none",color="k",mec="k",mew=0.8,clip_on=False)
+top.plot([0,1],[0,0],transform=top.transAxes,**dm); bot.plot([0,1],[1,1],transform=bot.transAxes,**dm)
+for ax in (top,bot): ax.spines[["right"]].set_visible(False)
+bot.set_xticks(x); bot.set_xticklabels(labels)
+bot.set_ylabel("enrichment over dinucleotide null  (obs / exp)"); bot.yaxis.set_label_coords(-0.11,0.72)
+bot.legend(frameon=False,handlelength=1.1,title="motif tier",title_fontsize=7,loc="upper center",ncol=2)
+top.set_title(f"Exact IUPAC CENP-B motif enrichment ({n_sat} species with satellites)",fontsize=8.6,fontweight="bold",pad=4)
+top.annotate("α-sat canonical motif: 1.3×10⁷× (off top)",xy=(2.1,12000),ha=  "center",va="top",fontsize=6.2,color="#D55E00")
+bot.annotate("canonical (functional) motif = 0\nin every DToL clade",xy=(0.30,0.95),xycoords="axes fraction",
+             fontsize=6.4,color="#D55E00",va="top",ha="center")
 plt.tight_layout()
 for ext in ("png","pdf"):
     fig.savefig(SAT/f"figures/cenpb_paper_motifs.{ext}",dpi=600 if ext=="png" else None,bbox_inches="tight",facecolor="white")
