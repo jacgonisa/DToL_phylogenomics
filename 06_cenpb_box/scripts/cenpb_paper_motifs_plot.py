@@ -24,35 +24,53 @@ benchg={blab[r.control]:{t:r[f"{t}_enrich_dinuc"] for t in ["canonical","broad",
 print("benchmarks (dinuc null):",benchg)
 
 per=pd.read_csv(SAT/"figures/cenpb_paper_motifs_per_clade.tsv",sep="\t")
-df=pd.read_csv(SAT/"figures/cenpb_paper_motifs_per_species.tsv",sep="\t")
-tiers=["canonical","broad","degenerated"]; tcol={"canonical":"#C62828","broad":"#1565C0","degenerated":"#EF6C00"}
+tiers=["canonical","broad","degenerated"]
+tlab={"canonical":"canonical","broad":"broad","degenerated":"degenerate"}
+tcol={"canonical":"#D55E00","broad":"#0072B2","degenerated":"#E69F00"}   # Okabe-Ito (colour-blind safe)
+benchpm={blab[r.control]:{t:r[f"{t}_perMbp"] for t in tiers} for _,r in bench.iterrows()}
 
-fig,(a1,a2)=plt.subplots(1,2,figsize=(13.5,5.6))
-groups=["α-sat (HG002)","HSat (HG002)"]+list(per.clade)
-enrich={g:{} for g in groups}
-for g in ("α-sat (HG002)","HSat (HG002)"):
-    for t in tiers: enrich[g][t]=benchg[g][t]
-for _,r in per.iterrows():
-    for t in tiers: enrich[r.clade][t]=r[f"{t}_enrich_dinuc"]
-x=np.arange(len(groups)); w=0.26
+# ---- Nature-style aesthetics ----
+plt.rcParams.update({
+  "font.family":"sans-serif","font.sans-serif":["Arial","Helvetica","DejaVu Sans"],
+  "font.size":8,"axes.linewidth":0.7,"xtick.major.width":0.7,"ytick.major.width":0.7,
+  "xtick.major.size":3,"ytick.major.size":3,"xtick.direction":"out","ytick.direction":"out",
+  "axes.labelsize":8,"legend.fontsize":7,"xtick.labelsize":8,"ytick.labelsize":7.5,"savefig.dpi":600})
+
+fig,(a1,a2)=plt.subplots(1,2,figsize=(7.09,2.9))       # ~180 mm double-column
+w=0.26
+
+# Panel a — human controls: functional-box density (per Mbp), linear
+ga=["α-sat (HG002)","HSat (HG002)"]; xa=np.arange(len(ga))
 for j,t in enumerate(tiers):
-    a1.bar(x+(j-1)*w,[max(enrich[g][t],0.01) for g in groups],w,color=tcol[t],label=t)
-a1.axhline(1,ls="--",color="black",lw=1.2); a1.set_yscale("log")
-a1.set_xticks(x); a1.set_xticklabels(groups,rotation=20,ha="right")
-a1.set_ylabel("enrichment over dinucleotide-preserving null (obs / exp)")
-a1.set_title("Method 1 — exact IUPAC motif tiers (Fachinetti)\nnull = dinucleotide-preserving (Markov-1 ≈ Altschul-Erikson shuffle)",fontweight="bold",fontsize=10.5)
-a1.legend(fontsize=9,frameon=False,title="motif"); a1.spines[["top","right"]].set_visible(False)
-a1.text(0.01,0.02,"canonical = 0 in every non-human clade",transform=a1.transAxes,fontsize=8,color="grey")
+    a1.bar(xa+(j-1)*w,[benchpm[g][t] for g in ga],w,color=tcol[t],label=tlab[t],edgecolor="none",zorder=3)
+for j,t in enumerate(tiers):                            # annotate the near-zero HSat bars
+    v=benchpm["HSat (HG002)"][t]
+    a1.annotate(f"{v:.2g}",(1+(j-1)*w,v),ha="center",va="bottom",fontsize=6,color=tcol[t])
+a1.set_xticks(xa); a1.set_xticklabels(["α-satellite\n(positive)","HSat 1/2/3\n(negative)"])
+a1.set_ylabel("CENP-B box hits per Mbp")
+a1.set_title("Human HG002 controls",fontsize=8.5,fontweight="bold",pad=4)
+a1.legend(frameon=False,handlelength=1.1,title="motif tier",title_fontsize=7,loc="upper right")
+a1.spines[["top","right"]].set_visible(False)
 
-v=df[df.clade=="Vertebrates"].copy(); v=v[(v.broad_perMbp>0)|(v.degenerated_perMbp>0)].sort_values("broad_perMbp")
-y=np.arange(len(v))
-a2.barh(y+0.2,v.broad_perMbp.clip(lower=0.001),0.4,color=tcol["broad"],label="broad")
-a2.barh(y-0.2,v.degenerated_perMbp.clip(lower=0.001),0.4,color=tcol["degenerated"],label="degenerated")
-a2.set_yticks(y); a2.set_yticklabels([f"{r['name']} ({r.vgroup})" for _,r in v.iterrows()],fontsize=8)
-a2.set_xscale("log"); a2.set_xlabel("motif hits per Mbp (exact IUPAC, log)")
-a2.set_title("Vertebrates: exact broad/degenerate hits\n(trace-level; no canonical box)",fontweight="bold",fontsize=10.5)
-a2.legend(fontsize=9,frameon=False); a2.spines[["top","right"]].set_visible(False)
-plt.tight_layout()
+# Panel b — DToL clades: enrichment over the dinucleotide-preserving null, linear
+gb=list(per.clade); lab={"Vertebrates":"Vertebrates","Invertebrate":"Invertebrates","Viridiplantae":"Plants"}
+xb=np.arange(len(gb))
+for j,t in enumerate(tiers):
+    vals=[per.loc[per.clade==g,f"{t}_enrich_dinuc"].iloc[0] for g in gb]
+    a2.bar(xb+(j-1)*w,vals,w,color=tcol[t],label=tlab[t],edgecolor="none",zorder=3)
+a2.axhline(1,ls=(0,(4,3)),color="0.35",lw=0.9,zorder=2)
+a2.text(-0.45,1.05,"null (random)",ha="left",va="bottom",fontsize=6.5,color="0.35")
+a2.annotate("canonical box = 0\nin all 325 species",xy=(0.03,0.9),xycoords="axes fraction",
+            fontsize=6.8,color=tcol["canonical"],va="top")
+a2.set_xticks(xb); a2.set_xticklabels([lab[g] for g in gb])
+a2.set_ylabel("enrichment over dinucleotide null")
+a2.set_title("DToL satellites (325 species)",fontsize=8.5,fontweight="bold",pad=4)
+a2.set_ylim(0,3.4)
+a2.spines[["top","right"]].set_visible(False)
+
+for ax,l in [(a1,"a"),(a2,"b")]:
+    ax.text(-0.16,1.10,l,transform=ax.transAxes,fontsize=11,fontweight="bold",va="top")
+plt.tight_layout(w_pad=2.0)
 for ext in ("png","pdf"):
-    fig.savefig(SAT/f"figures/cenpb_paper_motifs.{ext}",dpi=300 if ext=="png" else None,bbox_inches="tight",facecolor="white")
+    fig.savefig(SAT/f"figures/cenpb_paper_motifs.{ext}",dpi=600 if ext=="png" else None,bbox_inches="tight",facecolor="white")
 print("Saved figures/cenpb_paper_motifs.png/pdf")
