@@ -52,7 +52,7 @@ for _,r in v[(v.delta>=0.4)|v.name.str.contains("Accipiter|Lagopus|Porphyrio|Cer
     a2.annotate(r["name"].split()[0],(r.mean_flank_bits,r.mean_box_bits),fontsize=6.2,xytext=(3,2),textcoords="offset points")
 a2.set_xlim(0,2); a2.set_ylim(0,2); a2.set_xlabel("flank information (bits) — control"); a2.set_ylabel("motif information (bits)")
 a2.set_title("Vertebrates (size ∝ candidate boxes/Mbp)",fontsize=8.5,fontweight="bold",pad=3)
-a2.text(0.03,0.97,"warm = box-like\n(near-canonical motif)",transform=a2.transAxes,fontsize=6.2,color="0.35",va="top")
+a2.text(0.03,0.97,"warm = box-like\n(≫ shuffle chance ≈ 30%)",transform=a2.transAxes,fontsize=6.2,color="0.35",va="top")
 a2.spines[["top","right"]].set_visible(False)
 cb=fig.colorbar(sc,ax=a2,fraction=0.046,pad=0.03); cb.set_label("identity to canonical CENP-B motif (%)",fontsize=6.8)
 cb.ax.tick_params(labelsize=6.5)

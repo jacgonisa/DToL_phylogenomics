@@ -116,13 +116,21 @@ satellite, not a candidate box).</div></div>
 {tbl(vert_df.round(2))}
 <p class="sub">Box-like motifs (Δ≥0.5, ≤2 substitutions from canonical) occur in <b>20 species
 across clades</b>, strongest in birds; the scatter is coloured by identity to the canonical
-motif (warm = box-like). <b>On the null:</b> a dinucleotide shuffle is <i>not</i> a valid null
-for the consensus identity — averaging near-canonical windows trivially regenerates canonical
-(shuffle consensus ≈100%), so "obs &lt; shuffle" is an artifact, not evidence against the
-motif. The fair null is on <i>occurrence</i> (does the box-like motif appear more than a
-composition-matched null): birds fail the <b>exact</b> broad motif only because it fixes the
-eroded CpG. What is robust: the goshawk motif is genuinely 15/17 box-like, and coherence to
-each species' own motif is high (85% vs 68% null) — satellites are real, coherent repeats.</p>
+motif (warm = box-like). <b>Identity null (shuffle the motif):</b> a 17-bp motif of this base
+composition matches canonical only <b>≈30% by chance</b>; observed identities are 70–94%
+(median <b>+44</b> above chance; birds +58 to +63), so the box-like matches are <b>real
+arrangement similarity, not a short-motif composition artifact</b>. (An earlier
+dinucleotide-<i>sequence</i> shuffle was a degenerate null — averaging near-canonical windows
+trivially regenerates canonical — and is not used.)</p>
+
+<h3>Why the two methods disagree on birds</h3>
+<div class="fig">{img(FIG/'cenpb_goshawk_alignment.png')}<div class="cap">
+The goshawk motif is 15/17 identical to canonical; its only two substitutions land on the 5′
+<b>CpG</b> (positions 4–5) that <i>all three</i> IUPAC tiers hold fixed (the TTCG anchor). So
+position-based IUPAC matching scores <b>0</b>, while the distance-based songbird ≤5-substitution
+search (no fixed position) finds 1,722 windows. The eroded position is a CpG — a CENP-B contact
+base and a methylation/deamination hotspot — which is exactly why it is a <b>candidate divergent
+box</b>, not a canonical one.</div></div>
 
 <h2>CENP-B box across the chronogram</h2>
 <div class="fig">{img(FIG/'cenpb_box_tree_325sp.png')}<div class="cap">

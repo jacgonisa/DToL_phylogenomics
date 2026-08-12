@@ -52,11 +52,15 @@ for j,t in enumerate(tiers):
     top.bar(x+(j-1)*w,vals,w,color=tcol[t],edgecolor="none",zorder=3)
     bot.bar(x+(j-1)*w,vals,w,color=tcol[t],label=tlab[t],edgecolor="none",zorder=3)
 top.set_ylim(3.6,16000); bot.set_ylim(0,3.35)
+# de-emphasise HSat canonical: 5 boundary hits -> enrichment inflated by rarity, not real signal
+hx=1+(0-1)*w                                              # HSat, canonical tier
+top.bar(hx,G[1][1]["canonical"],w,facecolor="white",edgecolor="#C62828",hatch="////",lw=0.9,zorder=4)
 for gi,(gname,gv) in enumerate(G):                        # value labels
     for j,t in enumerate(tiers):
         v=gv[t]; xx=gi+(j-1)*w
-        note=" (5 hits)" if (gname.startswith("HSat") and t=="canonical") else ""
-        if 3.6<v<16000: top.annotate(f"{v:,.0f}×{note}",(xx,v),ha="center",va="bottom",fontsize=5.4,color=tcol[t])
+        if gname.startswith("HSat") and t=="canonical":
+            top.annotate("5 boundary hits\n(≈0; not a box)",(xx,v),ha="center",va="bottom",fontsize=5.2,color="#C62828"); continue
+        if 3.6<v<16000: top.annotate(f"{v:,.0f}×",(xx,v),ha="center",va="bottom",fontsize=5.4,color=tcol[t])
         elif 0<v<3.35:  bot.annotate(f"{v:.2f}",(xx,v),ha="center",va="bottom",fontsize=5.4,color=tcol[t])
 bot.axhline(1,ls=(0,(4,3)),color="0.35",lw=0.9,zorder=2)
 bot.text(1.55,1.05,"null (random)",ha="left",va="bottom",fontsize=6.3,color="0.35")
