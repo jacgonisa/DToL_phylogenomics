@@ -19,8 +19,8 @@ dat <- data.frame(label=tr$tip.label, code=norm(tr$tip.label)) %>%
 dat$clade[is.na(dat$clade)] <- "no data"
 dat$delta_pos <- pmax(dat$delta, 0)                       # only positive box>flank shown
 
-ccol <- c(Vertebrates="#1565C0", Invertebrate="#EF6C00", Viridiplantae="#2E7D32",
-          Fungi="#6A1B9A", Protist="#C62828", `no data`="grey85")
+ccol <- c(Vertebrates="#0072B2", Invertebrate="#E69F00", Viridiplantae="#009E73",
+          Fungi="#CC79A7", Protist="#D55E00", `no data`="grey88")   # Okabe-Ito
 # top birds to label
 lab <- flank %>% filter(vgroup=="Aves", delta>=0.4) %>% arrange(desc(delta))
 labtips <- dat$label[dat$code %in% lab$species]
@@ -35,11 +35,11 @@ p <- p + geom_tippoint(aes(color=clade), size=0.9) +
   # ring 2: Method 1 broad hits per Mbp (log1p)
   geom_fruit(geom=geom_col, mapping=aes(y=label, x=log1p(broadMbp), fill="broad hits/Mbp (Method 1, log)"),
              pwidth=0.30, offset=0.10, axis.params=list(axis="x", text.size=1.6, nbreak=3)) +
-  scale_fill_manual(values=c("Δ box−flank (Method 2)"="#00838F","broad hits/Mbp (Method 1, log)"="#C62828"),
+  scale_fill_manual(values=c("Δ box−flank (Method 2)"="#117733","broad hits/Mbp (Method 1, log)"="#882255"),
                     name="CENP-B box signal") +
   geom_tiplab2(aes(subset=(label %in% labtips), label=code), size=2.4, offset=0.35, fontface="bold") +
-  ggtitle("CENP-B box across the 325-sp chronogram",
-          subtitle="ring 1 = songbird flank Δ (box>flank); ring 2 = Fachinetti broad-motif hits/Mbp; birds lead") +
+  ggtitle("CENP-B box across the DToL chronogram (162 of 325 species have satellites)",
+          subtitle="ring 1 = songbird flank Δ (box>flank, Method 2); ring 2 = Fachinetti broad-motif hits/Mbp (Method 1); birds lead") +
   theme(legend.position="right", plot.title=element_text(face="bold"))
 
 for (ext in c("pdf","png")) {
