@@ -44,8 +44,13 @@ canonical, prevalence (Formenti et al., *Cell* 2026, zebra-finch T2T).
 TIGD4-type avian box, not a mammalian CENP-B box. *Figures:*
 `figures/cenpb_flank_uncapped_scatter.png`, `figures/cenpb_box_logos_flanks_VERTEBRATES_uncapped.pdf`.
 
-## Reviewer response
-`RESPONSE_TO_REVIEWERS.md` — the two-method write-up with benchmarks and conclusions.
+## Report & reviewer response
+- **`cenpb_box_report.html`** — self-contained HTML report (figures embedded), built by
+  `scripts/cenpb_report.py`.
+- `RESPONSE_TO_REVIEWERS.md` — the two-method write-up with benchmarks and conclusions.
+
+> **Terminology:** a CENP-B *box* is functional (binds protein). We detect sequence
+> matches only → **motifs / candidate boxes**; none is a confirmed functional box.
 
 ## Data (`data/`)
 `cenpb_human_benchmark.tsv`, `cenpb_paper_motifs_per_{species,clade}.tsv`,

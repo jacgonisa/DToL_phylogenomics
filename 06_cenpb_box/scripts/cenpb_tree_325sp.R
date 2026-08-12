@@ -18,29 +18,39 @@ dat <- data.frame(label=tr$tip.label, code=norm(tr$tip.label)) %>%
   left_join(paper %>% transmute(code=species, broadMbp=broad_perMbp), by="code")
 dat$clade[is.na(dat$clade)] <- "no data"
 dat$delta_pos <- pmax(dat$delta, 0)                       # only positive box>flank shown
+# 'box' = functional (protein-binding); sequence hits are motifs / candidate boxes.
+#   candidate box   = box-specific (flank Δ≥0.5) AND near-canonical (≤2 subs)
+#   CENP-B-like motif = has flank windows but not box-specific / diverged
+dat$boxclass <- ifelse(is.na(dat$delta), "no data / no motif",
+                ifelse(dat$delta>=0.5 & !is.na(dat$subs) & dat$subs<=2, "candidate box",
+                       "CENP-B-like motif"))
 
 ccol <- c(Vertebrates="#0072B2", Invertebrate="#E69F00", Viridiplantae="#009E73",
           Fungi="#CC79A7", Protist="#D55E00", `no data`="grey88")   # Okabe-Ito
-# top birds to label
-lab <- flank %>% filter(vgroup=="Aves", delta>=0.4) %>% arrange(desc(delta))
-labtips <- dat$label[dat$code %in% lab$species]
+candtips <- dat$label[dat$boxclass=="candidate box"]      # near-canonical, box-specific
+toptips  <- dat$label[dat$code %in% (flank %>% filter(delta>=0.5 & subs_vs_canonical<=2) %>%
+              arrange(desc(delta)) %>% head(6) %>% pull(species))]   # label the 6 strongest
 
 p <- ggtree(tr, layout="fan", open.angle=12, size=0.2) %<+% dat
 p <- p + geom_tippoint(aes(color=clade), size=0.9) +
   scale_color_manual(values=ccol, name="clade") +
-  # ring 1: Method 2 flank Delta
-  geom_fruit(geom=geom_col, mapping=aes(y=label, x=delta_pos, fill="Δ box−flank (Method 2)"),
+  # ring 1: candidate-box signal (flank Δ, Method 2)
+  geom_fruit(geom=geom_col, mapping=aes(y=label, x=delta_pos, fill="candidate-box signal (flank Δ, M2)"),
              pwidth=0.30, offset=0.06, axis.params=list(axis="x", text.size=1.6, nbreak=3),
              grid.params=list()) +
-  # ring 2: Method 1 broad hits per Mbp (log1p)
-  geom_fruit(geom=geom_col, mapping=aes(y=label, x=log1p(broadMbp), fill="broad hits/Mbp (Method 1, log)"),
+  # ring 2: CENP-B-like motif density (broad matches per Mbp, Method 1)
+  geom_fruit(geom=geom_col, mapping=aes(y=label, x=log1p(broadMbp), fill="CENP-B-like motif (broad/Mbp, M1, log)"),
              pwidth=0.30, offset=0.10, axis.params=list(axis="x", text.size=1.6, nbreak=3)) +
-  scale_fill_manual(values=c("Δ box−flank (Method 2)"="#117733","broad hits/Mbp (Method 1, log)"="#882255"),
-                    name="CENP-B box signal") +
-  geom_tiplab2(aes(subset=(label %in% labtips), label=code), size=2.4, offset=0.35, fontface="bold") +
-  ggtitle("CENP-B box across the DToL chronogram (162 of 325 species have satellites)",
-          subtitle="ring 1 = songbird flank Δ (box>flank, Method 2); ring 2 = Fachinetti broad-motif hits/Mbp (Method 1); birds lead") +
-  theme(legend.position="right", plot.title=element_text(face="bold"))
+  scale_fill_manual(values=c("candidate-box signal (flank Δ, M2)"="#117733","CENP-B-like motif (broad/Mbp, M1, log)"="#882255"),
+                    name="sequence signal") +
+  # ★ mark candidate-box species (near-canonical + box-specific), label the strongest
+  geom_tippoint(aes(subset=(label %in% candtips)), shape=8, size=1.7, stroke=0.5, color="black") +
+  geom_tiplab2(aes(subset=(label %in% toptips), label=code), size=2.4, offset=0.35, fontface="bold") +
+  ggtitle("Candidate CENP-B box vs CENP-B-like motif across the DToL chronogram",
+          subtitle=paste0("★ = candidate box (box-specific + near-canonical): ",length(candtips),
+                         " species, strongest in birds (bold). No functional box tested.")) +
+  theme(legend.position="right", plot.title=element_text(face="bold", size=12),
+        plot.subtitle=element_text(size=8.5, colour="grey30"))
 
 for (ext in c("pdf","png")) {
   ggsave(file.path(SAT, paste0("figures/cenpb_box_tree_325sp.", ext)), p,
@@ -48,4 +58,5 @@ for (ext in c("pdf","png")) {
   cat("Saved figures/cenpb_box_tree_325sp.", ext, "\n", sep="")
 }
 cat("tips with data:", sum(dat$clade!="no data"), "/", nrow(dat), "\n")
-cat("labelled birds:", paste(lab$species, round(lab$delta,2), collapse=" | "), "\n")
+cat("candidate-box species:", length(candtips), "\n")
+print(table(dat$boxclass))

@@ -24,19 +24,17 @@ benchg={blab[r.control]:{t:r[f"{t}_enrich_dinuc"] for t in ["canonical","broad",
 print("benchmarks (dinuc null):",benchg)
 
 per=pd.read_csv(SAT/"figures/cenpb_paper_motifs_per_clade.tsv",sep="\t")
-tiers=["canonical","broad","degenerated"]
-tlab={"canonical":"canonical","broad":"broad","degenerated":"degenerate"}
-tcol={"canonical":"#D55E00","broad":"#0072B2","degenerated":"#E69F00"}   # Okabe-Ito (colour-blind safe)
-benchpm={blab[r.control]:{t:r[f"{t}_perMbp"] for t in tiers} for _,r in bench.iterrows()}
 n_sat=int(per.n_species.sum())                          # species that actually have satellites
-
-# same metric (hits per Mbp) for controls AND DToL clades, so panels are comparable
-G=[("α-satellite\n(HG002, +)",  {t:benchpm["α-sat (HG002)"][t] for t in tiers}),
-   ("HSat 1/2/3\n(HG002, −)",   {t:benchpm["HSat (HG002)"][t]  for t in tiers}),
-   ("Vertebrates",  {t:per.loc[per.clade=="Vertebrates",  f"{t}_perMbp"].iloc[0] for t in tiers}),
-   ("Invertebrates",{t:per.loc[per.clade=="Invertebrate", f"{t}_perMbp"].iloc[0] for t in tiers}),
-   ("Plants",       {t:per.loc[per.clade=="Viridiplantae",f"{t}_perMbp"].iloc[0] for t in tiers})]
-labels=[g[0] for g in G]; x=np.arange(len(G)); w=0.26
+# enrichment over the dinucleotide-preserving (Markov-1 / Altschul-Erikson) null
+benchd={blab[r.control]:{t:r[f"{t}_enrich_dinuc"] for t in ["canonical","broad","degenerated"]} for _,r in bench.iterrows()}
+tiers=["broad","degenerated"]; tlab={"broad":"broad","degenerated":"degenerate"}
+tcol={"broad":"#0072B2","degenerated":"#E69F00"}        # Okabe-Ito
+enr=lambda cl,t: per.loc[per.clade==cl,f"{t}_enrich_dinuc"].iloc[0]
+G=[("HSat 1/2/3\n(HG002, −)", {t:benchd["HSat (HG002)"][t] for t in tiers}),
+   ("Vertebrates",   {t:enr("Vertebrates",t)   for t in tiers}),
+   ("Invertebrates", {t:enr("Invertebrate",t)  for t in tiers}),
+   ("Plants",        {t:enr("Viridiplantae",t) for t in tiers})]
+labels=[g[0] for g in G]; x=np.arange(len(G)); w=0.36
 
 # ---- Nature-style aesthetics ----
 plt.rcParams.update({
@@ -45,35 +43,23 @@ plt.rcParams.update({
   "xtick.major.size":3,"ytick.major.size":3,"xtick.direction":"out","ytick.direction":"out",
   "axes.labelsize":8,"legend.fontsize":7,"xtick.labelsize":7.5,"ytick.labelsize":7.5,"savefig.dpi":600})
 
-# broken y-axis: alpha-sat is ~500x the rest, shown on one shared per-Mbp scale
-fig,(top,bot)=plt.subplots(2,1,sharex=True,figsize=(7.09,3.7),
-                           gridspec_kw=dict(height_ratios=[1,1.7],hspace=0.06))
+fig,ax=plt.subplots(figsize=(5.0,3.3))
 for j,t in enumerate(tiers):
     vals=[g[1][t] for g in G]
-    top.bar(x+(j-1)*w,vals,w,color=tcol[t],edgecolor="none",zorder=3)
-    bot.bar(x+(j-1)*w,vals,w,color=tcol[t],label=tlab[t],edgecolor="none",zorder=3)
-top.set_ylim(1400,2250); bot.set_ylim(0,4.4)            # break between the two ranges
-# annotate the small (near-zero) bars in the lower panel
-for gi,(gname,gv) in enumerate(G):
-    if gi==0: continue
-    for j,t in enumerate(tiers):
-        v=gv[t]
-        if v<4.4: bot.annotate(f"{v:.2g}",(gi+(j-1)*w,v),ha="center",va="bottom",fontsize=5.6,color=tcol[t])
-# broken-axis marks
-top.spines["bottom"].set_visible(False); bot.spines["top"].set_visible(False)
-top.tick_params(bottom=False)
-dm=dict(marker=[(-1,-0.5),(1,0.5)],markersize=7,linestyle="none",color="k",mec="k",mew=0.8,clip_on=False)
-top.plot([0,1],[0,0],transform=top.transAxes,**dm); bot.plot([0,1],[1,1],transform=bot.transAxes,**dm)
-for ax in (top,bot): ax.spines[["right"]].set_visible(False)
-bot.axvline(1.5,color="0.8",lw=0.8,ls=":",zorder=1)     # divider: human controls | DToL clades
-top.axvline(1.5,color="0.8",lw=0.8,ls=":",zorder=1)
-bot.set_xticks(x); bot.set_xticklabels(labels)
-bot.set_ylabel("CENP-B box hits per Mbp"); bot.yaxis.set_label_coords(-0.075,0.72)
-bot.legend(frameon=False,handlelength=1.1,title="motif tier",title_fontsize=7,loc="upper center",ncol=3)
-top.set_title(f"Exact IUPAC CENP-B box density — human controls vs DToL satellites ({n_sat} species with satellites)",
-              fontsize=8.5,fontweight="bold",pad=4)
-top.annotate("canonical box present\nonly in α-satellite",xy=(0,1562),xytext=(0.35,1780),
-             fontsize=6.6,color=tcol["canonical"],ha="left")
+    ax.bar(x+(j-0.5)*w,vals,w,color=tcol[t],label=tlab[t],edgecolor="none",zorder=3)
+    for xi,v in zip(x+(j-0.5)*w,vals):
+        ax.annotate(f"{v:.2f}",(xi,v),ha="center",va="bottom",fontsize=6,color=tcol[t])
+ax.axhline(1,ls=(0,(4,3)),color="0.35",lw=0.9,zorder=2)
+ax.text(len(G)-0.55,1.03,"null (random)",ha="right",va="bottom",fontsize=6.5,color="0.35")
+ax.set_xticks(x); ax.set_xticklabels(labels)
+ax.set_ylabel("enrichment over dinucleotide null  (obs / exp)")
+ax.set_ylim(0,3.35)
+ax.set_title("Exact IUPAC CENP-B box enrichment",fontsize=9,fontweight="bold",pad=20)
+ax.text(0.5,1.045,f"canonical (functional) box = 0 in all DToL clades ({n_sat} species w/ satellites);\n"
+        "α-satellite (HG002,+) positive control off scale — broad 4,283× · degenerate 14,457×",
+        transform=ax.transAxes,ha="center",va="bottom",fontsize=6.3,color="0.3")
+ax.legend(frameon=False,handlelength=1.1,title="motif tier",title_fontsize=7,loc="upper center")
+ax.spines[["top","right"]].set_visible(False)
 plt.tight_layout()
 for ext in ("png","pdf"):
     fig.savefig(SAT/f"figures/cenpb_paper_motifs.{ext}",dpi=600 if ext=="png" else None,bbox_inches="tight",facecolor="white")

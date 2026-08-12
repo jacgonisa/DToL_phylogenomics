@@ -5,6 +5,12 @@ We screened the centromeric satellite repertoire of the DToL species for the
 al. 1989), on **both strands**, using two complementary methods. Human HG002
 α-satellite was scanned throughout as the positive benchmark.
 
+**Terminology.** A CENP-B *box* is a **functional** motif that binds the CENP-B
+protein. We detect *sequence* matches only, so below we call them **motifs** or
+**candidate boxes**; none is a confirmed functional box (protein binding was not
+tested). A "candidate box" = a box-specific match (flank information > flank
+control) that is near-canonical (≤2 substitutions).
+
 ## Which satellites were searched
 - **Input:** `all.satellites.txt` — every satellite-repeat *array* annotated across
   the DToL genome assemblies (one sequence per array, tagged by species).
