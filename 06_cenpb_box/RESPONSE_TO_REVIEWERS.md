@@ -24,16 +24,22 @@ Both methods were validated on human HG002 satellites:
   hg002v1.1 assembly via the v1.1 CenSat annotation — human satellites that do
   **not** carry CENP-B boxes.
 
-| control | Method 1: canonical hits (per Mbp) | broad enrichment | Method 2: flank Δ (windows/Mbp) |
+| control | canonical hits (/Mbp) | broad enrichment (mono / **dinuc** / AE-shuffle) | flank Δ (windows/Mbp) |
 |---|---|---|---|
-| **α-sat (positive)** | **13,359 (1,562 /Mbp)** | 676× | **0.56 (3,247 /Mbp)** |
-| **HSat (negative)** | 5 (0.03 /Mbp) | 0.16× (below random) | 0.23 (93 /Mbp) |
+| **α-sat (positive)** | **13,359 (1,562 /Mbp)** | 676× / **4,283×** / 4,524× | **0.56 (3,247 /Mbp)** |
+| **HSat (negative)** | 5 (0.03 /Mbp) | 0.16× / **0.06×** / 0.44× (below random) | 0.23 (93 /Mbp) |
 
 Both methods cleanly separate the controls: canonical boxes are **~50,000× denser
-per Mbp in α-satellite than in HSat**, HSat's looser-motif hits fall *below* random
-expectation, and the flank Δ and box prevalence are far higher in α-satellite. This
-confirms the pipeline detects the functional box where it exists and stays quiet on
-human satellite that lacks it.
+per Mbp in α-satellite than in HSat**, HSat's looser-motif hits fall *below* random,
+and the flank Δ and box prevalence are far higher in α-satellite.
+
+**Null model.** Enrichment is reported against a **dinucleotide-preserving null**
+(first-order Markov expectation, the analytic form of an **Altschul–Erikson doublet
+shuffle**), which controls for base *context* (e.g. the CpG in `TTCG`/`CGGG`) rather
+than base composition alone. On the α-sat benchmark the analytic dinucleotide null
+(4,283×) matches an explicit Altschul–Erikson shuffle (4,524×), validating it. A
+0-order (mononucleotide) null and per-Mbp counts are also reported
+(`cenpb_human_benchmark.tsv`, `ae_shuffle.py`).
 
 ## Method 1 — exact IUPAC motif parsing (Fachinetti)
 Following Barra & Fachinetti et al. (bioRxiv 2026.05.25.727640), we counted three
@@ -47,14 +53,15 @@ a random expectation from its own base composition (obs/expected enrichment):
 | degenerated | `YTTCGNNNNANRCGGGN` | looser interior |
 
 **Result.** In the human benchmark the method works overwhelmingly (canonical
-enrichment ~5.7 × 10⁶; broad 676×; degenerate 2655× over random). Across the 325
-DToL species, **no species carries a single exact *canonical* box** (canonical = 0
-in every clade). The looser tiers yield only **trace** exact hits, at or below
-random expectation in vertebrates as a group (mean broad enrichment 0.45×): the
-largest per-species counts are *Gallus gallus* (12 degenerate; 19× over random),
-*Canis lupus* (16), *Trachurus trachurus* (12 broad) — a handful of arrays, not an
-enriched motif. **By the strict motif definition, essentially nothing is found
-outside the human benchmark.** *Figures:* `cenpb_paper_motifs.png`;
+dinucleotide-null enrichment ~1.3 × 10⁷; broad 4,283×). Across the 325 DToL
+species, **no species carries a single exact *canonical* box** (canonical = 0 in
+every clade). The looser tiers yield only **trace** exact hits — a handful of
+arrays (*Gallus gallus* 12 degenerate, *Canis lupus* 16, *Trachurus trachurus* 12
+broad), not an enriched motif. Importantly, the apparent degenerate-motif
+enrichment in plants **deflates under the dinucleotide null** (Viridiplantae
+degenerate 11.7× → **3.0×**), i.e. most of it was base-context structure, not the
+box. **By the strict motif definition, essentially nothing is found outside the
+human benchmark.** *Figures:* `cenpb_paper_motifs.png`;
 *data:* `cenpb_paper_motifs_per_species.tsv`, `cenpb_paper_motifs_per_clade.tsv`.
 
 ## Method 2 — songbird ±5-flank test (Formenti et al., Cell 2026)

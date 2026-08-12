@@ -25,11 +25,13 @@ separate the two controls cleanly (`cenpb_human_benchmark.py`,
 
 ## Method 1 — exact IUPAC motif parsing (Fachinetti)
 `cenpb_paper_motifs.py` (+ `cenpb_paper_motifs_plot.py`). Three **exact IUPAC**
-motif tiers (both strands), each vs a random expectation from base composition:
-canonical `YTTCGTTGGAARCGGGA`, broad `NTTCGNNNNANNCGGGN`, degenerated
-`YTTCGNNNNANRCGGGN` (Barra & Fachinetti, bioRxiv 2026.05.25.727640).
-**Result:** no DToL species has an exact *canonical* box; looser tiers give only
-trace hits (at/below random in vertebrates). *Figure:* `figures/cenpb_paper_motifs.png`.
+motif tiers (both strands): canonical `YTTCGTTGGAARCGGGA`, broad `NTTCGNNNNANNCGGGN`,
+degenerated `YTTCGNNNNANRCGGGN` (Barra & Fachinetti, bioRxiv 2026.05.25.727640).
+Enrichment is obs/expected vs a **dinucleotide-preserving null** (first-order
+Markov ≈ Altschul–Erikson doublet shuffle, `ae_shuffle.py`; a 0-order null is also
+reported). **Result:** no DToL species has an exact *canonical* box; looser-tier
+hits are trace and the plant degenerate signal deflates under the dinucleotide null
+(11.7×→3.0×). *Figure:* `figures/cenpb_paper_motifs.png`.
 
 ## Method 2 — songbird ±5-flank test
 `cenpb_flank_uncapped.py` (+ `cenpb_flank_uncapped_logos.py`). The box matched as

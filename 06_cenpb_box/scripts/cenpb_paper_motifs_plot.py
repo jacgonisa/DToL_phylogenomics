@@ -17,10 +17,11 @@ ALLOWED={"canonical":[{"C","T"},{"T"},{"T"},{"C"},{"G"},{"T"},{"T"},{"G"},{"G"},
 comp=str.maketrans("ACGTN","TGCAN"); rc=lambda s:s.translate(comp)[::-1]
 
 # HG002 benchmarks (alpha-sat positive, HSat negative) from cenpb_human_benchmark.py
+# NULL = dinucleotide-preserving (first-order Markov / Altschul-Erikson) enrichment
 bench=pd.read_csv(SAT/"figures/cenpb_human_benchmark.tsv",sep="\t")
 blab={"alpha-satellite (positive)":"α-sat (HG002)","HSat1/2/3 (negative)":"HSat (HG002)"}
-benchg={blab[r.control]:{t:r[f"{t}_enrich"] for t in ["canonical","broad","degenerated"]} for _,r in bench.iterrows()}
-print("benchmarks:",benchg)
+benchg={blab[r.control]:{t:r[f"{t}_enrich_dinuc"] for t in ["canonical","broad","degenerated"]} for _,r in bench.iterrows()}
+print("benchmarks (dinuc null):",benchg)
 
 per=pd.read_csv(SAT/"figures/cenpb_paper_motifs_per_clade.tsv",sep="\t")
 df=pd.read_csv(SAT/"figures/cenpb_paper_motifs_per_species.tsv",sep="\t")
@@ -32,14 +33,14 @@ enrich={g:{} for g in groups}
 for g in ("α-sat (HG002)","HSat (HG002)"):
     for t in tiers: enrich[g][t]=benchg[g][t]
 for _,r in per.iterrows():
-    for t in tiers: enrich[r.clade][t]=r[f"{t}_enrich"]
+    for t in tiers: enrich[r.clade][t]=r[f"{t}_enrich_dinuc"]
 x=np.arange(len(groups)); w=0.26
 for j,t in enumerate(tiers):
     a1.bar(x+(j-1)*w,[max(enrich[g][t],0.01) for g in groups],w,color=tcol[t],label=t)
 a1.axhline(1,ls="--",color="black",lw=1.2); a1.set_yscale("log")
 a1.set_xticks(x); a1.set_xticklabels(groups,rotation=20,ha="right")
-a1.set_ylabel("enrichment over random (obs / expected)")
-a1.set_title("Method 1 — exact IUPAC motif tiers (Fachinetti)\ncanonical = functional box; broad/degenerate = looser",fontweight="bold",fontsize=10.5)
+a1.set_ylabel("enrichment over dinucleotide-preserving null (obs / exp)")
+a1.set_title("Method 1 — exact IUPAC motif tiers (Fachinetti)\nnull = dinucleotide-preserving (Markov-1 ≈ Altschul-Erikson shuffle)",fontweight="bold",fontsize=10.5)
 a1.legend(fontsize=9,frameon=False,title="motif"); a1.spines[["top","right"]].set_visible(False)
 a1.text(0.01,0.02,"canonical = 0 in every non-human clade",transform=a1.transAxes,fontsize=8,color="grey")
 

@@ -1,163 +1,163 @@
-species	name	clade	vgroup	n_arrays	Mbp	canonical	canonical_perMbp	canonical_enrich	broad	broad_perMbp	broad_enrich	degenerated	degenerated_perMbp	degenerated_enrich
-drparjuda	Parietaria judaica	Viridiplantae		46759	16.7	0	0.0	0.0	2179	130.498	140.23	2139	128.102	550.98
-iystephae	Stelis phaeoptera	Invertebrate		634325	32.86	0	0.0	0.0	812	24.711	4.93	559	17.011	13.77
-iyanonige	Anoplius nigerrimus	Invertebrate		33919	11.84	0	0.0	0.0	127	10.725	4.2	124	10.471	16.59
-latrimari	Triglochin maritima	Viridiplantae		16106	30.13	0	0.0	0.0	186	6.173	2.39	41	1.361	2.18
-lsirifoet	Iris foetidissima	Viridiplantae		281687	122.29	0	0.0	0.0	26	0.213	0.33	22	0.18	1.13
-mcanlor	Canis lupus	Vertebrates	Mammalia	22116	16.24	0	0.0	0.0	17	1.047	0.14	16	0.985	0.53
-iylasvill	Lasioglossum villosulum	Invertebrate		72389	28.16	0	0.0	0.0	18	0.639	0.14	13	0.462	0.39
-bgalgal	Gallus gallus	Vertebrates	Aves	21417	0.95	0	0.0	0.0	12	12.572	4.62	12	12.572	18.74
-lpschlacu	Schoenoplectus lacustris	Viridiplantae		76160	9.96	0	0.0	0.0	20	2.007	2.93	7	0.703	4.1
-lpjuneffu	Juncus effusus	Viridiplantae		163943	27.91	0	0.0	0.0	6	0.215	0.36	6	0.215	1.46
-idclutigr	Clusia tigrina	Invertebrate		1534444	270.52	0	0.0	0.0	15	0.055	0.03	4	0.015	0.03
-mcerela	Cervus elaphus	Vertebrates	Mammalia	224055	178.21	0	0.0	0.0	7	0.039	0.01	4	0.022	0.01
-mmelmel	Meles meles	Vertebrates	Mammalia	87864	12.48	0	0.0	0.0	3	0.24	0.04	2	0.16	0.11
-ipisogram	Isoperla grammatica	Invertebrate		201890	17.55	0	0.0	0.0	2	0.114	0.04	2	0.114	0.15
-ddpopnigr	Populus nigra	Viridiplantae		69080	9.28	0	0.0	0.0	5	0.539	0.08	1	0.108	0.07
-lpelequin	Eleocharis quinqueflora	Viridiplantae		483017	39.65	0	0.0	0.0	3	0.076	0.04	1	0.025	0.06
-ddmerannu	Mercurialis annua	Viridiplantae		154513	14.3	0	0.0	0.0	2	0.14	0.07	1	0.07	0.13
-iyvesvulg	Vespula vulgaris	Invertebrate		1236	2.25	0	0.0	0.0	1	0.444	0.48	1	0.444	1.92
-iyophlute	Ophion luteus	Invertebrate		21215	3.42	0	0.0	0.0	1	0.293	0.04	1	0.293	0.18
-idgymrotn	Gymnosoma rotundatum	Invertebrate		26452	5.86	0	0.0	0.0	1	0.171	0.15	1	0.171	0.61
-ocsyccili	Sycon ciliatum	Invertebrate		26043	8.63	0	0.0	0.0	1	0.116	0.02	1	0.116	0.07
-lpluzsylv	Luzula sylvatica	Viridiplantae		616319	85.38	0	0.0	0.0	1	0.012	0.04	1	0.012	0.14
-iyseltumu	Seladonia tumulorum	Invertebrate		27014	3.86	0	0.0	0.0	585	151.633	81.68	0	0.0	0.0
-lpdigsang	Digitaria sanguinalis	Viridiplantae		104747	17.57	0	0.0	0.0	290	16.51	2.95	0	0.0	0.0
-dhcorcolu	Corylus colurna	Viridiplantae		95770	29.26	0	0.0	0.0	179	6.117	0.85	0	0.0	0.0
-iilimmarm	Limnephilus marmoratus	Invertebrate		61594	12.64	0	0.0	0.0	61	4.826	2.33	0	0.0	0.0
-iuloevari	Loensia variegata	Invertebrate		32540	9.0	0	0.0	0.0	57	6.335	2.1	0	0.0	0.0
-ddeuppepu	Euphorbia peplus	Viridiplantae		131031	20.44	0	0.0	0.0	54	2.642	0.52	0	0.0	0.0
-tzmemmemb	Membranipora membranacea	Invertebrate		27483	9.18	0	0.0	0.0	28	3.049	1.13	0	0.0	0.0
-iilimluna	Limnephilus lunatus	Invertebrate		41449	10.32	0	0.0	0.0	22	2.131	1.14	0	0.0	0.0
-iycoeconi	Coelioxys conoideus	Invertebrate		49454	45.54	0	0.0	0.0	20	0.439	0.07	0	0.0	0.0
-icagrcyan	Agrilus cyanescens	Invertebrate		265450	42.37	0	0.0	0.0	19	0.448	0.22	0	0.0	0.0
-lpjunsqua	Juncus squarrosus	Viridiplantae		157934	24.96	0	0.0	0.0	19	0.761	0.14	0	0.0	0.0
-idathibis	Atherix ibis	Invertebrate		112605	99.25	0	0.0	0.0	18	0.181	30.68	0	0.0	0.0
-lapotnata	Potamogeton natans	Viridiplantae		39033	5.59	0	0.0	0.0	18	3.218	0.36	0	0.0	0.0
-ftratra	Trachurus trachurus	Vertebrates	Fish	6659	1.21	0	0.0	0.0	12	9.947	3.93	0	0.0	0.0
-blagmut	Lagopus muta	Vertebrates	Aves	946	1.99	0	0.0	0.0	10	5.037	1.5	0	0.0	0.0
-damisoron	Misopates orontium	Viridiplantae		31645	4.09	0	0.0	0.0	9	2.201	1.88	0	0.0	0.0
-iyathrosa	Athalia rosae	Invertebrate		61525	2.83	0	0.0	0.0	8	2.829	0.77	0	0.0	0.0
-ddhotpalu	Hottonia palustris	Viridiplantae		138338	23.11	0	0.0	0.0	8	0.346	0.15	0	0.0	0.0
-qeorcflav	Orchesella flavescens	Invertebrate		26178	3.55	0	0.0	0.0	7	1.97	0.29	0	0.0	0.0
-dmaquvulg	Aquilegia vulgaris	Viridiplantae		51495	16.93	0	0.0	0.0	5	0.295	0.07	0	0.0	0.0
-drchaangu	Chamaenerion angustifolium	Viridiplantae		286512	86.54	0	0.0	0.0	5	0.058	0.05	0	0.0	0.0
-ibectpall	Ectobius pallidus	Invertebrate		179200	53.88	0	0.0	0.0	4	0.074	0.05	0	0.0	0.0
-idantanth	Anthrax anthrax	Invertebrate		123511	52.17	0	0.0	0.0	4	0.077	0.11	0	0.0	0.0
-iypemlugu	Pemphredon lugubris	Invertebrate		51082	44.85	0	0.0	0.0	3	0.067	0.09	0	0.0	0.0
-iilimrhom	Limnephilus rhombicus	Invertebrate		24055	4.49	0	0.0	0.0	3	0.668	0.31	0	0.0	0.0
-ipnemdubi	Nemoura dubitans	Invertebrate		4399	3.95	0	0.0	0.0	2	0.506	0.05	0	0.0	0.0
-icquelate	Quedius lateralis	Invertebrate		67879	25.31	0	0.0	0.0	2	0.079	0.05	0	0.0	0.0
-melemax	Elephas maximus	Vertebrates	Mammalia	32556	27.55	0	0.0	0.0	2	0.073	0.01	0	0.0	0.0
-lpcardepa	Carex depauperata	Viridiplantae		204120	16.47	0	0.0	0.0	2	0.121	0.06	0	0.0	0.0
-ihaelacum	Aelia acuminata	Invertebrate		62647	9.22	0	0.0	0.0	1	0.108	0.1	0	0.0	0.0
-ihicepurc	Icerya purchasi	Invertebrate		3643	1.21	0	0.0	0.0	1	0.824	0.36	0	0.0	0.0
-iyanddors	Andrena dorsata	Invertebrate		1519	0.27	0	0.0	0.0	1	3.724	1.24	0	0.0	0.0
-icadabipu	Adalia bipunctata	Invertebrate		79374	14.6	0	0.0	0.0	1	0.069	0.05	0	0.0	0.0
-icmalbipu	Malachius bipustulatus	Invertebrate		20075	2.57	0	0.0	0.0	1	0.39	0.04	0	0.0	0.0
-iccanrust	Cantharis rustica	Invertebrate		214120	41.18	0	0.0	0.0	1	0.024	0.05	0	0.0	0.0
-lpphlprat	Phleum pratense	Viridiplantae		150363	12.46	0	0.0	0.0	1	0.08	0.07	0	0.0	0.0
-ddbarvulg	Barbarea vulgaris	Viridiplantae		39724	15.21	0	0.0	0.0	1	0.066	0.02	0	0.0	0.0
-qelepcurv	Lepidocyrtus curvicollis	Invertebrate		2766	2.01	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-qeallfusc	Allacma fusca	Invertebrate		21486	3.11	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-ioisceleg	Ischnura elegans	Invertebrate		12570	3.94	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-ieclodipt	Cloeon dipterum	Invertebrate		22835	1.82	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-ieecdtorr	Ecdyonurus torrentis	Invertebrate		40022	8.23	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-ieprobifi	Procloeon bifidum	Invertebrate		11589	2.94	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iesipalte	Siphlonurus alternatus	Invertebrate		34097	10.0	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iupsogibb	Psococerastis gibbosa	Invertebrate		90054	14.95	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iglabmino	Labia minor	Invertebrate		124337	19.86	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iymacalbo	Macrophya alboannulata	Invertebrate		23805	3.6	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iyabicand	Abia candens	Invertebrate		153257	22.22	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iyectcont	Ectemnius continuus	Invertebrate		194265	28.9	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iybomhypn	Bombus hypnorum	Invertebrate		163741	6.07	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iynomfabr	Nomada fabriciana	Invertebrate		38153	3.81	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iymaceuro	Macropis europaea	Invertebrate		18512	3.26	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iymimdahl	Mimumesa dahlbomi	Invertebrate		9509	3.25	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iytipfemo	Tiphia femorata	Invertebrate		7515	1.03	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iypripert	Priocnemis perturbator	Invertebrate		64585	12.07	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iyapainim	Apaeleticus inimicus	Invertebrate		32353	10.32	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iyvulbima	Vulgichneumon bimaculatus	Invertebrate		129810	18.62	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-inchrcarn	Chrysoperla carnea	Invertebrate		13418	2.21	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-icptemadi	Pterostichus madidus	Invertebrate		196235	30.69	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-icagofuli	Agonum fuliginosum	Invertebrate		78628	38.71	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-icnebbrev	Nebria brevicollis	Invertebrate		19128	2.63	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-icnebsali	Nebria salina	Invertebrate		38388	5.12	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iccarprob	Carabus problematicus	Invertebrate		130427	26.8	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-icocyolen	Ocypus olens	Invertebrate		871960	143.77	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-icsilatra	Phosphuga atrata	Invertebrate		59208	12.08	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-icnicinve	Nicrophorus investigator	Invertebrate		47195	8.45	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-icscaquad	Scaphidium quadrimaculatum	Invertebrate		591420	56.48	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iccetaura	Cetonia aurata	Invertebrate		25625	4.3	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iclepmacu	Rutpela maculata	Invertebrate		11278	3.32	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-icpolcerv	Polydrusus cervinus	Invertebrate		5750	4.91	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-icapocory	Apoderus coryli	Invertebrate		19814	2.89	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iccocsept	Coccinella septempunctata	Invertebrate		60547	8.71	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-icharaxyr	Harmonia axyridis	Invertebrate		69445	17.83	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-ichalsede	Halyzia sedecimguttata	Invertebrate		34304	4.43	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-icrhafulv	Rhagonycha fulva	Invertebrate		938153	71.27	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-idbibmarc	Bibio marci	Invertebrate		8370	0.84	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-idacrorbc	Acrocera orbiculus	Invertebrate		3045	1.43	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-idbomdisc	Bombylius discolor	Invertebrate		332226	33.2	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-idmacatri	Machimus atricapillus	Invertebrate		2789	0.38	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-idhydcyrt	Hydrotaea cyrtoneurina	Invertebrate		137191	17.96	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-idpolamen	Pollenia amentaria	Invertebrate		10828	1.77	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-idepisucc	Epicampocera succincta	Invertebrate		205859	33.59	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-idbelpand	Bellardia pandia	Invertebrate		50662	3.16	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-idphymeln	Phyto melanocephala	Invertebrate		26890	4.91	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-idproazur	Protocalliphora azurea	Invertebrate		96442	13.83	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-iilimauri	Limnephilus auricula	Invertebrate		67393	11.01	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-ilpienapi	Pieris napi	Invertebrate		48206	6.36	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-tzbugstol	Bugulina stolonifera	Invertebrate		16315	4.24	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-tnlinlong	Lineus longissimus	Invertebrate		11432	1.74	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-wplepclav	Lepidonotus clava	Invertebrate		11798	3.3	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-wpalivire	Alitta virens	Invertebrate		69689	12.69	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-xblimfort	Limnoperna fortunei	Invertebrate		191985	6.52	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-xggibmagu	Gibbula magus	Invertebrate		69876	15.15	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-jaricflor	Ricordea florida	Invertebrate		27880	16.49	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-jadialine	Diadumene lineata	Invertebrate		6232	0.94	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-eamarglac	Marthasterias glacialis	Invertebrate		30679	14.95	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-kaaplturb	Aplidium turbinatum	Invertebrate		85503	13.89	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-falosap	Alosa sapidissima	Vertebrates	Fish	34536	6.0	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-fbarbab	Barbus barbus	Vertebrates	Fish	37755	9.61	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-fdanrer	Danio rerio	Vertebrates	Fish	80307	14.89	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-ftaubub	Taurulus bubalis	Vertebrates	Fish	28595	5.3	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-fphogun	Pholis gunnellus	Vertebrates	Fish	2907	0.55	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-fthualb	Thunnus albacares	Vertebrates	Fish	7328	0.92	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-fthumac	Thunnus maccoyii	Vertebrates	Fish	2582	0.33	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-bcorhaw	Corvus hawaiiensis	Vertebrates	Aves	16391	21.2	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-bporhoc	Porphyrio hochstetteri	Vertebrates	Aves	70741	13.47	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-baccgen	Accipiter gentilis	Vertebrates	Aves	112507	19.49	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-bfalper	Falco peregrinus	Vertebrates	Aves	58861	10.24	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-bfalbia	Falco biarmicus	Vertebrates	Aves	27005	4.7	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-bfalche	Falco cherrug	Vertebrates	Aves	137248	23.87	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-rviplat	Vipera latastei	Vertebrates	Reptilia	50688	8.51	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-mlemcat	Lemur catta	Vertebrates	Mammalia	787162	32.03	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-mdicbic	Diceros bicornis	Vertebrates	Mammalia	335103	76.32	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-laaliplan	Alisma plantago-aquatica	Viridiplantae		4223	2.1	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-laapodist	Aponogeton distachyos	Viridiplantae		259867	53.52	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-lpleeoryz	Leersia oryzoides	Viridiplantae		96980	10.37	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-lpjunbufo	Juncus bufonius	Viridiplantae		627881	96.27	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-lpcypfusc	Cyperus fuscus	Viridiplantae		6242	1.52	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-lperiangu	Eriophorum angustifolium	Viridiplantae		141422	4.82	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-lpscisylv	Scirpus sylvaticus	Viridiplantae		18791	0.61	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-lpluzpall	Luzula pallescens	Viridiplantae		641603	76.23	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-dmthaminu	Thalictrum minus	Viridiplantae		548156	98.26	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-dmbervulg	Berberis vulgaris	Viridiplantae		709899	127.56	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-dcpolavic	Polygonum aviculare	Viridiplantae		51994	9.22	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-dcspemari	Spergularia marina	Viridiplantae		186350	32.58	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-dcmoetrin	Moehringia trinervia	Viridiplantae		314100	52.97	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-dcareserp	Arenaria serpyllifolia	Viridiplantae		146273	24.74	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-dcpoltetr	Polycarpon tetraphyllum	Viridiplantae		122114	30.29	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-drmedarab	Medicago arabica	Viridiplantae		56484	9.52	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-drtrifrag	Trifolium fragiferum	Viridiplantae		36933	9.78	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-drpotanse	Potentilla anserina	Viridiplantae		24677	3.7	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-drgeuriva	Geum rivale	Viridiplantae		235532	37.53	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-ddarathal	Arabidopsis thaliana	Viridiplantae		79791	14.17	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-drhedheli	Hedera helix	Viridiplantae		45101	7.15	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-datanvulg	Tanacetum vulgare	Viridiplantae		13703	2.38	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-daarcminu	Arctium minus	Viridiplantae		30248	5.2	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-dascugale	Scutellaria galericulata	Viridiplantae		171015	21.3	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-dabalnigr	Ballota nigra	Viridiplantae		52529	4.5	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-dalinvulg	Linaria vulgaris	Viridiplantae		54418	13.56	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
-dashearve	Sherardia arvensis	Viridiplantae		68786	2.7	0	0.0	0.0	0	0.0	0.0	0	0.0	0.0
+species	name	clade	vgroup	n_arrays	Mbp	canonical	canonical_perMbp	canonical_enrich	canonical_enrich_dinuc	broad	broad_perMbp	broad_enrich	broad_enrich_dinuc	degenerated	degenerated_perMbp	degenerated_enrich	degenerated_enrich_dinuc
+drparjuda	Parietaria judaica	Viridiplantae		46759	16.7	0	0.0	0.0	0.0	2179	130.498	140.23	45.61	2139	128.102	550.98	138.44
+iystephae	Stelis phaeoptera	Invertebrate		634325	32.86	0	0.0	0.0	0.0	812	24.711	4.93	9.03	559	17.011	13.77	13.9
+iyanonige	Anoplius nigerrimus	Invertebrate		33919	11.84	0	0.0	0.0	0.0	127	10.725	4.2	1.47	124	10.471	16.59	4.69
+latrimari	Triglochin maritima	Viridiplantae		16106	30.13	0	0.0	0.0	0.0	186	6.173	2.39	1.93	41	1.361	2.18	1.66
+lsirifoet	Iris foetidissima	Viridiplantae		281687	122.29	0	0.0	0.0	0.0	26	0.213	0.33	0.55	22	0.18	1.13	1.94
+mcanlor	Canis lupus	Vertebrates	Mammalia	22116	16.24	0	0.0	0.0	0.0	17	1.047	0.14	1.27	16	0.985	0.53	4.07
+iylasvill	Lasioglossum villosulum	Invertebrate		72389	28.16	0	0.0	0.0	0.0	18	0.639	0.14	0.59	13	0.462	0.39	2.07
+bgalgal	Gallus gallus	Vertebrates	Aves	21417	0.95	0	0.0	0.0	0.0	12	12.572	4.62	1.36	12	12.572	18.74	7.35
+lpschlacu	Schoenoplectus lacustris	Viridiplantae		76160	9.96	0	0.0	0.0	0.0	20	2.007	2.93	0.89	7	0.703	4.1	1.12
+lpjuneffu	Juncus effusus	Viridiplantae		163943	27.91	0	0.0	0.0	0.0	6	0.215	0.36	0.17	6	0.215	1.46	0.54
+idclutigr	Clusia tigrina	Invertebrate		1534444	270.52	0	0.0	0.0	0.0	15	0.055	0.03	0.03	4	0.015	0.03	0.03
+mcerela	Cervus elaphus	Vertebrates	Mammalia	224055	178.21	0	0.0	0.0	0.0	7	0.039	0.01	0.01	4	0.022	0.01	0.02
+mmelmel	Meles meles	Vertebrates	Mammalia	87864	12.48	0	0.0	0.0	0.0	3	0.24	0.04	0.09	2	0.16	0.11	0.2
+ipisogram	Isoperla grammatica	Invertebrate		201890	17.55	0	0.0	0.0	0.0	2	0.114	0.04	0.06	2	0.114	0.15	0.19
+ddpopnigr	Populus nigra	Viridiplantae		69080	9.28	0	0.0	0.0	0.0	5	0.539	0.08	0.06	1	0.108	0.07	0.05
+lpelequin	Eleocharis quinqueflora	Viridiplantae		483017	39.65	0	0.0	0.0	0.0	3	0.076	0.04	0.3	1	0.025	0.06	0.38
+ddmerannu	Mercurialis annua	Viridiplantae		154513	14.3	0	0.0	0.0	0.0	2	0.14	0.07	0.07	1	0.07	0.13	0.12
+iyvesvulg	Vespula vulgaris	Invertebrate		1236	2.25	0	0.0	0.0	0.0	1	0.444	0.48	0.27	1	0.444	1.92	1.22
+iyophlute	Ophion luteus	Invertebrate		21215	3.42	0	0.0	0.0	0.0	1	0.293	0.04	0.01	1	0.293	0.18	0.06
+idgymrotn	Gymnosoma rotundatum	Invertebrate		26452	5.86	0	0.0	0.0	0.0	1	0.171	0.15	0.17	1	0.171	0.61	0.58
+ocsyccili	Sycon ciliatum	Invertebrate		26043	8.63	0	0.0	0.0	0.0	1	0.116	0.02	0.06	1	0.116	0.07	0.19
+lpluzsylv	Luzula sylvatica	Viridiplantae		616319	85.38	0	0.0	0.0	0.0	1	0.012	0.04	0.03	1	0.012	0.14	0.08
+iyseltumu	Seladonia tumulorum	Invertebrate		27014	3.86	0	0.0	0.0	0.0	585	151.633	81.68	66.37	0	0.0	0.0	0.0
+lpdigsang	Digitaria sanguinalis	Viridiplantae		104747	17.57	0	0.0	0.0	0.0	290	16.51	2.95	1.63	0	0.0	0.0	0.0
+dhcorcolu	Corylus colurna	Viridiplantae		95770	29.26	0	0.0	0.0	0.0	179	6.117	0.85	0.2	0	0.0	0.0	0.0
+iilimmarm	Limnephilus marmoratus	Invertebrate		61594	12.64	0	0.0	0.0	0.0	61	4.826	2.33	0.6	0	0.0	0.0	0.0
+iuloevari	Loensia variegata	Invertebrate		32540	9.0	0	0.0	0.0	0.0	57	6.335	2.1	0.89	0	0.0	0.0	0.0
+ddeuppepu	Euphorbia peplus	Viridiplantae		131031	20.44	0	0.0	0.0	0.0	54	2.642	0.52	0.13	0	0.0	0.0	0.0
+tzmemmemb	Membranipora membranacea	Invertebrate		27483	9.18	0	0.0	0.0	0.0	28	3.049	1.13	0.5	0	0.0	0.0	0.0
+iilimluna	Limnephilus lunatus	Invertebrate		41449	10.32	0	0.0	0.0	0.0	22	2.131	1.14	0.46	0	0.0	0.0	0.0
+iycoeconi	Coelioxys conoideus	Invertebrate		49454	45.54	0	0.0	0.0	0.0	20	0.439	0.07	0.47	0	0.0	0.0	0.0
+icagrcyan	Agrilus cyanescens	Invertebrate		265450	42.37	0	0.0	0.0	0.0	19	0.448	0.22	0.45	0	0.0	0.0	0.0
+lpjunsqua	Juncus squarrosus	Viridiplantae		157934	24.96	0	0.0	0.0	0.0	19	0.761	0.14	0.03	0	0.0	0.0	0.0
+idathibis	Atherix ibis	Invertebrate		112605	99.25	0	0.0	0.0	0.0	18	0.181	30.68	4.35	0	0.0	0.0	0.0
+lapotnata	Potamogeton natans	Viridiplantae		39033	5.59	0	0.0	0.0	0.0	18	3.218	0.36	0.09	0	0.0	0.0	0.0
+ftratra	Trachurus trachurus	Vertebrates	Fish	6659	1.21	0	0.0	0.0	0.0	12	9.947	3.93	0.45	0	0.0	0.0	0.0
+blagmut	Lagopus muta	Vertebrates	Aves	946	1.99	0	0.0	0.0	0.0	10	5.037	1.5	28.68	0	0.0	0.0	0.0
+damisoron	Misopates orontium	Viridiplantae		31645	4.09	0	0.0	0.0	0.0	9	2.201	1.88	1.56	0	0.0	0.0	0.0
+iyathrosa	Athalia rosae	Invertebrate		61525	2.83	0	0.0	0.0	0.0	8	2.829	0.77	0.23	0	0.0	0.0	0.0
+ddhotpalu	Hottonia palustris	Viridiplantae		138338	23.11	0	0.0	0.0	0.0	8	0.346	0.15	0.05	0	0.0	0.0	0.0
+qeorcflav	Orchesella flavescens	Invertebrate		26178	3.55	0	0.0	0.0	0.0	7	1.97	0.29	0.38	0	0.0	0.0	0.0
+dmaquvulg	Aquilegia vulgaris	Viridiplantae		51495	16.93	0	0.0	0.0	0.0	5	0.295	0.07	0.02	0	0.0	0.0	0.0
+drchaangu	Chamaenerion angustifolium	Viridiplantae		286512	86.54	0	0.0	0.0	0.0	5	0.058	0.05	0.03	0	0.0	0.0	0.0
+ibectpall	Ectobius pallidus	Invertebrate		179200	53.88	0	0.0	0.0	0.0	4	0.074	0.05	0.17	0	0.0	0.0	0.0
+idantanth	Anthrax anthrax	Invertebrate		123511	52.17	0	0.0	0.0	0.0	4	0.077	0.11	0.09	0	0.0	0.0	0.0
+iypemlugu	Pemphredon lugubris	Invertebrate		51082	44.85	0	0.0	0.0	0.0	3	0.067	0.09	0.01	0	0.0	0.0	0.0
+iilimrhom	Limnephilus rhombicus	Invertebrate		24055	4.49	0	0.0	0.0	0.0	3	0.668	0.31	0.09	0	0.0	0.0	0.0
+ipnemdubi	Nemoura dubitans	Invertebrate		4399	3.95	0	0.0	0.0	0.0	2	0.506	0.05	0.02	0	0.0	0.0	0.0
+icquelate	Quedius lateralis	Invertebrate		67879	25.31	0	0.0	0.0	0.0	2	0.079	0.05	0.03	0	0.0	0.0	0.0
+melemax	Elephas maximus	Vertebrates	Mammalia	32556	27.55	0	0.0	0.0	0.0	2	0.073	0.01	0.01	0	0.0	0.0	0.0
+lpcardepa	Carex depauperata	Viridiplantae		204120	16.47	0	0.0	0.0	0.0	2	0.121	0.06	1.52	0	0.0	0.0	0.0
+ihaelacum	Aelia acuminata	Invertebrate		62647	9.22	0	0.0	0.0	0.0	1	0.108	0.1	0.03	0	0.0	0.0	0.0
+ihicepurc	Icerya purchasi	Invertebrate		3643	1.21	0	0.0	0.0	0.0	1	0.824	0.36	0.06	0	0.0	0.0	0.0
+iyanddors	Andrena dorsata	Invertebrate		1519	0.27	0	0.0	0.0	0.0	1	3.724	1.24	0.07	0	0.0	0.0	0.0
+icadabipu	Adalia bipunctata	Invertebrate		79374	14.6	0	0.0	0.0	0.0	1	0.069	0.05	0.04	0	0.0	0.0	0.0
+icmalbipu	Malachius bipustulatus	Invertebrate		20075	2.57	0	0.0	0.0	0.0	1	0.39	0.04	0.05	0	0.0	0.0	0.0
+iccanrust	Cantharis rustica	Invertebrate		214120	41.18	0	0.0	0.0	0.0	1	0.024	0.05	0.13	0	0.0	0.0	0.0
+lpphlprat	Phleum pratense	Viridiplantae		150363	12.46	0	0.0	0.0	0.0	1	0.08	0.07	0.17	0	0.0	0.0	0.0
+ddbarvulg	Barbarea vulgaris	Viridiplantae		39724	15.21	0	0.0	0.0	0.0	1	0.066	0.02	0.32	0	0.0	0.0	0.0
+qelepcurv	Lepidocyrtus curvicollis	Invertebrate		2766	2.01	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+qeallfusc	Allacma fusca	Invertebrate		21486	3.11	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+ioisceleg	Ischnura elegans	Invertebrate		12570	3.94	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+ieclodipt	Cloeon dipterum	Invertebrate		22835	1.82	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+ieecdtorr	Ecdyonurus torrentis	Invertebrate		40022	8.23	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+ieprobifi	Procloeon bifidum	Invertebrate		11589	2.94	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iesipalte	Siphlonurus alternatus	Invertebrate		34097	10.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iupsogibb	Psococerastis gibbosa	Invertebrate		90054	14.95	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iglabmino	Labia minor	Invertebrate		124337	19.86	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iymacalbo	Macrophya alboannulata	Invertebrate		23805	3.6	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iyabicand	Abia candens	Invertebrate		153257	22.22	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iyectcont	Ectemnius continuus	Invertebrate		194265	28.9	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iybomhypn	Bombus hypnorum	Invertebrate		163741	6.07	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iynomfabr	Nomada fabriciana	Invertebrate		38153	3.81	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iymaceuro	Macropis europaea	Invertebrate		18512	3.26	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iymimdahl	Mimumesa dahlbomi	Invertebrate		9509	3.25	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iytipfemo	Tiphia femorata	Invertebrate		7515	1.03	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iypripert	Priocnemis perturbator	Invertebrate		64585	12.07	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iyapainim	Apaeleticus inimicus	Invertebrate		32353	10.32	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iyvulbima	Vulgichneumon bimaculatus	Invertebrate		129810	18.62	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+inchrcarn	Chrysoperla carnea	Invertebrate		13418	2.21	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+icptemadi	Pterostichus madidus	Invertebrate		196235	30.69	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+icagofuli	Agonum fuliginosum	Invertebrate		78628	38.71	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+icnebbrev	Nebria brevicollis	Invertebrate		19128	2.63	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+icnebsali	Nebria salina	Invertebrate		38388	5.12	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iccarprob	Carabus problematicus	Invertebrate		130427	26.8	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+icocyolen	Ocypus olens	Invertebrate		871960	143.77	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+icsilatra	Phosphuga atrata	Invertebrate		59208	12.08	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+icnicinve	Nicrophorus investigator	Invertebrate		47195	8.45	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+icscaquad	Scaphidium quadrimaculatum	Invertebrate		591420	56.48	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iccetaura	Cetonia aurata	Invertebrate		25625	4.3	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iclepmacu	Rutpela maculata	Invertebrate		11278	3.32	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+icpolcerv	Polydrusus cervinus	Invertebrate		5750	4.91	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+icapocory	Apoderus coryli	Invertebrate		19814	2.89	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iccocsept	Coccinella septempunctata	Invertebrate		60547	8.71	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+icharaxyr	Harmonia axyridis	Invertebrate		69445	17.83	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+ichalsede	Halyzia sedecimguttata	Invertebrate		34304	4.43	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+icrhafulv	Rhagonycha fulva	Invertebrate		938153	71.27	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+idbibmarc	Bibio marci	Invertebrate		8370	0.84	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+idacrorbc	Acrocera orbiculus	Invertebrate		3045	1.43	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+idbomdisc	Bombylius discolor	Invertebrate		332226	33.2	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+idmacatri	Machimus atricapillus	Invertebrate		2789	0.38	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+idhydcyrt	Hydrotaea cyrtoneurina	Invertebrate		137191	17.96	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+idpolamen	Pollenia amentaria	Invertebrate		10828	1.77	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+idepisucc	Epicampocera succincta	Invertebrate		205859	33.59	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+idbelpand	Bellardia pandia	Invertebrate		50662	3.16	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+idphymeln	Phyto melanocephala	Invertebrate		26890	4.91	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+idproazur	Protocalliphora azurea	Invertebrate		96442	13.83	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+iilimauri	Limnephilus auricula	Invertebrate		67393	11.01	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+ilpienapi	Pieris napi	Invertebrate		48206	6.36	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+tzbugstol	Bugulina stolonifera	Invertebrate		16315	4.24	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+tnlinlong	Lineus longissimus	Invertebrate		11432	1.74	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+wplepclav	Lepidonotus clava	Invertebrate		11798	3.3	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+wpalivire	Alitta virens	Invertebrate		69689	12.69	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+xblimfort	Limnoperna fortunei	Invertebrate		191985	6.52	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+xggibmagu	Gibbula magus	Invertebrate		69876	15.15	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+jaricflor	Ricordea florida	Invertebrate		27880	16.49	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+jadialine	Diadumene lineata	Invertebrate		6232	0.94	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+eamarglac	Marthasterias glacialis	Invertebrate		30679	14.95	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+kaaplturb	Aplidium turbinatum	Invertebrate		85503	13.89	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+falosap	Alosa sapidissima	Vertebrates	Fish	34536	6.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+fbarbab	Barbus barbus	Vertebrates	Fish	37755	9.61	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+fdanrer	Danio rerio	Vertebrates	Fish	80307	14.89	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+ftaubub	Taurulus bubalis	Vertebrates	Fish	28595	5.3	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+fphogun	Pholis gunnellus	Vertebrates	Fish	2907	0.55	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+fthualb	Thunnus albacares	Vertebrates	Fish	7328	0.92	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+fthumac	Thunnus maccoyii	Vertebrates	Fish	2582	0.33	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+bcorhaw	Corvus hawaiiensis	Vertebrates	Aves	16391	21.2	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+bporhoc	Porphyrio hochstetteri	Vertebrates	Aves	70741	13.47	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+baccgen	Accipiter gentilis	Vertebrates	Aves	112507	19.49	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+bfalper	Falco peregrinus	Vertebrates	Aves	58861	10.24	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+bfalbia	Falco biarmicus	Vertebrates	Aves	27005	4.7	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+bfalche	Falco cherrug	Vertebrates	Aves	137248	23.87	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+rviplat	Vipera latastei	Vertebrates	Reptilia	50688	8.51	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+mlemcat	Lemur catta	Vertebrates	Mammalia	787162	32.03	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+mdicbic	Diceros bicornis	Vertebrates	Mammalia	335103	76.32	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+laaliplan	Alisma plantago-aquatica	Viridiplantae		4223	2.1	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+laapodist	Aponogeton distachyos	Viridiplantae		259867	53.52	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+lpleeoryz	Leersia oryzoides	Viridiplantae		96980	10.37	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+lpjunbufo	Juncus bufonius	Viridiplantae		627881	96.27	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+lpcypfusc	Cyperus fuscus	Viridiplantae		6242	1.52	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+lperiangu	Eriophorum angustifolium	Viridiplantae		141422	4.82	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+lpscisylv	Scirpus sylvaticus	Viridiplantae		18791	0.61	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+lpluzpall	Luzula pallescens	Viridiplantae		641603	76.23	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+dmthaminu	Thalictrum minus	Viridiplantae		548156	98.26	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+dmbervulg	Berberis vulgaris	Viridiplantae		709899	127.56	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+dcpolavic	Polygonum aviculare	Viridiplantae		51994	9.22	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+dcspemari	Spergularia marina	Viridiplantae		186350	32.58	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+dcmoetrin	Moehringia trinervia	Viridiplantae		314100	52.97	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+dcareserp	Arenaria serpyllifolia	Viridiplantae		146273	24.74	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+dcpoltetr	Polycarpon tetraphyllum	Viridiplantae		122114	30.29	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+drmedarab	Medicago arabica	Viridiplantae		56484	9.52	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+drtrifrag	Trifolium fragiferum	Viridiplantae		36933	9.78	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+drpotanse	Potentilla anserina	Viridiplantae		24677	3.7	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+drgeuriva	Geum rivale	Viridiplantae		235532	37.53	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+ddarathal	Arabidopsis thaliana	Viridiplantae		79791	14.17	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+drhedheli	Hedera helix	Viridiplantae		45101	7.15	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+datanvulg	Tanacetum vulgare	Viridiplantae		13703	2.38	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+daarcminu	Arctium minus	Viridiplantae		30248	5.2	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+dascugale	Scutellaria galericulata	Viridiplantae		171015	21.3	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+dabalnigr	Ballota nigra	Viridiplantae		52529	4.5	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+dalinvulg	Linaria vulgaris	Viridiplantae		54418	13.56	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
+dashearve	Sherardia arvensis	Viridiplantae		68786	2.7	0	0.0	0.0	0.0	0	0.0	0.0	0.0	0	0.0	0.0	0.0
