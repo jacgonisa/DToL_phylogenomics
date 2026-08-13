@@ -163,6 +163,21 @@ satellite, not a candidate box).</div></div>
 <p class="sub">Box-like motifs (Δ≥0.5, ≤2 substitutions from canonical) occur in <b>20 species
 across clades</b>, strongest in birds; the scatter is coloured by identity to the canonical
 motif (warm = box-like).</p>
+<h3>How many species "recover" a box-like motif?</h3>
+<p>Of the {n_sat} species with satellites, <b>152 (94%)</b> contain at least one ≤5-substitution
+box-like window; 6 have only 1–4 weak hits; and <b>4 recover nothing</b> (<i>Bibio marci</i>,
+<i>Limnoperna fortunei</i>, <i>Pholis gunnellus</i>, <i>Lemur catta</i> — AT-rich satellites lacking
+the GC-rich <code>TTCG…CGGG</code> core). But <b>≤5 substitutions on 17 bp is very permissive</b> —
+nearly any GC-containing satellite has such a window by chance — so 94% recovery is <i>expected</i>,
+not evidence of real boxes. This is precisely why the unbiased test below is needed.</p>
+<p class="sub"><b>The CENP-B box is functional, not abundant.</b> Tellingly, the box is <i>not</i> the
+most common sequence even in human α-satellite: the most frequent 17-mer there is
+<code>CAAAAAGAGTGTTTCA</code> (~18% identity to the box) — a different conserved part of the 171-bp
+monomer. The box is a specific, functionally conserved ~17 bp region, so it must be searched for
+<i>as the box</i>; a de-novo "dominant motif" scan would miss it entirely. That is why the test
+below scans for the best <i>box-matching</i> window at any position, rather than the satellite's
+single most abundant motif.</p>
+
 <h3>Unbiased de-novo test (no CENP-B seeding) — the decisive check</h3>
 <p>The ±5-flank search is <b>seeded</b> on the CENP-B box, so it only ever collects windows that are
 already ≤5 substitutions from it — it cannot tell whether a satellite's <i>own</i> motif is box-like
