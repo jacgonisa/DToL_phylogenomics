@@ -73,6 +73,19 @@ gl=[Line2D([0],[0],marker=mk,ls="",mfc="0.7",mec="k",mew=0.4,label=glab) for gla
 l1=ax.legend(handles=tl,title="motif tier",frameon=False,loc="upper left",fontsize=6.6,title_fontsize=6.8)
 ax.add_artist(l1); ax.legend(handles=gl,title="group",frameon=False,loc="lower right",fontsize=6.4,title_fontsize=6.8)
 ax.spines[["top","right"]].set_visible(False)
+# motif-definition box: what Barra & Fachinetti define as each IUPAC tier
+from matplotlib.patches import FancyBboxPatch
+mdefs=[("canonical","YTTCGTTGGAARCGGGA","canonical"),
+       ("broad",    "NTTCGNNNNANNCGGGN","broad"),
+       ("degenerate","YTTCGNNNNANRCGGGN","degenerated")]
+bx,byt=0.28,0.80
+ax.add_patch(FancyBboxPatch((bx-0.012,byt-0.205),0.52,0.215,transform=ax.transAxes,
+             boxstyle="round,pad=0.006",fc="white",ec="0.75",lw=0.7,zorder=8))
+ax.text(bx,byt,"IUPAC tiers (Barra & Fachinetti):",transform=ax.transAxes,va="top",ha="left",
+        fontsize=5.9,fontweight="bold",color="0.25",zorder=9)
+for i,(nm,seq,key) in enumerate(mdefs):
+    ax.text(bx,byt-0.058-i*0.05,f"{nm:<11s}{seq}",transform=ax.transAxes,va="top",ha="left",
+            fontsize=5.9,family="DejaVu Sans Mono",color=tcol[key],zorder=9)
 plt.tight_layout()
 for ext in ("png","pdf"):
     fig.savefig(SAT/f"figures/cenpb_paper_motifs.{ext}",dpi=600 if ext=="png" else None,bbox_inches="tight",facecolor="white")
