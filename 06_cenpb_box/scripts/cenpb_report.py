@@ -163,17 +163,32 @@ satellite, not a candidate box).</div></div>
 <p class="sub">Box-like motifs (Δ≥0.5, ≤2 substitutions from canonical) occur in <b>20 species
 across clades</b>, strongest in birds; the scatter is coloured by identity to the canonical
 motif (warm = box-like).</p>
-<h3>Is the box-like identity real? (per-window shuffle null)</h3>
-<p>A short 17-bp motif matches partly by base composition, so we calibrate identity against a
-shuffle. Crucially we score it <b>per window</b> (not on the consensus) to avoid the
-degenerate-consensus artifact.</p>
-<div class="fig">{img(FIG/'cenpb_identity_shuffle_null.png',w="52%")}<div class="cap">
-Each species is linked to its own <b>per-window</b> shuffle null. Observed mean per-window identity
-(right, ~70–81%, median <b>71%</b>) sits far above the composition chance (left, <b>≈29%</b>) — so
-the windows are genuinely box-like, not a composition artifact. Computing identity per window
-(rather than on the consensus) removes the ≈100% spike: high-copy satellites like <i>Triglochin</i>
-now sit at ~71% (their consensus only looked canonical because random per-window deviations averaged
-out). <code>cenpb_identity_shuffle_null.py</code></div></div>
+<h3>Unbiased de-novo test (no CENP-B seeding) — the decisive check</h3>
+<p>The ±5-flank search is <b>seeded</b> on the CENP-B box, so it only ever collects windows that are
+already ≤5 substitutions from it — it cannot tell whether a satellite's <i>own</i> motif is box-like
+(indeed ~99% of the windows it finds sit at exactly 5 substitutions, the matching boundary). To
+remove this bias we scan <b>every</b> 17-bp window of every array (both strands, no seeding), take
+the single <b>best</b> match to the canonical box, and compare to the same on a <b>dinucleotide
+shuffle</b> of the array (which controls for the "best of many windows" inflation). A satellite that
+genuinely carries a box in its repeat unit — like α-satellite — scores well above its shuffle; an
+unrelated satellite scores on the null.</p>
+<div class="fig">{img(FIG/'cenpb_denovo_bestwindow.png',w="60%")}<div class="cap">
+Best-window identity in the real satellite (y) vs a dinucleotide shuffle (x). Note the <b>null is
+already high (~61%)</b> — scanning ~300 windows of <i>any</i> sequence finds a decent match to a
+17-bp motif — so absolute values are close and the <b>excess</b> (distance above the diagonal) is
+the signal. <b>α-satellite</b> (red star) is clearly above (78% vs 61%, <b>+17</b>) — a real box in
+every monomer. <b>HSat</b> (−1) is on the null. DToL clades — including the <b>birds</b> (goshawk
++2.4, ptarmigan +0.2, takahē −3.8) — sit near the diagonal (median excess −0.8; 5/162 clear +10, all
+well below α-sat). <code>cenpb_denovo_bestwindow.py</code></div></div>
+<p class="sub"><b>Reading the two methods together.</b> Both are reported because they answer
+different questions. The <b>seeded ±5-flank</b> search highlights a genuine, interesting observation:
+several birds carry a satellite consensus that is <b>15/17 identical to the CENP-B box</b> (goshawk
+`CTTTTTTGGAAACGGGA`, missing only the CpG). The <b>unbiased de-novo</b> test then asks whether that
+resemblance exceeds chance <i>per array</i> — and it does not (the birds sit on the null; the 15/17
+consensus arises because the box-matched windows are pre-selected and their random deviations
+average out). So the honest reading: birds have a <b>candidate CENP-B-like motif worth following up</b>
+(near-canonical consensus, box-shaped by flank Δ, TIGD-family binder plausible), but it is
+<b>not confirmed</b> as a box-carrying satellite the way human α-satellite is.</p>
 
 <h3>Why the two methods disagree on birds</h3>
 <div class="fig">{img(FIG/'cenpb_goshawk_alignment.png')}<div class="cap">

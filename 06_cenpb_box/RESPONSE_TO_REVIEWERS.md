@@ -113,6 +113,14 @@ compositionally box-like. Per-window identity sits near the ≤5-substitution fl
 *consistently* at the eroded CpG — best seen in the logos and alignment
 (`cenpb_identity_shuffle_null.py`).
 
+**Unbiased de-novo check.** Because the ±5-flank search is *seeded* on the box, we also ran an
+unbiased test: scan every 17-bp window of every array (no seeding), take the best match to the
+canonical box, and compare to a dinucleotide shuffle. α-satellite scores +17 above its shuffle
+(a real box in every monomer); HSat −1; and **all DToL clades, including the birds (goshawk +2.4,
+takahē −3.8), sit on the null** (median excess −0.8). So the near-canonical bird consensus is a
+suggestive **candidate CENP-B-like motif** but is *not* confirmed as a box-carrying satellite the
+way human α-satellite is (`cenpb_denovo_bestwindow.py`).
+
 ## Reconciling the two methods (the goshawk case)
 The methods disagree on birds in a diagnostic way. The **goshawk consensus is 15/17
 identical to canonical**; its only two substitutions land **exactly on the 5′ CpG**
