@@ -103,12 +103,15 @@ was not represented in our satellite set. *Figures:*
 `cenpb_flank_uncapped_scatter.png`, `cenpb_box_logos_flanks_VERTEBRATES_uncapped.pdf`;
 *data:* `cenpb_flank_uncapped_per_species.tsv`.
 
-**Is the box-like identity real, or a short-motif artifact?** A 17-bp motif matches
-partly by base composition alone, so we calibrated identity by **shuffling the motif**:
-a motif of this composition matches the canonical box only **≈30% by chance**, whereas
-observed consensus identities are **70–94%** (median **+44** above chance; birds
-**+58 to +63**). So the box-like matches are **real arrangement similarity, not a
-composition artifact** (`cenpb_identity_shuffle_null.py`).
+**Is the box-like identity real?** We score identity **per window** (not on the
+consensus — the consensus is inflated for high-copy satellites, where random per-window
+deviations average back to canonical, ≈100%). Against a per-window composition shuffle,
+observed mean per-window identity is **~71%** vs **≈29% chance** — the windows are
+compositionally box-like. Per-window identity sits near the ≤5-substitution floor for
+*all* species, so it does not single out any clade; the species-specific box-likeness
+(the goshawk's 15/17 consensus) is a **consensus/coherence** property — its windows deviate
+*consistently* at the eroded CpG — best seen in the logos and alignment
+(`cenpb_identity_shuffle_null.py`).
 
 ## Reconciling the two methods (the goshawk case)
 The methods disagree on birds in a diagnostic way. The **goshawk consensus is 15/17

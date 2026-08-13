@@ -134,20 +134,24 @@ log₂ p<sub>b</sub> bits (0 = random, 2 = one fixed base). Then <b>motif inform
 over the 17 motif columns, <b>flank information</b> = mean IC over the 10 flank columns, and
 <b>Δ = motif − flank</b>. A real motif is <b>conserved within itself but random in the flanks</b>
 → high motif information, low flank information → Δ &gt; 0 (the scatter's y and x axes).</li>
-<li><b>Consensus &amp; identity.</b> The <b>consensus</b> = the most common base at each of the 17
-motif columns. <b>Identity to canonical</b> = the fraction of the 17 positions whose consensus
-base is allowed by the canonical IUPAC, × 100% (the scatter's colour; equivalently 17 − substitutions).</li>
-<li><b>Shuffle-the-motif null.</b> Because a 17-bp motif matches partly by base composition, we
-shuffle the consensus (same bases, random order) many times and recompute identity → the chance
-level (≈30%). A motif is "real" when observed identity ≫ its own shuffled null (see below).</li>
+<li><b>Consensus &amp; identity.</b> The <b>consensus</b> = the most common base per motif column
+(used for the scatter colour and the reported substitutions-from-canonical). For the null test
+we score identity <b>per window</b> — the mean, over all of a species' 17-bp windows, of
+(positions matching the canonical IUPAC)/17 × 100%. Doing this per window (rather than on the
+consensus) avoids the <b>degenerate-consensus artifact</b>: a high-copy satellite whose windows
+deviate at <i>random</i> positions has a canonical-looking consensus (≈100%), yet its individual
+windows sit at the ≤5-substitution floor (~70%).</li>
+<li><b>Shuffle-the-window null.</b> Each window's bases are shuffled (composition preserved, order
+destroyed) and identity re-scored → the chance level (≈29%). Observed per-window identity
+(~70–81%) sits far above chance (windows are compositionally box-like), though near the floor.</li>
 </ol>
 <p class="sub"><b>Definitions.</b> <i>window</i> = one located 17-bp box-like hit; <i>consensus</i>
 = the per-position majority base over a species' windows; <i>Δ</i> = motif − flank information;
-<i>prevalence</i> = windows/Mbp. <b>Caveat:</b> windows are selected to be ≤5 subs from canonical,
-so identity has a floor; and for very high-copy satellites the windows deviate at <i>random</i>
-positions that cancel on averaging, so the consensus returns to canonical (≈100%) — the
-degenerate-consensus effect, not a true perfect box. A genuine motif deviates <i>consistently</i>
-(e.g. the goshawk's eroded CpG), keeping its consensus off-canonical.</p>
+<i>prevalence</i> = windows/Mbp. <b>Note:</b> per-window identity is ~70% for every species (the
+≤5-substitution floor), so it does not single out particular species. The species-specific
+box-likeness (e.g. the goshawk's 15/17 consensus) is a <b>consensus/coherence</b> property — its
+windows deviate <i>consistently</i> (the eroded CpG) so the average keeps that off-canonical
+signature — and is best seen in the logos and the alignment below, together with the flank Δ.</p>
 <div class="fig">{img(FIG/'cenpb_flank_uncapped_scatter.png')}<div class="cap">
 Box vs flank information, coloured by <b>identity to the canonical CENP-B motif</b>. A
 <b>candidate box</b> = high identity <i>and</i> above the motif=flank diagonal (motif-specific).
@@ -159,17 +163,17 @@ satellite, not a candidate box).</div></div>
 <p class="sub">Box-like motifs (Δ≥0.5, ≤2 substitutions from canonical) occur in <b>20 species
 across clades</b>, strongest in birds; the scatter is coloured by identity to the canonical
 motif (warm = box-like).</p>
-<h3>Is the box-like identity real? (shuffle-the-motif null)</h3>
-<p>A short 17-bp motif matches partly by base composition alone, so we calibrated identity by
-<b>shuffling the motif</b> (same composition, order destroyed). <b>identity</b> = (positions
-matching the canonical IUPAC) / 17 × 100%; <b>null</b> = the same on shuffles of that motif.</p>
+<h3>Is the box-like identity real? (per-window shuffle null)</h3>
+<p>A short 17-bp motif matches partly by base composition, so we calibrate identity against a
+shuffle. Crucially we score it <b>per window</b> (not on the consensus) to avoid the
+degenerate-consensus artifact.</p>
 <div class="fig">{img(FIG/'cenpb_identity_shuffle_null.png',w="52%")}<div class="cap">
-Each observed motif (right) is linked to the mean of its own shuffled null (left). A motif of this
-composition matches canonical only <b>≈30% by chance</b>, whereas observed consensus identities are
-<b>65–100%</b> (median <b>71%</b>, +44 above chance). So the matches are <b>real arrangement
-similarity, not a short-motif composition artifact</b>. (Points near 100% are high-copy satellites
-whose windows scatter around canonical, so their consensus averages back to canonical — the
-degenerate-consensus effect, not a perfect box.) <code>cenpb_identity_shuffle_null.py</code></div></div>
+Each species is linked to its own <b>per-window</b> shuffle null. Observed mean per-window identity
+(right, ~70–81%, median <b>71%</b>) sits far above the composition chance (left, <b>≈29%</b>) — so
+the windows are genuinely box-like, not a composition artifact. Computing identity per window
+(rather than on the consensus) removes the ≈100% spike: high-copy satellites like <i>Triglochin</i>
+now sit at ~71% (their consensus only looked canonical because random per-window deviations averaged
+out). <code>cenpb_identity_shuffle_null.py</code></div></div>
 
 <h3>Why the two methods disagree on birds</h3>
 <div class="fig">{img(FIG/'cenpb_goshawk_alignment.png')}<div class="cap">

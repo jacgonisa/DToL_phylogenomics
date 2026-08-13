@@ -1,153 +1,106 @@
-species	id_obs	id_shuffle	id_shuffle_p95	excess_shuffle
-baccgen	88.2	30.2	47.1	58.0
-bporhoc	88.2	28.4	47.1	59.8
-idepisucc	76.5	30.6	47.1	45.9
-blagmut	94.1	31.0	52.9	63.1
-ihaelacum	88.2	29.7	47.1	58.5
-dcpoltetr	70.6	27.2	47.1	43.4
-icocyolen	100.0	30.6	47.1	69.4
-latrimari	100.0	30.9	52.9	69.1
-iuloevari	88.2	30.6	47.1	57.7
-drchaangu	94.1	29.5	47.1	64.6
-ibectpall	82.4	27.2	47.1	55.2
-fthumac	70.6	27.1	47.1	43.5
-ddmerannu	76.5	29.0	47.1	47.5
-iylasvill	94.1	30.6	47.1	63.5
-ipisogram	82.4	29.9	47.1	52.5
-ipnemdubi	76.5	33.0	52.9	43.5
-ieecdtorr	82.4	29.4	47.1	53.0
-ddhotpalu	82.4	27.8	47.1	54.6
-iypemlugu	100.0	30.6	47.1	69.4
-lpjunsqua	88.2	30.1	47.1	58.1
-iycoeconi	100.0	31.2	47.1	68.8
-lsirifoet	88.2	29.9	47.1	58.4
-eamarglac	94.1	30.5	47.1	63.6
-ioisceleg	76.5	30.5	47.1	46.0
-dmbervulg	100.0	30.8	47.1	69.2
-lpcardepa	76.5	29.8	47.1	46.7
-mdicbic	82.4	27.9	47.1	54.4
-ichalsede	94.1	30.1	47.1	64.1
-iilimmarm	94.1	29.9	47.1	64.2
-iyectcont	70.6	28.4	47.1	42.2
-drhedheli	88.2	30.1	47.1	58.1
-ddpopnigr	76.5	31.0	47.1	45.5
-iyvesvulg	70.6	28.2	47.1	42.4
-jaricflor	70.6	28.9	47.1	41.7
-iilimauri	70.6	31.0	47.1	39.5
-lpelequin	88.2	29.5	47.1	58.8
-icagrcyan	70.6	29.6	47.1	41.0
-idproazur	70.6	27.9	47.1	42.7
-iilimrhom	100.0	30.8	52.9	69.2
-idclutigr	82.4	31.0	52.9	51.4
-ihicepurc	70.6	28.7	47.1	41.8
-iyapainim	94.1	30.3	47.1	63.8
-drpotanse	88.2	30.6	47.1	57.7
-icquelate	70.6	28.0	47.1	42.6
-iglabmino	76.5	27.1	47.1	49.3
-iymacalbo	70.6	30.8	47.1	39.8
-daarcminu	70.6	27.8	47.1	42.8
-icnicinve	82.4	29.4	47.1	52.9
-drgeuriva	88.2	32.2	52.9	56.0
-mcerela	88.2	33.8	52.9	54.4
-mmelmel	70.6	31.5	52.9	39.1
-iccarprob	70.6	27.2	47.1	43.3
-ocsyccili	82.4	30.4	47.1	51.9
-lpjuneffu	88.2	29.0	47.1	59.3
-iccanrust	82.4	26.5	47.1	55.9
-idbomdisc	76.5	28.9	47.1	47.6
-idathibis	100.0	30.9	47.1	69.1
-xggibmagu	94.1	30.7	47.1	63.4
-fbarbab	70.6	28.7	47.1	41.9
-iccocsept	94.1	30.2	47.1	64.0
-lpleeoryz	70.6	32.2	47.1	38.4
-lpschlacu	64.7	31.0	47.1	33.7
-lpjunbufo	70.6	29.1	47.1	41.5
-bcorhaw	76.5	28.2	47.1	48.2
-qeallfusc	94.1	29.1	47.1	65.0
-qeorcflav	76.5	31.1	47.1	45.4
-dhcorcolu	76.5	27.3	47.1	49.2
-melemax	70.6	27.7	47.1	42.9
-iyanonige	70.6	27.7	47.1	42.9
-fthualb	70.6	30.9	47.1	39.7
-ilpienapi	94.1	31.4	47.1	62.7
-wpalivire	88.2	30.3	47.1	57.9
-kaaplturb	76.5	27.7	47.1	48.8
-tzmemmemb	70.6	31.4	47.1	39.2
-iypripert	70.6	28.4	47.1	42.2
-idgymrotn	70.6	27.1	47.1	43.5
-icnebbrev	70.6	27.8	47.1	42.8
-dmthaminu	82.4	30.1	47.1	52.2
-idantanth	70.6	29.6	47.1	41.0
-dcpolavic	82.4	31.8	52.9	50.5
-lpcypfusc	88.2	30.1	47.1	58.2
-damisoron	82.4	32.8	52.9	49.5
-idmacatri	70.6	30.6	47.1	40.0
-ddeuppepu	100.0	30.7	47.1	69.3
-dcmoetrin	70.6	27.0	41.2	43.6
-mcanlor	88.2	32.6	52.9	55.6
-laapodist	82.4	29.8	47.1	52.5
-drtrifrag	94.1	29.7	47.1	64.4
-iilimluna	88.2	31.9	52.9	56.4
-fdanrer	82.4	30.6	47.1	51.8
-lpluzpall	70.6	29.2	47.1	41.4
-ddarathal	82.4	29.7	47.1	52.6
-icnebsali	70.6	28.1	47.1	42.5
-ftratra	76.5	31.0	47.1	45.5
-tnlinlong	70.6	30.3	47.1	40.3
-iystephae	76.5	29.4	47.1	47.0
-idhydcyrt	70.6	28.3	47.1	42.3
-icmalbipu	70.6	26.7	47.1	43.9
-iyanddors	70.6	29.1	47.1	41.5
-iesipalte	70.6	34.0	52.9	36.6
-dcareserp	70.6	32.5	52.9	38.1
-ftaubub	76.5	30.0	47.1	46.5
-icapocory	70.6	28.4	47.1	42.2
-idacrorbc	70.6	29.4	47.1	41.1
-lapotnata	70.6	27.6	47.1	43.0
-icscaquad	64.7	29.4	47.1	35.3
-lpscisylv	70.6	29.8	47.1	40.7
-bfalper	70.6	30.8	47.1	39.8
-icptemadi	70.6	28.1	47.1	42.5
-iymimdahl	70.6	26.1	41.2	44.5
-bgalgal	94.1	32.3	52.9	61.8
-iytipfemo	70.6	26.9	47.1	43.7
-wplepclav	70.6	26.9	47.1	43.7
-icadabipu	70.6	31.4	47.1	39.2
-tzbugstol	70.6	26.7	47.1	43.9
-idphymeln	70.6	29.5	47.1	41.0
-iyophlute	70.6	31.2	47.1	39.4
-icrhafulv	70.6	29.9	47.1	40.7
-lpdigsang	70.6	30.2	47.1	40.4
-iynomfabr	70.6	28.4	47.1	42.2
-dmaquvulg	88.2	30.0	47.1	58.2
-laaliplan	70.6	30.7	47.1	39.9
-lpphlprat	70.6	32.5	52.9	38.0
-ddbarvulg	70.6	29.6	47.1	41.0
-lpluzsylv	64.7	28.4	47.1	36.3
-icharaxyr	70.6	28.0	47.1	42.6
-icsilatra	70.6	27.6	47.1	43.0
-drparjuda	70.6	29.9	47.1	40.7
-iymaceuro	70.6	30.4	47.1	40.1
-rviplat	70.6	31.4	47.1	39.2
-qelepcurv	70.6	29.7	47.1	40.9
-lperiangu	70.6	29.6	47.1	41.0
-iccetaura	64.7	29.9	47.1	34.8
-icagofuli	64.7	27.2	47.1	37.5
-iupsogibb	76.5	30.8	52.9	45.7
-ieprobifi	70.6	29.4	47.1	41.2
-dcspemari	64.7	30.1	47.1	34.6
-bfalche	70.6	29.9	47.1	40.7
-icpolcerv	82.4	30.5	47.1	51.8
-dalinvulg	70.6	28.9	47.1	41.7
-bfalbia	70.6	30.3	47.1	40.2
-iyseltumu	70.6	27.9	47.1	42.7
-iclepmacu	70.6	31.5	47.1	39.1
-iyabicand	70.6	28.6	47.1	42.0
-inchrcarn	70.6	28.5	47.1	42.1
-drmedarab	64.7	27.4	47.1	37.3
-idpolamen	70.6	31.1	52.9	39.4
-iybomhypn	64.7	29.6	47.1	35.1
-dabalnigr	70.6	28.7	47.1	41.9
-iyvulbima	76.5	29.2	47.1	47.3
-iyathrosa	76.5	28.7	47.1	47.7
-dascugale	76.5	30.9	47.1	45.6
+species	n_windows	id_obs	id_shuffle	excess	name	vgroup	clade
+qelepcurv	590	70.7	30.0	40.7	Lepidocyrtus curvicollis		Invertebrate
+qeallfusc	66	70.6	28.2	42.4	Allacma fusca		Invertebrate
+ioisceleg	35	70.6	30.8	39.8	Ischnura elegans		Invertebrate
+ieclodipt	29	70.6	27.0	43.6	Cloeon dipterum		Invertebrate
+ieprobifi	1670	71.3	28.8	42.5	Procloeon bifidum		Invertebrate
+iesipalte	918	71.7	32.8	39.0	Siphlonurus alternatus		Invertebrate
+ihaelacum	53	81.5	28.1	53.4	Aelia acuminata		Invertebrate
+ihicepurc	545	70.8	29.7	41.1	Icerya purchasi		Invertebrate
+iuloevari	263	70.6	28.9	41.7	Loensia variegata		Invertebrate
+ibectpall	18	70.6	26.8	43.8	Ectobius pallidus		Invertebrate
+ipisogram	16	70.6	26.1	44.5	Isoperla grammatica		Invertebrate
+ipnemdubi	2062	71.0	31.6	39.4	Nemoura dubitans		Invertebrate
+iymacalbo	31	70.6	26.4	44.2	Macrophya alboannulata		Invertebrate
+iyathrosa	45	71.9	28.9	43.0	Athalia rosae		Invertebrate
+iyabicand	115	70.6	29.1	41.5	Abia candens		Invertebrate
+iyanddors	1475	70.7	29.1	41.6	Andrena dorsata		Invertebrate
+iystephae	2476	73.6	29.2	44.4	Stelis phaeoptera		Invertebrate
+iynomfabr	24	70.6	26.7	43.9	Nomada fabriciana		Invertebrate
+iymaceuro	38	70.6	29.6	41.0	Macropis europaea		Invertebrate
+iymimdahl	2545	70.6	25.9	44.8	Mimumesa dahlbomi		Invertebrate
+iytipfemo	598	70.6	26.9	43.8	Tiphia femorata		Invertebrate
+iypripert	93	70.7	28.5	42.1	Priocnemis perturbator		Invertebrate
+iyanonige	97	70.6	27.9	42.7	Anoplius nigerrimus		Invertebrate
+iyvesvulg	1228	71.2	28.9	42.3	Vespula vulgaris		Invertebrate
+iyapainim	37	70.6	27.2	43.4	Apaeleticus inimicus		Invertebrate
+iyvulbima	1326	75.4	29.3	46.1	Vulgichneumon bimaculatus		Invertebrate
+inchrcarn	131	71.2	29.4	41.8	Chrysoperla carnea		Invertebrate
+icagofuli	53	70.6	28.5	42.1	Agonum fuliginosum		Invertebrate
+icnebbrev	1872	70.8	28.2	42.6	Nebria brevicollis		Invertebrate
+icnebsali	2200	72.2	28.7	43.5	Nebria salina		Invertebrate
+iccarprob	266	71.9	28.6	43.3	Carabus problematicus		Invertebrate
+icquelate	85	70.8	30.8	40.0	Quedius lateralis		Invertebrate
+icsilatra	61	70.6	26.7	43.9	Phosphuga atrata		Invertebrate
+icnicinve	14	70.6	24.8	45.8	Nicrophorus investigator		Invertebrate
+iccetaura	28	70.6	31.3	39.3	Cetonia aurata		Invertebrate
+icpolcerv	2744	78.7	29.7	49.1	Polydrusus cervinus		Invertebrate
+icadabipu	57	70.8	32.0	38.8	Adalia bipunctata		Invertebrate
+iccocsept	37	70.6	30.4	40.2	Coccinella septempunctata		Invertebrate
+icharaxyr	1897	70.6	27.8	42.8	Harmonia axyridis		Invertebrate
+ichalsede	37	71.2	29.7	41.5	Halyzia sedecimguttata		Invertebrate
+icagrcyan	19	70.6	32.8	37.8	Agrilus cyanescens		Invertebrate
+idacrorbc	2751	70.9	29.4	41.5	Acrocera orbiculus		Invertebrate
+idathibis	33	70.6	28.5	42.1	Atherix ibis		Invertebrate
+idmacatri	158	70.7	29.4	41.2	Machimus atricapillus		Invertebrate
+idhydcyrt	23	70.6	30.2	40.4	Hydrotaea cyrtoneurina		Invertebrate
+idpolamen	43	70.7	31.2	39.5	Pollenia amentaria		Invertebrate
+idepisucc	174	70.7	30.8	39.8	Epicampocera succincta		Invertebrate
+idgymrotn	1696	70.8	28.1	42.7	Gymnosoma rotundatum		Invertebrate
+idphymeln	11	70.6	29.4	41.2	Phyto melanocephala		Invertebrate
+iilimauri	14	70.6	37.8	32.8	Limnephilus auricula		Invertebrate
+iilimmarm	56	70.8	29.4	41.4	Limnephilus marmoratus		Invertebrate
+iilimrhom	71	70.6	29.1	41.5	Limnephilus rhombicus		Invertebrate
+iilimluna	28	70.6	30.9	39.7	Limnephilus lunatus		Invertebrate
+ilpienapi	49	70.6	31.2	39.4	Pieris napi		Invertebrate
+tzbugstol	46	70.6	25.6	45.0	Bugulina stolonifera		Invertebrate
+tzmemmemb	51	70.7	28.4	42.3	Membranipora membranacea		Invertebrate
+wplepclav	66	70.6	27.4	43.2	Lepidonotus clava		Invertebrate
+wpalivire	706	70.6	27.8	42.8	Alitta virens		Invertebrate
+ocsyccili	279	71.0	31.3	39.7	Sycon ciliatum		Invertebrate
+jaricflor	73	70.7	27.2	43.6	Ricordea florida		Invertebrate
+eamarglac	23	70.6	33.0	37.6	Marthasterias glacialis		Invertebrate
+kaaplturb	87	70.6	27.8	42.8	Aplidium turbinatum		Invertebrate
+ftratra	2929	76.3	31.7	44.6	Trachurus trachurus	Fish	Vertebrates
+fthualb	13	71.0	31.7	39.4	Thunnus albacares	Fish	Vertebrates
+fthumac	30	70.6	28.4	42.2	Thunnus maccoyii	Fish	Vertebrates
+bcorhaw	3981	70.7	29.9	40.8	Corvus hawaiiensis	Aves	Vertebrates
+bporhoc	24	70.8	27.0	43.9	Porphyrio hochstetteri	Aves	Vertebrates
+baccgen	23	70.6	28.6	41.9	Accipiter gentilis	Aves	Vertebrates
+bfalper	20	70.6	30.0	40.6	Falco peregrinus	Aves	Vertebrates
+bfalbia	781	70.6	30.3	40.4	Falco biarmicus	Aves	Vertebrates
+bfalche	759	70.6	30.4	40.2	Falco cherrug	Aves	Vertebrates
+blagmut	190	70.8	29.0	41.8	Lagopus muta	Aves	Vertebrates
+rviplat	15	70.6	32.5	38.0	Vipera latastei	Reptilia	Vertebrates
+melemax	4141	70.6	28.3	42.3	Elephas maximus	Mammalia	Vertebrates
+mcanlor	121	71.4	29.9	41.5	Canis lupus	Mammalia	Vertebrates
+mmelmel	118	72.8	29.7	43.1	Meles meles	Mammalia	Vertebrates
+mcerela	656	70.7	31.1	39.7	Cervus elaphus	Mammalia	Vertebrates
+laaliplan	371	70.6	31.3	39.3	Alisma plantago-aquatica		Viridiplantae
+lapotnata	2190	73.5	27.6	45.8	Potamogeton natans		Viridiplantae
+latrimari	463	71.4	30.0	41.4	Triglochin maritima		Viridiplantae
+lsirifoet	377	72.6	29.8	42.8	Iris foetidissima		Viridiplantae
+lpleeoryz	12	70.6	27.9	42.6	Leersia oryzoides		Viridiplantae
+lpjuneffu	171	70.8	28.7	42.2	Juncus effusus		Viridiplantae
+lpjunbufo	228	73.7	31.1	42.6	Juncus bufonius		Viridiplantae
+lpjunsqua	232	70.7	28.9	41.8	Juncus squarrosus		Viridiplantae
+lpcypfusc	196	71.1	28.5	42.6	Cyperus fuscus		Viridiplantae
+lpschlacu	38	70.9	31.9	39.0	Schoenoplectus lacustris		Viridiplantae
+lpcardepa	32	70.6	31.6	39.0	Carex depauperata		Viridiplantae
+lpluzsylv	17	70.6	33.9	36.7	Luzula sylvatica		Viridiplantae
+dmaquvulg	30	70.6	27.5	43.1	Aquilegia vulgaris		Viridiplantae
+dcspemari	14	71.0	28.6	42.4	Spergularia marina		Viridiplantae
+dcpoltetr	58	70.6	33.2	37.4	Polycarpon tetraphyllum		Viridiplantae
+drmedarab	94	70.6	26.8	43.7	Medicago arabica		Viridiplantae
+dhcorcolu	47	71.0	28.9	42.1	Corylus colurna		Viridiplantae
+drparjuda	1516	70.7	29.8	40.8	Parietaria judaica		Viridiplantae
+drpotanse	12	71.6	27.0	44.6	Potentilla anserina		Viridiplantae
+ddbarvulg	14	70.6	30.7	39.9	Barbarea vulgaris		Viridiplantae
+ddarathal	27	70.6	24.8	45.8	Arabidopsis thaliana		Viridiplantae
+ddpopnigr	283	70.6	26.0	44.6	Populus nigra		Viridiplantae
+ddeuppepu	16	70.6	29.0	41.5	Euphorbia peplus		Viridiplantae
+ddmerannu	25	71.3	30.1	41.2	Mercurialis annua		Viridiplantae
+drhedheli	108	70.6	27.8	42.8	Hedera helix		Viridiplantae
+ddhotpalu	19	70.6	27.2	43.3	Hottonia palustris		Viridiplantae
+daarcminu	55	70.7	32.4	38.3	Arctium minus		Viridiplantae
+dascugale	2548	76.0	31.1	44.9	Scutellaria galericulata		Viridiplantae
