@@ -109,21 +109,21 @@ hits/Mbp — raw density inflates plants (AT-rich, more satellite bp); under the
 null vertebrates actually edge plants on the broad tier.</p>
 
 <h2>Method 2 — songbird ±5-flank test (Formenti et al., Cell 2026)</h2>
-<p>For each species we collect its box windows (17-mers within ≤5 substitutions of canonical,
+<p>For each species we collect its candidate-motif windows (17-mers within ≤5 substitutions of canonical,
 both strands) together with their <b>±5 flanking bp</b> (27-bp windows), and build a position
 frequency matrix. Per position we compute the <b>information content</b> in bits,
 IC = 2 + Σ<sub>b</sub> p<sub>b</sub> log₂ p<sub>b</sub> (0 = random, 2 = fully conserved). Then:</p>
 <ul>
-<li><b>y-axis — box information</b> = mean IC over the <b>17 box positions</b> (how conserved the
+<li><b>y-axis — motif information</b> = mean IC over the <b>17 motif positions</b> (how conserved the
 motif itself is);</li>
 <li><b>x-axis — flank information</b> = mean IC over the <b>10 flanking positions</b> (±5), a
 built-in negative control.</li>
 </ul>
-<p>A real motif is conserved at the box but random in the flanks → <b>high y, low x → above the
-box=flank diagonal</b> (Δ = box − flank &gt; 0).</p>
+<p>A real motif is <b>conserved within the motif window but variable in its flanks</b> → high
+motif information, low flank information → above the diagonal (Δ = motif − flank &gt; 0).</p>
 <div class="fig">{img(FIG/'cenpb_flank_uncapped_scatter.png')}<div class="cap">
 Box vs flank information, coloured by <b>identity to the canonical CENP-B motif</b>. A
-<b>candidate box</b> = high identity <i>and</i> above the box=flank diagonal (box-specific).
+<b>candidate box</b> = high identity <i>and</i> above the motif=flank diagonal (motif-specific).
 α-satellite (red star) = the functional box; HSat (grey ×) = negative. Birds (goshawk, takahē,
 ptarmigan) are the most box-specific vertebrates; falcons sit on the diagonal (conserved
 satellite, not a candidate box).</div></div>

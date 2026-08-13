@@ -40,27 +40,25 @@ plt.rcParams.update({"font.family":"sans-serif","font.sans-serif":["Arial","Helv
   "font.size":8,"axes.linewidth":0.7,"xtick.major.width":0.7,"ytick.major.width":0.7,
   "axes.labelsize":8,"legend.fontsize":6.6,"xtick.labelsize":7.5,"ytick.labelsize":7.5,"savefig.dpi":600})
 ccol={"Vertebrates":"#0072B2","Invertebrate":"#E69F00","Viridiplantae":"#009E73","Fungi":"#CC79A7","Protist":"#D55E00"}
-rng=np.random.default_rng(0); xs=rng.normal(0,0.055,len(fk)); xo=1+rng.normal(0,0.055,len(fk))
-fig,ax=plt.subplots(figsize=(4.7,4.2))
-ax.scatter(xs,fk.id_shuffle,s=11,color="0.6",alpha=0.55,edgecolor="none",zorder=2,label="shuffled motif (chance)")
+fig,ax=plt.subplots(figsize=(4.7,4.4))
+# slopegraph: link each observed motif to the mean of its own shuffled null
+for _,r in fk.iterrows():
+    ax.plot([0,1],[r.id_shuffle,r.id_obs],color=ccol.get(r.clade,"grey"),alpha=0.22,lw=0.5,zorder=2)
+ax.scatter([0]*len(fk),fk.id_shuffle,s=11,color="0.55",edgecolor="none",alpha=0.7,zorder=3)
 for cl,g in fk.groupby("clade"):
     m=(fk.clade==cl).values
-    ax.scatter(xo[m],fk.id_obs[m],s=16,color=ccol.get(cl,"grey"),edgecolor="0.3",lw=0.2,alpha=0.85,zorder=3,label=cl)
-for xx,col in [(0,"id_shuffle"),(1,"id_obs")]:
-    med=fk[col].median(); ax.plot([xx-0.22,xx+0.22],[med,med],color="k",lw=1.6,zorder=5)
-    ax.annotate(f"median {med:.0f}%",(xx+0.24,med),fontsize=6.6,va="center",fontweight="bold")
-ms,mo=fk.id_shuffle.median(),fk.id_obs.median()
-ax.annotate("",xy=(0.5,mo),xytext=(0.5,ms),arrowprops=dict(arrowstyle="<->",color="0.25",lw=1.1))
-ax.text(0.55,(mo+ms)/2,f"+{fk.excess_shuffle.median():.0f}%\nmedian\nexcess",fontsize=6.6,color="0.2",va="center")
-boff={"Accipiter":(9,7),"Porphyrio":(9,-9),"Lagopus":(9,0)}
-for _,r in fk[fk.name.str.contains("Accipiter|Lagopus|Porphyrio",na=False)].iterrows():
-    g=r["name"].split()[0]
-    ax.annotate(g+" (bird)",(1,r.id_obs),xytext=boff.get(g,(9,0)),textcoords="offset points",fontsize=6,fontweight="bold")
-ax.set_xticks([0,1]); ax.set_xticklabels(["shuffled motif\n(composition chance)","observed\nconsensus"])
-ax.set_xlim(-0.5,1.7); ax.set_ylim(0,100)
+    ax.scatter([1]*int(m.sum()),fk.id_obs[m],s=16,color=ccol.get(cl,"grey"),edgecolor="0.3",lw=0.2,alpha=0.9,zorder=4,label=cl)
+for xx,col in [(0,"id_shuffle"),(1,"id_obs")]:                 # median tick (no text)
+    ax.plot([xx-0.09,xx+0.09],[fk[col].median()]*2,color="k",lw=2,zorder=6)
+# formula box
+ax.text(0.02,0.99,"identity = (positions matching\ncanonical IUPAC) / 17 × 100%\nnull = same, on shuffles of the\nmotif (composition preserved)",
+        transform=ax.transAxes,va="top",ha="left",fontsize=6,family="DejaVu Sans",
+        bbox=dict(boxstyle="round,pad=0.4",fc="#f7f7f7",ec="0.7",lw=0.7))
+ax.set_xticks([0,1]); ax.set_xticklabels(["shuffled motif\n(composition chance)","observed\nmotif"])
+ax.set_xlim(-0.35,1.35); ax.set_ylim(0,100)
 ax.set_ylabel("% identity to canonical CENP-B motif")
 ax.set_title("Identity vs shuffle-the-motif null",fontweight="bold",fontsize=9)
-ax.legend(frameon=False,loc="center left",bbox_to_anchor=(0.0,0.42),fontsize=6.2)
+ax.legend(frameon=False,loc="lower right",fontsize=6.3)
 ax.spines[["top","right"]].set_visible(False)
 plt.tight_layout()
 for ext in ("png","pdf"): fig.savefig(SAT/f"figures/cenpb_identity_shuffle_null.{ext}",dpi=600 if ext=="png" else None,bbox_inches="tight",facecolor="white")
