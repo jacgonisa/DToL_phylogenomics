@@ -8,8 +8,8 @@ SAT=Path("/home/jg2070/Desktop/dtol_review_August/DToL_phylogenomics_publication
 plt.rcParams.update({"font.family":"sans-serif","font.sans-serif":["Arial","Helvetica","DejaVu Sans"],"savefig.dpi":600})
 
 rows=[("canonical (IUPAC)",  "YTTCGTTGGAARCGGGA"),
-      ("broad (IUPAC)",      "NTTCGNNNNANNCGGGN"),
-      ("degenerate (IUPAC)", "YTTCGNNNNANRCGGGN"),
+      ("broad (IUPAC)",      "YTTCGNNNNANRCGGGN"),
+      ("degenerate (IUPAC)", "NTTCGNNNNANNCGGGN"),
       ("goshawk consensus",  "CTTTTTTGGAAACGGGA")]
 canon=[set("CT"),{"T"},{"T"},{"C"},{"G"},{"T"},{"T"},{"G"},{"G"},{"A"},{"A"},set("AG"),{"C"},{"G"},{"G"},{"G"},{"A"}]
 L=17; n=len(rows)

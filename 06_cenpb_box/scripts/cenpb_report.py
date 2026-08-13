@@ -170,6 +170,24 @@ box-like window; 6 have only 1–4 weak hits; and <b>4 recover nothing</b> (<i>B
 the GC-rich <code>TTCG…CGGG</code> core). But <b>≤5 substitutions on 17 bp is very permissive</b> —
 nearly any GC-containing satellite has such a window by chance — so 94% recovery is <i>expected</i>,
 not evidence of real boxes. This is precisely why the unbiased test below is needed.</p>
+<p class="sub"><b>Why ≤5 subs matches so easily — the numbers game.</b> The threshold is loose: a
+window needs only ≥ 12/17 = 70.6% identity. From a Monte-Carlo over random 17-mers, the probability
+that one matches the box is:</p>
+<table class="tbl" style="max-width:440px">
+<tr><th>threshold</th><th>P(random 17-mer matches)</th><th>≈ 1 in</th></tr>
+<tr><td>≤2 substitutions</td><td>&lt; 5×10⁻⁷</td><td><b>&gt; 2,000,000</b></td></tr>
+<tr><td>≤3 substitutions</td><td>4.5×10⁻⁶</td><td>222,000</td></tr>
+<tr><td>≤4 substitutions</td><td>4.3×10⁻⁵</td><td>23,000</td></tr>
+<tr><td><b>≤5 substitutions</b></td><td><b>2.9×10⁻⁴</b></td><td><b>~3,500</b></td></tr>
+</table>
+<p class="sub">So ~1 in 3,500 random 17-mers already matches at ≤5 subs. Now multiply by the number
+of windows: a species with ~100,000 satellite arrays × ~300 bp × 2 strands ≈ <b>60 million windows</b>
+→ <b>~17,000 chance matches expected</b> — recovery is essentially guaranteed for any GC-containing
+satellite. The meaningful flip side: <b>≤2 substitutions is &lt; 1 in 2 million</b> (essentially
+never by chance), which is exactly why <b>Method 1 finding ~0 exact canonical/broad/degenerate hits
+in DToL is real signal</b>, whereas the ≤5-substitution abundance is just the loose threshold.
+(Matching code: <code>cenpb_flank_uncapped.py</code> — a 10-bp core gate <code>TTCGTTGGAA{{s&lt;=3}}</code>
+then the full box <code>[CT]TTCGTTGGAA[AG]CGGGA{{s&lt;=5}}</code>, both strands.)</p>
 <p class="sub"><b>The CENP-B box is functional, not abundant.</b> Tellingly, the box is <i>not</i> the
 most common sequence even in human α-satellite: the most frequent 17-mer there is
 <code>CAAAAAGAGTGTTTCA</code> (~18% identity to the box) — a different conserved part of the 171-bp
