@@ -89,10 +89,18 @@ and HSat 1/2/3 (negative; lacks it).</p>
 methods separate the controls cleanly.</p>
 
 <h2>Method 1 — exact IUPAC motif parsing (Fachinetti)</h2>
-<p>Three exact IUPAC tiers (canonical / broad / degenerate; Barra &amp; Fachinetti,
-bioRxiv 2026.05.25.727640), both strands, scored as enrichment over a
-<b>dinucleotide-preserving null</b> (first-order Markov ≈ Altschul–Erikson doublet shuffle;
-validated against an explicit shuffle on the α-sat benchmark, 4,283× vs 4,524×).</p>
+<p>Three <b>exact IUPAC</b> motif tiers (Barra &amp; Fachinetti, bioRxiv 2026.05.25.727640),
+matched on both strands (Y = [C/T], R = [A/G], N = any base):</p>
+<table class="tbl" style="max-width:560px">
+<tr><th>tier</th><th>IUPAC motif</th><th>note</th></tr>
+<tr><td>canonical</td><td><code>YTTCGTTGGAARCGGGA</code></td><td>the functional box</td></tr>
+<tr><td>broad</td><td><code>YTTCGNNNNANRCGGGN</code></td><td>Sugimoto 1998; intermediate</td></tr>
+<tr><td>degenerated</td><td><code>NTTCGNNNNANNCGGGN</code></td><td>most permissive (N at pos 1 &amp; 12)</td></tr>
+</table>
+<p>Each is counted per species and scored as <b>enrichment = observed / expected</b>, where the
+expected count comes from a <b>dinucleotide-preserving null</b> (first-order Markov ≈
+Altschul–Erikson doublet shuffle; validated against an explicit shuffle on the α-sat benchmark,
+4,283× vs 4,524×). Nesting: canonical ⊂ broad ⊂ degenerated.</p>
 <p>The two quantities are shown first as bar charts, then combined in a scatter.</p>
 <div class="fig">{img(FIG/'cenpb_bars_enrichment.png',w="70%")}<div class="cap">
 <b>(i) Enrichment</b> over the dinucleotide null (obs/exp), per clade × tier (broken y-axis;
@@ -110,18 +118,36 @@ null the looser-tier enrichments are modest (plants lead the broad tier, 3.0×; 
 degenerate tier, 1.4×) and the apparent plant broad signal deflates (11.7× → 3.0×).</p>
 
 <h2>Method 2 — songbird ±5-flank test (Formenti et al., Cell 2026)</h2>
-<p>For each species we collect its candidate-motif windows (17-mers within ≤5 substitutions of canonical,
-both strands) together with their <b>±5 flanking bp</b> (27-bp windows), and build a position
-frequency matrix. Per position we compute the <b>information content</b> in bits,
-IC = 2 + Σ<sub>b</sub> p<sub>b</sub> log₂ p<sub>b</sub> (0 = random, 2 = fully conserved). Then:</p>
-<ul>
-<li><b>y-axis — motif information</b> = mean IC over the <b>17 motif positions</b> (how conserved the
-motif itself is);</li>
-<li><b>x-axis — flank information</b> = mean IC over the <b>10 flanking positions</b> (±5), a
-built-in negative control.</li>
-</ul>
-<p>A real motif is <b>conserved within the motif window but variable in its flanks</b> → high
-motif information, low flank information → above the diagonal (Δ = motif − flank &gt; 0).</p>
+<p>This is a permissive, distance-based search (following the zebra-finch T2T paper, Formenti et
+al. 2026, Suppl. Fig. 15). It runs per species on the uncapped satellite arrays, in six steps:</p>
+<ol style="font-size:13.5px;line-height:1.5">
+<li><b>Find windows.</b> Slide along every satellite array, on <b>both strands</b>, and record every
+17-bp stretch that matches the canonical box <code>[CT]TTCGTTGGAA[AG]CGGGA</code> within
+<b>≤5 substitutions</b> (fuzzy matching). Each such 17-bp hit is a <b>window</b>. We record
+<code>n_windows</code> (total per species) and <b>prevalence</b> = windows per Mbp of satellite.</li>
+<li><b>Add flanks.</b> Extend each window by 5 bp on each side → a <b>27-bp window</b> (5 + 17 + 5).
+The flanks are a built-in negative control.</li>
+<li><b>Stack into a position matrix.</b> Pile all of a species' 27-bp windows and count, at each
+column, how often each base (A/C/G/T) occurs — a position frequency matrix.</li>
+<li><b>Information content (conservation).</b> Per column, IC = 2 + Σ<sub>b</sub> p<sub>b</sub>
+log₂ p<sub>b</sub> bits (0 = random, 2 = one fixed base). Then <b>motif information</b> = mean IC
+over the 17 motif columns, <b>flank information</b> = mean IC over the 10 flank columns, and
+<b>Δ = motif − flank</b>. A real motif is <b>conserved within itself but random in the flanks</b>
+→ high motif information, low flank information → Δ &gt; 0 (the scatter's y and x axes).</li>
+<li><b>Consensus &amp; identity.</b> The <b>consensus</b> = the most common base at each of the 17
+motif columns. <b>Identity to canonical</b> = the fraction of the 17 positions whose consensus
+base is allowed by the canonical IUPAC, × 100% (the scatter's colour; equivalently 17 − substitutions).</li>
+<li><b>Shuffle-the-motif null.</b> Because a 17-bp motif matches partly by base composition, we
+shuffle the consensus (same bases, random order) many times and recompute identity → the chance
+level (≈30%). A motif is "real" when observed identity ≫ its own shuffled null (see below).</li>
+</ol>
+<p class="sub"><b>Definitions.</b> <i>window</i> = one located 17-bp box-like hit; <i>consensus</i>
+= the per-position majority base over a species' windows; <i>Δ</i> = motif − flank information;
+<i>prevalence</i> = windows/Mbp. <b>Caveat:</b> windows are selected to be ≤5 subs from canonical,
+so identity has a floor; and for very high-copy satellites the windows deviate at <i>random</i>
+positions that cancel on averaging, so the consensus returns to canonical (≈100%) — the
+degenerate-consensus effect, not a true perfect box. A genuine motif deviates <i>consistently</i>
+(e.g. the goshawk's eroded CpG), keeping its consensus off-canonical.</p>
 <div class="fig">{img(FIG/'cenpb_flank_uncapped_scatter.png')}<div class="cap">
 Box vs flank information, coloured by <b>identity to the canonical CENP-B motif</b>. A
 <b>candidate box</b> = high identity <i>and</i> above the motif=flank diagonal (motif-specific).
