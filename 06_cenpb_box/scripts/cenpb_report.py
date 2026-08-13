@@ -93,22 +93,36 @@ methods separate the controls cleanly.</p>
 bioRxiv 2026.05.25.727640), both strands, scored as enrichment over a
 <b>dinucleotide-preserving null</b> (first-order Markov ≈ Altschul–Erikson doublet shuffle;
 validated against an explicit shuffle on the α-sat benchmark, 4,283× vs 4,524×).</p>
-<div class="fig">{img(FIG/'cenpb_paper_motifs.png')}<div class="cap">
-Enrichment (obs/exp, dinucleotide null) vs motif density (hits/Mbp). A real box needs
-<b>both</b>: only <b>α-satellite</b> sits top-right. HSat canonical is a lone point at ~0.03/Mbp
-(5 boundary hits → high enrichment but ~0 density — not a box). Canonical = 0 in all DToL
-clades; the clades sit near the null (enrichment ≈ 1).</div></div>
+<p>The two quantities are shown first as bar charts, then combined in a scatter.</p>
+<div class="fig">{img(FIG/'cenpb_bars_enrichment.png',w="70%")}<div class="cap">
+<b>(i) Enrichment</b> over the dinucleotide null (obs/exp), per clade × tier (broken y-axis;
+α-satellite ≫ DToL). Canonical = 0 in all DToL clades; HSat canonical = 5 boundary hits (hatched).</div></div>
+<div class="fig">{img(FIG/'cenpb_bars_density.png',w="70%")}<div class="cap">
+<b>(ii) Motif density</b> — exact IUPAC hits per Mbp, per clade × tier (broken y-axis).</div></div>
+<div class="fig">{img(FIG/'cenpb_paper_motifs.png',w="75%")}<div class="cap">
+<b>(iii) Scatter</b> of enrichment (i) vs density (ii). A real box needs <b>both</b>: only
+<b>α-satellite</b> sits top-right. HSat canonical is a lone point at ~0.03/Mbp (5 boundary hits →
+high enrichment but ~0 density — not a box). DToL clades sit near the null (enrichment ≈ 1).</div></div>
 {tbl(clade_df.round(2))}
 <p class="sub"><b>Note.</b> This uses composition-corrected <i>enrichment</i>, not raw
 hits/Mbp — raw density inflates plants (AT-rich, more satellite bp); under the dinucleotide
 null vertebrates actually edge plants on the broad tier.</p>
 
 <h2>Method 2 — songbird ±5-flank test (Formenti et al., Cell 2026)</h2>
-<p>The box matched as 17-bp windows (≤5 substitutions, both strands); a real motif has high
-information across the box that <b>collapses in the ±5 flanks</b> (Δ = box − flank). Reported
-with the box consensus, substitutions from canonical, and prevalence.</p>
+<p>For each species we collect its box windows (17-mers within ≤5 substitutions of canonical,
+both strands) together with their <b>±5 flanking bp</b> (27-bp windows), and build a position
+frequency matrix. Per position we compute the <b>information content</b> in bits,
+IC = 2 + Σ<sub>b</sub> p<sub>b</sub> log₂ p<sub>b</sub> (0 = random, 2 = fully conserved). Then:</p>
+<ul>
+<li><b>y-axis — box information</b> = mean IC over the <b>17 box positions</b> (how conserved the
+motif itself is);</li>
+<li><b>x-axis — flank information</b> = mean IC over the <b>10 flanking positions</b> (±5), a
+built-in negative control.</li>
+</ul>
+<p>A real motif is conserved at the box but random in the flanks → <b>high y, low x → above the
+box=flank diagonal</b> (Δ = box − flank &gt; 0).</p>
 <div class="fig">{img(FIG/'cenpb_flank_uncapped_scatter.png')}<div class="cap">
-Box-motif vs flank information, coloured by <b>identity to the canonical CENP-B motif</b>. A
+Box vs flank information, coloured by <b>identity to the canonical CENP-B motif</b>. A
 <b>candidate box</b> = high identity <i>and</i> above the box=flank diagonal (box-specific).
 α-satellite (red star) = the functional box; HSat (grey ×) = negative. Birds (goshawk, takahē,
 ptarmigan) are the most box-specific vertebrates; falcons sit on the diagonal (conserved
@@ -117,12 +131,15 @@ satellite, not a candidate box).</div></div>
 {tbl(vert_df.round(2))}
 <p class="sub">Box-like motifs (Δ≥0.5, ≤2 substitutions from canonical) occur in <b>20 species
 across clades</b>, strongest in birds; the scatter is coloured by identity to the canonical
-motif (warm = box-like). <b>Identity null (shuffle the motif):</b> a 17-bp motif of this base
-composition matches canonical only <b>≈30% by chance</b>; observed identities are 70–94%
-(median <b>+44</b> above chance; birds +58 to +63), so the box-like matches are <b>real
-arrangement similarity, not a short-motif composition artifact</b>. (An earlier
-dinucleotide-<i>sequence</i> shuffle was a degenerate null — averaging near-canonical windows
-trivially regenerates canonical — and is not used.)</p>
+motif (warm = box-like).</p>
+<h3>Is the box-like identity real? (shuffle-the-motif null)</h3>
+<p>A short 17-bp motif matches partly by base composition alone, so we calibrated identity by
+<b>shuffling the motif</b> (same composition, order destroyed).</p>
+<div class="fig">{img(FIG/'cenpb_identity_shuffle_null.png',w="52%")}<div class="cap">
+A motif of this composition matches canonical only <b>≈30% by chance</b> (left), whereas observed
+consensus identities are <b>70–94%</b> (right; median <b>+44</b> above chance, birds +58 to +63).
+So the box-like matches are <b>real arrangement similarity, not a short-motif composition
+artifact</b> (`cenpb_identity_shuffle_null.py`).</div></div>
 
 <h3>Why the two methods disagree on birds</h3>
 <div class="fig">{img(FIG/'cenpb_goshawk_alignment.png')}<div class="cap">
