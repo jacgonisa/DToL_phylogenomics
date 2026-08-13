@@ -5,7 +5,8 @@ box** (17 bp, `[CT]TTCGTTGGAA[AG]CGGGA`; Masumoto et al. 1989), using **two
 methods**, with human HG002 satellites as positive/negative controls.
 
 ## Which satellites were searched
-- **Input:** `all.satellites.txt` — every satellite-repeat *array* annotated across
+- **Input:** `all.satellites.txt` — every **putative centromeric satellite** array (curated
+  candidate centromeric satellites) across
   the DToL assemblies (one sequence per array, tagged by species).
 - **Species set:** restricted to the **325 published species** (`species_325.txt`,
   derived from the calibrated species-tree tips). 12 extra species present in

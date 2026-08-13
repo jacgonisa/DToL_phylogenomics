@@ -74,10 +74,10 @@ CENP-B-essential CpG (the exact broad motif, which fixes that CpG, therefore sco
 functionality is untested (no protein-binding assay).</div>
 
 <h2>What was searched</h2>
-<p><span class="tag">input</span><code>all.satellites.txt</code> — every <b>candidate</b>
-satellite-repeat <i>array</i> called across the DToL assemblies (candidates, not curated
+<p><span class="tag">input</span><code>all.satellites.txt</code> — every <b>putative
+centromeric satellite</b> array across the DToL assemblies (curated candidate centromeric
 satellites). Restricted to the <b>325 published species</b> (tree tips); 12 out-of-set
-species excluded. <b>"Uncapped"</b> = every candidate array of each species, both strands
+species excluded. <b>"Uncapped"</b> = every array of each species, both strands
 (~{n_arr} arrays across the <b>{n_sat} of 325 species</b> that carry satellite annotations)
 — not a ≤500-monomer subsample.</p>
 

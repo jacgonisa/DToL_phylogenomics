@@ -2,8 +2,8 @@
 
 **How we searched.** We screened the centromeric satellites of the 325 DToL species
 for the 17-bp **CENP-B box** (`[CT]TTCGTTGGAA[AG]CGGGA`; Masumoto et al. 1989), on
-both strands, across all annotated satellite arrays (162 of 325 species have
-satellites). We used two approaches, with human HG002 α-satellite as a positive
+both strands, across all annotated **putative centromeric satellite** arrays (162 of 325 species
+have satellites). We used two approaches, with human HG002 α-satellite as a positive
 control and human HSat as a negative control:
 
 1. **Exact motif match** — the canonical box and two looser IUPAC variants (Barra &
