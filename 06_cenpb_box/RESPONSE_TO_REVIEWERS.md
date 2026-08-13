@@ -11,9 +11,12 @@ protein. We detect *sequence* matches only, so below we call them **motifs** or
 tested). A "candidate box" = a box-specific match (flank information > flank
 control) that is near-canonical (≤2 substitutions).
 
+A self-contained HTML version with all figures is in `cenpb_box_report.html`.
+
 ## Which satellites were searched
-- **Input:** `all.satellites.txt` — every satellite-repeat *array* annotated across
-  the DToL genome assemblies (one sequence per array, tagged by species).
+- **Input:** `all.satellites.txt` — every **candidate** satellite-repeat *array*
+  called across the DToL assemblies (candidates, not a curated satellite set; one
+  sequence per array, tagged by species).
 - **Species set:** we restricted to the **325 published species** (allowlist
   `species_325.txt`, derived directly from the tips of the calibrated species
   tree). `all.satellites.txt` contained 12 extra species that are not in the
@@ -100,13 +103,34 @@ was not represented in our satellite set. *Figures:*
 `cenpb_flank_uncapped_scatter.png`, `cenpb_box_logos_flanks_VERTEBRATES_uncapped.pdf`;
 *data:* `cenpb_flank_uncapped_per_species.tsv`.
 
-## Reconciling the two methods
-The methods are complementary and disagree informatively on birds:
-- **Method 1 (exact IUPAC)** is conservative and *position-aware* — it requires the
-  essential `TTCG…CGGG` core. No DToL species passes it.
-- **Method 2 (±5-flank)** is permissive. Birds pass it, but their divergence falls
-  **on the essential 5′ `CG`** (goshawk `TTCG`→`TTTT` at positions 4–5), which is
-  exactly why they score 0 under the exact broad motif.
+**Is the box-like identity real, or a short-motif artifact?** A 17-bp motif matches
+partly by base composition alone, so we calibrated identity by **shuffling the motif**:
+a motif of this composition matches the canonical box only **≈30% by chance**, whereas
+observed consensus identities are **70–94%** (median **+44** above chance; birds
+**+58 to +63**). So the box-like matches are **real arrangement similarity, not a
+composition artifact** (`cenpb_identity_shuffle_null.py`).
+
+## Reconciling the two methods (the goshawk case)
+The methods disagree on birds in a diagnostic way. The **goshawk consensus is 15/17
+identical to canonical**; its only two substitutions land **exactly on the 5′ CpG**
+(positions 4–5, `C,G`→`T,T`) that *all three* IUPAC tiers hold fixed (the `TTCG`
+anchor):
+
+```
+ canonical  Y T T C G T T G G A A R C G G G A
+ goshawk    C T T T T T T G G A A A C G G G A
+                  ^ ^  (eroded CpG)
+```
+
+- **Method 1 (exact IUPAC)** is *position-aware*: the CpG anchor is non-negotiable →
+  **0 matches** at every tier (canonical = broad = degenerate = 0).
+- **Method 2 (≤5-substitution)** is *distance-based*: no fixed position → **1,722
+  windows**, 15/17 identity, Δ 0.85.
+
+The eroded position is a **CpG** — both a CENP-B protein-contact base and a
+methylation/deamination hotspot — so this is a **candidate divergent box** (plausibly
+read by a relaxed-specificity TIGD-family transposase, per the songbird model), not a
+canonical CENP-B box. See the alignment figure `cenpb_goshawk_alignment.png`.
 
 ## Conclusion
 The **canonical, functional CENP-B box** is confined to **human (mammalian)
