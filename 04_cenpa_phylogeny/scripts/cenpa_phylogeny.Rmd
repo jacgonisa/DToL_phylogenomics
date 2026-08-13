@@ -1,0 +1,409 @@
+---
+title: "Panel D — CenpA + H3 + Archaea phylogeny (bnni converged tree)"
+author: "DToL Centromere Project"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    theme: flatly
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo    = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width  = 16,
+  fig.height = 16
+)
+```
+
+## Overview
+
+This report reproduces the **CenpA + H3 + Archaea phylogeny** shown in Figure 1, Panel D.
+
+**Key features:**
+- **Tree:** IQ-TREE2 (-bnni converged) — `iqtree2_cenpa430_H3_archaea10_bnni.treefile` (1337 tips: 430 CenpA, 897 H3, 10 archaea)
+- **Model:** Q.pfam+R7 (best-fit)
+- **UFBoot convergence:** Achieved in ≤1000 replicates with `-bnni` (zero non-convergence warnings vs prior run); run time ~38h
+- **Rooting:** Archaea MRCA (outgroup)
+- **Centromere categories displayed:**
+  - Satellite = #ff006e
+  - Transposon = #3a86ff
+  - Holocentric = #2d7d32 (dark green), displayed as **triangles**
+  - Satellite/transposon = #8338ec
+  - **Cryptic** = Unknown + Monocentric sequence unknown (combined = #808080)
+  - H3 = not shown (no symbol)
+  - Archaea = not shown (no symbol)
+- **iTOL annotation files** are in `19_curated_tree/iTOL_bnni/`
+
+```{r libraries}
+suppressPackageStartupMessages({
+  library(ape)
+  library(ggtree)
+  library(ggplot2)
+  library(dplyr)
+  library(tidyr)
+})
+```
+
+```{r paths}
+BASE      <- "/home/jg2070/Desktop/dtol_review_August"
+PROF_DIR  <- file.path(BASE, "PhylogeneticProfiling")
+PUB2_DIR  <- file.path(BASE, "DToL_phylogenomics_publication_325genomes")
+
+# 325-species versions (daLycEuro1.1 + mRhiSin1.1 removed)
+TREE_DIR      <- file.path(PUB2_DIR, "04_cenpa_phylogeny")
+ITOL_DIR      <- file.path(TREE_DIR, "iTOL_bnni")
+BNNI_TREEFILE <- file.path(TREE_DIR, "iqtree2_cenpa430_H3_archaea10_325sp_bnni.treefile")
+CLASSIF_TSV   <- file.path(PUB2_DIR, "02_ASR", "centromere_classification_clean.tsv")
+CODES_CSV     <- file.path(PUB2_DIR, "04_cenpa_phylogeny", "expected_325_codes.txt")
+H3_FASTA      <- file.path(PROF_DIR, "19_curated_tree", "H3_all.aligned.fasta")
+```
+
+---
+
+## 1. IQ-TREE2 convergence summary
+
+The original UFBoot run (without `-bnni`) reached a correlation coefficient of **0.970** and showed an oscillating pattern suggesting non-convergence. The `-bnni` run optimised each bootstrap replicate with NNI moves and converged on the **first 1000 replicates** (zero non-convergence warnings), completing in ~38 hours.
+
+| Run | UFBoot correlation | Non-convergence warnings | Runtime |
+|-----|-------------------|--------------------------|---------|
+| Without `-bnni` | 0.970 (oscillating) | Many | ~120h |
+| With `-bnni` | ≥0.99 (flat) | 0 | ~38h |
+
+**IQ-TREE2 command:**
+```
+/home/jg2070/miniforge3/envs/forORTHO/bin/iqtree2 \
+  -s cenpa430_H3_archaea10.aligned.clipkit.fasta \
+  -B 1000 -bnni -nm 2000 \
+  -T 12 --prefix iqtree2_cenpa430_H3_archaea10_bnni
+```
+
+---
+
+## 2. Load tree and metadata
+
+```{r load_tree}
+tr_raw <- read.tree(BNNI_TREEFILE)
+cat("Tree tips:", Ntip(tr_raw), "\n")
+cat("Is rooted:", is.rooted(tr_raw), "\n")
+
+archaea_ids <- c("BAD86478.1", "KKK41979.1", "KXH71038.1", "OIO41945.1",
+                 "OIO61677.1", "OLS16336.1", "OLS18261.1", "OLS21974.1",
+                 "OLS22332.1", "OLS24873.1")
+
+# Root at archaea MRCA
+tr <- root(tr_raw,
+           node         = getMRCA(tr_raw, archaea_ids),
+           resolve.root = TRUE)
+cat("Rooted at archaea MRCA. Tips:", Ntip(tr), "\n")
+```
+
+```{r load_metadata}
+classif <- read.table(CLASSIF_TSV, sep = "\t", header = TRUE,
+                      stringsAsFactors = FALSE)
+classif$classification <- trimws(classif$classification)
+
+codes <- read.csv(CODES_CSV, header = FALSE,
+                  col.names = c("status", "fasta", "group", "genus", "species"),
+                  stringsAsFactors = FALSE)
+codes$prefix <- sub("\\..*", "", codes$fasta)
+codes$group  <- trimws(codes$group)
+
+h3_ids <- trimws(sub(" .*", "", sub("^>", "",
+  grep("^>", readLines(H3_FASTA), value = TRUE))))
+
+cat("H3 IDs loaded:", length(h3_ids), "\n")
+cat("CenpA species classified:", nrow(classif), "\n")
+```
+
+---
+
+## 3. Classify tips
+
+```{r classify_tips}
+tips <- tr$tip.label
+
+# Classification: merge Unknown + Monocentric → "Cryptic"
+classify_tip <- function(tid) {
+  if (tid %in% archaea_ids) return("Archaea")
+  if (tid %in% h3_ids)      return("H3")
+  pfx <- sub("_.*", "", tid)
+  cls <- classif$classification[classif$species_code == pfx]
+  if (!length(cls))
+    cls <- classif$classification[sub("[0-9]+$", "", classif$species_code) == pfx]
+  if (length(cls) == 1) return(cls)
+  "Unknown"
+}
+
+tip_cat_raw <- vapply(tips, classify_tip, character(1))
+
+# Recode Unknown + Monocentric sequence unknown → Cryptic
+tip_cat <- dplyr::recode(tip_cat_raw,
+  "Unknown"                      = "Cryptic",
+  "Monocentric sequence unknown" = "Cryptic"
+)
+
+cat("Tip classification summary:\n")
+print(sort(table(tip_cat), decreasing = TRUE))
+```
+
+---
+
+## 4. Colour palette and shape map
+
+```{r palette}
+# Colour palette matching the existing DToL iTOL annotation
+pal_cenpa <- c(
+  "Satellite"          = "#ff006e",
+  "Transposon"         = "#3a86ff",
+  "Holocentric"        = "#2d7d32",   # dark green
+  "Satellite/transposon" = "#8338ec",
+  "Cryptic"            = "#808080",   # Unknown + Monocentric
+  "H3"                 = "#BDBDBD",
+  "Archaea"            = "#212121"
+)
+
+# Shapes: Holocentric = triangle (17), all others = circle (16)
+shape_map <- c(
+  "Satellite"          = 16,
+  "Transposon"         = 16,
+  "Holocentric"        = 17,   # triangle
+  "Satellite/transposon" = 16,
+  "Cryptic"            = 16,
+  "H3"                 = 16,
+  "Archaea"            = 16
+)
+
+tip_df <- data.frame(
+  label    = tips,
+  category = tip_cat,
+  colour   = pal_cenpa[tip_cat],
+  shape    = shape_map[tip_cat],
+  stringsAsFactors = FALSE
+)
+```
+
+---
+
+## 5. Taxonomic group per tip (for clade highlights)
+
+```{r taxonomy}
+get_group <- function(pfx) {
+  g <- codes$group[codes$prefix == pfx]
+  if (!length(g)) g <- codes$group[sub("[0-9]+$", "", codes$prefix) == pfx]
+  if (length(g)) g[1] else ""
+}
+
+tip_pfx <- sub("_.*", "", tips)
+tip_grp <- vapply(tip_pfx, get_group, character(1))
+
+ins_grps  <- c("Coleoptera", "Hymenoptera", "Diptera", "Lepidoptera", "Trichoptera",
+               "Plecoptera", "Ephemeroptera", "Odonata", "Psocodea", "Hemiptera",
+               "Blattodea", "Dermaptera", "Neuroptera")
+vert_grps <- c("Aves", "Mammalia", "Actinopterygii", "Reptilia", "Tunicata")
+fung_grps <- "Fungi"
+plnt_grps <- c("Dicots", "Monocots", "Bryophyta", "Algae")
+
+is_h3_tip   <- tips %in% h3_ids
+is_arch_tip <- tips %in% archaea_ids
+
+cenpa_ins  <- tips[tip_grp %in% ins_grps   & !is_h3_tip & !is_arch_tip]
+cenpa_vert <- tips[tip_grp %in% vert_grps  & !is_h3_tip & !is_arch_tip]
+cenpa_fung <- tips[tip_grp %in% fung_grps  & !is_h3_tip & !is_arch_tip]
+cenpa_plnt <- tips[tip_grp %in% plnt_grps  & !is_h3_tip & !is_arch_tip]
+
+cat("CenpA: insects =", length(cenpa_ins), " vertebrates =", length(cenpa_vert),
+    " fungi =", length(cenpa_fung), " plants =", length(cenpa_plnt), "\n")
+```
+
+---
+
+## 6. Identify clade MRCA nodes (purity-based)
+
+We use pre-computed high-purity clade nodes (found by iterating over all internal nodes and selecting the one with the highest proportion of CenpA from the target group, subject to recall ≥ 50%).
+
+```{r clade_nodes}
+safe_mrca <- function(tset) {
+  tset <- tset[tset %in% tr$tip.label]
+  if (length(tset) < 2) return(NA_integer_)
+  getMRCA(tr, tset)
+}
+
+# Find high-purity clade nodes (re-derives from tree topology)
+find_purity_node <- function(target_tips, all_cenpa_tips, tr,
+                              min_purity = 0.6, min_recall = 0.50) {
+  target_tips <- intersect(target_tips, tr$tip.label)
+  all_cenpa_tips <- intersect(all_cenpa_tips, tr$tip.label)
+  n_target <- length(target_tips)
+  if (n_target < 2) return(NA_integer_)
+  n_nodes <- tr$Nnode
+  n_tips  <- Ntip(tr)
+  best_f1 <- -1; best_node <- NA_integer_
+  for (nd in (n_tips + 1):(n_tips + n_nodes)) {
+    desc <- tryCatch(phangorn::Descendants(tr, nd, type = "tips")[[1]], error = function(e) integer(0))
+    if (!length(desc)) next
+    desc_labels <- tr$tip.label[desc]
+    n_desc      <- length(desc_labels)
+    tp    <- sum(desc_labels %in% target_tips)
+    fp    <- sum(desc_labels %in% all_cenpa_tips) - tp
+    purity <- tp / (tp + fp + 1e-10)
+    recall <- tp / n_target
+    if (purity < min_purity || recall < min_recall) next
+    f1 <- 2 * purity * recall / (purity + recall + 1e-10)
+    if (f1 > best_f1) { best_f1 <- f1; best_node <- nd }
+  }
+  best_node
+}
+
+all_cenpa_tips <- tips[!is_h3_tip & !is_arch_tip]
+
+cat("Searching for purity-based clade nodes (may take a moment)...\n")
+suppressPackageStartupMessages(library(phangorn))
+
+node_ins  <- find_purity_node(cenpa_ins,  all_cenpa_tips, tr)
+node_vert <- find_purity_node(cenpa_vert, all_cenpa_tips, tr)
+node_fung <- find_purity_node(cenpa_fung, all_cenpa_tips, tr)
+node_plnt <- find_purity_node(cenpa_plnt, all_cenpa_tips, tr)
+
+cat(sprintf("Clade nodes — insects: %d  vertebrates: %d  fungi: %d  plants: %d\n",
+            node_ins, node_vert, node_fung, node_plnt))
+```
+
+---
+
+## 7. Build circular ggtree plot
+
+```{r ggtree_plot, fig.width=17, fig.height=17}
+p <- ggtree(tr, layout = "circular", linewidth = 0.10, colour = "grey60") %<+% tip_df +
+  # Background H3 / archaea tips: small, faint
+  geom_tippoint(
+    aes(colour = category,
+        size   = ifelse(category %in% c("H3", "Archaea"), 0.25, 0.75),
+        alpha  = ifelse(category %in% c("H3", "Archaea"), 0.40, 1.00),
+        shape  = shape),
+    show.legend = FALSE
+  ) +
+  # CenpA tips on top: larger, opaque, correct shape
+  geom_tippoint(
+    data = function(d) subset(d, !is.na(category) &
+                                !grepl("^H3$|^Archaea$", category)),
+    aes(colour = category, shape = shape),
+    size  = 1.0,
+    alpha = 0.95
+  ) +
+  scale_colour_manual(
+    values = pal_cenpa,
+    name   = "Centromere architecture",
+    labels = c(
+      "Satellite"           = "Satellite",
+      "Transposon"          = "Transposon",
+      "Holocentric"         = "Holocentric",
+      "Satellite/transposon"= "Satellite/Transposon",
+      "Cryptic"             = "Cryptic (Unknown/Monocentric)",
+      "H3"                  = "H3",
+      "Archaea"             = "Archaea"
+    ),
+    na.value = "#BDBDBD"
+  ) +
+  scale_shape_identity() +
+  scale_size_identity() +
+  scale_alpha_identity() +
+  guides(colour = guide_legend(
+    override.aes = list(size = 3, shape = c(16, 16, 17, 16, 16, 16, 16))
+  )) +
+  theme(
+    legend.position   = c(0.87, 0.45),
+    legend.key.size   = unit(0.35, "cm"),
+    legend.text       = element_text(size = 7.5),
+    legend.title      = element_text(size = 8.5, face = "bold"),
+    legend.background = element_rect(fill = "white", colour = "grey80", linewidth = 0.3),
+    plot.title        = element_text(size = 10, face = "bold", hjust = 0.5)
+  ) +
+  ggtitle("CenpA + H3 + Archaea phylogeny  (bnni converged, 1337 tips)")
+
+# Add clade highlights and arc labels
+clade_info <- list(
+  list(node = node_ins,  label = "CenpA Insects",      col = "#E65100"),
+  list(node = node_vert, label = "CenpA Vertebrates",   col = "#1565C0"),
+  list(node = node_fung, label = "CenpA Fungi",         col = "#6A1B9A"),
+  list(node = node_plnt, label = "CenpA Viridiplantae", col = "#2E7D32")
+)
+
+for (ci in clade_info) {
+  if (!is.na(ci$node)) {
+    p <- p +
+      geom_hilight(node = ci$node, fill = ci$col, alpha = 0.08, extend = 0.4) +
+      geom_cladelab(node = ci$node, label = ci$label,
+                    fontsize = 2.5, offset = 0.5, offset.text = 0.08,
+                    barsize = 0.6, barcolour = ci$col, textcolour = ci$col,
+                    hjust = 0.5)
+  }
+}
+
+p
+```
+
+---
+
+## 8. iTOL annotation files
+
+Pre-generated iTOL annotation files are in `19_curated_tree/iTOL_bnni/`:
+
+| File | Type | Description |
+|------|------|-------------|
+| `cenpa_H3_archaea_bnni_rooted.nwk` | Tree | Rooted Newick — upload to iTOL |
+| `iTOL_centromere_symbols.txt` | DATASET_SYMBOL | Circles for all CenpA; colours by architecture |
+| `iTOL_centromere_architecture.txt` | DATASET_COLORSTRIP | Colour strip by architecture |
+| `iTOL_taxonomic_clade.txt` | DATASET_COLORSTRIP | Colour strip by organism group |
+| `iTOL_centromere_binary.txt` | DATASET_BINARY | One column per architecture type |
+| `iTOL_taxonomic_treecolors.txt` | TREE_COLORS | Tip label colours by taxonomic group |
+
+```{r check_itol}
+itol_files <- list.files(ITOL_DIR, full.names = FALSE)
+cat("iTOL annotation files available:\n")
+for (f in sort(itol_files)) cat(" ", f, "\n")
+```
+
+### Symbol colour map
+
+```{r itol_symbol_map}
+sym_df <- data.frame(
+  Category = c("Satellite", "Transposon", "Holocentric",
+               "Satellite/transposon", "Cryptic (Unknown + Monocentric)",
+               "H3", "Archaea"),
+  Colour   = c("#ff006e", "#3a86ff", "#2d7d32",
+               "#8338ec", "#808080",
+               "—", "—"),
+  Symbol   = c("Circle", "Circle", "Circle",
+               "Circle", "Circle",
+               "None", "None"),
+  stringsAsFactors = FALSE
+)
+knitr::kable(sym_df, caption = "iTOL DATASET_SYMBOL colour and shape map")
+```
+
+---
+
+## 9. Save plots
+
+```{r save_plots, eval=FALSE}
+OUT <- file.path(dirname(knitr::current_input(dir = TRUE)), "output")
+dir.create(OUT, showWarnings = FALSE)
+
+ggsave(file.path(OUT, "panel_D_cenpa_phylogeny.pdf"), p, width = 17, height = 17)
+ggsave(file.path(OUT, "panel_D_cenpa_phylogeny.png"), p, width = 17, height = 17, dpi = 180)
+cat("Saved to:", OUT, "\n")
+```
+
+---
+
+## Session info
+
+```{r session}
+sessionInfo()
+```

@@ -1,0 +1,336 @@
+species_code_full	species_parsed	centromere_type	cenpa_presence	cenpa_source	cenpa_count_raw	cenpa_count_curated	n_curated_seqs	n_unique_loci	n_isoforms_collapsed	copy_number_call	n_seqs_pass40pct	n_loci_pass40pct	copy_number_call_40pct	n_scaffolds	loci_per_scaffold	n_seqs_with_blast_hit	best_blast_pct_id	best_blast_ref	pct_id_Human_CENPA	pct_id_Zebrafish_CENPA	pct_id_Arabidopsis_CENH3	pct_id_Rice_CENH3	pct_id_Yeast_CSE4	pct_id_Spombe_CNP1	pct_id_Drosophila_CID	pct_id_CElegans_HCP3	blast_confidence	notes	seq_ids
+lpPolViri1.hap1.1	lpPolViri	Transposon		diamond	125	12	12	12	0	expanded	12	12	expanded	6	OZ174307.1(1 gene); OZ174309.1(1 gene); OZ174310.1(2 genes); OZ174315.1(1 gene); OZ174317.1(4 genes); OZ174320.1(3 genes)	12	61.5	Zebrafish_CENPA	—	61.5	—	—	—	—	—	—	PASS	Highly expanded: 12 distinct loci	lpPolViri_ENA|OZ174310|OZ174310.1_003604.1|lpPolViri_ENA|OZ174315|OZ174315.1_001201.1|lpPolViri_ENA|OZ174310|OZ174310.1_001356.1|lpPolViri_ENA|OZ174317|OZ174317.1_005503.1|lpPolViri_ENA|OZ174320|OZ174320.1_004614.1|lpPolViri_ENA|OZ174317|OZ174317.1_005502.1|lpPolViri_ENA|OZ174320|OZ174320.1_004617.1|lpPolViri_ENA|OZ174317|OZ174317.1_005505.1|lpPolViri_ENA|OZ174309|OZ174309.1_001946.1|lpPolViri_ENA|OZ174307|OZ174307.1_001979.1|lpPolViri_ENA|OZ174320|OZ174320.1_004616.1|lpPolViri_ENA|OZ174317|OZ174317.1_005504.1
+ucPycProv1.1	ucPycProv1	Unknown	Absent	miniprot	20	8	8	8	0	expanded	8	8	expanded	1	rescue(8 genes)	8	63.3	Zebrafish_CENPA	—	63.3	—	—	—	—	—	—	PASS	Sequences present in curated set but species called Absent in phylogenetic profiling tree	ucPycProv1_rescue17|ucPycProv1_rescue14|ucPycProv1_rescue19|ucPycProv1_rescue12|ucPycProv1_rescue18|ucPycProv1_rescue10|ucPycProv1_rescue20|ucPycProv1_rescue7
+lpHieOdor1.hap1.1	lpHieOdor1	Transposon		diamond	145	7	7	7	0	expanded	7	7	expanded	1	unknown(7 genes)	7	63.2	Zebrafish_CENPA	—	63.2	—	—	—	—	—	—	PASS		lpHieOdor1_odorata_Chr12_004373.1|lpHieOdor1_odorata_Chr8_004004.1|lpHieOdor1_odorata_Chr8_004006.1|lpHieOdor1_odorata_Chr12_004375.1|lpHieOdor1_odorata_Chr8_004005.1|lpHieOdor1_odorata_Chr12_005750.1|lpHieOdor1_odorata_Chr12_005754.1
+dmThaMinu1.hap1.1	dmThaMinu	Satellite		diamond	45	6	6	6	0	expanded	6	6	expanded	3	OZ239688.1(2 genes); OZ239695.1(2 genes); OZ239702.1(2 genes)	6	64.1	Zebrafish_CENPA	—	64.1	—	—	—	—	—	—	PASS		dmThaMinu_ENA|OZ239695|OZ239695.1_002366.1|dmThaMinu_ENA|OZ239702|OZ239702.1_000088.1|dmThaMinu_ENA|OZ239688|OZ239688.1_000081.1|dmThaMinu_ENA|OZ239702|OZ239702.1_004154.1|dmThaMinu_ENA|OZ239688|OZ239688.1_004868.1|dmThaMinu_ENA|OZ239695|OZ239695.1_002226.1
+icNebBrev1.1	icNebBrev1	Satellite	Present	diamond	45	5	5	5	0	expanded	4	4	expanded	4	10(1 gene); 12(1 gene); 6(2 genes); X(1 gene)	5	54.4	Human_CENPA	54.4	—	—	—	—	—	—	36.7	PASS		icNebBrev1_chr_X_000480.1|icNebBrev1_chr_10_000503.1|icNebBrev1_chr_6_000513.1|icNebBrev1_chr_6_000281.1|icNebBrev1_chr_12_000214.1
+lpLuzPall1.1	lpLuzPall	Holocentric	Present	diamond	17	5	5	5	0	expanded	5	5	expanded	2	OZ187630.1(4 genes); OZ187632.1(1 gene)	5	60.0	CElegans_HCP3	—	57.6	—	—	—	—	—	60.0	PASS		lpLuzPall_ENA|OZ187632|OZ187632.1_002533.1|lpLuzPall_ENA|OZ187630|OZ187630.1_000126.1|lpLuzPall_ENA|OZ187630|OZ187630.1_004629.1|lpLuzPall_ENA|OZ187630|OZ187630.1_000127.1|lpLuzPall_ENA|OZ187630|OZ187630.1_004630.1
+qeOrcFlav1.1	qeOrcFlav	Satellite	Present	diamond	47	5	5	5	0	expanded	2	2	low_copy	3	OZ035953.1(1 gene); OZ035954.1(3 genes); OZ035957.1(1 gene)	5	48.2	Zebrafish_CENPA	—	48.2	—	—	—	—	—	—	PASS		qeOrcFlav_ENA|OZ035954|OZ035954.1_006493.1|qeOrcFlav_ENA|OZ035954|OZ035954.1_006488.1|qeOrcFlav_ENA|OZ035954|OZ035954.1_003646.1|qeOrcFlav_ENA|OZ035957|OZ035957.1_000903.1|qeOrcFlav_ENA|OZ035953|OZ035953.1_002172.1
+rosCan	rosCan	?	?	?	?	?	5	5	0	expanded	5	5	expanded	1	unknown(5 genes)	5	50.5	Zebrafish_CENPA	—	50.5	—	—	—	—	—	—	PASS		rosCan_subseq1_Rca1_S2_004089.1|rosCan_subseq1_Rca1_S1_h2_004335.1|rosCan_subseq1_Rca1_S1_h1_004331.1|rosCan_subseq1_Rca1_R4_003919.1|rosCan_subseq1_Rca1_R3_004165.1
+cbCalCord2.1	cbCalCord2	Transposon	Present	diamond	27	4	4	4	0	expanded	4	4	expanded	4	OZ209165.1(1 gene); OZ209167.1(1 gene); OZ209170.1(1 gene); OZ209173.1(1 gene)	4	57.6	Zebrafish_CENPA	—	57.6	—	—	—	—	—	—	PASS		cbCalCord2_ENA|OZ209165|OZ209165.1_000787.1|cbCalCord2_ENA|OZ209167|OZ209167.1_000760.1|cbCalCord2_ENA|OZ209173|OZ209173.1_000634.1|cbCalCord2_ENA|OZ209170|OZ209170.1_000696.1
+cbIsoPulc3.1	cbIsoPulc3	Transposon	Present	diamond	25	4	4	4	0	expanded	4	4	expanded	4	OZ210564.1(1 gene); OZ210566.1(1 gene); OZ210567.1(1 gene); OZ210568.1(1 gene)	4	57.6	Zebrafish_CENPA	—	57.6	—	—	—	—	—	—	PASS		cbIsoPulc3_ENA|OZ210566|OZ210566.1_001820.1|cbIsoPulc3_ENA|OZ210564|OZ210564.1_001813.1|cbIsoPulc3_ENA|OZ210568|OZ210568.1_000797.1|cbIsoPulc3_ENA|OZ210567|OZ210567.1_000808.1
+dcPolTetr1.hap1.1	dcPolTetr	Satellite		diamond	44	4	4	4	0	expanded	4	4	expanded	4	OZ251114.1(1 gene); OZ251117.1(1 gene); OZ251127.1(1 gene); OZ251134.1(1 gene)	4	52.3	Zebrafish_CENPA	—	52.3	—	—	—	—	—	—	PASS		dcPolTetr_ENA|OZ251114|OZ251114.1_000944.1|dcPolTetr_ENA|OZ251127|OZ251127.1_002546.1|dcPolTetr_ENA|OZ251134|OZ251134.1_000830.1|dcPolTetr_ENA|OZ251117|OZ251117.1_002414.1
+icApoCory1.1	icApoCory1	Satellite	Present	diamond	17	4	4	4	0	expanded	4	4	expanded	4	13(1 gene); 16(1 gene); 3(1 gene); unknown(1 gene)	4	50.6	Zebrafish_CENPA	49.4	50.6	—	—	—	—	—	—	PASS		icApoCory1_chr_13_000947.1|icApoCory1_chr_3_000392.1|icApoCory1_chr_16_000686.1|icApoCory1_scf_70_000004.1
+icSilAtra2.1	icSilAtra2	Satellite	Present	diamond	51	4	4	4	0	expanded	4	4	expanded	1	5(4 genes)	4	44.2	CElegans_HCP3	—	—	—	—	—	—	—	44.2	PASS		icSilAtra2_chr_5_001094.1|icSilAtra2_chr_5_001090.1|icSilAtra2_chr_5_001091.1|icSilAtra2_chr_5_001095.1
+lpDigSang1.hap1.1	lpDigSang	Satellite		diamond	29	4	4	4	0	expanded	4	4	expanded	2	OZ156432.1(2 genes); OZ156436.1(2 genes)	4	61.6	Zebrafish_CENPA	—	61.6	—	—	—	—	—	—	PASS		lpDigSang_ENA|OZ156436|OZ156436.1_001160.1|lpDigSang_ENA|OZ156432|OZ156432.1_001273.1|lpDigSang_ENA|OZ156436|OZ156436.1_001159.1|lpDigSang_ENA|OZ156432|OZ156432.1_001272.1
+lpPhlPrat1.hap1.1	lpPhlPrat	Satellite		diamond	50	4	4	4	0	expanded	4	4	expanded	3	OZ273854.1(1 gene); OZ273858.1(2 genes); OZ273859.1(1 gene)	4	58.5	Zebrafish_CENPA	—	58.5	—	—	—	—	—	—	PASS		lpPhlPrat_ENA|OZ273859|OZ273859.1_006049.1|lpPhlPrat_ENA|OZ273858|OZ273858.1_001346.1|lpPhlPrat_ENA|OZ273858|OZ273858.1_001347.1|lpPhlPrat_ENA|OZ273854|OZ273854.1_005820.1
+lpPoaChai1.hap1.1	lpPoaChai	Transposon		diamond	40	4	4	4	0	expanded	4	4	expanded	2	OZ173744.1(2 genes); OZ173747.1(2 genes)	4	63.6	Zebrafish_CENPA	—	63.6	—	—	—	—	—	—	PASS		lpPoaChai_ENA|OZ173747|OZ173747.1_000064.1|lpPoaChai_ENA|OZ173747|OZ173747.1_000063.1|lpPoaChai_ENA|OZ173744|OZ173744.1_001275.1|lpPoaChai_ENA|OZ173744|OZ173744.1_001276.1
+bGalGal1.GRCg7b	bGalGal1	Satellite		both	36	3	3	3	0	low_copy	3	3	low_copy	2	16(1 gene); rescue(2 genes)	3	70.7	Human_CENPA	70.7	—	—	—	—	—	—	—	PASS		bGalGal1_rescue20|bGalGal1_rescue6|bGalGal1_GRCg7b_chr_16_000087.1
+bTaeGut1.4	bTaeGut1	Unknown	Present	diamond	17	3	3	3	0	low_copy	3	3	low_copy	2	30(2 genes); W(1 gene)	3	65.1	Zebrafish_CENPA	—	65.1	—	—	—	—	—	—	PASS		bTaeGut1_chr_W_000142.1|bTaeGut1_chr_30_000089.1|bTaeGut1_chr_30_000077.1
+dcPolAvic1.1	dcPolAvic1	Satellite	Present	diamond	21	3	3	3	0	low_copy	3	3	low_copy	3	6(1 gene); 7(1 gene); 9(1 gene)	3	50.4	Zebrafish_CENPA	—	50.4	—	—	—	—	—	45.3	PASS		dcPolAvic1_chr_7_002442.1|dcPolAvic1_chr_9_001133.1|dcPolAvic1_chr_6_001888.1
+drFilUlma1.1	drFilUlma1	Transposon	Present	diamond	15	3	3	3	0	low_copy	3	3	low_copy	3	3(1 gene); 5(1 gene); 7(1 gene)	3	59.5	Zebrafish_CENPA	—	59.5	—	—	—	—	—	—	PASS		drFilUlma1_SUPER_3_002751.1|drFilUlma1_SUPER_5_003094.1|drFilUlma1_SUPER_7_003538.1
+drGeuUrba1.1	drGeuUrba1	Transposon	Present	diamond	34	3	3	3	0	low_copy	1	1	single_copy	3	1(1 gene); 3(1 gene); 4(1 gene)	3	56.6	Zebrafish_CENPA	—	56.6	—	—	—	—	—	38.4	PASS		drGeuUrba1_SUPER_3_003430.1|drGeuUrba1_SUPER_1_001199.1|drGeuUrba1_SUPER_4_001309.1
+drHedHeli1.1	drHedHeli1	Satellite	Present	diamond	37	3	3	3	0	low_copy	3	3	low_copy	2	24(1 gene); 9(2 genes)	3	58.5	Zebrafish_CENPA	—	58.5	—	—	—	—	—	—	PASS		drHedHeli1_SUPER_9_001915.1|drHedHeli1_SUPER_24_000828.1|drHedHeli1_SUPER_9_000037.1
+drMalDome5.1	drMalDome5	Transposon	Present	diamond	23	3	3	3	0	low_copy	3	3	low_copy	3	1(1 gene); 3(1 gene); 7(1 gene)	3	58.3	Zebrafish_CENPA	—	58.3	—	—	—	—	—	—	PASS		drMalDome5_chr_1_001959.1|drMalDome5_chr_7_002109.1|drMalDome5_chr_3_000733.1
+drMalSylv7.1	drMalSylv7	Transposon	Present	diamond	24	3	3	3	0	low_copy	3	3	low_copy	3	1(1 gene); 3(1 gene); 7(1 gene)	3	58.3	Zebrafish_CENPA	—	58.3	—	—	—	—	—	—	PASS		drMalSylv7_chr_1_001941.1|drMalSylv7_chr_7_002063.1|drMalSylv7_chr_3_000736.1
+fAciRut3.2	fAciRut3	Satellite/transposon	Present	diamond	108	3	3	3	0	low_copy	3	3	low_copy	3	38(1 gene); 41(1 gene); 8(1 gene)	3	63.1	Zebrafish_CENPA	—	63.1	—	—	—	—	—	54.1	PASS		fAciRut3_chr_8_000087.1|fAciRut3_chr_41_000200.1|fAciRut3_chr_38_000217.1
+icMelMelo1_chunk1	icMelMelo1_chunk1	?	?	?	?	?	3	3	0	low_copy	2	2	low_copy	1	2(3 genes)	3	54.1	Human_CENPA	54.1	38.4	—	—	—	—	—	—	PASS		icMelMelo1_chunk1_chr_2_007509.1|icMelMelo1_chunk1_chr_2_000315.1|icMelMelo1_chunk1_chr_2_002670.1
+icNebSali1.1	icNebSali1	Satellite	Present	diamond	9	3	3	3	0	low_copy	3	3	low_copy	3	18(1 gene); 9(1 gene); X(1 gene)	3	55.1	Human_CENPA	55.1	—	—	—	—	—	—	43.3	PASS		icNebSali1_chr_X_001400.1|icNebSali1_chr_9_000388.1|icNebSali1_chr_18_000201.1
+icOphArdo1.1	icOphArdo1	Transposon	Present	diamond	66	3	3	3	0	low_copy	3	3	low_copy	3	12(1 gene); 15(1 gene); 9(1 gene)	3	49.5	Human_CENPA	49.5	—	—	—	—	—	—	—	PASS		icOphArdo1_chr_15_000012.1|icOphArdo1_chr_12_001024.1|icOphArdo1_chr_9_001253.1
+idProAzur1.1	idProAzur1	Satellite	Present	diamond	132	3	3	3	0	low_copy	2	2	low_copy	2	3(1 gene); 5(2 genes)	3	47.7	Human_CENPA	47.7	—	—	—	—	—	38.9	—	PASS		idProAzur1_chr_3_003119.1|idProAzur1_chr_5_002429.1|idProAzur1_chr_5_001012.1
+idSicFerr1.1	idSicFerr1	Transposon	Present	diamond	75	3	3	3	0	low_copy	2	2	low_copy	1	X(3 genes)	3	65.8	Zebrafish_CENPA	—	65.8	—	—	—	—	36.5	—	PASS		idSicFerr1_chr_X_001254.1|idSicFerr1_chr_X_002574.1|idSicFerr1_chr_X_002608.1
+idSphTaen1.1	idSphTaen1	Transposon	Present	diamond	54	3	3	3	0	low_copy	0	0	no_confirmed_copy	2	1(2 genes); 3(1 gene)	3	34.0	Drosophila_CID	—	—	—	—	—	—	34.0	—	BELOW_40PCT		idSphTaen1_chr_1_003521.1|idSphTaen1_chr_3_003127.1|idSphTaen1_chr_1_004640.1
+lpBroSter1.1	lpBroSter1	Transposon	Present	diamond	46	3	3	3	0	low_copy	3	3	low_copy	2	OX465599.1(1 gene); OX465601.1(2 genes)	3	56.6	Zebrafish_CENPA	—	56.6	—	—	—	—	—	—	PASS		lpBroSter1_ENA|OX465601|OX465601.1_000886.1|lpBroSter1_ENA|OX465601|OX465601.1_004647.1|lpBroSter1_ENA|OX465599|OX465599.1_003768.1
+lpHorVulg1.hap1.1	lpHorVulg1	Transposon		diamond	60	3	3	3	0	low_copy	3	3	low_copy	1	unknown(3 genes)	3	54.2	Zebrafish_CENPA	—	54.2	—	—	—	—	—	—	PASS		lpHorVulg1_vulgare_Chr5_004764.1|lpHorVulg1_vulgare_Chr7_004138.1|lpHorVulg1_vulgare_Chr7_002188.1
+lpJunBufo1.hap1.1	lpJunBufo	Satellite		diamond	26	3	3	3	0	low_copy	3	3	low_copy	3	OZ263723.1(1 gene); OZ263725.1(1 gene); OZ263730.1(1 gene)	3	56.1	Zebrafish_CENPA	—	56.1	—	—	—	—	—	—	PASS		lpJunBufo_ENA|OZ263730|OZ263730.1_000539.1|lpJunBufo_ENA|OZ263725|OZ263725.1_000072.1|lpJunBufo_ENA|OZ263723|OZ263723.1_000578.1
+lpLeeOryz1.hap1.1	lpLeeOryz	Satellite		diamond	30	3	3	3	0	low_copy	3	3	low_copy	3	OZ228960.1(1 gene); OZ228964.1(1 gene); OZ228968.1(1 gene)	3	67.5	Zebrafish_CENPA	—	67.5	—	—	—	—	—	—	PASS		lpLeeOryz_ENA|OZ228960|OZ228960.1_003231.1|lpLeeOryz_ENA|OZ228968|OZ228968.1_000360.1|lpLeeOryz_ENA|OZ228964|OZ228964.1_000377.1
+lpLuzSylv1.1	lpLuzSylv1	Holocentric	Present	diamond	13	3	3	3	0	low_copy	3	3	low_copy	3	1(1 gene); 4(1 gene); 5(1 gene)	3	62.2	Zebrafish_CENPA	—	62.2	—	—	—	—	—	—	PASS		lpLuzSylv1_SUPER_4_002983.1|lpLuzSylv1_SUPER_5_000676.1|lpLuzSylv1_SUPER_1_004784.1
+cbHylTriq8.1	cbHylTriq	Transposon	Present	diamond	11	2	2	2	0	low_copy	2	2	low_copy	2	OZ249201.1(1 gene); OZ249204.1(1 gene)	2	56.9	Zebrafish_CENPA	—	56.9	—	—	—	—	—	—	PASS		cbHylTriq_ENA|OZ249201|OZ249201.1_003282.1|cbHylTriq_ENA|OZ249204|OZ249204.1_001870.1
+cbPolSexa1.1	cbPolSexa	Transposon	Present	diamond	22	2	2	2	0	low_copy	2	2	low_copy	2	OZ222685.1(1 gene); OZ222686.1(1 gene)	2	69.8	Zebrafish_CENPA	—	69.8	—	—	—	—	—	—	PASS		cbPolSexa_ENA|OZ222686|OZ222686.1_001111.1|cbPolSexa_ENA|OZ222685|OZ222685.1_001054.1
+cbRhyConf1.1	cbRhyConf	Unknown	Present	diamond	14	2	2	2	0	low_copy	2	2	low_copy	2	OZ259491.1(1 gene); OZ259494.1(1 gene)	2	62.5	CElegans_HCP3	—	46.2	—	—	—	—	—	62.5	PASS		cbRhyConf_ENA|OZ259491|OZ259491.1_000841.1|cbRhyConf_ENA|OZ259494|OZ259494.1_000729.1
+cbRhyLore1.1	cbRhyLore1	Transposon	Present	diamond	14	2	2	2	0	low_copy	2	2	low_copy	1	3(2 genes)	2	52.1	Zebrafish_CENPA	—	52.1	—	—	—	—	—	—	PASS		cbRhyLore1_SUPER_3_001400.1|cbRhyLore1_SUPER_3_003020.1
+cbThuTama2.1	cbThuTama2	Transposon	Present	diamond	10	2	2	2	0	low_copy	2	2	low_copy	2	3(1 gene); 8(1 gene)	2	54.9	Zebrafish_CENPA	—	54.9	—	—	—	—	—	—	PASS		cbThuTama2_SUPER_3_000079.1|cbThuTama2_SUPER_8_000860.1
+daBalNigr1.1	daBalNigr1	Satellite	Present	diamond	20	2	2	2	0	low_copy	2	2	low_copy	2	2(1 gene); 6(1 gene)	2	60.0	Zebrafish_CENPA	—	60.0	—	—	—	—	—	—	PASS		daBalNigr1_SUPER_6_001114.1|daBalNigr1_SUPER_2_003653.1
+daTanVulg1_GCA_964264315	daTanVulg1_GCA_964264315	?	?	?	?	?	2	2	0	low_copy	2	2	low_copy	2	Chr8(1 gene); Chr9(1 gene)	2	52.0	Zebrafish_CENPA	—	52.0	—	—	—	—	—	—	PASS		daTanVulg1_GCA_964264315_chr_Chr9_009480.1|daTanVulg1_GCA_964264315_chr_Chr8_000942.1
+dcAreSerp1.hap1.1	dcAreSerp	Satellite		diamond	38	2	2	2	0	low_copy	2	2	low_copy	2	OZ174158.1(1 gene); OZ174166.1(1 gene)	2	51.3	Zebrafish_CENPA	—	51.3	—	—	—	—	—	—	PASS		dcAreSerp_ENA|OZ174166|OZ174166.1_000051.1|dcAreSerp_ENA|OZ174158|OZ174158.1_003483.1
+dcSpeMari1.1	dcSpeMari	Satellite	Present	diamond	25	2	2	2	0	low_copy	2	2	low_copy	2	OY804549.1(1 gene); OY804556.1(1 gene)	2	51.4	Zebrafish_CENPA	—	51.4	—	—	—	—	—	—	PASS		dcSpeMari_ENA|OY804556|OY804556.1_000562.1|dcSpeMari_ENA|OY804549|OY804549.1_000611.1
+dmAquVulg1.hap1.1	dmAquVulg	Satellite		diamond	17	2	2	2	0	low_copy	2	2	low_copy	1	OZ198186.1(2 genes)	2	61.8	Zebrafish_CENPA	—	61.8	—	—	—	—	—	—	PASS		dmAquVulg_ENA|OZ198186|OZ198186.1_002249.1|dmAquVulg_ENA|OZ198186|OZ198186.1_002113.1
+dmBerVulg1.1	dmBerVulg	Satellite	Present	diamond	32	2	2	2	0	low_copy	1	1	single_copy	2	OY747126.1(1 gene); OY747131.1(1 gene)	2	59.1	Zebrafish_CENPA	—	59.1	—	—	—	—	—	—	PASS		dmBerVulg_ENA|OY747131|OY747131.1_000095.1|dmBerVulg_ENA|OY747126|OY747126.1_000149.1
+drAilAlti1.1	drAilAlti1	Transposon	Present	diamond	19	2	2	2	0	low_copy	2	2	low_copy	2	1(1 gene); 2(1 gene)	2	63.5	Zebrafish_CENPA	—	63.5	—	—	—	—	—	—	PASS		drAilAlti1_SUPER_1_001962.1|drAilAlti1_SUPER_2_000977.1
+drAstGlyc1.1	drAstGlyc	Satellite	Present	diamond	23	2	2	2	0	low_copy	2	2	low_copy	2	OY754307.1(1 gene); OY754311.1(1 gene)	2	52.9	Zebrafish_CENPA	—	52.9	—	—	—	—	—	—	PASS		drAstGlyc_ENA|OY754311|OY754311.1_002329.1|drAstGlyc_ENA|OY754307|OY754307.1_003561.1
+drChaAngu1.1	drChaAngu1	Satellite	Present	diamond	24	2	2	2	0	low_copy	2	2	low_copy	2	12(1 gene); 4(1 gene)	2	53.0	Zebrafish_CENPA	—	53.0	—	—	—	—	—	—	PASS		drChaAngu1_SUPER_12_000200.1|drChaAngu1_SUPER_4_001038.1
+drGeuRiva1.hap1.1	drGeuRiva	Satellite		diamond	27	2	2	2	0	low_copy	1	1	single_copy	2	OZ123678.1(1 gene); OZ123680.1(1 gene)	2	56.6	Zebrafish_CENPA	—	56.6	—	—	—	—	—	—	PASS		drGeuRiva_ENA|OZ123678|OZ123678.1_001365.1|drGeuRiva_ENA|OZ123680|OZ123680.1_001094.1
+drParJuda1.1	drParJuda1	Satellite	Present	diamond	21	2	2	2	0	low_copy	2	2	low_copy	2	5(1 gene); 6(1 gene)	2	50.0	Zebrafish_CENPA	—	50.0	—	—	—	—	—	—	PASS		drParJuda1_SUPER_6_000751.1|drParJuda1_SUPER_5_002377.1
+drTriFrag1.1	drTriFrag1	Satellite	Present	diamond	17	2	2	2	0	low_copy	1	1	single_copy	1	4(2 genes)	2	50.5	Zebrafish_CENPA	—	50.5	—	—	—	—	—	—	PASS		drTriFrag1_SUPER_4_003909.1|drTriFrag1_SUPER_4_000534.1
+drUrtUren1.1	drUrtUren1	Transposon	Present	diamond	10	2	2	2	0	low_copy	2	2	low_copy	1	7(2 genes)	2	53.8	Zebrafish_CENPA	—	53.8	—	—	—	—	—	—	PASS		drUrtUren1_SUPER_7_000978.1|drUrtUren1_SUPER_7_000167.1
+fBarBab1.1	fBarBab1	Satellite	Present	diamond	50	2	2	2	0	low_copy	2	2	low_copy	2	19(1 gene); 27(1 gene)	2	89.3	Zebrafish_CENPA	—	89.3	—	—	—	—	—	—	PASS		fBarBab1_chr_27_000024.1|fBarBab1_chr_19_000038.1
+icAgrMuri1.1	icAgrMuri1	Unknown	Present	diamond	22	2	2	2	0	low_copy	2	2	low_copy	2	1(1 gene); X(1 gene)	2	45.7	Zebrafish_CENPA	—	45.7	—	—	—	—	—	—	PASS		icAgrMuri1_chr_X_001432.1|icAgrMuri1_chr_1_001435.1
+icCocSept1.1	icCocSept1	Satellite	Present	diamond	4	2	2	2	0	low_copy	0	0	no_confirmed_copy	2	5(1 gene); 9(1 gene)	2	33.9	Zebrafish_CENPA	—	33.9	—	—	—	—	27.9	—	BELOW_40PCT		icCocSept1_chr_9_000347.1|icCocSept1_chr_5_001216.1
+icNicInve2.1	icNicInve	Satellite	Present	diamond	14	2	2	2	0	low_copy	2	2	low_copy	1	OY735145.1(2 genes)	2	46.2	Human_CENPA	46.2	42.9	—	—	—	—	—	—	PASS		icNicInve_ENA|OY735145|OY735145.1_001118.1|icNicInve_ENA|OY735145|OY735145.1_000124.1
+icQueLate1.hap1.1	icQueLate	Satellite		diamond	27	2	2	2	0	low_copy	1	1	single_copy	1	OZ202138.1(2 genes)	2	47.7	Human_CENPA	47.7	—	—	—	—	—	—	—	PASS		icQueLate_ENA|OZ202138|OZ202138.1_000096.1|icQueLate_ENA|OZ202138|OZ202138.1_000095.1
+idAntAnth1.1	idAntAnth	Satellite	Present	diamond	217	2	2	2	0	low_copy	1	1	single_copy	2	OZ020117.1(1 gene); OZ020118.1(1 gene)	2	48.0	Drosophila_CID	—	—	—	—	—	—	48.0	—	PASS		idAntAnth_ENA|OZ020118|OZ020118.1_000838.1|idAntAnth_ENA|OZ020117|OZ020117.1_000057.1
+idBelPand1.1	idBelPand1	Satellite	Present	diamond	18	2	2	2	0	low_copy	0	0	no_confirmed_copy	2	4(1 gene); 5(1 gene)	2	36.8	Drosophila_CID	—	—	—	—	—	—	36.8	—	BELOW_40PCT		idBelPand1_chr_5_001847.1|idBelPand1_chr_4_000362.1
+idBomDisc1.1	idBomDisc1	Satellite	Present	diamond	71	2	2	2	0	low_copy	1	1	single_copy	2	3(1 gene); 5(1 gene)	2	40.2	Drosophila_CID	—	37.6	—	—	—	—	40.2	—	PASS		idBomDisc1_chr_3_001611.1|idBomDisc1_chr_5_001452.1
+idCluTigr1.1	idCluTigr1	Satellite	Present	diamond	152	2	2	2	0	low_copy	2	2	low_copy	2	1(1 gene); 3(1 gene)	2	46.8	Drosophila_CID	—	—	—	—	—	—	46.8	—	PASS		idCluTigr1_chr_3_002555.1|idCluTigr1_chr_1_005434.1
+idHydCyrt1.1	idHydCyrt	Satellite	Present	diamond	109	2	2	2	0	low_copy	1	1	single_copy	2	OY282513.1(1 gene); OY282516.1(1 gene)	2	42.6	Human_CENPA	42.6	—	—	—	—	—	31.6	—	PASS		idHydCyrt_ENA|OY282516|OY282516.1_003117.1|idHydCyrt_ENA|OY282513|OY282513.1_000785.1
+idMelRora1.1	idMelRora	Transposon	Present	diamond	114	2	2	2	0	low_copy	0	0	no_confirmed_copy	2	OY757189.1(1 gene); OY757191.1(1 gene)	2	38.4	Drosophila_CID	—	—	—	—	—	—	38.4	—	BELOW_40PCT		idMelRora_ENA|OY757191|OY757191.1_002937.1|idMelRora_ENA|OY757189|OY757189.1_001146.1
+idNepFlae1.1	idNepFlae1	Transposon	Present	diamond	67	2	2	2	0	low_copy	0	0	no_confirmed_copy	1	2(2 genes)	2	38.2	Drosophila_CID	—	—	—	—	—	—	38.2	—	BELOW_40PCT		idNepFlae1_chr_2_002456.1|idNepFlae1_chr_2_002454.1
+idPheCory1.1	idPheCory1	Transposon	Present	diamond	28	2	2	2	0	low_copy	1	1	single_copy	2	3(1 gene); 4(1 gene)	2	52.4	Drosophila_CID	—	—	—	—	—	—	52.4	—	PASS		idPheCory1_chr_3_002281.1|idPheCory1_chr_4_004047.1
+idPhyMeln1.1	idPhyMeln1	Satellite	Present	diamond	48	2	2	2	0	low_copy	1	1	single_copy	2	3(1 gene); 5(1 gene)	2	40.7	Human_CENPA	40.7	—	—	—	—	—	39.6	—	PASS		idPhyMeln1_chr_5_000338.1|idPhyMeln1_chr_3_003265.1
+idPolAmen1.1	idPolAmen1	Satellite	Present	diamond	60	2	2	2	0	low_copy	2	2	low_copy	2	3(1 gene); 5(1 gene)	2	50.7	Drosophila_CID	—	—	—	—	—	—	50.7	—	PASS		idPolAmen1_chr_5_003564.1|idPolAmen1_chr_3_001301.1
+idStoLuna1.1	idStoLuna1	Transposon	Present	diamond	73	2	2	2	0	low_copy	0	0	no_confirmed_copy	2	3(1 gene); 5(1 gene)	2	39.2	Drosophila_CID	—	—	—	—	—	—	39.2	—	BELOW_40PCT		idStoLuna1_chr_5_001561.1|idStoLuna1_chr_3_001452.1
+ieSipAlte2.1	ieSipAlte	Satellite	Present	diamond	7	2	2	2	0	low_copy	2	2	low_copy	2	OX463780.1(1 gene); OX463781.1(1 gene)	2	52.5	Zebrafish_CENPA	—	52.5	—	—	—	—	—	47.5	PASS		ieSipAlte_ENA|OX463781|OX463781.1_002064.1|ieSipAlte_ENA|OX463780|OX463780.1_001724.1
+laPotNata1.hap1.1	laPotNata	Satellite		diamond	22	2	2	2	0	low_copy	2	2	low_copy	2	OZ242055.1(1 gene); OZ242056.1(1 gene)	2	53.2	Zebrafish_CENPA	—	53.2	—	—	—	—	—	—	PASS		laPotNata_ENA|OZ242056|OZ242056.1_002267.1|laPotNata_ENA|OZ242055|OZ242055.1_001789.1
+laTriMari1.1	laTriMari	Satellite/transposon	Present	diamond	17	2	2	2	0	low_copy	2	2	low_copy	2	OY821770.1(1 gene); OY821779.1(1 gene)	2	60.4	Zebrafish_CENPA	—	60.4	—	—	—	—	—	—	PASS		laTriMari_ENA|OY821779|OY821779.1_001097.1|laTriMari_ENA|OY821770|OY821770.1_001192.1
+lpEleQuin1.1	lpEleQuin	Holocentric	Present	diamond	20	2	2	2	0	low_copy	2	2	low_copy	2	OZ060287.1(1 gene); OZ060309.1(1 gene)	2	56.6	Zebrafish_CENPA	—	56.6	—	—	—	—	—	—	PASS		lpEleQuin_ENA|OZ060309|OZ060309.1_000202.1|lpEleQuin_ENA|OZ060287|OZ060287.1_000589.1
+lpPhrAust1.1	lpPhrAust1	Transposon	Present	diamond	21	2	2	2	0	low_copy	2	2	low_copy	2	11(1 gene); 9(1 gene)	2	60.2	Zebrafish_CENPA	—	60.2	—	—	—	—	—	—	PASS		lpPhrAust1_SUPER_11_001317.1|lpPhrAust1_SUPER_9_001237.1
+lpSchLacu1	lpSchLacu1	Holocentric	Present	diamond	23	2	2	2	0	low_copy	2	2	low_copy	2	10(1 gene); 14(1 gene)	2	59.5	Zebrafish_CENPA	—	59.5	—	—	—	—	—	—	PASS		lpSchLacu1_SUPER_10_000449.1|lpSchLacu1_SUPER_14_001552.1
+lpSchTabe1.hap1.1	lpSchTabe	Holocentric		diamond	23	2	2	2	0	low_copy	2	2	low_copy	2	OZ255977.1(1 gene); OZ255982.1(1 gene)	2	59.5	Zebrafish_CENPA	—	59.5	—	—	—	—	—	—	PASS		lpSchTabe_ENA|OZ255977|OZ255977.1_001315.1|lpSchTabe_ENA|OZ255982|OZ255982.1_001530.1
+lpSchTriq1.1	lpSchTriq	Holocentric	Present	diamond	24	2	2	2	0	low_copy	2	2	low_copy	2	OZ060265.1(1 gene); OZ060270.1(1 gene)	2	59.5	Zebrafish_CENPA	—	59.5	—	—	—	—	—	—	PASS		lpSchTriq_ENA|OZ060265|OZ060265.1_000418.1|lpSchTriq_ENA|OZ060270|OZ060270.1_001509.1
+lpSpaEmer1.hap1.1	lpSpaEmer	Transposon		diamond	17	2	2	2	0	low_copy	2	2	low_copy	2	OZ243049.1(1 gene); OZ243057.1(1 gene)	2	62.4	Zebrafish_CENPA	—	62.4	—	—	—	—	—	—	PASS		lpSpaEmer_ENA|OZ243057|OZ243057.1_000171.1|lpSpaEmer_ENA|OZ243049|OZ243049.1_000484.1
+pxEimPrae1.1	pxEimPrae1	Unknown	Present	miniprot	12	2	2	2	0	low_copy	2	2	low_copy	1	rescue(2 genes)	2	54.2	Zebrafish_CENPA	—	54.2	—	—	—	—	—	—	PASS		pxEimPrae1_rescue12|pxEimPrae1_rescue8
+qeAllFusc8.1	qeAllFusc	Satellite	Present	diamond	20	3	2	2	0	low_copy	2	2	low_copy	2	OX359245.1(1 gene); OX359247.1(1 gene)	2	61.6	Human_CENPA	61.6	—	—	—	—	—	—	—	PASS		qeAllFusc_ENA|OX359247|OX359247.1_001298.1|qeAllFusc_ENA|OX359245|OX359245.1_008527.1
+qeLepCurv1.1	qeLepCurv	Satellite	Present	diamond	19	2	2	2	0	low_copy	2	2	low_copy	2	OZ194353.1(1 gene); OZ194356.1(1 gene)	2	52.7	Human_CENPA	52.7	51.7	—	—	—	—	—	—	PASS		qeLepCurv_ENA|OZ194353|OZ194353.1_000468.1|qeLepCurv_ENA|OZ194356|OZ194356.1_000945.1
+rosCan_S27_v1	rosCan_S27_v1	Satellite/transposon	Present	miniprot	20	2	2	2	0	low_copy	2	2	low_copy	1	rescue(2 genes)	2	50.5	Zebrafish_CENPA	—	50.5	—	—	—	—	—	—	PASS		rosCan_S27_v1_rescue5|rosCan_S27_v1_rescue6
+tzCryPall5.1	tzCryPall5	Unknown	Present	miniprot	13	2	2	2	0	low_copy	2	2	low_copy	1	rescue(2 genes)	2	60.4	Zebrafish_CENPA	—	60.4	—	—	—	—	—	—	PASS		tzCryPall5_rescue12|tzCryPall5_rescue11
+xgPatPell1.1	xgPatPell1	Transposon	Present	miniprot	15	2	2	2	0	low_copy	2	2	low_copy	1	rescue(2 genes)	2	53.5	Zebrafish_CENPA	—	53.5	—	—	—	—	—	—	PASS		xgPatPell1_rescue14|xgPatPell1_rescue15
+bAccGen1.1	bAccGen1	Satellite	Present	diamond	19	1	1	1	0	single_copy	1	1	single_copy	1	36(1 gene)	1	68.0	Human_CENPA	68.0	—	—	—	—	—	—	—	PASS		bAccGen1_chr_36_000029.1
+bCorHaw1.1	bCorHaw1	Satellite	Present	diamond	16	1	1	1	0	single_copy	1	1	single_copy	1	37(1 gene)	1	67.7	Human_CENPA	67.7	—	—	—	—	—	—	—	PASS		bCorHaw1_chr_37_000002.1
+bPorHoc1.1	bPorHoc1	Satellite	Present	diamond	24	1	1	1	0	single_copy	1	1	single_copy	1	31(1 gene)	1	69.1	Mus_musculus_MMUS037970_Cenpa_CenpA	—	—	—	—	—	—	—	—	PASS		bPorHoc1_chr_31_000033.1
+caAndHook4.1	caAndHook	Transposon	Present	diamond	11	1	1	1	0	single_copy	1	1	single_copy	1	OZ246429.1(1 gene)	1	66.7	Zebrafish_CENPA	—	66.7	—	—	—	—	—	—	PASS		caAndHook_ENA|OZ246429|OZ246429.1_000197.1
+cjHerHutc3.1	cjHerHutc3	Transposon	Present	miniprot	20	1	1	1	0	single_copy	1	1	single_copy	1	rescue(1 gene)	1	56.0	Zebrafish_CENPA	—	56.0	—	—	—	—	—	—	PASS		cjHerHutc3_rescue15
+cmLunCruc20.1	cmLunCruc20	Unknown	Present	miniprot	13	1	1	1	0	single_copy	1	1	single_copy	1	rescue(1 gene)	1	59.4	Zebrafish_CENPA	—	59.4	—	—	—	—	—	—	PASS		cmLunCruc20_rescue8
+csSphGirg1.1	csSphGirg	Transposon	Present	diamond	18	1	1	1	0	single_copy	1	1	single_copy	1	OZ244420.1(1 gene)	1	44.6	Zebrafish_CENPA	—	44.6	—	—	—	—	—	—	PASS		csSphGirg_ENA|OZ244420|OZ244420.1_000789.1
+daArcMinu1.1	daArcMinu1	Satellite/transposon	Present	diamond	26	1	1	1	0	single_copy	1	1	single_copy	1	4(1 gene)	1	48.3	Zebrafish_CENPA	—	48.3	—	—	—	—	—	—	PASS		daArcMinu1_SUPER_4_003289.1
+daLinVulg1.1	daLinVulg1	Satellite	Present	diamond	15	1	1	1	0	single_copy	1	1	single_copy	1	6(1 gene)	1	58.5	Zebrafish_CENPA	—	58.5	—	—	—	—	—	—	PASS		daLinVulg1_SUPER_6_002057.1
+daMisOron1.1	daMisOron1	Satellite	Present	diamond	14	1	1	1	0	single_copy	1	1	single_copy	1	4(1 gene)	1	57.9	Zebrafish_CENPA	—	57.9	—	—	—	—	—	—	PASS		daMisOron1_SUPER_4_002006.1
+daPulDyse1.1	daPulDyse1	Satellite	Present	diamond	18	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	8(1 gene)	1	39.3	Zebrafish_CENPA	—	39.3	—	—	—	—	—	—	BELOW_40PCT		daPulDyse1_SUPER_8_000539.1
+daSamNigr1.1	daSamNigr1	Transposon	Present	diamond	49	1	1	1	0	single_copy	1	1	single_copy	1	unknown(1 gene)	1	41.6	Zebrafish_CENPA	—	41.6	—	—	—	—	—	—	PASS		daSamNigr1_nigra_SamNigr_chr17_000158.1
+daScuGale1.1	daScuGale1	Satellite	Present	diamond	15	1	1	1	0	single_copy	1	1	single_copy	1	12(1 gene)	1	58.3	Zebrafish_CENPA	—	58.3	—	—	—	—	—	—	PASS		daScuGale1_SUPER_12_000038.1
+daSheArve1.1	daSheArve1	Satellite	Present	diamond	20	1	1	1	0	single_copy	1	1	single_copy	1	4(1 gene)	1	48.9	Zebrafish_CENPA	—	48.9	—	—	—	—	—	—	PASS		daSheArve1_SUPER_4_002238.1
+daSolDulc1.1	daSolDulc1	Transposon	Present	diamond	24	1	1	1	0	single_copy	1	1	single_copy	1	4(1 gene)	1	58.7	Zebrafish_CENPA	—	58.7	—	—	—	—	—	—	PASS		daSolDulc1_SUPER_4_000765.1
+dcMoeTrin1.hap1.1	dcMoeTrin	Satellite		diamond	25	1	1	1	0	single_copy	1	1	single_copy	1	OZ066944.1(1 gene)	1	59.0	Zebrafish_CENPA	—	59.0	—	—	—	—	—	—	PASS		dcMoeTrin_ENA|OZ066944|OZ066944.1_002309.1
+ddAraThal4.1	ddAraThal4	Satellite	Present	diamond	14	1	1	1	0	single_copy	1	1	single_copy	1	1(1 gene)	1	50.0	Zebrafish_CENPA	—	50.0	—	—	—	—	—	—	PASS		ddAraThal4_chr_1_000021.1
+ddBarVulg1.1	ddBarVulg	Satellite	Present	diamond	16	1	1	1	0	single_copy	1	1	single_copy	1	OY763889.1(1 gene)	1	45.6	Zebrafish_CENPA	—	45.6	—	—	—	—	—	—	PASS		ddBarVulg_ENA|OY763889|OY763889.1_002303.1
+ddCarHirs1.hap1.1	ddCarHirs	Transposon		diamond	15	1	1	1	0	single_copy	1	1	single_copy	1	OZ156418.1(1 gene)	1	51.8	Zebrafish_CENPA	—	51.8	—	—	—	—	—	—	PASS		ddCarHirs_ENA|OZ156418|OZ156418.1_004759.1
+ddEupPepu3.1	ddEupPepu3	Satellite	Present	diamond	12	1	1	1	0	single_copy	1	1	single_copy	1	7(1 gene)	1	57.4	Zebrafish_CENPA	—	57.4	—	—	—	—	—	—	PASS		ddEupPepu3_SUPER_7_001940.1
+ddHotPalu2.hap1.1	ddHotPalu	Satellite		diamond	25	1	1	1	0	single_copy	1	1	single_copy	1	OZ247575.1(1 gene)	1	52.2	Zebrafish_CENPA	—	52.2	—	—	—	—	—	—	PASS		ddHotPalu_ENA|OZ247575|OZ247575.1_000886.1
+ddMerAnnu1.1	ddMerAnnu1	Satellite	Present	diamond	13	1	1	1	0	single_copy	1	1	single_copy	1	LG5(1 gene)	1	50.5	Zebrafish_CENPA	—	50.5	—	—	—	—	—	—	PASS		ddMerAnnu1_chr_LG5_002250.1
+ddPopNigr1.1	ddPopNigr	Satellite	Present	diamond	17	1	1	1	0	single_copy	1	1	single_copy	1	OX637673.1(1 gene)	1	47.9	Zebrafish_CENPA	—	47.9	—	—	—	—	—	—	PASS		ddPopNigr_ENA|OX637673|OX637673.1_000534.1
+dhAlnGlut1.1	dhAlnGlut1	Transposon	Present	diamond	12	1	1	1	0	single_copy	1	1	single_copy	1	3(1 gene)	1	53.8	Zebrafish_CENPA	—	53.8	—	—	—	—	—	—	PASS		dhAlnGlut1_SUPER_3_002173.1
+dhCorColu1.hap1.1	dhCorColu	Satellite		diamond	12	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	OZ247468.1(1 gene)	1	36.4	Zebrafish_CENPA	—	36.4	—	—	—	—	—	—	BELOW_40PCT		dhCorColu_ENA|OZ247468|OZ247468.1_002291.1
+dhQueRobu3.1	dhQueRobu3	Satellite	Present	diamond	19	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	4(1 gene)	1	32.4	Zebrafish_CENPA	—	32.4	—	—	—	—	—	—	BELOW_40PCT		dhQueRobu3_chr_4_003322.1
+drMedArab1.1	drMedArab1	Satellite	Present	diamond	26	1	1	1	0	single_copy	1	1	single_copy	1	5(1 gene)	1	46.0	Zebrafish_CENPA	—	46.0	—	—	—	—	—	—	PASS		drMedArab1_SUPER_5_000452.1
+drPotAnse1.1	drPotAnse1	Satellite	Present	diamond	11	1	1	1	0	single_copy	1	1	single_copy	1	7(1 gene)	1	47.2	Zebrafish_CENPA	—	47.2	—	—	—	—	—	—	PASS		drPotAnse1_chr_7_002172.1
+eaMarGlac1.2	eaMarGlac1	Satellite	Present	diamond	60	1	1	1	0	single_copy	1	1	single_copy	1	14(1 gene)	1	71.4	Zebrafish_CENPA	—	71.4	—	—	—	—	—	—	PASS		eaMarGlac1_chr_14_000878.1
+fAloSap1.1	fAloSap1	Satellite	Present	diamond	24	1	1	1	0	single_copy	1	1	single_copy	1	21(1 gene)	1	69.2	Zebrafish_CENPA	—	69.2	—	—	—	—	—	—	PASS		fAloSap1_chr_21_000805.1
+fDanRer4.1	fDanRer4	Satellite	Present	miniprot	20	1	1	1	0	single_copy	1	1	single_copy	1	rescue(1 gene)	1	98.6	Zebrafish_CENPA	—	98.6	—	—	—	—	—	—	PASS		fDanRer4_rescue15
+fPanHyp1.1	fPanHyp1	Monocentric sequence unknown	Present	diamond	41	1	1	1	0	single_copy	1	1	single_copy	1	9(1 gene)	1	85.9	Zebrafish_CENPA	—	85.9	—	—	—	—	—	—	PASS		fPanHyp1_SUPER_9_001017.1
+fPhoGun1.2	fPhoGun1	Satellite	Present	diamond	17	1	1	1	0	single_copy	1	1	single_copy	1	18(1 gene)	1	82.2	Zebrafish_CENPA	—	82.2	—	—	—	—	—	—	PASS		fPhoGun1_chr_18_000926.1
+fTauBub2.1	fTauBub2	Satellite	Present	diamond	20	1	1	1	0	single_copy	1	1	single_copy	1	19(1 gene)	1	65.8	Zebrafish_CENPA	—	65.8	—	—	—	—	—	—	PASS		fTauBub2_chr_19_000903.1
+fTelBon1.1	fTelBon1	Unknown	Present	diamond	17	1	1	1	0	single_copy	1	1	single_copy	1	17(1 gene)	1	76.9	Zebrafish_CENPA	—	76.9	—	—	—	—	—	—	PASS		fTelBon1_chr_17_000483.1
+fThuAlb1.1	fThuAlb1	Satellite	Present	diamond	26	1	1	1	0	single_copy	1	1	single_copy	1	19(1 gene)	1	68.5	Zebrafish_CENPA	—	68.5	—	—	—	—	—	—	PASS		fThuAlb1_chr_19_000629.1
+fThuMac1.1	fThuMac1	Satellite	Present	diamond	25	1	1	1	0	single_copy	1	1	single_copy	1	15(1 gene)	1	67.8	Zebrafish_CENPA	—	67.8	—	—	—	—	—	—	PASS		fThuMac1_chr_15_000097.1
+fToxJac2.1	fToxJac2	Satellite/transposon	Present	diamond	22	1	1	1	0	single_copy	1	1	single_copy	1	16(1 gene)	1	68.5	Zebrafish_CENPA	—	68.5	—	—	—	—	—	—	PASS		fToxJac2_chr_16_000986.1
+fTraTra1.2	fTraTra1	Satellite	Present	diamond	21	1	1	1	0	single_copy	1	1	single_copy	1	12(1 gene)	1	84.2	Zebrafish_CENPA	—	84.2	—	—	—	—	—	—	PASS		fTraTra1_chr_12_000542.1
+gdRhiKalk1.hap1.1	gdRhiKalk	Unknown		diamond	3	1	1	1	0	single_copy	1	1	single_copy	1	OZ066571.1(1 gene)	1	62.9	Zebrafish_CENPA	—	62.9	—	—	—	—	—	—	PASS		gdRhiKalk_ENA|OZ066571|OZ066571.1_000618.1
+gfAgaBisp1.1	gfAgaBisp1	Transposon	Present	diamond	5	2	1	1	0	single_copy	1	1	single_copy	1	3(1 gene)	1	67.6	Zebrafish_CENPA	—	67.6	—	—	—	—	—	—	PASS		gfAgaBisp1_chr_3_000443.1
+gfAgrPrae1.1	gfAgrPrae	Transposon	Present	diamond	6	1	1	1	0	single_copy	1	1	single_copy	1	OZ024843.1(1 gene)	1	52.3	Zebrafish_CENPA	—	52.3	—	—	—	—	—	—	PASS		gfAgrPrae_ENA|OZ024843|OZ024843.1_000498.1
+gfAmaRube1.hap1.1	gfAmaRube	Transposon		diamond	5	1	1	1	0	single_copy	1	1	single_copy	1	OZ253841.1(1 gene)	1	62.7	Zebrafish_CENPA	—	62.7	—	—	—	—	—	—	PASS		gfAmaRube_ENA|OZ253841|OZ253841.1_000338.1
+gfAurGent2.1	gfAurGent	Transposon	Present	diamond	6	1	1	1	0	single_copy	1	1	single_copy	1	OZ219433.1(1 gene)	1	62.3	Zebrafish_CENPA	—	62.3	—	—	—	—	—	—	PASS		gfAurGent_ENA|OZ219433|OZ219433.1_000391.1
+gfBolQuer1.1	gfBolQuer	Transposon	Present	diamond	4	1	1	1	0	single_copy	1	1	single_copy	1	OZ037959.1(1 gene)	1	58.4	Zebrafish_CENPA	—	58.4	—	—	—	—	—	—	PASS		gfBolQuer_ENA|OZ037959|OZ037959.1_000523.1
+gfButSuba1.1	gfButSuba	Transposon	Present	diamond	6	1	1	1	0	single_copy	1	1	single_copy	1	OZ171983.1(1 gene)	1	53.4	Zebrafish_CENPA	—	53.4	—	—	—	—	—	—	PASS		gfButSuba_ENA|OZ171983|OZ171983.1_000285.1
+gfChlBrun1.1	gfChlBrun	Transposon	Present	diamond	7	1	1	1	0	single_copy	1	1	single_copy	1	OY756142.1(1 gene)	1	51.1	Zebrafish_CENPA	—	51.1	—	—	—	—	—	—	PASS		gfChlBrun_ENA|OY756142|OY756142.1_001179.1
+gfClaFumo1.1	gfClaFumo	Transposon	Present	diamond	4	1	1	1	0	single_copy	1	1	single_copy	1	OX637797.1(1 gene)	1	62.7	Zebrafish_CENPA	—	62.7	—	—	—	—	—	—	PASS		gfClaFumo_ENA|OX637797|OX637797.1_001227.1
+gfCopMica1.1	gfCopMica	Transposon	Present	diamond	5	1	1	1	0	single_copy	1	1	single_copy	1	OX596337.1(1 gene)	1	48.4	Zebrafish_CENPA	—	48.4	—	—	—	—	—	—	PASS		gfCopMica_ENA|OX596337|OX596337.1_000468.1
+gfCorTriu1.hap1.1	gfCorTriu	Unknown		diamond	8	1	1	1	0	single_copy	1	1	single_copy	1	OZ254914.1(1 gene)	1	51.0	Zebrafish_CENPA	—	51.0	—	—	—	—	—	—	PASS		gfCorTriu_ENA|OZ254914|OZ254914.1_001427.1
+gfEntClyp1.2	gfEntClyp	Unknown	Present	diamond	5	1	1	1	0	single_copy	1	1	single_copy	1	OY751494.2(1 gene)	1	52.7	Zebrafish_CENPA	—	52.7	—	—	—	—	—	—	PASS		gfEntClyp_ENA|OY751494|OY751494.2_001237.1
+gfFlaVelt1.2	gfFlaVelt	Transposon	Present	diamond	6	1	1	1	0	single_copy	1	1	single_copy	1	OX246725.2(1 gene)	1	53.8	Zebrafish_CENPA	—	53.8	—	—	—	—	—	—	PASS		gfFlaVelt_ENA|OX246725|OX246725.2_000559.1
+gfGanResi1.1	gfGanResi	Transposon	Present	diamond	6	1	1	1	0	single_copy	1	1	single_copy	1	OZ026793.1(1 gene)	1	52.4	Zebrafish_CENPA	—	52.4	—	—	—	—	—	—	PASS		gfGanResi_ENA|OZ026793|OZ026793.1_000441.1
+gfGliIrri2.hap1.1	gfGliIrri	Transposon		diamond	4	1	1	1	0	single_copy	1	1	single_copy	1	OZ209112.1(1 gene)	1	59.8	Zebrafish_CENPA	—	59.8	—	—	—	—	—	—	PASS		gfGliIrri_ENA|OZ209112|OZ209112.1_000922.1
+gfHerErin3.1	gfHerErin	Transposon	Present	diamond	6	1	1	1	0	single_copy	1	1	single_copy	1	OZ255410.1(1 gene)	1	57.9	Zebrafish_CENPA	—	57.9	—	—	—	—	—	—	PASS		gfHerErin_ENA|OZ255410|OZ255410.1_001154.1
+gfHygPuni3.1	gfHygPuni	Unknown	Present	diamond	4	1	1	1	0	single_copy	1	1	single_copy	1	OY744464.1(1 gene)	1	63.8	Zebrafish_CENPA	—	63.8	—	—	—	—	—	—	PASS		gfHygPuni_ENA|OY744464|OY744464.1_000972.1
+gfInoObsi1.1	gfInoObsi1	Unknown	Present	miniprot	6	1	1	1	0	single_copy	1	1	single_copy	1	rescue(1 gene)	1	56.3	Zebrafish_CENPA	—	56.3	—	—	—	—	—	—	PASS		gfInoObsi1_rescue1
+gfLacBlen1.hap1.1	gfLacBlen	Transposon		diamond	7	1	1	1	0	single_copy	1	1	single_copy	1	OZ173892.1(1 gene)	1	58.8	Zebrafish_CENPA	—	58.8	—	—	—	—	—	—	PASS		gfLacBlen_ENA|OZ173892|OZ173892.1_001889.1
+gfLaeSulp1.1	gfLaeSulp1	Transposon	Present	diamond	4	1	1	1	0	single_copy	1	1	single_copy	1	3(1 gene)	1	52.1	Zebrafish_CENPA	—	52.1	—	—	—	—	—	—	PASS		gfLaeSulp1_chr_3_001113.1
+gfLepSord1.hap1.1	gfLepSord	Transposon		diamond	6	1	1	1	0	single_copy	1	1	single_copy	1	OZ173907.1(1 gene)	1	63.1	Zebrafish_CENPA	—	63.1	—	—	—	—	—	—	PASS		gfLepSord_ENA|OZ173907|OZ173907.1_000405.1
+gfPanStip1.1	gfPanStip	Transposon	Present	diamond	6	1	1	1	0	single_copy	1	1	single_copy	1	OZ234881.1(1 gene)	1	53.0	Zebrafish_CENPA	—	53.0	—	—	—	—	—	—	PASS		gfPanStip_ENA|OZ234881|OZ234881.1_000994.1
+gfPhaAlbo1.hap1.1	gfPhaAlbo	Transposon		diamond	5	1	1	1	0	single_copy	1	1	single_copy	1	OZ244511.1(1 gene)	1	60.5	Zebrafish_CENPA	—	60.5	—	—	—	—	—	—	PASS		gfPhaAlbo_ENA|OZ244511|OZ244511.1_001311.1
+gfPleOstr1.1	gfPleOstr1	Transposon	Present	diamond	6	1	1	1	0	single_copy	1	1	single_copy	1	4(1 gene)	1	55.1	Zebrafish_CENPA	—	55.1	—	—	—	—	—	—	PASS		gfPleOstr1_SUPER_4_000490.1
+gfPorCaly1.1	gfPorCaly	Transposon	Present	diamond	3	1	1	1	0	single_copy	1	1	single_copy	1	OX621163.1(1 gene)	1	62.2	Zebrafish_CENPA	—	62.2	—	—	—	—	—	—	PASS		gfPorCaly_ENA|OX621163|OX621163.1_001385.1
+gfRamCorn1.1	gfRamCorn	Transposon	Present	diamond	5	1	1	1	0	single_copy	1	1	single_copy	1	OZ204861.1(1 gene)	1	44.4	Zebrafish_CENPA	—	44.4	—	—	—	—	—	—	PASS		gfRamCorn_ENA|OZ204861|OZ204861.1_000494.1
+gfRusVesc1.hap1.1	gfRusVesc	Transposon		diamond	5	1	1	1	0	single_copy	1	1	single_copy	1	OZ222408.1(1 gene)	1	59.2	Zebrafish_CENPA	—	59.2	—	—	—	—	—	—	PASS		gfRusVesc_ENA|OZ222408|OZ222408.1_000501.1
+gfSpaMino1.hap1.1	gfSpaMino	Transposon		diamond	4	1	1	1	0	single_copy	1	1	single_copy	1	OZ241197.1(1 gene)	1	52.6	Zebrafish_CENPA	—	52.6	—	—	—	—	—	—	PASS		gfSpaMino_ENA|OZ241197|OZ241197.1_000468.1
+gfTauPull1.1	gfTauPull	Transposon	Present	diamond	5	1	1	1	0	single_copy	1	1	single_copy	1	OX637621.1(1 gene)	1	55.3	Zebrafish_CENPA	—	55.3	—	—	—	—	—	—	PASS		gfTauPull_ENA|OX637621|OX637621.1_000414.1
+gfTriHemi4.1	gfTriHemi	Unknown	Present	diamond	6	1	1	1	0	single_copy	1	1	single_copy	1	OZ035929.1(1 gene)	1	51.0	Zebrafish_CENPA	—	51.0	—	—	—	—	—	—	PASS		gfTriHemi_ENA|OZ035929|OZ035929.1_004158.1
+gfVolSurr1.1	gfVolSurr	Transposon	Present	diamond	5	1	1	1	0	single_copy	1	1	single_copy	1	OX637785.1(1 gene)	1	55.1	Zebrafish_CENPA	—	55.1	—	—	—	—	—	—	PASS		gfVolSurr_ENA|OX637785|OX637785.1_000318.1
+glClaSqua9.2	glClaSqua	Unknown	Present	diamond	3	1	1	1	0	single_copy	1	1	single_copy	1	OX392377.1(1 gene)	1	58.8	Zebrafish_CENPA	—	58.8	—	—	—	—	—	—	PASS		glClaSqua_ENA|OX392377|OX392377.1_000406.1
+glEphLana1.1	glEphLana	Unknown	Present	diamond	3	1	1	1	0	single_copy	1	1	single_copy	1	OZ220093.1(1 gene)	1	40.2	Zebrafish_CENPA	—	40.2	—	—	—	—	—	—	PASS		glEphLana_ENA|OZ220093|OZ220093.1_000567.1
+glFlaMari1.1	glFlaMari	Transposon	Present	diamond	5	3	1	1	0	single_copy	1	1	single_copy	1	OZ245344.1(1 gene)	1	59.6	Zebrafish_CENPA	—	59.6	—	—	—	—	—	—	PASS		glFlaMari_ENA|OZ245344|OZ245344.1_000366.1
+glPlaGlau9.1	glPlaGlau	Transposon	Present	diamond	3	1	1	1	0	single_copy	1	1	single_copy	1	OY745767.1(1 gene)	1	61.5	Zebrafish_CENPA	—	61.5	—	—	—	—	—	—	PASS		glPlaGlau_ENA|OY745767|OY745767.1_000113.1
+glRamSili2.1	glRamSili	Transposon	Present	diamond	3	1	1	1	0	single_copy	1	1	single_copy	1	OZ244601.1(1 gene)	1	62.1	Zebrafish_CENPA	—	62.1	—	—	—	—	—	—	PASS		glRamSili_ENA|OZ244601|OZ244601.1_000145.1
+glUmbDeus1.1	glUmbDeus	Transposon	Present	diamond	3	1	1	1	0	single_copy	1	1	single_copy	1	OZ203553.1(1 gene)	1	66.0	Zebrafish_CENPA	—	66.0	—	—	—	—	—	—	PASS		glUmbDeus_ENA|OZ203553|OZ203553.1_000040.1
+gpAraPeru1.1	gpAraPeru	Transposon	Present	diamond	3	1	1	1	0	single_copy	1	1	single_copy	1	OX453235.1(1 gene)	1	59.2	Zebrafish_CENPA	—	59.2	—	—	—	—	—	—	PASS		gpAraPeru_ENA|OX453235|OX453235.1_001116.1
+grLepFlav1.1	grLepFlav	Transposon	Present	diamond	3	1	1	1	0	single_copy	1	1	single_copy	1	OY756934.1(1 gene)	1	63.4	Zebrafish_CENPA	—	63.4	—	—	—	—	—	—	PASS		grLepFlav_ENA|OY756934|OY756934.1_000276.1
+grSimLame1.1	grSimLame	Monocentric sequence unknown	Present	diamond	3	1	1	1	0	single_copy	1	1	single_copy	1	OZ124170.1(1 gene)	1	61.8	Zebrafish_CENPA	—	61.8	—	—	—	—	—	—	PASS		grSimLame_ENA|OZ124170|OZ124170.1_001450.1
+grTriPseu1.1	grTriPseu1	Transposon	Present	diamond	3	1	1	1	0	single_copy	1	1	single_copy	1	1(1 gene)	1	62.7	Zebrafish_CENPA	—	62.7	—	—	—	—	—	—	PASS		grTriPseu1_chr_1_001731.1
+gsMetZobe1.1	gsMetZobe1	Monocentric sequence unknown	Present	diamond	3	1	1	1	0	single_copy	1	1	single_copy	1	4(1 gene)	1	57.5	Zebrafish_CENPA	—	57.5	—	—	—	—	—	—	PASS		gsMetZobe1_chr_4_000357.1
+gyLeoLubr2.1	gyLeoLubr	Transposon	Absent	diamond	91	88	1	1	0	single_copy	1	1	single_copy	1	OZ251269.1(1 gene)	1	51.9	Zebrafish_CENPA	—	51.9	—	—	—	—	—	—	PASS	CAUTION: 88 copies in a fungus — likely expanded H3-variant family, not true CenpA paralogs; cenpa_presence=Absent in 275-leaf tree	gyLeoLubr_ENA|OZ251269|OZ251269.1_001509.1
+gzEntParv1.1	gzEntParv	Unknown	Present	diamond	4	1	1	1	0	single_copy	1	1	single_copy	1	OY752141.1(1 gene)	1	59.6	Zebrafish_CENPA	—	59.6	—	—	—	—	—	—	PASS		gzEntParv_ENA|OY752141|OY752141.1_001087.1
+ibEctPall1.hap1.1	ibEctPall	Satellite		diamond	15	1	1	1	0	single_copy	1	1	single_copy	1	OZ060426.1(1 gene)	1	46.6	Zebrafish_CENPA	—	46.6	—	—	—	—	—	—	PASS		ibEctPall_ENA|OZ060426|OZ060426.1_002102.1
+icAdaBipu1.1	icAdaBipu1	Satellite	Present	diamond	11	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	9(1 gene)	1	35.7	Zebrafish_CENPA	—	35.7	—	—	—	—	—	—	BELOW_40PCT		icAdaBipu1_chr_9_001201.1
+icAgoFuli1.1	icAgoFuli	Satellite	Present	diamond	58	1	1	1	0	single_copy	1	1	single_copy	1	OX384032.1(1 gene)	1	53.3	Zebrafish_CENPA	—	53.3	—	—	—	—	—	—	PASS		icAgoFuli_ENA|OX384032|OX384032.1_000698.1
+icAgrCyan1.1	icAgrCyan	Satellite	Present	diamond	40	1	1	1	0	single_copy	1	1	single_copy	1	OX376705.1(1 gene)	1	55.2	Human_CENPA	55.2	—	—	—	—	—	—	—	PASS		icAgrCyan_ENA|OX376705|OX376705.1_000328.1
+icCanRust1.1	icCanRust1	Satellite	Present	diamond	27	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	5(1 gene)	1	34.2	Zebrafish_CENPA	—	34.2	—	—	—	—	—	—	BELOW_40PCT		icCanRust1_chr_5_001214.1
+icCarProb1.1	icCarProb	Satellite	Present	diamond	52	1	1	1	0	single_copy	1	1	single_copy	1	OY728582.1(1 gene)	1	44.6	Human_CENPA	44.6	—	—	—	—	—	—	—	PASS		icCarProb_ENA|OY728582|OY728582.1_000098.1
+icCetAura1.1	icCetAura	Satellite	Present	diamond	2	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	OX421884.1(1 gene)	1	37.8	Zebrafish_CENPA	—	37.8	—	—	—	—	—	—	BELOW_40PCT		icCetAura_ENA|OX421884|OX421884.1_001655.1
+icHarAxyr1.1	icHarAxyr1	Satellite	Present	diamond	9	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	5(1 gene)	1	37.7	Human_CENPA	37.7	—	—	—	—	—	—	—	BELOW_40PCT		icHarAxyr1_chr_5_000796.1
+icLeiSpin1.1	icLeiSpin1	Transposon	Present	diamond	35	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	3(1 gene)	1	30.6	Human_CENPA	30.6	—	—	—	—	—	—	—	BELOW_40PCT		icLeiSpin1_chr_3_000647.1
+icMalBipu1.1	icMalBipu1	Satellite	Present	diamond	3	1	1	1	0	single_copy	1	1	single_copy	1	7(1 gene)	1	49.4	Human_CENPA	49.4	—	—	—	—	—	—	—	PASS		icMalBipu1_chr_7_001980.1
+icOcyOlen1.1	icOcyOlen1	Satellite	Present	diamond	11	1	1	1	0	single_copy	1	1	single_copy	1	6(1 gene)	1	49.4	Zebrafish_CENPA	—	49.4	—	—	—	—	—	—	PASS		icOcyOlen1_chr_6_000584.1
+icPhiCogn1.1	icPhiCogn1	Transposon	Present	diamond	14	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	2(1 gene)	1	32.8	Mus_musculus_MMUS037970_Cenpa_CenpA	—	—	—	—	—	—	—	—	BELOW_40PCT		icPhiCogn1_chr_2_000231.1
+icPodAlpi1.1	icPodAlpi1	Unknown	Present	diamond	22	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	4(1 gene)	1	38.0	Zebrafish_CENPA	—	38.0	—	—	—	—	—	—	BELOW_40PCT		icPodAlpi1_chr_4_001967.1
+icPteMadi1.1	icPteMadi1	Satellite	Present	diamond	72	1	1	1	0	single_copy	1	1	single_copy	1	5(1 gene)	1	51.0	Human_CENPA	51.0	—	—	—	—	—	—	—	PASS		icPteMadi1_chr_5_000656.1
+icRhaFulv1.1	icRhaFulv1	Satellite/transposon	Present	diamond	13	1	1	1	0	single_copy	1	1	single_copy	1	4(1 gene)	1	40.2	Zebrafish_CENPA	—	40.2	—	—	—	—	—	—	PASS		icRhaFulv1_chr_4_001423.1
+idAcrOrbc1.1	idAcrOrbc	Satellite	Present	diamond	61	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	OX375757.1(1 gene)	1	39.7	Zebrafish_CENPA	—	39.7	—	—	—	—	—	—	BELOW_40PCT		idAcrOrbc_ENA|OX375757|OX375757.1_003946.1
+idAthIbis2.2	idAthIbis	Satellite	Present	diamond	371	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	OY282608.2(1 gene)	1	37.8	Zebrafish_CENPA	—	37.8	—	—	—	—	—	—	BELOW_40PCT		idAthIbis_ENA|OY282608|OY282608.2_000202.1
+idBibMarc1.1	idBibMarc1	Satellite	Present	diamond	16	1	1	1	0	single_copy	1	1	single_copy	1	1(1 gene)	1	52.3	Drosophila_CID	—	—	—	—	—	—	52.3	—	PASS		idBibMarc1_chr_1_003965.1
+idEpiSucc1.1	idEpiSucc1	Satellite	Present	diamond	62	1	1	1	0	single_copy	1	1	single_copy	1	1(1 gene)	1	40.3	Drosophila_CID	—	—	—	—	—	—	40.3	—	PASS		idEpiSucc1_chr_1_000420.1
+idGymRotn1.1	idGymRotn1	Satellite	Present	diamond	10	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	4(1 gene)	1	36.0	Drosophila_CID	—	—	—	—	—	—	36.0	—	BELOW_40PCT		idGymRotn1_chr_4_000249.1
+idMacAtri3.1	idMacAtri3	Satellite	Present	diamond	49	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	3(1 gene)	1	37.3	Drosophila_CID	—	—	—	—	—	—	37.3	—	BELOW_40PCT		idMacAtri3_chr_3_000129.1
+idPamGerm1.hap1.1	idPamGerm	Transposon		diamond	30	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	OZ271770.1(1 gene)	1	36.4	Drosophila_CID	—	—	—	—	—	—	36.4	—	BELOW_40PCT		idPamGerm_ENA|OZ271770|OZ271770.1_002373.1
+idSarRose1.1	idSarRose1	Transposon	Present	diamond	33	1	1	1	0	single_copy	1	1	single_copy	1	5(1 gene)	1	40.6	Drosophila_CID	—	—	—	—	—	—	40.6	—	PASS		idSarRose1_chr_5_000019.1
+idSyrPipi1.1	idSyrPipi1	Transposon	Present	diamond	34	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	1(1 gene)	1	37.8	Drosophila_CID	—	—	—	—	—	—	37.8	—	BELOW_40PCT		idSyrPipi1_chr_1_005668.1
+idTacFera2.1	idTacFera2	Transposon	Present	diamond	18	1	1	1	0	single_copy	1	1	single_copy	1	5(1 gene)	1	40.0	Drosophila_CID	—	—	—	—	—	—	40.0	—	PASS		idTacFera2_chr_5_003539.1
+ieCloDipt1.1	ieCloDipt	Satellite	Present	diamond	8	1	1	1	0	single_copy	1	1	single_copy	1	OX451259.1(1 gene)	1	52.3	CElegans_HCP3	—	—	—	—	—	—	—	52.3	PASS		ieCloDipt_ENA|OX451259|OX451259.1_003690.1
+ieProBifi2.1	ieProBifi	Satellite	Absent	diamond	11	1	1	1	0	single_copy	1	1	single_copy	1	OZ259029.1(1 gene)	1	58.6	Human_CENPA	58.6	—	—	—	—	—	—	—	PASS	Sequences present in curated set but species called Absent in phylogenetic profiling tree	ieProBifi_ENA|OZ259029|OZ259029.1_000982.1
+ipLeuNigr2.1	ipLeuNigr2	Unknown	Present	diamond	20	1	1	1	0	single_copy	1	1	single_copy	1	4(1 gene)	1	46.7	Zebrafish_CENPA	—	46.7	—	—	—	—	—	—	PASS		ipLeuNigr2_chr_4_001830.1
+ipNemPict2.1	ipNemPict2	Unknown	Present	diamond	13	1	1	1	0	single_copy	1	1	single_copy	1	10(1 gene)	1	40.0	Zebrafish_CENPA	—	40.0	—	—	—	—	—	—	PASS		ipNemPict2_chr_10_000110.1
+iyAbiCand1.1	iyAbiCand	Satellite	Present	diamond	7	1	1	1	0	single_copy	1	1	single_copy	1	OZ125712.1(1 gene)	1	57.1	Human_CENPA	57.1	—	—	—	—	—	—	—	PASS		iyAbiCand_ENA|OZ125712|OZ125712.1_000871.1
+iyAmbArma2.1	iyAmbArma2	Satellite	Present	diamond	10	1	1	1	0	single_copy	1	1	single_copy	1	12(1 gene)	1	51.1	CElegans_HCP3	—	—	—	—	—	—	—	51.1	PASS		iyAmbArma2_chr_12_000278.1
+iyAncNigr1.1	iyAncNigr1	Transposon	Present	miniprot	10	1	1	1	0	single_copy	1	1	single_copy	1	rescue(1 gene)	1	51.1	CElegans_HCP3	—	—	—	—	—	—	—	51.1	PASS		iyAncNigr1_rescue8
+iyAndDors1.1	iyAndDors1	Satellite/transposon	Present	miniprot	10	1	1	1	0	single_copy	1	1	single_copy	1	rescue(1 gene)	1	54.0	Human_CENPA	54.0	—	—	—	—	—	—	—	PASS		iyAndDors1_rescue9
+iyAnoNige1.1	iyAnoNige1	Satellite	Present	diamond	8	1	1	1	0	single_copy	1	1	single_copy	1	7(1 gene)	1	45.6	CElegans_HCP3	—	—	—	—	—	—	—	45.6	PASS		iyAnoNige1_chr_7_000861.1
+iyAthRosa1.1	iyAthRosa1	Satellite	Present	diamond	6	1	1	1	0	single_copy	1	1	single_copy	1	2(1 gene)	1	50.9	Zebrafish_CENPA	—	50.9	—	—	—	—	—	—	PASS		iyAthRosa1_chr_2_002289.1
+iyBomHypn1.1	iyBomHypn1	Satellite	Present	diamond	6	1	1	1	0	single_copy	1	1	single_copy	1	11(1 gene)	1	49.5	Human_CENPA	49.5	—	—	—	—	—	—	—	PASS		iyBomHypn1_chr_11_000788.1
+iyBuaLabo1.1	iyBuaLabo1	Satellite/transposon	Present	diamond	7	1	1	1	0	single_copy	1	1	single_copy	1	5(1 gene)	1	43.2	Mus_musculus_MMUS037970_Cenpa_CenpA	—	—	—	—	—	—	—	—	PASS		iyBuaLabo1_chr_5_000387.1
+iyCerRyby1.1	iyCerRyby1	Transposon	Present	diamond	5	1	1	1	0	single_copy	1	1	single_copy	1	6(1 gene)	1	49.5	CElegans_HCP3	—	—	—	—	—	—	—	49.5	PASS		iyCerRyby1_chr_6_000352.1
+iyCoeConi1.1	iyCoeConi	Satellite	Present	diamond	7	1	1	1	0	single_copy	1	1	single_copy	1	OX392454.1(1 gene)	1	46.2	Human_CENPA	46.2	—	—	—	—	—	—	—	PASS		iyCoeConi_ENA|OX392454|OX392454.1_000765.1
+iyEctCont1.1	iyEctCont1	Satellite	Present	diamond	5	1	1	1	0	single_copy	1	1	single_copy	1	7(1 gene)	1	54.3	CElegans_HCP3	—	—	—	—	—	—	—	54.3	PASS		iyEctCont1_chr_7_000268.1
+iyLasVill1.1	iyLasVill	Satellite	Present	diamond	6	1	1	1	0	single_copy	1	1	single_copy	1	OZ020497.1(1 gene)	1	45.6	Human_CENPA	45.6	—	—	—	—	—	—	—	PASS		iyLasVill_ENA|OZ020497|OZ020497.1_000536.1
+iyMacAlbo1.1	iyMacAlbo	Satellite	Present	diamond	7	1	1	1	0	single_copy	1	1	single_copy	1	OX451212.1(1 gene)	1	57.3	Zebrafish_CENPA	—	57.3	—	—	—	—	—	—	PASS		iyMacAlbo_ENA|OX451212|OX451212.1_000425.1
+iyMacEuro1.1	iyMacEuro1	Satellite	Present	diamond	7	1	1	1	0	single_copy	1	1	single_copy	1	9(1 gene)	1	48.5	CElegans_HCP3	—	—	—	—	—	—	—	48.5	PASS		iyMacEuro1_chr_9_000238.1
+iyMimDahl1.1	iyMimDahl1	Satellite	Present	diamond	6	1	1	1	0	single_copy	1	1	single_copy	1	13(1 gene)	1	48.7	CElegans_HCP3	—	—	—	—	—	—	—	48.7	PASS		iyMimDahl1_chr_13_000168.1
+iyNomFabr1.1	iyNomFabr1	Satellite	Present	diamond	5	1	1	1	0	single_copy	1	1	single_copy	1	2(1 gene)	1	46.1	Mus_musculus_MMUS037970_Cenpa_CenpA	—	—	—	—	—	—	—	—	PASS		iyNomFabr1_chr_2_000082.1
+iyNysSpin1.1	iyNysSpin1	Satellite	Present	diamond	6	1	1	1	0	single_copy	1	1	single_copy	1	14(1 gene)	1	50.5	CElegans_HCP3	—	—	—	—	—	—	—	50.5	PASS		iyNysSpin1_chr_14_000228.1
+iyOphLute1.1	iyOphLute1	Satellite	Present	diamond	5	1	1	1	0	single_copy	1	1	single_copy	1	2(1 gene)	1	60.4	Mus_musculus_MMUS037970_Cenpa_CenpA	—	—	—	—	—	—	—	—	PASS		iyOphLute1_chr_2_000535.1
+iyPemLugu1.1	iyPemLugu	Satellite	Present	diamond	7	1	1	1	0	single_copy	1	1	single_copy	1	OW121818.1(1 gene)	1	51.1	CElegans_HCP3	—	—	—	—	—	—	—	51.1	PASS		iyPemLugu_ENA|OW121818|OW121818.1_000487.1
+iyPriPert1.1	iyPriPert	Satellite	Present	diamond	12	1	1	1	0	single_copy	1	1	single_copy	1	OZ012653.1(1 gene)	1	43.5	Human_CENPA	43.5	—	—	—	—	—	—	—	PASS		iyPriPert_ENA|OZ012653|OZ012653.1_000800.1
+iyRhoChlo1.1	iyRhoChlo1	Transposon	Present	diamond	7	1	1	1	0	single_copy	1	1	single_copy	1	4(1 gene)	1	62.5	Human_CENPA	62.5	—	—	—	—	—	—	—	PASS		iyRhoChlo1_chr_4_000722.1
+iyStePhae1.1	iyStePhae1	Satellite	Present	diamond	5	1	1	1	0	single_copy	1	1	single_copy	1	4(1 gene)	1	50.5	Human_CENPA	50.5	—	—	—	—	—	—	—	PASS		iyStePhae1_chr_4_000572.1
+iyTipFemo1.1	iyTipFemo1	Satellite	Present	diamond	5	1	1	1	0	single_copy	1	1	single_copy	1	5(1 gene)	1	46.3	CElegans_HCP3	—	—	—	—	—	—	—	46.3	PASS		iyTipFemo1_chr_5_000920.1
+iyVulBima1.1	iyVulBima	Satellite	Present	diamond	11	1	1	1	0	single_copy	1	1	single_copy	1	OZ249107.1(1 gene)	1	46.2	Mus_musculus_MMUS037970_Cenpa_CenpA	—	—	—	—	—	—	—	—	PASS		iyVulBima_ENA|OZ249107|OZ249107.1_000472.1
+jaNemVect1.1	jaNemVect1	Satellite	Present	diamond	17	1	1	1	0	single_copy	0	0	no_confirmed_copy	1	8(1 gene)	1	36.0	Mus_musculus_MMUS037970_Cenpa_CenpA	—	—	—	—	—	—	—	—	BELOW_40PCT		jaNemVect1_chr_8_001056.1
+jrHalOcto1.1	jrHalOcto1	Satellite	Present	miniprot	20	1	1	1	0	single_copy	1	1	single_copy	1	rescue(1 gene)	1	48.9	Zebrafish_CENPA	—	48.9	—	—	—	—	—	—	PASS		jrHalOcto1_rescue18
+kaAplTurb1.1	kaAplTurb1	Satellite	Present	diamond	3	1	1	1	0	single_copy	1	1	single_copy	1	15(1 gene)	1	46.2	Zebrafish_CENPA	—	46.2	—	—	—	—	—	—	PASS		kaAplTurb1_chr_15_000177.1
+laAliPlan1.1	laAliPlan1	Satellite	Present	diamond	41	1	1	1	0	single_copy	1	1	single_copy	1	unknown(1 gene)	1	63.2	Zebrafish_CENPA	—	63.2	—	—	—	—	—	—	PASS		laAliPlan1_ENA_OY856409__000374.1
+laApoDist1.hap1.1	laApoDist1	Satellite		diamond	17	1	1	1	0	single_copy	1	1	single_copy	1	unknown(1 gene)	1	43.0	Zebrafish_CENPA	—	43.0	—	—	—	—	—	—	PASS		laApoDist1_Chr3_000391.1
+laLemMinu1.hap1.1	laLemMinu1	Unknown		diamond	8	1	1	1	0	single_copy	1	1	single_copy	1	OZ204783.1(1 gene)	1	65.2	Zebrafish_CENPA	—	65.2	—	—	—	—	—	—	PASS		laLemMinu1_ENA|OZ204783|OZ204783.1_000776.1
+ldNarOssi1.1	ldNarOssi	Transposon	Present	diamond	11	1	1	1	0	single_copy	1	1	single_copy	1	OY986965.1(1 gene)	1	52.9	Zebrafish_CENPA	—	52.9	—	—	—	—	—	—	PASS		ldNarOssi_ENA|OY986965|OY986965.1_000826.1
+lpCarDepa1.1	lpCarDepa1	Holocentric	Present	diamond	15	1	1	1	0	single_copy	1	1	single_copy	1	1(1 gene)	1	53.9	Zebrafish_CENPA	—	53.9	—	—	—	—	—	—	PASS		lpCarDepa1_SUPER_1_001836.1
+lpCypFusc1.hap1.1	lpCypFusc	Holocentric		diamond	9	1	1	1	0	single_copy	1	1	single_copy	1	OZ210609.1(1 gene)	1	59.6	Zebrafish_CENPA	—	59.6	—	—	—	—	—	—	PASS		lpCypFusc_ENA|OZ210609|OZ210609.1_000486.1
+lpEriAngu1.1	lpEriAngu	Holocentric	Present	diamond	11	1	1	1	0	single_copy	1	1	single_copy	1	OZ259050.1(1 gene)	1	48.4	Zebrafish_CENPA	—	48.4	—	—	—	—	—	—	PASS		lpEriAngu_ENA|OZ259050|OZ259050.1_000184.1
+lpJunEffu1.1	lpJunEffu1	Satellite	Present	diamond	10	1	1	1	0	single_copy	1	1	single_copy	1	6(1 gene)	1	59.2	Zebrafish_CENPA	—	59.2	—	—	—	—	—	—	PASS		lpJunEffu1_SUPER_6_000665.1
+lpJunSqua1.hap1.1	lpJunSqua1	Satellite		miniprot	19	1	1	1	0	single_copy	1	1	single_copy	1	rescue(1 gene)	1	55.3	Zebrafish_CENPA	—	55.3	—	—	—	—	—	—	PASS		lpJunSqua1_rescue18
+lpSciSylv1.hap1.1	lpSciSylv	Holocentric		diamond	11	1	1	1	0	single_copy	1	1	single_copy	1	OZ223724.1(1 gene)	1	48.8	Zebrafish_CENPA	—	48.8	—	—	—	—	—	—	PASS		lpSciSylv_ENA|OZ223724|OZ223724.1_000621.1
+lpTriCesp1.1	lpTriCesp	Unknown	Present	diamond	12	1	1	1	0	single_copy	1	1	single_copy	1	OZ238316.1(1 gene)	1	55.3	Zebrafish_CENPA	—	55.3	—	—	—	—	—	—	PASS		lpTriCesp_ENA|OZ238316|OZ238316.1_000144.1
+lsIriFoet1_GCA_964204905	lsIriFoet1_GCA_964204905	?	?	?	?	?	1	1	0	single_copy	1	1	single_copy	1	Chr5(1 gene)	1	42.6	Zebrafish_CENPA	—	42.6	—	—	—	—	—	—	PASS		lsIriFoet1_GCA_964204905_chr_Chr5_001067.1
+mCanLor1.2	mCanLor1	Satellite	Absent	diamond	27	1	1	1	0	single_copy	1	1	single_copy	1	17(1 gene)	1	57.9	Human_CENPA	57.9	—	—	—	—	—	—	—	PASS	Sequences present in curated set but species called Absent in phylogenetic profiling tree	mCanLor1_chr_17_000422.1
+mCerEla1_chunk1	mCerEla1_chunk1	?	?	?	?	?	1	1	0	single_copy	1	1	single_copy	1	11(1 gene)	1	83.3	Human_CENPA	83.3	—	—	—	—	—	—	—	PASS		mCerEla1_chunk1_chr_11_000215.1
+mDicBic1_chunk2	mDicBic1_chunk2	?	?	?	?	?	1	1	0	single_copy	1	1	single_copy	1	12(1 gene)	1	82.6	Human_CENPA	82.6	—	—	—	—	—	—	—	PASS		mDicBic1_chunk2_chr_12_000342.1
+mDicBic1_chunk_2	mDicBic1_chunk_2	?	?	?	?	?	1	1	0	single_copy	1	1	single_copy	1	12(1 gene)	1	82.6	Human_CENPA	82.6	—	—	—	—	—	—	—	PASS		mDicBic1_chunk_2_chr_12_000342.1
+mEleMax1_chunk3	mEleMax1_chunk3	?	?	?	?	?	1	1	0	single_copy	1	1	single_copy	1	12(1 gene)	1	77.9	Human_CENPA	77.9	—	—	—	—	—	—	—	PASS		mEleMax1_chunk3_chr_12_000096.1
+mLemCat1.1	mLemCat1	Satellite	Absent	diamond	27	1	1	1	0	single_copy	1	1	single_copy	1	4(1 gene)	1	84.3	Human_CENPA	84.3	—	—	—	—	—	—	—	PASS	Sequences present in curated set but species called Absent in phylogenetic profiling tree	mLemCat1_chr_4_000064.1
+mMelMel3_chunk3	mMelMel3_chunk3	?	?	?	?	?	1	1	0	single_copy	1	1	single_copy	1	15(1 gene)	1	84.3	Human_CENPA	84.3	—	—	—	—	—	—	—	PASS		mMelMel3_chunk3_chr_15_000067.1
+mOrcOrc1_chunk2	mOrcOrc1_chunk2	?	?	?	?	?	1	1	0	single_copy	1	1	single_copy	1	13(1 gene)	1	82.2	Human_CENPA	82.2	—	—	—	—	—	—	—	PASS		mOrcOrc1_chunk2_chr_13_000413.1
+nxTriColu2.1	nxTriColu	Unknown	Present	diamond	13	3	1	1	0	single_copy	0	0	no_confirmed_copy	1	OZ022258.1(1 gene)	1	38.1	Human_CENPA	38.1	—	—	—	—	—	—	—	BELOW_40PCT		nxTriColu_ENA|OZ022258|OZ022258.1_000488.1
+pEimTen1.1	pEimTen1	Monocentric sequence unknown	Present	miniprot	4	1	1	1	0	single_copy	1	1	single_copy	1	rescue(1 gene)	1	58.2	Zebrafish_CENPA	—	58.2	—	—	—	—	—	—	PASS		pEimTen1_rescue3
+paTetJugo1.1	paTetJugo1	Unknown	Present	diamond	5	1	1	1	0	single_copy	1	1	single_copy	1	11(1 gene)	1	50.5	Human_CENPA	50.5	—	—	—	—	—	—	—	PASS		paTetJugo1_chr_11_000044.1
+rVipLat1.1	rVipLat1	Satellite	Present	diamond	15	1	1	1	0	single_copy	1	1	single_copy	1	2(1 gene)	1	74.3	Human_CENPA	74.3	—	—	—	—	—	—	—	PASS		rVipLat1_chr_2_003261.1
+tnLinLong1.2	tnLinLong1	Satellite/transposon	Present	diamond	3	1	1	1	0	single_copy	1	1	single_copy	1	17(1 gene)	1	68.7	Zebrafish_CENPA	—	68.7	—	—	—	—	—	—	PASS		tnLinLong1_chr_17_000931.1
+tzBugStol2.1	tzBugStol2	Satellite	Present	miniprot	20	1	1	1	0	single_copy	1	1	single_copy	1	rescue(1 gene)	1	63.3	Zebrafish_CENPA	—	63.3	—	—	—	—	—	—	PASS		tzBugStol2_rescue20
+ucDunPrim2.1	ucDunPrim2	Unknown	Absent	diamond	8	1	1	1	0	single_copy	1	1	single_copy	1	9(1 gene)	1	44.2	Zebrafish_CENPA	—	44.2	—	—	—	—	—	—	PASS	Sequences present in curated set but species called Absent in phylogenetic profiling tree	ucDunPrim2_chr_9_000632.1
+ucMarCocc1.1	ucMarCocc	Unknown	Present	diamond	11	1	1	1	0	single_copy	1	1	single_copy	1	OY978102.1(1 gene)	1	63.6	Zebrafish_CENPA	—	63.6	—	—	—	—	—	—	PASS		ucMarCocc_ENA|OY978102|OY978102.1_000133.1
+wcLumRube1.1	wcLumRube1	Transposon	Present	miniprot	20	1	1	1	0	single_copy	1	1	single_copy	1	rescue(1 gene)	1	65.6	Zebrafish_CENPA	—	65.6	—	—	—	—	—	—	PASS		wcLumRube1_rescue16
+wpAliVire1.1	wpAliVire1	Satellite	Present	diamond	4	1	1	1	0	single_copy	1	1	single_copy	1	14(1 gene)	1	65.2	Zebrafish_CENPA	—	65.2	—	—	—	—	—	—	PASS		wpAliVire1_chr_14_000549.1
+wpLepClav1.1	wpLepClav1	Satellite	Present	diamond	3	1	1	1	0	single_copy	1	1	single_copy	1	16(1 gene)	1	65.4	Zebrafish_CENPA	—	65.4	—	—	—	—	—	—	PASS		wpLepClav1_chr_16_000255.1
+wpSthLimi1.1	wpSthLimi1	Transposon	Present	diamond	1	1	1	1	0	single_copy	1	1	single_copy	1	4(1 gene)	1	63.5	Zebrafish_CENPA	—	63.5	—	—	—	—	—	—	PASS		wpSthLimi1_chr_4_002033.1
+xbGarTell2.1	xbGarTell2	Satellite	Present	diamond	8	1	1	1	0	single_copy	1	1	single_copy	1	18(1 gene)	1	69.8	Zebrafish_CENPA	—	69.8	—	—	—	—	—	—	PASS		xbGarTell2_chr_18_000052.1
+xbLimFort5.1	xbLimFort5	Satellite	Present	diamond	33	1	1	1	0	single_copy	1	1	single_copy	1	4(1 gene)	1	65.1	Zebrafish_CENPA	—	65.1	—	—	—	—	—	—	PASS		xbLimFort5_chr_4_003510.1
+xgBioGlab47.1	xgBioGlab47	Transposon	Present	diamond	14	1	1	1	0	single_copy	1	1	single_copy	1	9(1 gene)	1	64.2	Zebrafish_CENPA	—	64.2	—	—	—	—	—	—	PASS		xgBioGlab47_SUPER_9_000930.1
+xgPhoLine1.1	xgPhoLine1	Transposon	Present	diamond	16	1	1	1	0	single_copy	1	1	single_copy	1	17(1 gene)	1	63.7	Zebrafish_CENPA	—	63.7	—	—	—	—	—	—	PASS		xgPhoLine1_chr_17_001777.1
+bFalBia1.1		Satellite	Absent	NA	12	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+bFalChe1.1		Satellite	Absent	NA	12	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+bFalPer1.1		Satellite	Absent	NA	12	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+bLagMut1.1		Satellite	Present	miniprot	20	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+daTanVulg1.hap1.1		Satellite		NA	0	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+gfArmOsto1.1		Transposon	Present	miniprot	17	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+gfMycGale1.hap1.1		Monocentric sequence unknown		NA	4	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+glLicPygm2.1		Unknown	Absent	NA	2	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+grCorFumo1.1		Monocentric sequence unknown	Present	miniprot	2	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+gzMucPiri1.1		Unknown	Absent	NA	4	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+icChrOric1.1		Satellite	Absent	NA	12	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+icHalSede1.1		Satellite	Absent	NA	19	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+icLepMacu1.1		Satellite	Absent	NA	2	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+icMelMelo1.1		Transposon	Present	NA	0	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+icPolCerv1.1		Satellite/transposon	Absent	NA	5	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+icPyrSerr1.1		Transposon	Absent	NA	5	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+icScaQuad2.1		Satellite	Absent	NA	10	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ieEcdTorr1.1		Satellite	Absent	NA	3	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+igLabMino1.1		Holocentric	Absent	NA	36	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ihAcaHaem1.1		Holocentric	Absent	NA	2	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ihAelAcum1.1		Holocentric	Absent	NA	17	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ihIcePurc2.1		Holocentric	Absent	NA	4	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+iiGlyPell1.1		Holocentric	Absent	NA	17	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+iiLimAuri1.1		Holocentric	Absent	NA	8	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+iiLimLuna2.1		Holocentric	Present	miniprot	20	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+iiLimMarm1.1		Holocentric	Absent	NA	2	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+iiLimRhom1.1		Holocentric	Absent	NA	4	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilAgoAren1.1		Holocentric	Absent	NA	4	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilBisBetu1.1		Holocentric	Absent	NA	8	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilDeiPorc1.1		Holocentric	Absent	NA	14	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilEmmMono1.1		Holocentric	Absent	NA	12	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilHydMica1.1		Holocentric	Absent	NA	19	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilMicArun2.1		Holocentric	Absent	NA	15	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilNotUddm1.1		Holocentric	Absent	NA	23	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilParAegt1.1		Holocentric	Absent	NA	7	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilParStra1.1		Holocentric	Absent	NA	4	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilPieNapi4.1		Holocentric	Absent	NA	7	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilPyrMalv3.1		Holocentric	Absent	NA	27	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilSesBemb1.1		Holocentric	Absent	NA	43	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilThoDeci1.1		Holocentric	Absent	NA	73	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilTinTrin1.1		Holocentric	Absent	NA	12	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilWatBina1.1		Holocentric	Absent	NA	4	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilYpsScab1.1		Holocentric	Absent	NA	31	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ilZeuPyri1.1		Holocentric	Absent	NA	21	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+inChrCarn1.1		Satellite	Absent	NA	704	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ioIscEleg1.1		Holocentric	Absent	NA	8	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ioPlaPenn1.1		Holocentric	Absent	NA	3	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ipIsoGram3.1		Satellite	Present	diamond	4	1	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ipNemDubi1.1		Satellite	Absent	NA	2	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+iuLoeVari1.hap1.1		Holocentric		NA	2	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+iuMesFusc1.1		Holocentric	Absent	NA	1	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+iuPsoGibb1.1		Holocentric	Absent	NA	3	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+iyApaInim1.hap1.1		Satellite		NA	8	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+iySelTumu1.1		Satellite/transposon	Absent	NA	7	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+iyVesVulg1.1		Satellite	Present	miniprot	14	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+jaDiaLine6.1		Satellite	Present	NA	16	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+jaRicFlor1.1		Satellite	Present	NA	50	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+lsIriFoet1.hap1.1		Satellite		NA	17	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+mCerEla1.1		Satellite	Absent	NA	0	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+mDicBic1.1		Satellite	Absent	NA	0	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+mEleMax1.1		Satellite	Absent	NA	0	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+mMelMel3.2		Satellite	Absent	NA	0	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+mOrcOrc1.1		Satellite	Absent	NA	0	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ocSycCili1.1		Satellite	Absent	NA	2	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+qeDicMinu4.1		Transposon	Absent	NA	19	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+qqMetBour1.1		Unknown	Absent	NA	8	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+qxSacCarc1.2		Transposon	Absent	NA	28	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+tzMemMemb1.1		Satellite	Absent	NA	9	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+ucPseBory1.1		Unknown	Present	NA	5	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+wrPisGeom1.1		Transposon	Absent	NA	64	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+xbTriCroc3.1		Unknown	Absent	NA	23	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+xbTriGiga4.1		Unknown	Absent	NA	3	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+xgGibMagu1.1		Satellite	Absent	NA	40	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+xgPatVulg1.1		Transposon	Absent	NA	7	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		
+xgSteCine2.1		Transposon	Absent	NA	25	0	0	0	0	absent_from_curated_tree	0	0	absent_from_curated_tree	0		0	—	—	—	—	—	—	—	—	—	—	NA		

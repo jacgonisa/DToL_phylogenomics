@@ -1,0 +1,336 @@
+species_code	genus	species	order	broad_clade	centromere_type	cenpa_presence	cenpa_copies	copy_number_call
+pxEimPrae1.1	Eimeria	praecox	Alveolata	Alveolata	Unknown	Present	2	low_copy
+wpAliVire1.1	Alitta	virens	Annelida	Annelida	Satellite	Present	1	single_copy
+wpLepClav1.1	Lepidonotus	clava	Annelida	Annelida	Satellite	Present	1	single_copy
+wcLumRube1.1	Lumbricus	rubellus	Annelida	Annelida	Transposon	Present	1	single_copy
+wrPisGeom1.1	Piscicola	geometra	Annelida	Annelida	Transposon	Absent	0	absent_from_curated_tree
+wpSthLimi1.1	Sthenelais	limicola	Annelida	Annelida	Transposon	Present	1	single_copy
+pEimTen1.1	Eimeria	tenella	Alveolata	Apicomplex	Monocentric sequence unknown	Present	1	single_copy
+qeAllFusc8.1	Allacma	fusca	Arthropoda	Arthropoda	Satellite	Present	2	low_copy
+qeDicMinu4.1	Dicyrtomina	minuta	Arthropoda	Arthropoda	Transposon	Absent	0	absent_from_curated_tree
+qeLepCurv1.1	Lepidocyrtus	curvicollis	Arthropoda	Arthropoda	Satellite	Present	2	low_copy
+qeOrcFlav1.1	Orchesella	flavescens	Arthropoda	Arthropoda	Satellite	Present	2	low_copy
+qqMetBour1.1	Meta	bourneti	Chelicerata	Arthropods	Unknown	Absent	0	absent_from_curated_tree
+icAdaBipu1.1	Adalia	bipunctata	Coleoptera	Arthropods	Satellite	Present	0	no_confirmed_copy
+icAgrMuri1.1	Agrypnus	murinus	Coleoptera	Arthropods	Unknown	Present	2	low_copy
+icApoCory1.1	Apoderus	coryli	Coleoptera	Arthropods	Satellite	Present	4	expanded
+icCanRust1.1	Cantharis	rustica	Coleoptera	Arthropods	Satellite	Present	0	no_confirmed_copy
+icChrOric1.1	Chrysolina	oricalcia	Coleoptera	Arthropods	Satellite	Absent	0	absent_from_curated_tree
+icCocSept1.1	Coccinella	septempunctata	Coleoptera	Arthropods	Satellite	Present	0	no_confirmed_copy
+icHalSede1.1	Halyzia	sedecimguttata	Coleoptera	Arthropods	Satellite	Absent	0	absent_from_curated_tree
+icHarAxyr1.1	Harmonia	axyridis	Coleoptera	Arthropods	Satellite	Present	0	no_confirmed_copy
+icLeiSpin1.1	Leistus	spinibarbis	Coleoptera	Arthropods	Transposon	Present	0	no_confirmed_copy
+icMalBipu1.1	Malachius	bipustulatus	Coleoptera	Arthropods	Satellite	Present	1	single_copy
+icMelMelo1.1	Melolontha	melolontha	Coleoptera	Arthropods	Transposon	Present	0	absent_from_curated_tree
+icNebBrev1.1	Nebria	brevicollis	Coleoptera	Arthropods	Satellite	Present	4	expanded
+icNebSali1.1	Nebria	salina	Coleoptera	Arthropods	Satellite	Present	3	low_copy
+icOcyOlen1.1	Ocypus	olens	Coleoptera	Arthropods	Satellite	Present	1	single_copy
+icOphArdo1.1	Ophonus	ardosiacus	Coleoptera	Arthropods	Transposon	Present	3	low_copy
+icPhiCogn1.1	Philonthus	cognatus	Coleoptera	Arthropods	Transposon	Present	0	no_confirmed_copy
+icSilAtra2.1	Phosphuga	atrata	Coleoptera	Arthropods	Satellite	Present	4	expanded
+icPodAlpi1.1	Podabrus	alpinus	Coleoptera	Arthropods	Unknown	Present	0	no_confirmed_copy
+icPolCerv1.1	Polydrusus	cervinus	Coleoptera	Arthropods	Satellite/transposon	Absent	0	absent_from_curated_tree
+icPteMadi1.1	Pterostichus	madidus	Coleoptera	Arthropods	Satellite	Present	1	single_copy
+icPyrSerr1.1	Pyrochroa	serraticornis	Coleoptera	Arthropods	Transposon	Absent	0	absent_from_curated_tree
+icRhaFulv1.1	Rhagonycha	fulva	Coleoptera	Arthropods	Satellite/transposon	Present	1	single_copy
+icLepMacu1.1	Rutpela	maculata	Coleoptera	Arthropods	Satellite	Absent	0	absent_from_curated_tree
+qxSacCarc1.2	Sacculina	carcini	Crustacea	Arthropods	Transposon	Absent	0	absent_from_curated_tree
+idBelPand1.1	Bellardia	pandia	Diptera	Arthropods	Satellite	Present	0	no_confirmed_copy
+idBibMarc1.1	Bibio	marci	Diptera	Arthropods	Satellite	Present	1	single_copy
+idBomDisc1.1	Bombylius	discolor	Diptera	Arthropods	Satellite	Present	1	single_copy
+idCluTigr1.1	Clusia	tigrina	Diptera	Arthropods	Satellite	Present	2	low_copy
+idEpiSucc1.1	Epicampocera	succincta	Diptera	Arthropods	Satellite	Present	1	single_copy
+idGymRotn1.1	Gymnosoma	rotundatum	Diptera	Arthropods	Satellite	Present	0	no_confirmed_copy
+idMacAtri3.1	Machimus	atricapillus	Diptera	Arthropods	Satellite	Present	0	no_confirmed_copy
+idNepFlae1.1	Nephrotoma	flavescens	Diptera	Arthropods	Transposon	Present	0	no_confirmed_copy
+idPheCory1.1	Pherbina	coryleti	Diptera	Arthropods	Transposon	Present	1	single_copy
+idPhyMeln1.1	Phyto	melanocephala	Diptera	Arthropods	Satellite	Present	1	single_copy
+idPolAmen1.1	Pollenia	amentaria	Diptera	Arthropods	Satellite	Present	2	low_copy
+idProAzur1.1	Protocalliphora	azurea	Diptera	Arthropods	Satellite	Present	2	low_copy
+idSarRose1.1	Sarcophaga	rosellei	Diptera	Arthropods	Transposon	Present	1	single_copy
+idSicFerr1.1	Sicus	ferrugineus	Diptera	Arthropods	Transposon	Present	2	low_copy
+idSphTaen1.1	Sphaerophoria	taeniata	Diptera	Arthropods	Transposon	Present	0	no_confirmed_copy
+idStoLuna1.1	Stomorhina	lunata	Diptera	Arthropods	Transposon	Present	0	no_confirmed_copy
+idSyrPipi1.1	Syritta	pipiens	Diptera	Arthropods	Transposon	Present	0	no_confirmed_copy
+idTacFera2.1	Tachina	fera	Diptera	Arthropods	Transposon	Present	1	single_copy
+ihAcaHaem1.1	Acanthosoma	haemorrhoidale	Hemiptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ihAelAcum1.1	Aelia	acuminata	Hemiptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ihIcePurc2.1	Icerya	purchasi	Hemiptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+iyAmbArma2.1	Amblyteles	armatorius	Hymenoptera	Arthropods	Satellite	Present	1	single_copy
+iyAncNigr1.1	Ancistrocerus	nigricornis	Hymenoptera	Arthropods	Transposon	Present	1	single_copy
+iyAndDors1.1	Andrena	dorsata	Hymenoptera	Arthropods	Satellite/transposon	Present	1	single_copy
+iyAnoNige1.1	Anoplius	nigerrimus	Hymenoptera	Arthropods	Satellite	Present	1	single_copy
+iyAthRosa1.1	Athalia	rosae	Hymenoptera	Arthropods	Satellite	Present	1	single_copy
+iyBomHypn1.1	Bombus	hypnorum	Hymenoptera	Arthropods	Satellite	Present	1	single_copy
+iyBuaLabo1.1	Buathra	laborator	Hymenoptera	Arthropods	Satellite/transposon	Present	1	single_copy
+iyCerRyby1.1	Cerceris	rybyensis	Hymenoptera	Arthropods	Transposon	Present	1	single_copy
+iyEctCont1.1	Ectemnius	continuus	Hymenoptera	Arthropods	Satellite	Present	1	single_copy
+iyMacEuro1.1	Macropis	europaea	Hymenoptera	Arthropods	Satellite	Present	1	single_copy
+iyMimDahl1.1	Mimumesa	dahlbomi	Hymenoptera	Arthropods	Satellite	Present	1	single_copy
+iyNomFabr1.1	Nomada	fabriciana	Hymenoptera	Arthropods	Satellite	Present	1	single_copy
+iyNysSpin1.1	Nysson	spinosus	Hymenoptera	Arthropods	Satellite	Present	1	single_copy
+iyOphLute1.1	Ophion	luteus	Hymenoptera	Arthropods	Satellite	Present	1	single_copy
+iyRhoChlo1.1	Rhogogaster	chlorosoma	Hymenoptera	Arthropods	Transposon	Present	1	single_copy
+iySelTumu1.1	Seladonia	tumulorum	Hymenoptera	Arthropods	Satellite/transposon	Absent	0	absent_from_curated_tree
+iyStePhae1.1	Stelis	phaeoptera	Hymenoptera	Arthropods	Satellite	Present	1	single_copy
+iyTipFemo1.1	Tiphia	femorata	Hymenoptera	Arthropods	Satellite	Present	1	single_copy
+iyVesVulg1.1	Vespula	vulgaris	Hymenoptera	Arthropods	Satellite	Present	0	absent_from_curated_tree
+ilAgoAren1.1	Agonopterix	arenella	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ilBisBetu1.1	Biston	betularia	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ilDeiPorc1.1	Deilephila	porcellus	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ilEmmMono1.1	Emmelina	monodactyla	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ilHydMica1.1	Hydraecia	micacea	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ilMicArun2.1	Micropterix	aruncella	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ilNotUddm1.1	Notocelia	uddmanniana	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ilParStra1.1	Parapoynx	stratiotata	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ilParAegt1.1	Pararge	aegeria	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ilPieNapi4.1	Pieris	napi	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ilPyrMalv3.1	Pyrgus	malvae	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ilSesBemb1.1	Sesia	bembeciformis	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ilThoDeci1.1	Tholera	decimalis	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ilTinTrin1.1	Tinea	trinotella	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ilWatBina1.1	Watsonalla	binaria	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ilYpsScab1.1	Ypsolopha	scabrella	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ilZeuPyri1.1	Zeuzera	pyrina	Lepidoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+inChrCarn1.1	Chrysoperla	carnea	Neuroptera	Arthropods	Satellite	Absent	0	absent_from_curated_tree
+ioIscEleg1.1	Ischnura	elegans	Odonata	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ioPlaPenn1.1	Platycnemis	pennipes	Odonata	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ipIsoGram3.1	Isoperla	grammatica	Plecoptera	Arthropods	Satellite	Present	0	absent_from_curated_tree
+ipLeuNigr2.1	Leuctra	nigra	Plecoptera	Arthropods	Unknown	Present	1	single_copy
+ipNemDubi1.1	Nemoura	dubitans	Plecoptera	Arthropods	Satellite	Absent	0	absent_from_curated_tree
+ipNemPict2.1	Nemurella	pictetii	Plecoptera	Arthropods	Unknown	Present	1	single_copy
+iiGlyPell1.1	Glyphotaelius	pellucidus	Trichoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+iiLimLuna2.1	Limnephilus	lunatus	Trichoptera	Arthropods	Holocentric	Present	0	absent_from_curated_tree
+iiLimMarm1.1	Limnephilus	marmoratus	Trichoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+iiLimRhom1.1	Limnephilus	rhombicus	Trichoptera	Arthropods	Holocentric	Absent	0	absent_from_curated_tree
+ibEctPall1.hap1.1	Ectobius	pallidus	Blattodea	Blattodea	Satellite		1	single_copy
+tzBugStol2.1	Bugulina	stolonifera	Bryozoa	Bryozoa	Satellite	Present	1	single_copy
+tzCryPall5.1	Cryptosula	pallasiana	Bryozoa	Bryozoa	Unknown	Present	2	low_copy
+tzMemMemb1.1	Membranipora	membranacea	Bryozoa	Bryozoa	Satellite	Absent	0	absent_from_curated_tree
+fAciRut3.2	Acipenser	ruthenus	Actinopterygii	Chordates	Satellite/transposon	Present	3	low_copy
+fAloSap1.1	Alosa	sapidissima	Actinopterygii	Chordates	Satellite	Present	1	single_copy
+fBarBab1.1	Barbus	barbus	Actinopterygii	Chordates	Satellite	Present	2	low_copy
+fDanRer4.1	Danio	rerio	Actinopterygii	Chordates	Satellite	Present	1	single_copy
+fPanHyp1.1	Pangasianodon	hypophthalmus	Actinopterygii	Chordates	Monocentric sequence unknown	Present	1	single_copy
+fPhoGun1.2	Pholis	gunnellus	Actinopterygii	Chordates	Satellite	Present	1	single_copy
+fTauBub2.1	Taurulus	bubalis	Actinopterygii	Chordates	Satellite	Present	1	single_copy
+fTelBon1.1	Telmatherina	bonti	Actinopterygii	Chordates	Unknown	Present	1	single_copy
+fThuAlb1.1	Thunnus	albacares	Actinopterygii	Chordates	Satellite	Present	1	single_copy
+fThuMac1.1	Thunnus	maccoyii	Actinopterygii	Chordates	Satellite	Present	1	single_copy
+fToxJac2.1	Toxotes	jaculatrix	Actinopterygii	Chordates	Satellite/transposon	Present	1	single_copy
+fTraTra1.2	Trachurus	trachurus	Actinopterygii	Chordates	Satellite	Present	1	single_copy
+bAccGen1.1	Accipiter	gentilis	Aves	Chordates	Satellite	Present	1	single_copy
+bCorHaw1.1	Corvus	hawaiiensis	Aves	Chordates	Satellite	Present	1	single_copy
+bFalBia1.1	Falco	biarmicus	Aves	Chordates	Satellite	Absent	0	absent_from_curated_tree
+bFalChe1.1	Falco	cherrug	Aves	Chordates	Satellite	Absent	0	absent_from_curated_tree
+bFalPer1.1	Falco	peregrinus	Aves	Chordates	Satellite	Absent	0	absent_from_curated_tree
+bGalGal1.GRCg7b	Gallus	gallus	Aves	Chordates	Satellite		3	low_copy
+bLagMut1.1	Lagopus	muta	Aves	Chordates	Satellite	Present	0	absent_from_curated_tree
+bPorHoc1.1	Porphyrio	hochstetteri	Aves	Chordates	Satellite	Present	1	single_copy
+bTaeGut1.4	Taeniopygia	guttata	Aves	Chordates	Unknown	Present	3	low_copy
+mCanLor1.2	Canis	lupus	Mammalia	Chordates	Satellite	Absent	1	single_copy
+mCerEla1.1	Cervus	elaphus	Mammalia	Chordates	Satellite	Absent	0	absent_from_curated_tree
+mDicBic1.1	Diceros	bicornis	Mammalia	Chordates	Satellite	Absent	0	absent_from_curated_tree
+mEleMax1.1	Elephas	maximus	Mammalia	Chordates	Satellite	Absent	0	absent_from_curated_tree
+mLemCat1.1	Lemur	catta	Mammalia	Chordates	Satellite	Absent	1	single_copy
+mMelMel3.2	Meles	meles	Mammalia	Chordates	Satellite	Absent	0	absent_from_curated_tree
+mOrcOrc1.1	Orcinus	orca	Mammalia	Chordates	Satellite	Absent	0	absent_from_curated_tree
+rVipLat1.1	Vipera	latastei	Reptilia	Chordates	Satellite	Present	1	single_copy
+kaAplTurb1.1	Aplidium	turbinatum	Tunicata	Chordates	Satellite	Present	1	single_copy
+jaDiaLine6.1	Diadumene	lineata	Cnidaria	Cnidaria	Satellite	Present	0	absent_from_curated_tree
+jrHalOcto1.1	Haliclystus	octoradiatus	Cnidaria	Cnidaria	Satellite	Present	1	single_copy
+jaNemVect1.1	Nematostella	vectensis	Cnidaria	Cnidaria	Satellite	Present	0	no_confirmed_copy
+jaRicFlor1.1	Ricordea	florida	Cnidaria	Cnidaria	Satellite	Present	0	absent_from_curated_tree
+icAgoFuli1.1	Agonum	fuliginosum	Coleoptera	Coleoptera	Satellite	Present	1	single_copy
+icAgrCyan1.1	Agrilus	cyanescens	Coleoptera	Coleoptera	Satellite	Present	1	single_copy
+icCarProb1.1	Carabus	problematicus	Coleoptera	Coleoptera	Satellite	Present	1	single_copy
+icCetAura1.1	Cetonia	aurata	Coleoptera	Coleoptera	Satellite	Present	0	no_confirmed_copy
+icNicInve2.1	Nicrophorus	investigator	Coleoptera	Coleoptera	Satellite	Present	2	low_copy
+icQueLate1.hap1.1	Quedius	lateralis	Coleoptera	Coleoptera	Satellite		1	single_copy
+icScaQuad2.1	Scaphidium	quadrimaculatum	Coleoptera	Coleoptera	Satellite	Absent	0	absent_from_curated_tree
+igLabMino1.1	Labia	minor	Dermaptera	Dermaptera	Holocentric	Absent	0	absent_from_curated_tree
+idAcrOrbc1.1	Acrocera	orbiculus	Diptera	Diptera	Satellite	Present	0	no_confirmed_copy
+idAntAnth1.1	Anthrax	anthrax	Diptera	Diptera	Satellite	Present	1	single_copy
+idAthIbis2.2	Atherix	ibis	Diptera	Diptera	Satellite	Present	0	no_confirmed_copy
+idHydCyrt1.1	Hydrotaea	cyrtoneurina	Diptera	Diptera	Satellite	Present	1	single_copy
+idMelRora1.1	Melanophora	roralis	Diptera	Diptera	Transposon	Present	0	no_confirmed_copy
+idPamGerm1.hap1.1	Pamponerus	germanicus	Diptera	Diptera	Transposon		0	no_confirmed_copy
+eaMarGlac1.2	Marthasterias	glacialis	Echinodermata	Echinodermata	Satellite	Present	1	single_copy
+ieCloDipt1.1	Cloeon	dipterum	Ephemeroptera	Ephemeroptera	Satellite	Present	1	single_copy
+ieEcdTorr1.1	Ecdyonurus	torrentis	Ephemeroptera	Ephemeroptera	Satellite	Absent	0	absent_from_curated_tree
+ieProBifi2.1	Procloeon	bifidum	Ephemeroptera	Ephemeroptera	Satellite	Absent	1	single_copy
+ieSipAlte2.1	Siphlonurus	alternatus	Ephemeroptera	Ephemeroptera	Satellite	Present	2	low_copy
+gfAgaBisp1.1	Agaricus	bisporus	Fungi	Fungi	Transposon	Present	1	single_copy
+gfAgrPrae1.1	Agrocybe	praecox	Fungi	Fungi	Transposon	Present	1	single_copy
+gfAmaRube1.hap1.1	Amanita	rubescens	Fungi	Fungi	Transposon		1	single_copy
+gpAraPeru1.1	Arachnomyces	peruvianus	Fungi	Fungi	Transposon	Present	1	single_copy
+gfArmOsto1.1	Armillaria	ostoyae	Fungi	Fungi	Transposon	Present	0	absent_from_curated_tree
+gfAurGent2.1	Aureoboletus	gentilis	Fungi	Fungi	Transposon	Present	1	single_copy
+gfButSuba1.1	Butyriboletus	subappendiculatus	Fungi	Fungi	Transposon	Present	1	single_copy
+gfChlBrun1.1	Chlorophyllum	brunneum	Fungi	Fungi	Transposon	Present	1	single_copy
+glClaSqua9.2	Cladonia	squamosa	Fungi	Fungi	Unknown	Present	1	single_copy
+gfClaFumo1.1	Clavaria	fumosa	Fungi	Fungi	Transposon	Present	1	single_copy
+gfLepSord1.hap1.1	Collybia	sordida	Fungi	Fungi	Transposon		1	single_copy
+gfCopMica1.1	Coprinellus	micaceus	Fungi	Fungi	Transposon	Present	1	single_copy
+grCorFumo1.1	Cordyceps	fumosorosea	Fungi	Fungi	Monocentric sequence unknown	Present	0	absent_from_curated_tree
+gfEntClyp1.2	Entoloma	clypeatum	Fungi	Fungi	Unknown	Present	1	single_copy
+gzEntParv1.1	Entomortierella	parvispora	Fungi	Fungi	Unknown	Present	1	single_copy
+glEphLana1.1	Ephebe	lanata	Fungi	Fungi	Unknown	Present	1	single_copy
+gfFlaVelt1.2	Flammulina	velutipes	Fungi	Fungi	Transposon	Present	1	single_copy
+glFlaMari1.1	Flavoplaca	marina	Fungi	Fungi	Transposon	Present	1	single_copy
+gfBolQuer1.1	Fomitopsis	pulvina	Fungi	Fungi	Transposon	Present	1	single_copy
+gfGanResi1.1	Ganoderma	resinaceum	Fungi	Fungi	Transposon	Present	1	single_copy
+gfGliIrri2.hap1.1	Gliophorus	irrigatus	Fungi	Fungi	Transposon		1	single_copy
+gfHerErin3.1	Hericium	erinaceus	Fungi	Fungi	Transposon	Present	1	single_copy
+gfHygPuni3.1	Hygrocybe	punicea	Fungi	Fungi	Unknown	Present	1	single_copy
+gfInoObsi1.1	Inocybe	obscuroides	Fungi	Fungi	Unknown	Present	1	single_copy
+gfLacBlen1.hap1.1	Lactarius	blennius	Fungi	Fungi	Transposon		1	single_copy
+gfLaeSulp1.1	Laetiporus	sulphureus	Fungi	Fungi	Transposon	Present	1	single_copy
+gyLeoLubr2.1	Leotia	lubrica	Fungi	Fungi	Transposon	Absent	1	single_copy
+grLepFlav1.1	Leptographium	flavum	Fungi	Fungi	Transposon	Present	1	single_copy
+glLicPygm2.1	Lichina	pygmaea	Fungi	Fungi	Unknown	Absent	0	absent_from_curated_tree
+gsMetZobe1.1	Metschnikowia	zobellii	Fungi	Fungi	Monocentric sequence unknown	Present	1	single_copy
+gzMucPiri1.1	Mucor	piriformis	Fungi	Fungi	Unknown	Absent	0	absent_from_curated_tree
+gfMycGale1.hap1.1	Mycena	galericulata	Fungi	Fungi	Monocentric sequence unknown		0	absent_from_curated_tree
+gfPanStip1.1	Panellus	stipticus	Fungi	Fungi	Transposon	Present	1	single_copy
+gfPhaAlbo1.hap1.1	Phaeoclavulina	alboapiculata	Fungi	Fungi	Transposon		1	single_copy
+gfCorTriu1.hap1.1	Phlegmacium	triumphans	Fungi	Fungi	Unknown		1	single_copy
+glPlaGlau9.1	Platismatia	glauca	Fungi	Fungi	Transposon	Present	1	single_copy
+gfPleOstr1.1	Pleurotus	ostreatus	Fungi	Fungi	Transposon	Present	1	single_copy
+gfPorCaly1.1	Porpolomopsis	calyptriformis	Fungi	Fungi	Transposon	Present	1	single_copy
+glRamSili2.1	Ramalina	siliquosa	Fungi	Fungi	Transposon	Present	1	single_copy
+gfRamCorn1.1	Ramariopsis	corniculata	Fungi	Fungi	Transposon	Present	1	single_copy
+gdRhiKalk1.hap1.1	Rhizosphaera	kalkhoffii	Fungi	Fungi	Unknown		1	single_copy
+gfRusVesc1.hap1.1	Russula	vesca	Fungi	Fungi	Transposon		1	single_copy
+grSimLame1.1	Simplicillium	lamellicola	Fungi	Fungi	Monocentric sequence unknown	Present	1	single_copy
+gfSpaMino1.hap1.1	Sparassis	minoensis	Fungi	Fungi	Transposon		1	single_copy
+gfTauPull1.1	Tausonia	pullulans	Fungi	Fungi	Transposon	Present	1	single_copy
+grTriPseu1.1	Trichoderma	pseudokoningii	Fungi	Fungi	Transposon	Present	1	single_copy
+gfTriHemi4.1	Tricholoma	hemisulphureum	Fungi	Fungi	Unknown	Present	1	single_copy
+glUmbDeus1.1	Umbilicaria	deusta	Fungi	Fungi	Transposon	Present	1	single_copy
+gfVolSurr1.1	Volvariella	surrecta	Fungi	Fungi	Transposon	Present	1	single_copy
+paTetJugo1.1	Tetramitus	jugosus	Discoba	Heterobolosea	Unknown	Present	1	single_copy
+iyAbiCand1.1	Abia	candens	Hymenoptera	Hymenoptera	Satellite	Present	1	single_copy
+iyApaInim1.hap1.1	Apaeleticus	inimicus	Hymenoptera	Hymenoptera	Satellite		0	absent_from_curated_tree
+iyCoeConi1.1	Coelioxys	conoideus	Hymenoptera	Hymenoptera	Satellite	Present	1	single_copy
+iyLasVill1.1	Lasioglossum	villosulum	Hymenoptera	Hymenoptera	Satellite	Present	1	single_copy
+iyMacAlbo1.1	Macrophya	alboannulata	Hymenoptera	Hymenoptera	Satellite	Present	1	single_copy
+iyPemLugu1.1	Pemphredon	lugubris	Hymenoptera	Hymenoptera	Satellite	Present	1	single_copy
+iyPriPert1.1	Priocnemis	perturbator	Hymenoptera	Hymenoptera	Satellite	Present	1	single_copy
+iyVulBima1.1	Vulgichneumon	bimaculatus	Hymenoptera	Hymenoptera	Satellite	Present	1	single_copy
+xgBioGlab47.1	Biomphalaria	glabrata	Mollusca	Mollusca	Transposon	Present	1	single_copy
+xbGarTell2.1	Gari	tellinella	Mollusca	Mollusca	Satellite	Present	1	single_copy
+xgGibMagu1.1	Gibbula	magus	Mollusca	Mollusca	Satellite	Absent	0	absent_from_curated_tree
+xbLimFort5.1	Limnoperna	fortunei	Mollusca	Mollusca	Satellite	Present	1	single_copy
+xgPatPell1.1	Patella	pellucida	Mollusca	Mollusca	Transposon	Present	2	low_copy
+xgPatVulg1.1	Patella	vulgata	Mollusca	Mollusca	Transposon	Absent	0	absent_from_curated_tree
+xgPhoLine1.1	Phorcus	lineatus	Mollusca	Mollusca	Transposon	Present	1	single_copy
+xgSteCine2.1	Steromphala	cineraria	Mollusca	Mollusca	Transposon	Absent	0	absent_from_curated_tree
+xbTriCroc3.1	Tridacna	crocea	Mollusca	Mollusca	Unknown	Absent	0	absent_from_curated_tree
+xbTriGiga4.1	Tridacna	gigas	Mollusca	Mollusca	Unknown	Absent	0	absent_from_curated_tree
+nxTriColu2.1	Trichostrongylus	colubriformis	Nematoda	Nematoda	Unknown	Present	0	no_confirmed_copy
+tnLinLong1.2	Lineus	longissimus	Nemertea	Nemertea	Satellite/transposon	Present	1	single_copy
+ocSycCili1.1	Sycon	ciliatum	Porifera	Porifera	Satellite	Absent	0	absent_from_curated_tree
+iuLoeVari1.hap1.1	Loensia	variegata	Psocodea	Psocodea	Holocentric		0	absent_from_curated_tree
+iuMesFusc1.1	Mesopsocus	fuscifrons	Psocodea	Psocodea	Holocentric	Absent	0	absent_from_curated_tree
+iuPsoGibb1.1	Psococerastis	gibbosa	Psocodea	Psocodea	Holocentric	Absent	0	absent_from_curated_tree
+iiLimAuri1.1	Limnephilus	auricula	Trichoptera	Trichoptera	Holocentric	Absent	0	absent_from_curated_tree
+ucDunPrim2.1	Dunaliella	primolecta	Algae	Viridiplantae	Unknown	Absent	1	single_copy
+ucMarCocc1.1	Marvania	coccoides	Algae	Viridiplantae	Unknown	Present	1	single_copy
+ucPseBory1.1	Pseudopediastrum	boryanum	Algae	Viridiplantae	Unknown	Present	0	absent_from_curated_tree
+ucPycProv1.1	Pycnococcus	provasolii	Algae	Viridiplantae	Unknown	Absent	8	expanded
+caAndHook4.1	Andreaea	hookeri	Bryophyta	Viridiplantae	Transposon	Present	1	single_copy
+cbCalCord2.1	Calliergon	cordifolium	Bryophyta	Viridiplantae	Transposon	Present	4	expanded
+cjHerHutc3.1	Herbertus	hutchinsiae	Bryophyta	Viridiplantae	Transposon	Present	1	single_copy
+cbHylTriq8.1	Hylocomiadelphus	triquetrus	Bryophyta	Viridiplantae	Transposon	Present	2	low_copy
+cbIsoPulc3.1	Isopterygiella	pulchella	Bryophyta	Viridiplantae	Transposon	Present	4	expanded
+cmLunCruc20.1	Lunularia	cruciata	Bryophyta	Viridiplantae	Unknown	Present	1	single_copy
+cbPolSexa1.1	Polytrichastrum	sexangulare	Bryophyta	Viridiplantae	Transposon	Present	2	low_copy
+cbRhyConf1.1	Rhynchostegium	confertum	Bryophyta	Viridiplantae	Unknown	Present	2	low_copy
+cbRhyLore1.1	Rhytidiadelphus	loreus	Bryophyta	Viridiplantae	Transposon	Present	2	low_copy
+csSphGirg1.1	Sphagnum	girgensohnii	Bryophyta	Viridiplantae	Transposon	Present	1	single_copy
+cbThuTama2.1	Thuidium	tamariscinum	Bryophyta	Viridiplantae	Transposon	Present	2	low_copy
+drAilAlti1.1	Ailanthus	altissima	Dicots	Viridiplantae	Transposon	Present	2	low_copy
+dhAlnGlut1.1	Alnus	glutinosa	Dicots	Viridiplantae	Transposon	Present	1	single_copy
+dmAquVulg1.hap1.1	Aquilegia	vulgaris	Dicots	Viridiplantae	Satellite		2	low_copy
+ddAraThal4.1	Arabidopsis	thaliana	Dicots	Viridiplantae	Satellite	Present	1	single_copy
+daArcMinu1.1	Arctium	minus	Dicots	Viridiplantae	Satellite/transposon	Present	1	single_copy
+dcAreSerp1.hap1.1	Arenaria	serpyllifolia	Dicots	Viridiplantae	Satellite		2	low_copy
+drAstGlyc1.1	Astragalus	glycyphyllos	Dicots	Viridiplantae	Satellite	Present	2	low_copy
+daBalNigr1.1	Ballota	nigra	Dicots	Viridiplantae	Satellite	Present	2	low_copy
+ddBarVulg1.1	Barbarea	vulgaris	Dicots	Viridiplantae	Satellite	Present	1	single_copy
+dmBerVulg1.1	Berberis	vulgaris	Dicots	Viridiplantae	Satellite	Present	1	single_copy
+ddCarHirs1.hap1.1	Cardamine	hirsuta	Dicots	Viridiplantae	Transposon		1	single_copy
+drChaAngu1.1	Chamaenerion	angustifolium	Dicots	Viridiplantae	Satellite	Present	2	low_copy
+dhCorColu1.hap1.1	Corylus	colurna	Dicots	Viridiplantae	Satellite		0	no_confirmed_copy
+ddEupPepu3.1	Euphorbia	peplus	Dicots	Viridiplantae	Satellite	Present	1	single_copy
+drFilUlma1.1	Filipendula	ulmaria	Dicots	Viridiplantae	Transposon	Present	3	low_copy
+drGeuRiva1.hap1.1	Geum	rivale	Dicots	Viridiplantae	Satellite		1	single_copy
+drGeuUrba1.1	Geum	urbanum	Dicots	Viridiplantae	Transposon	Present	1	single_copy
+drHedHeli1.1	Hedera	helix	Dicots	Viridiplantae	Satellite	Present	3	low_copy
+ddHotPalu2.hap1.1	Hottonia	palustris	Dicots	Viridiplantae	Satellite		1	single_copy
+daLinVulg1.1	Linaria	vulgaris	Dicots	Viridiplantae	Satellite	Present	1	single_copy
+drMalDome5.1	Malus	domestica	Dicots	Viridiplantae	Transposon	Present	3	low_copy
+drMalSylv7.1	Malus	sylvestris	Dicots	Viridiplantae	Transposon	Present	3	low_copy
+drMedArab1.1	Medicago	arabica	Dicots	Viridiplantae	Satellite	Present	1	single_copy
+ddMerAnnu1.1	Mercurialis	annua	Dicots	Viridiplantae	Satellite	Present	1	single_copy
+daMisOron1.1	Misopates	orontium	Dicots	Viridiplantae	Satellite	Present	1	single_copy
+dcMoeTrin1.hap1.1	Moehringia	trinervia	Dicots	Viridiplantae	Satellite		1	single_copy
+drParJuda1.1	Parietaria	judaica	Dicots	Viridiplantae	Satellite	Present	2	low_copy
+dcPolTetr1.hap1.1	Polycarpon	tetraphyllum	Dicots	Viridiplantae	Satellite		4	expanded
+dcPolAvic1.1	Polygonum	aviculare	Dicots	Viridiplantae	Satellite	Present	3	low_copy
+ddPopNigr1.1	Populus	nigra	Dicots	Viridiplantae	Satellite	Present	1	single_copy
+drPotAnse1.1	Potentilla	anserina	Dicots	Viridiplantae	Satellite	Present	1	single_copy
+daPulDyse1.1	Pulicaria	dysenterica	Dicots	Viridiplantae	Satellite	Present	0	no_confirmed_copy
+dhQueRobu3.1	Quercus	robur	Dicots	Viridiplantae	Satellite	Present	0	no_confirmed_copy
+daSamNigr1.1	Sambucus	nigra	Dicots	Viridiplantae	Transposon	Present	1	single_copy
+daScuGale1.1	Scutellaria	galericulata	Dicots	Viridiplantae	Satellite	Present	1	single_copy
+daSheArve1.1	Sherardia	arvensis	Dicots	Viridiplantae	Satellite	Present	1	single_copy
+daSolDulc1.1	Solanum	dulcamara	Dicots	Viridiplantae	Transposon	Present	1	single_copy
+dcSpeMari1.1	Spergularia	marina	Dicots	Viridiplantae	Satellite	Present	2	low_copy
+daTanVulg1.hap1.1	Tanacetum	vulgare	Dicots	Viridiplantae	Satellite		0	absent_from_curated_tree
+dmThaMinu1.hap1.1	Thalictrum	minus	Dicots	Viridiplantae	Satellite		6	expanded
+drTriFrag1.1	Trifolium	fragiferum	Dicots	Viridiplantae	Satellite	Present	1	single_copy
+drUrtUren1.1	Urtica	urensi	Dicots	Viridiplantae	Transposon	Present	2	low_copy
+laAliPlan1.1	Alisma	plantago-aquatica	Monocots	Viridiplantae	Satellite	Present	1	single_copy
+laApoDist1.hap1.1	Aponogeton	distachyos	Monocots	Viridiplantae	Satellite		1	single_copy
+lpBroSter1.1	Bromus	sterilis	Monocots	Viridiplantae	Transposon	Present	3	low_copy
+lpCarDepa1.1	Carex	depauperata	Monocots	Viridiplantae	Holocentric	Present	1	single_copy
+lpCypFusc1.hap1.1	Cyperus	fuscus	Monocots	Viridiplantae	Holocentric		1	single_copy
+lpDigSang1.hap1.1	Digitaria	sanguinalis	Monocots	Viridiplantae	Satellite		4	expanded
+lpEleQuin1.1	Eleocharis	quinqueflora	Monocots	Viridiplantae	Holocentric	Present	2	low_copy
+lpEriAngu1.1	Eriophorum	angustifolium	Monocots	Viridiplantae	Holocentric	Present	1	single_copy
+lpHieOdor1.hap1.1	Hierochloe	odorata	Monocots	Viridiplantae	Transposon		7	expanded
+lpHorVulg1.hap1.1	Hordeum	vulgare	Monocots	Viridiplantae	Transposon		3	low_copy
+lsIriFoet1.hap1.1	Iris	foetidissima	Monocots	Viridiplantae	Satellite		0	absent_from_curated_tree
+lpJunBufo1.hap1.1	Juncus	bufonius	Monocots	Viridiplantae	Satellite		3	low_copy
+lpJunEffu1.1	Juncus	effusus	Monocots	Viridiplantae	Satellite	Present	1	single_copy
+lpJunSqua1.hap1.1	Juncus	squarrosus	Monocots	Viridiplantae	Satellite		1	single_copy
+lpLeeOryz1.hap1.1	Leersia	oryzoides	Monocots	Viridiplantae	Satellite		3	low_copy
+laLemMinu1.hap1.1	Lemna	minuta	Monocots	Viridiplantae	Unknown		1	single_copy
+lpLuzPall1.1	Luzula	pallescens	Monocots	Viridiplantae	Holocentric	Present	5	expanded
+lpLuzSylv1.1	Luzula	sylvatica	Monocots	Viridiplantae	Holocentric	Present	3	low_copy
+ldNarOssi1.1	Narthecium	ossifragum	Monocots	Viridiplantae	Transposon	Present	1	single_copy
+lpPhlPrat1.hap1.1	Phleum	pratense	Monocots	Viridiplantae	Satellite		4	expanded
+lpPhrAust1.1	Phragmites	australis	Monocots	Viridiplantae	Transposon	Present	2	low_copy
+lpPoaChai1.hap1.1	Poa	chaixii	Monocots	Viridiplantae	Transposon		4	expanded
+lpPolViri1.hap1.1	Polypogon	viridis	Monocots	Viridiplantae	Transposon		12	expanded
+laPotNata1.hap1.1	Potamogeton	natans	Monocots	Viridiplantae	Satellite		2	low_copy
+lpSchLacu1	Schoenoplectus	lacustris	Monocots	Viridiplantae	Holocentric	Present	2	low_copy
+lpSchTabe1.hap1.1	Schoenoplectus	tabernaemontani	Monocots	Viridiplantae	Holocentric		2	low_copy
+lpSchTriq1.1	Schoenoplectus	triqueter	Monocots	Viridiplantae	Holocentric	Present	2	low_copy
+lpSciSylv1.hap1.1	Scirpus	sylvaticus	Monocots	Viridiplantae	Holocentric		1	single_copy
+lpSpaEmer1.hap1.1	Sparganium	emersum	Monocots	Viridiplantae	Transposon		2	low_copy
+lpTriCesp1.1	Trichophorum	cespitosum	Monocots	Viridiplantae	Unknown	Present	1	single_copy
+laTriMari1.1	Triglochin	maritima	Monocots	Viridiplantae	Satellite/transposon	Present	2	low_copy
+rosCan					?	?	5	expanded
+icMelMelo1_chunk1					?	?	2	low_copy
+daTanVulg1_GCA_964264315					?	?	2	low_copy
+rosCan_S27_v1					Satellite/transposon	Present	2	low_copy
+lsIriFoet1_GCA_964204905					?	?	1	single_copy
+mCerEla1_chunk1					?	?	1	single_copy
+mDicBic1_chunk2					?	?	1	single_copy
+mDicBic1_chunk_2					?	?	1	single_copy
+mEleMax1_chunk3					?	?	1	single_copy
+mMelMel3_chunk3					?	?	1	single_copy
+mOrcOrc1_chunk2					?	?	1	single_copy

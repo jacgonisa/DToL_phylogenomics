@@ -94,9 +94,10 @@ bioRxiv 2026.05.25.727640), both strands, scored as enrichment over a
 <b>dinucleotide-preserving null</b> (first-order Markov ≈ Altschul–Erikson doublet shuffle;
 validated against an explicit shuffle on the α-sat benchmark, 4,283× vs 4,524×).</p>
 <div class="fig">{img(FIG/'cenpb_paper_motifs.png')}<div class="cap">
-Enrichment over the dinucleotide null. Canonical box = 0 in all DToL clades; α-satellite
-positive control is off scale. Vertebrates lead the broad tier (1.39×); plants only lead the
-degenerate/stochastic tier (3.01×).</div></div>
+Enrichment (obs/exp, dinucleotide null) vs motif density (hits/Mbp). A real box needs
+<b>both</b>: only <b>α-satellite</b> sits top-right. HSat canonical is a lone point at ~0.03/Mbp
+(5 boundary hits → high enrichment but ~0 density — not a box). Canonical = 0 in all DToL
+clades; the clades sit near the null (enrichment ≈ 1).</div></div>
 {tbl(clade_df.round(2))}
 <p class="sub"><b>Note.</b> This uses composition-corrected <i>enrichment</i>, not raw
 hits/Mbp — raw density inflates plants (AT-rich, more satellite bp); under the dinucleotide

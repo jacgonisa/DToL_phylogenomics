@@ -29,53 +29,50 @@ n_sat=int(per.n_species.sum())                          # species that actually 
 benchd={blab[r.control]:{t:r[f"{t}_enrich_dinuc"] for t in ["canonical","broad","degenerated"]} for _,r in bench.iterrows()}
 tiers=["canonical","broad","degenerated"]; tlab={"canonical":"canonical","broad":"broad","degenerated":"degenerate"}
 tcol={"canonical":"#D55E00","broad":"#0072B2","degenerated":"#E69F00"}   # Okabe-Ito
-enr=lambda cl,t: per.loc[per.clade==cl,f"{t}_enrich_dinuc"].iloc[0]
-G=[("α-satellite\n(HG002, +)", {t:benchd["α-sat (HG002)"][t] for t in tiers}),
-   ("HSat 1/2/3\n(HG002, −)",  {t:benchd["HSat (HG002)"][t]  for t in tiers}),
-   ("Vertebrates",   {t:enr("Vertebrates",t)   for t in tiers}),
-   ("Invertebrates", {t:enr("Invertebrate",t)  for t in tiers}),
-   ("Plants",        {t:enr("Viridiplantae",t) for t in tiers})]
-labels=[g[0] for g in G]; x=np.arange(len(G)); w=0.26
+def bd(ctrl): return {t:(bench.loc[bench.control==ctrl,f"{t}_perMbp"].iloc[0], bench.loc[bench.control==ctrl,f"{t}_enrich_dinuc"].iloc[0]) for t in tiers}
+def cd(cl):   return {t:(per.loc[per.clade==cl,f"{t}_perMbp"].iloc[0],        per.loc[per.clade==cl,f"{t}_enrich_dinuc"].iloc[0])       for t in tiers}
+# (density hits/Mbp, enrichment over dinucleotide null) per group x tier
+groups=[("α-sat (HG002, +)","*",230, bd("alpha-satellite (positive)")),
+        ("HSat (HG002, −)", "X",70,  bd("HSat1/2/3 (negative)")),
+        ("Vertebrates",     "^",55,  cd("Vertebrates")),
+        ("Invertebrates",   "o",46,  cd("Invertebrate")),
+        ("Plants",          "s",50,  cd("Viridiplantae"))]
 
 # ---- Nature-style aesthetics ----
 plt.rcParams.update({
   "font.family":"sans-serif","font.sans-serif":["Arial","Helvetica","DejaVu Sans"],
   "font.size":8,"axes.linewidth":0.7,"xtick.major.width":0.7,"ytick.major.width":0.7,
   "xtick.major.size":3,"ytick.major.size":3,"xtick.direction":"out","ytick.direction":"out",
-  "axes.labelsize":8,"legend.fontsize":7,"xtick.labelsize":7.5,"ytick.labelsize":7.5,"savefig.dpi":600})
+  "axes.labelsize":8,"legend.fontsize":6.8,"xtick.labelsize":7.5,"ytick.labelsize":7.5,"savefig.dpi":600})
 
-# broken y-axis: alpha-sat enrichment is ~1000x the DToL clades
-fig,(top,bot)=plt.subplots(2,1,sharex=True,figsize=(5.8,4.1),
-                           gridspec_kw=dict(height_ratios=[1,1.5],hspace=0.07))
-for j,t in enumerate(tiers):
-    vals=[g[1][t] for g in G]
-    top.bar(x+(j-1)*w,vals,w,color=tcol[t],edgecolor="none",zorder=3)
-    bot.bar(x+(j-1)*w,vals,w,color=tcol[t],label=tlab[t],edgecolor="none",zorder=3)
-top.set_ylim(3.6,16000); bot.set_ylim(0,3.35)
-# de-emphasise HSat canonical: 5 boundary hits -> enrichment inflated by rarity, not real signal
-hx=1+(0-1)*w                                              # HSat, canonical tier
-top.bar(hx,G[1][1]["canonical"],w,facecolor="white",edgecolor="#C62828",hatch="////",lw=0.9,zorder=4)
-for gi,(gname,gv) in enumerate(G):                        # value labels
-    for j,t in enumerate(tiers):
-        v=gv[t]; xx=gi+(j-1)*w
-        if gname.startswith("HSat") and t=="canonical":
-            top.annotate("5 boundary hits\n(≈0; not a box)",(xx,v),ha="center",va="bottom",fontsize=5.2,color="#C62828"); continue
-        if 3.6<v<16000: top.annotate(f"{v:,.0f}×",(xx,v),ha="center",va="bottom",fontsize=5.4,color=tcol[t])
-        elif 0<v<3.35:  bot.annotate(f"{v:.2f}",(xx,v),ha="center",va="bottom",fontsize=5.4,color=tcol[t])
-bot.axhline(1,ls=(0,(4,3)),color="0.35",lw=0.9,zorder=2)
-bot.text(1.55,1.05,"null (random)",ha="left",va="bottom",fontsize=6.3,color="0.35")
-# break marks
-top.spines["bottom"].set_visible(False); bot.spines["top"].set_visible(False); top.tick_params(bottom=False)
-dm=dict(marker=[(-1,-0.5),(1,0.5)],markersize=7,linestyle="none",color="k",mec="k",mew=0.8,clip_on=False)
-top.plot([0,1],[0,0],transform=top.transAxes,**dm); bot.plot([0,1],[1,1],transform=bot.transAxes,**dm)
-for ax in (top,bot): ax.spines[["right"]].set_visible(False)
-bot.set_xticks(x); bot.set_xticklabels(labels)
-bot.set_ylabel("enrichment over dinucleotide null  (obs / exp)"); bot.yaxis.set_label_coords(-0.10,0.72)
-bot.legend(frameon=False,handlelength=1.1,title="motif tier",title_fontsize=7,loc="upper center",ncol=3)
-top.set_title(f"Exact IUPAC CENP-B motif enrichment ({n_sat} species with satellites)",fontsize=8.6,fontweight="bold",pad=4)
-top.annotate("α-sat canonical: 1.3×10⁷× ↑ (off top)",xy=(1.7,13500),ha="center",va="top",fontsize=6,color="#D55E00")
-bot.annotate("canonical = 0 in all DToL clades",xy=(0.5,0.63),xycoords="axes fraction",
-             fontsize=6.2,color="#D55E00",va="top",ha="center")
+# scatter: enrichment (obs/exp) vs motif density (hits/Mbp) — a real box needs BOTH high
+fig,ax=plt.subplots(figsize=(5.8,4.4))
+for glab,mk,sz,dd in groups:
+    for t in tiers:
+        xden,yenr=dd[t]
+        if xden>0 and yenr>0:
+            ax.scatter(xden,yenr,marker=mk,s=sz,facecolor=tcol[t],edgecolor="k",lw=0.5,zorder=3)
+ax.set_xscale("log"); ax.set_yscale("log")
+ax.axhline(1,ls=(0,(4,3)),color="0.4",lw=0.9,zorder=1); ax.text(ax.get_xlim()[0]*1.3 if False else 2e-3,1.15,"enrichment = 1 (null)",fontsize=6.3,color="0.4")
+# annotations
+a=bd("alpha-satellite (positive)"); h=bd("HSat1/2/3 (negative)")
+ax.annotate("α-satellite (functional box)\nhigh density + high enrichment",(a["broad"][0],a["broad"][1]),
+            xytext=(-6,-24),textcoords="offset points",ha="right",fontsize=6.4,fontweight="bold")
+ax.annotate("HSat canonical:\n5 boundary hits (0.03/Mbp)\n→ high enrichment but ~0 density",(h["canonical"][0],h["canonical"][1]),
+            xytext=(8,4),textcoords="offset points",fontsize=6,color="#C62828")
+for cl,lab in [("Vertebrates","Vertebrates"),("Invertebrate","Invertebrates"),("Viridiplantae","Plants")]:
+    xy=cd(cl)["broad"]; ax.annotate(lab,xy,xytext=(4,-8),textcoords="offset points",fontsize=6.3)
+ax.set_xlabel("CENP-B motif density (hits per Mbp)")
+ax.set_ylabel("enrichment over dinucleotide null (obs / exp)")
+ax.set_title(f"Exact IUPAC CENP-B motif ({n_sat} species with satellites)",fontsize=8.8,fontweight="bold",pad=4)
+ax.text(0.98,0.03,"canonical = 0 in all DToL clades (not plotted)",transform=ax.transAxes,ha="right",fontsize=6.2,color="#D55E00")
+# legends: tier colour + group marker
+from matplotlib.lines import Line2D
+tl=[Line2D([0],[0],marker="o",ls="",mfc=tcol[t],mec="k",mew=0.4,label=tlab[t]) for t in tiers]
+gl=[Line2D([0],[0],marker=mk,ls="",mfc="0.7",mec="k",mew=0.4,label=glab) for glab,mk,_,_ in groups]
+l1=ax.legend(handles=tl,title="motif tier",frameon=False,loc="upper left",fontsize=6.6,title_fontsize=6.8)
+ax.add_artist(l1); ax.legend(handles=gl,title="group",frameon=False,loc="lower right",fontsize=6.4,title_fontsize=6.8)
+ax.spines[["top","right"]].set_visible(False)
 plt.tight_layout()
 for ext in ("png","pdf"):
     fig.savefig(SAT/f"figures/cenpb_paper_motifs.{ext}",dpi=600 if ext=="png" else None,bbox_inches="tight",facecolor="white")

@@ -1,0 +1,250 @@
+---
+title: "Panel C — Shannon's entropy of the CENP-A/CENH3 alignment"
+author: "DToL Centromere Project"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    theme: flatly
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo    = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width  = 14,
+  fig.height = 6
+)
+```
+
+## Overview
+
+This report reproduces the **positional Shannon entropy plot** shown in Figure 1, Panel C.
+
+**Summary:**
+
+- CENP-A / CENH3 sequences from 327 DToL species were aligned with MAFFT and curated manually.
+- Perkinsus was removed (outlier divergence).
+- Shannon entropy was computed per alignment position using **entropia**, split by broad taxonomic group (Fungi, Invertebrates, Vertebrates, Viridiplantae).
+- The analysis lives in `PhylogeneticProfiling/20_cenpa_analysis/20.1-march/`.
+
+**Sequence cross-check vs Panel D tree:** The entropy alignment (`cenpa_leaflabels_manually_march.aligned.fasta`, **428 sequences**) predates the final curated Panel D tree (`cenpa430_H3_archaea10.fasta`, **430 CenpA sequences**). The two extra CenpA sequences were added later during tree curation. All 428 entropy sequences are present in the Panel D tree.
+
+```{r libraries}
+suppressPackageStartupMessages({
+  library(ggplot2)
+  library(dplyr)
+  library(tidyr)
+  library(patchwork)
+  library(Biostrings)   # for reading FASTA
+  library(ape)          # for read.tree, keep.tip
+})
+```
+
+```{r paths}
+BASE        <- "/home/jg2070/Desktop/dtol_review_August"
+CENPA_DIR   <- file.path(BASE, "PhylogeneticProfiling/20_cenpa_analysis/20.1-march")
+ENTROPY_DIR <- file.path(CENPA_DIR, "entropia-split")
+PUB2_DIR    <- file.path(BASE, "DToL_phylogenomics_publication_325genomes")
+
+# Entropy TSVs are group-level (not affected by removing 2 species)
+ENTROPY_TSV  <- file.path(ENTROPY_DIR, "cenpa_entropy_split_phylo.tsv")
+UNTRIMMED_TSV<- file.path(ENTROPY_DIR, "cenpa_entropy_split_phylo_coarse_untrimmed.tsv")
+ALN_FASTA    <- file.path(CENPA_DIR,  "cenpa_leaflabels_manually_march.aligned.fasta")
+
+# 325-species CENP-A+H3+archaea FASTA and tree
+BNNI_FASTA   <- file.path(PUB2_DIR, "04_cenpa_phylogeny",
+                           "cenpa430_H3_archaea10.aligned.clipkit.325sp.fasta")
+BNNI_TREE    <- file.path(PUB2_DIR, "04_cenpa_phylogeny",
+                           "iqtree2_cenpa430_H3_archaea10_325sp_bnni.treefile")
+```
+
+---
+
+## 1. Sequence cross-check: entropy alignment vs Panel D tree
+
+```{r sequence_crosscheck}
+# Read both FASTA headers
+aln_ids <- sub("^>", "", grep("^>", readLines(ALN_FASTA), value = TRUE))
+aln_ids <- trimws(sub(" .*", "", aln_ids))
+
+tree_ids_all <- sub("^>", "", grep("^>", readLines(BNNI_FASTA), value = TRUE))
+tree_ids_all <- trimws(sub(" .*", "", tree_ids_all))
+
+# Archaea IDs (excluded from CenpA count)
+archaea_ids <- c("BAD86478.1", "KKK41979.1", "KXH71038.1", "OIO41945.1",
+                 "OIO61677.1", "OLS16336.1", "OLS18261.1", "OLS21974.1",
+                 "OLS22332.1", "OLS24873.1")
+
+# H3 IDs (from tree tip labels in H3_all.aligned.fasta)
+h3_fasta <- file.path(TREE_DIR, "H3_all.aligned.fasta")
+h3_ids   <- sub("^>", "", grep("^>", readLines(h3_fasta), value = TRUE))
+h3_ids   <- trimws(sub(" .*", "", h3_ids))
+
+cenpa_tree_ids <- setdiff(tree_ids_all, c(archaea_ids, h3_ids))
+
+cat("Entropy alignment sequences:       ", length(aln_ids), "\n")
+cat("CenpA sequences in Panel D tree:   ", length(cenpa_tree_ids), "\n")
+cat("Entropy seqs absent from tree:     ",
+    length(setdiff(aln_ids, cenpa_tree_ids)), "\n")
+cat("Tree CenpA seqs absent from entropy:",
+    length(setdiff(cenpa_tree_ids, aln_ids)), "\n")
+
+if (length(setdiff(aln_ids, cenpa_tree_ids)) > 0) {
+  cat("\n--- Entropy seqs NOT in Panel D tree ---\n")
+  print(setdiff(aln_ids, cenpa_tree_ids))
+}
+if (length(setdiff(cenpa_tree_ids, aln_ids)) > 0) {
+  cat("\n--- Panel D CenpA seqs NOT in entropy alignment ---\n")
+  print(head(setdiff(cenpa_tree_ids, aln_ids), 20))
+}
+```
+
+---
+
+## 2. Load pre-computed entropy data
+
+Shannon entropy values per alignment position per group were computed by **entropia** (tool documented in `entropia_calculate_shannon_entropy.log`).
+
+```{r load_entropy}
+ent <- read.delim(ENTROPY_TSV, stringsAsFactors = FALSE, check.names = FALSE)
+cat("Entropy table dimensions:", nrow(ent), "positions ×", ncol(ent), "columns\n")
+cat("Groups:", paste(setdiff(colnames(ent), "pos"), collapse = ", "), "\n")
+```
+
+```{r tidy_entropy}
+groups_pal <- c(
+  Fungi         = "#6A1B9A",
+  Invertebrates = "#E65100",
+  Vertebrates   = "#1565C0",
+  Viridiplantae = "#2E7D32"
+)
+
+ent_long <- ent %>%
+  pivot_longer(-pos, names_to = "group", values_to = "entropy") %>%
+  mutate(group = factor(group, levels = names(groups_pal)))
+
+head(ent_long)
+```
+
+---
+
+## 3. Entropy plot — all groups (Figure 1, Panel C)
+
+```{r entropy_plot_main, fig.width=14, fig.height=5}
+p_entropy <- ggplot(ent_long, aes(x = pos, y = entropy, colour = group)) +
+  geom_line(linewidth = 0.5, alpha = 0.85) +
+  scale_colour_manual(values = groups_pal, name = "Taxonomic group") +
+  scale_x_continuous(name = "Alignment position") +
+  scale_y_continuous(name = "Shannon entropy (bits)", limits = c(0, 1),
+                     breaks = seq(0, 1, 0.25)) +
+  labs(
+    title    = "Positional Shannon entropy — CENP-A/CENH3 alignment",
+    subtitle = sprintf("428 CenpA sequences from 327 DToL species (Perkinsus removed); %d alignment positions",
+                       max(ent$pos))
+  ) +
+  theme_bw(base_size = 12) +
+  theme(
+    legend.position  = "right",
+    panel.grid.minor = element_blank()
+  )
+
+p_entropy
+```
+
+---
+
+## 4. Smoothed entropy (rolling average)
+
+```{r entropy_smoothed, fig.width=14, fig.height=5}
+roll_mean <- function(x, k = 10) {
+  stats::filter(x, rep(1 / k, k), sides = 2)
+}
+
+ent_smooth <- ent_long %>%
+  group_by(group) %>%
+  arrange(pos) %>%
+  mutate(entropy_smooth = as.numeric(roll_mean(entropy, k = 10))) %>%
+  ungroup()
+
+p_smooth <- ggplot(ent_smooth, aes(x = pos, y = entropy_smooth, colour = group)) +
+  geom_line(linewidth = 0.7, alpha = 0.90, na.rm = TRUE) +
+  scale_colour_manual(values = groups_pal, name = "Taxonomic group") +
+  scale_x_continuous(name = "Alignment position") +
+  scale_y_continuous(name = "Shannon entropy (10-pos rolling avg)", limits = c(0, 1)) +
+  labs(title    = "Smoothed positional entropy (window = 10 positions)") +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "right", panel.grid.minor = element_blank())
+
+p_smooth
+```
+
+---
+
+## 5. Per-group entropy summary statistics
+
+```{r entropy_summary}
+ent_long %>%
+  group_by(group) %>%
+  summarise(
+    mean_entropy   = mean(entropy,  na.rm = TRUE),
+    median_entropy = median(entropy, na.rm = TRUE),
+    sd_entropy     = sd(entropy,    na.rm = TRUE),
+    pct_high       = mean(entropy > 0.5, na.rm = TRUE) * 100,
+    .groups = "drop"
+  ) %>%
+  mutate(across(where(is.numeric), ~ round(., 4))) %>%
+  knitr::kable(caption = "Per-group positional entropy summary")
+```
+
+---
+
+## 6. Coarse structural regions (untrimmed alignment)
+
+The TSV from the coarse structural-region split provides entropy per broad structural domain.
+
+```{r entropy_regions, fig.width=14, fig.height=5}
+if (file.exists(UNTRIMMED_TSV)) {
+  ent_u <- read.delim(UNTRIMMED_TSV, stringsAsFactors = FALSE, check.names = FALSE)
+  ent_u_long <- ent_u %>%
+    pivot_longer(-pos, names_to = "group", values_to = "entropy") %>%
+    mutate(group = factor(group, levels = names(groups_pal)))
+
+  ggplot(ent_u_long, aes(x = pos, y = entropy, colour = group)) +
+    geom_line(linewidth = 0.5, alpha = 0.85) +
+    scale_colour_manual(values = groups_pal, name = "Taxonomic group") +
+    scale_x_continuous(name = "Alignment position (untrimmed)") +
+    scale_y_continuous(name = "Shannon entropy (bits)", limits = c(0, 1)) +
+    labs(title = "Untrimmed alignment — coarse structural regions") +
+    theme_bw(base_size = 12) +
+    theme(legend.position = "right", panel.grid.minor = element_blank())
+} else {
+  cat("Untrimmed TSV not found:", UNTRIMMED_TSV, "\n")
+}
+```
+
+---
+
+## 7. Save publication figure
+
+```{r save_fig, eval=FALSE}
+OUT <- file.path(dirname(knitr::current_input(dir = TRUE)), "output")
+dir.create(OUT, showWarnings = FALSE)
+
+ggsave(file.path(OUT, "panel_C_entropy.pdf"), p_entropy, width = 14, height = 5)
+ggsave(file.path(OUT, "panel_C_entropy.png"), p_entropy, width = 14, height = 5, dpi = 300)
+ggsave(file.path(OUT, "panel_C_entropy_smoothed.pdf"), p_smooth, width = 14, height = 5)
+cat("Saved to:", OUT, "\n")
+```
+
+---
+
+## Session info
+
+```{r session}
+sessionInfo()
+```
