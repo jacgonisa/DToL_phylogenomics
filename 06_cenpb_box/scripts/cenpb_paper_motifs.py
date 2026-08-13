@@ -6,10 +6,10 @@ expectation from each species' own base composition (obs/expected enrichment).
 No mismatch titration -- three discrete, well-defined tiers.
 
   canonical   YTTCGTTGGAARCGGGA   (functional box; degenerate only at pos 1 & 12)
-  broad       NTTCGNNNNANNCGGGN
-  degenerated YTTCGNNNNANRCGGGN
+  broad       YTTCGNNNNANRCGGGN   (Sugimoto 1998; intermediate)
+  degenerated NTTCGNNNNANNCGGGN   (most permissive; N at pos 1 & 12)
 
-canonical (subset of) degenerated (subset of) broad, so counts are nested."""
+canonical (subset of) broad (subset of) degenerated, so counts are nested."""
 import re, collections, numpy as np, pandas as pd
 from pathlib import Path
 
@@ -19,13 +19,13 @@ ALL =BASE/"2026_trees/all.satellites.txt"
 seqre=re.compile(r'"([ACGTNacgtn]{25,})"')
 comp=str.maketrans("ACGTN","TGCAN"); rc=lambda s:s.translate(comp)[::-1]
 MOT={"canonical":re.compile("[CT]TTCGTTGGAA[AG]CGGGA"),
-     "broad":re.compile(".TTCG....A..CGGG."),
-     "degenerated":re.compile("[CT]TTCG....A.[AG]CGGG.")}
+     "broad":re.compile("[CT]TTCG....A.[AG]CGGG."),
+     "degenerated":re.compile(".TTCG....A..CGGG.")}
 # allowed base-sets per position, for the random expectation
 ALLOWED={
  "canonical":[{"C","T"},{"T"},{"T"},{"C"},{"G"},{"T"},{"T"},{"G"},{"G"},{"A"},{"A"},{"A","G"},{"C"},{"G"},{"G"},{"G"},{"A"}],
- "broad":[set("ACGT"),{"T"},{"T"},{"C"},{"G"},set("ACGT"),set("ACGT"),set("ACGT"),set("ACGT"),{"A"},set("ACGT"),set("ACGT"),{"C"},{"G"},{"G"},{"G"},set("ACGT")],
- "degenerated":[{"C","T"},{"T"},{"T"},{"C"},{"G"},set("ACGT"),set("ACGT"),set("ACGT"),set("ACGT"),{"A"},set("ACGT"),{"A","G"},{"C"},{"G"},{"G"},{"G"},set("ACGT")]}
+ "broad":[{"C","T"},{"T"},{"T"},{"C"},{"G"},set("ACGT"),set("ACGT"),set("ACGT"),set("ACGT"),{"A"},set("ACGT"),{"A","G"},{"C"},{"G"},{"G"},{"G"},set("ACGT")],
+ "degenerated":[set("ACGT"),{"T"},{"T"},{"C"},{"G"},set("ACGT"),set("ACGT"),set("ACGT"),set("ACGT"),{"A"},set("ACGT"),set("ACGT"),{"C"},{"G"},{"G"},{"G"},set("ACGT")]}
 
 tax=pd.read_csv(BASE/"2026_trees/annotation_centromeres/centromere_code_to_species.tsv",sep="\t")
 tax["code"]=tax["fasta"].astype(str).str.lower().str.replace(r"[0-9.].*$","",regex=True)

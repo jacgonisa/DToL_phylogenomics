@@ -105,8 +105,9 @@ validated against an explicit shuffle on the α-sat benchmark, 4,283× vs 4,524�
 high enrichment but ~0 density — not a box). DToL clades sit near the null (enrichment ≈ 1).</div></div>
 {tbl(clade_df.round(2))}
 <p class="sub"><b>Note.</b> This uses composition-corrected <i>enrichment</i>, not raw
-hits/Mbp — raw density inflates plants (AT-rich, more satellite bp); under the dinucleotide
-null vertebrates actually edge plants on the broad tier.</p>
+hits/Mbp — raw density inflates plants (AT-rich, more satellite bp). Under the dinucleotide
+null the looser-tier enrichments are modest (plants lead the broad tier, 3.0×; vertebrates the
+degenerate tier, 1.4×) and the apparent plant broad signal deflates (11.7× → 3.0×).</p>
 
 <h2>Method 2 — songbird ±5-flank test (Formenti et al., Cell 2026)</h2>
 <p>For each species we collect its candidate-motif windows (17-mers within ≤5 substitutions of canonical,
@@ -134,12 +135,15 @@ across clades</b>, strongest in birds; the scatter is coloured by identity to th
 motif (warm = box-like).</p>
 <h3>Is the box-like identity real? (shuffle-the-motif null)</h3>
 <p>A short 17-bp motif matches partly by base composition alone, so we calibrated identity by
-<b>shuffling the motif</b> (same composition, order destroyed).</p>
+<b>shuffling the motif</b> (same composition, order destroyed). <b>identity</b> = (positions
+matching the canonical IUPAC) / 17 × 100%; <b>null</b> = the same on shuffles of that motif.</p>
 <div class="fig">{img(FIG/'cenpb_identity_shuffle_null.png',w="52%")}<div class="cap">
-A motif of this composition matches canonical only <b>≈30% by chance</b> (left), whereas observed
-consensus identities are <b>70–94%</b> (right; median <b>+44</b> above chance, birds +58 to +63).
-So the box-like matches are <b>real arrangement similarity, not a short-motif composition
-artifact</b> (`cenpb_identity_shuffle_null.py`).</div></div>
+Each observed motif (right) is linked to the mean of its own shuffled null (left). A motif of this
+composition matches canonical only <b>≈30% by chance</b>, whereas observed consensus identities are
+<b>65–100%</b> (median <b>71%</b>, +44 above chance). So the matches are <b>real arrangement
+similarity, not a short-motif composition artifact</b>. (Points near 100% are high-copy satellites
+whose windows scatter around canonical, so their consensus averages back to canonical — the
+degenerate-consensus effect, not a perfect box.) <code>cenpb_identity_shuffle_null.py</code></div></div>
 
 <h3>Why the two methods disagree on birds</h3>
 <div class="fig">{img(FIG/'cenpb_goshawk_alignment.png')}<div class="cap">

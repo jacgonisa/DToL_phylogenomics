@@ -76,8 +76,8 @@ ax.spines[["top","right"]].set_visible(False)
 # motif-definition box: what Barra & Fachinetti define as each IUPAC tier
 from matplotlib.patches import FancyBboxPatch
 mdefs=[("canonical","YTTCGTTGGAARCGGGA","canonical"),
-       ("broad",    "NTTCGNNNNANNCGGGN","broad"),
-       ("degenerate","YTTCGNNNNANRCGGGN","degenerated")]
+       ("broad",    "YTTCGNNNNANRCGGGN","broad"),
+       ("degenerate","NTTCGNNNNANNCGGGN","degenerated")]
 bx,byt=0.28,0.80
 ax.add_patch(FancyBboxPatch((bx-0.012,byt-0.205),0.52,0.215,transform=ax.transAxes,
              boxstyle="round,pad=0.006",fc="white",ec="0.75",lw=0.7,zorder=8))
