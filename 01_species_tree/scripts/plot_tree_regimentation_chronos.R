@@ -527,6 +527,32 @@ p <- p +
     na.value = "#e0e0e0",
     name = "HOR score\n(max/species)")
 
+# ── Rings: main centromeric satellite length + AT% (dominant satellite/sp) ─────
+satdat <- read.delim("/home/jg2070/Desktop/DToL_phylogenomics/01_species_tree/data/main_satellite_length_at.tsv",
+                     stringsAsFactors = FALSE)
+satdat$pfx <- sub("\\d.*$", "", tolower(satdat$fasta))
+satdat$tip <- vapply(satdat$pfx, lk, character(1))
+sat_df <- tibble(label = tree_plot$tip.label) %>%
+  left_join(satdat %>% filter(!is.na(tip)) %>%
+              transmute(label = tip, sat_len = sat_length_bp, sat_at = sat_AT_pct),
+            by = "label")
+
+p <- p +
+  ggnewscale::new_scale_fill() +
+  geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = sat_len),
+             width = 0.045 * max_x, offset = 0.045, axis.params = list(axis = "none")) +
+  scale_fill_gradientn(
+    colours  = c("#fcfbfd","#dadaeb","#9e9ac8","#6a51a3","#3f007d"),
+    na.value = "#e0e0e0", trans = "log10",
+    name = "Main satellite\nmonomer length (bp)") +
+  ggnewscale::new_scale_fill() +
+  geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = sat_at),
+             width = 0.045 * max_x, offset = 0.045, axis.params = list(axis = "none")) +
+  scale_fill_gradientn(
+    colours  = c("#2166ac","#67a9cf","#f7f7f7","#ef8a62","#b2182b"),
+    na.value = "#e0e0e0", limits = c(20, 95),
+    name = "Main satellite\nAT %")
+
 # ── Save outputs ──────────────────────────────────────────────────────────────
 pdf(out_pdf, width = 15, height = 18)
 print(p)
