@@ -311,6 +311,14 @@ strands, per species):</p>
 <tr><td>Nebria (invertebrate)</td><td>487,000</td><td>~37,000</td><td>~10</td></tr>
 <tr><td>Triglochin (diverse plant)</td><td>4,300,000</td><td>~284,000 (6.6%)</td><td>~81</td></tr>
 </table>
+<p class="sub"><b>Formula.</b> expected chance matches <b>E = D × p</b>, where <b>D</b> = number of
+distinct 17-mers in the species' satellites (both strands, each counted once as
+<code>min(w, rc(w))</code>) and <b>p</b> = P(a random 17-mer is ≤5 substitutions from the canonical
+box) ≈ <b>2.86×10⁻⁴</b> (≈ 1/3,497, Monte-Carlo over 2×10⁶ uniform 17-mers). E.g. goshawk
+4,992 × (1/3,497) ≈ 1.4; Triglochin 284,185 × (1/3,497) ≈ 81. This is only an estimate — it treats
+the distinct k-mers as independent, uniform-random 17-mers, whereas real satellite k-mers are
+correlated and composition-skewed (AT-rich satellites make the GC-rich box rarer). The
+assumption-free version is the dinucleotide-shuffle null below.</p>
 <p class="sub">So the expected number of chance box-matches is <b>~1–80, scaling with how diverse
 the satellite is</b> (not tens of thousands): a k-mer-rich satellite recovers a ≤5-sub window
 easily, a homogeneous one (goshawk, ~1.4 expected) only marginally. The rigorous accounting —
