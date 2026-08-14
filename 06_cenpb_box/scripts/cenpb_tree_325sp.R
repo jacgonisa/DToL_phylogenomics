@@ -35,31 +35,20 @@ toptips  <- dat$label[dat$code %in% (flank %>% filter(delta>=0.5 & subs_vs_canon
 
 p <- ggtree(tr, layout="fan", open.angle=14, size=0.2) %<+% dat +
   geom_tippoint(aes(color=clade), size=0.9) + scale_color_manual(values=ccol, name="clade")
-# ring 1 — Method 2 MOTIF signal: bar height = flank Δ, colour = identity to canonical motif
-p <- p + new_scale_fill() +
-  geom_fruit(geom=geom_col, mapping=aes(y=label, x=delta_pos, fill=identity),
-             pwidth=0.26, offset=0.06, axis.params=list(axis="x", text.size=1.5, nbreak=3)) +
-  scale_fill_gradientn(colours=c("#FFFFB2","#FD8D3C","#BD0026"), limits=c(70,100), na.value="grey90",
-                       name="motif identity to\ncanonical (%)")
-# ★ candidate box (box-specific + near-canonical motif)
-p <- p + geom_tippoint(aes(subset=(label %in% candtips)), shape=8, size=1.6, stroke=0.5, color="black")
-# rings 2-4 — Method 1 exact-motif density (hits/Mbp, log1p): canonical / broad / degenerate
+# Method 1 (Fachinetti) exact-motif density rings: canonical / broad / degenerate (hits/Mbp, log1p)
 p <- p + new_scale_fill() +
   geom_fruit(geom=geom_col, mapping=aes(y=label, x=log1p(canonMbp), fill="canonical"),
-             pwidth=0.11, offset=0.10, axis.params=list(axis="none")) +
+             pwidth=0.14, offset=0.07, axis.params=list(axis="none")) +
   geom_fruit(geom=geom_col, mapping=aes(y=label, x=log1p(broadMbp), fill="broad"),
-             pwidth=0.11, offset=0.015, axis.params=list(axis="none")) +
+             pwidth=0.14, offset=0.02, axis.params=list(axis="none")) +
   geom_fruit(geom=geom_col, mapping=aes(y=label, x=log1p(degenMbp), fill="degenerate"),
-             pwidth=0.11, offset=0.015, axis.params=list(axis="x", text.size=1.5, nbreak=2)) +
+             pwidth=0.14, offset=0.02, axis.params=list(axis="x", text.size=1.5, nbreak=2)) +
   scale_fill_manual(values=c(canonical="#D55E00", broad="#0072B2", degenerate="#E69F00"),
-                    breaks=c("canonical","broad","degenerate"), name="M1 exact motif\n(hits/Mbp, log)") +
-  geom_tiplab2(aes(subset=(label %in% toptips), label=code), size=2.3, offset=0.42, fontface="bold") +
-  ggtitle("CENP-B motif signal across the DToL chronogram",
-          subtitle=paste0("Ring 1 = motif signal (flank Δ, M2), coloured by identity of the consensus motif to canonical. ",
-                          "Rings 2–4 = exact-motif density (canonical/broad/degenerate, M1). ",
-                          "★ = box-like candidate (",length(candtips)," sp; strongest in birds — near-canonical but missing the CpG).")) +
+                    breaks=c("canonical","broad","degenerate"), name="exact IUPAC motif\n(hits/Mbp, log)") +
+  ggtitle("Exact IUPAC CENP-B motif density across the DToL chronogram (Fachinetti)",
+          subtitle="Rings = canonical / broad / degenerate exact-motif density (hits/Mbp, log1p); tips coloured by clade.") +
   theme(legend.position="right", plot.title=element_text(face="bold", size=12),
-        plot.subtitle=element_text(size=7.6, colour="grey30"))
+        plot.subtitle=element_text(size=8, colour="grey30"))
 
 for (ext in c("pdf","png")) {
   ggsave(file.path(SAT, paste0("figures/cenpb_box_tree_325sp.", ext)), p,
@@ -67,5 +56,3 @@ for (ext in c("pdf","png")) {
   cat("Saved figures/cenpb_box_tree_325sp.", ext, "\n", sep="")
 }
 cat("tips with data:", sum(dat$clade!="no data"), "/", nrow(dat), "\n")
-cat("candidate-box species:", length(candtips), "\n")
-print(table(dat$boxclass))

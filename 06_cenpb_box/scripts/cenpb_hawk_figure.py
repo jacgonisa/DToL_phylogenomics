@@ -44,13 +44,13 @@ gs=fig.add_gridspec(2,1,height_ratios=[1.15,1.0],hspace=0.42)
 # ---- Panel A: alignment ----
 axA=fig.add_subplot(gs[0]); axA.axis("off")
 rows=[("canonical (IUPAC)","YTTCGTTGGAARCGGGA"),("broad (IUPAC)","YTTCGNNNNANRCGGGN"),
-      ("degenerate (IUPAC)","NTTCGNNNNANNCGGGN"),("goshawk consensus",cons)]
+      ("degenerate (IUPAC)","NTTCGNNNNANNCGGGN"),("bAccGen1.1 consensus",cons)]
 canon=[set("CT"),{"T"},{"T"},{"C"},{"G"},{"T"},{"T"},{"G"},{"G"},{"A"},{"A"},set("AG"),{"C"},{"G"},{"G"},{"G"},{"A"}]
 nR=len(rows)
 for r,(nm,seq) in enumerate(rows):
     y=nR-1-r
     for i,ch in enumerate(seq):
-        if nm.startswith("goshawk"):
+        if nm.endswith("consensus"):
             ok=ch in canon[i]; fc,tc=("#C8E6C9","#1B5E20") if ok else ("#EF5350","#7f0000")
         elif ch=="N": fc,tc="#F2F2F2","0.55"
         elif ch in "YR": fc,tc="#E1BEE7","#4A148C"
@@ -63,7 +63,7 @@ axA.annotate("eroded CpG (pos 4–5: C,G → T,T)",xy=(4,nR),xytext=(4,nR+0.5),h
 axA.plot([1,5],[-0.35,-0.35],color="0.35",lw=1.1); axA.text(3,-0.62,"TTCG anchor",ha="center",va="top",fontsize=6.6,color="0.35")
 axA.plot([12,16],[-0.35,-0.35],color="0.35",lw=1.1); axA.text(14,-0.62,"CGGG anchor",ha="center",va="top",fontsize=6.6,color="0.35")
 axA.set_xlim(-4,17.3); axA.set_ylim(-0.95,nR+1.0)
-axA.set_title("A   Box definitions vs the goshawk satellite motif",fontsize=10,fontweight="bold",loc="left")
+axA.set_title("A   Box definitions vs the bAccGen1.1 (Accipiter gentilis) satellite motif",fontsize=10,fontweight="bold",loc="left")
 # ---- Panel B: goshawk logo ----
 axB=fig.add_subplot(gs[1])
 logomaker.Logo(info,ax=axB,color_scheme="classic",show_spines=False)
@@ -72,7 +72,7 @@ axB.axvspan(FLANK+3-0.5,FLANK+5-0.5,color="#C62828",alpha=0.10)     # eroded CpG
 axB.set_ylim(0,2); axB.set_ylabel("bits"); axB.set_xticks([])
 axB.text(FLANK+8,-0.24,"17-bp box (conserved)",ha="center",va="top",fontsize=7.5,color="0.3")
 axB.text(2,-0.24,"−5 flank",ha="center",va="top",fontsize=7,color="0.45"); axB.text(24,-0.24,"+5 flank",ha="center",va="top",fontsize=7,color="0.45")
-axB.set_title(f"B   Goshawk motif logo (n={nwin:,} box-like windows; consensus {cons}, 2 subs from canonical)",fontsize=10,fontweight="bold",loc="left")
+axB.set_title(f"B   bAccGen1.1 motif logo (n={nwin:,} box-like windows; consensus {cons}, 2 subs from canonical)",fontsize=10,fontweight="bold",loc="left")
 for ext in ("png","pdf"):
     fig.savefig(SAT/f"figures/cenpb_hawk_box_AB.{ext}",dpi=600 if ext=="png" else None,bbox_inches="tight",facecolor="white")
 print("Saved figures/cenpb_hawk_box_AB.png/pdf")
