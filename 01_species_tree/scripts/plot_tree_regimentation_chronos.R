@@ -347,26 +347,7 @@ subclade_anno <- legend_df %>%
   distinct() %>%
   filter(!subclade %in% c("Other"))
 
-for (i in seq_len(nrow(subclade_anno))) {
-  sc   <- subclade_anno$subclade[[i]]
-  tips <- plot_df$label[plot_df$subclade == sc]
-  tips <- tips[tips %in% tree_plot$tip.label]
-  if (length(tips) < 1) next
-  node_use <- if (length(tips) == 1) {
-    which(tree_plot$tip.label == tips[1])
-  } else {
-    mrca_node <- getMRCA(tree_plot, tips)
-    if (is.null(mrca_node) || is.na(mrca_node)) next
-    mrca_node
-  }
-  p <- p + geom_cladelabel(
-    node = node_use, label = sc,
-    color = subclade_anno$branch_col[[i]],
-    align = TRUE, offset = max_x * 0.06,
-    offset.text = max_x * 0.005,
-    barsize = 0.3, fontsize = 2.3, angle = "auto"
-  )
-}
+# clade-arc labels removed (branch colours + legend already convey subclades)
 
 # ── Concentric time rings ─────────────────────────────────────────────────────
 if (length(ring_x) > 0) {
