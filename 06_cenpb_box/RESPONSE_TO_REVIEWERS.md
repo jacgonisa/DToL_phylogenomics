@@ -6,19 +6,18 @@ both strands, across all putative centromeric satellite arrays (162 of 325 speci
 satellites), using two complementary approaches. Human HG002 α-satellite was the positive
 control and human HSat the negative control.
 
-## Method 1 — simple motif parsing (mismatch scan)
-The canonical box was searched allowing an increasing number of mismatches (0–5), against a
-mononucleotide-shuffled null, run both on a curated monomer set (≤500 monomers/species) and,
-exhaustively, on the full uncapped set of ~24.5 million satellite arrays. We also counted the two
-looser IUPAC variants of the box — **broad** and **degenerate** (Barra & Fachinetti,
-bioRxiv 2026.05.25.727640) — against a dinucleotide-preserving null.
+## Method 1 — exact IUPAC motif parsing (Fachinetti)
+We counted three **exact IUPAC** definitions of the box — canonical `YTTCGTTGGAARCGGGA`, **broad**,
+and **degenerate** (Barra & Fachinetti, bioRxiv 2026.05.25.727640) — per species across the full
+uncapped set of ~24.5 million satellite arrays (both strands), scoring each as **enrichment =
+observed / expected** against a **dinucleotide-preserving null**. A genuine box requires *both* a
+high motif density (hits/Mbp) *and* high enrichment.
 
-**Result.** The exact canonical box (0 mismatches) occurs **only in human α-satellite** (HG002
-annotation, positive control; 13,359 of 22.5 M arrays). **No DToL species carries a single exact
-box**, and the broad/degenerate variants are likewise essentially absent (~0 in every clade). At
-relaxed thresholds, hits appear broadly but at low, composition-driven rates that **do not exceed
-the shuffled null** in any clade — as expected, since a ≤5-substitution match to a 17-bp motif
-arises only ~1 in 3,850 by chance, and satellites contain many distinct k-mers.
+**Result.** The exact canonical box occurs **only in human α-satellite** (positive control; 13,359
+hits in the 50,000-monomer HG002 α-sat set). **No DToL species carries a single exact canonical box**
+(0 in all 162 species with satellites), and the **broad and degenerate** tiers are likewise
+essentially absent — at or below the null in every clade. Only α-satellite is high on *both* density
+and enrichment; every DToL clade sits at the null.
 
 ## Method 2 — songbird ±5-flank approach (Formenti et al., Cell 2026)
 Following the zebra-finch T2T paper (Suppl. Fig. 15), the box was matched as fixed 17-bp windows
