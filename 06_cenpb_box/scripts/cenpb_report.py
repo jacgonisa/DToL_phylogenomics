@@ -180,14 +180,27 @@ that one matches the box is:</p>
 <tr><td>≤4 substitutions</td><td>4.3×10⁻⁵</td><td>23,000</td></tr>
 <tr><td><b>≤5 substitutions</b></td><td><b>2.9×10⁻⁴</b></td><td><b>~3,500</b></td></tr>
 </table>
-<p class="sub">So ~1 in 3,500 random 17-mers already matches at ≤5 subs. Now multiply by the number
-of windows: a species with ~100,000 satellite arrays × ~300 bp × 2 strands ≈ <b>60 million windows</b>
-→ <b>~17,000 chance matches expected</b> — recovery is essentially guaranteed for any GC-containing
-satellite. The meaningful flip side: <b>≤2 substitutions is &lt; 1 in 2 million</b> (essentially
-never by chance), which is exactly why <b>Method 1 finding ~0 exact canonical/broad/degenerate hits
-in DToL is real signal</b>, whereas the ≤5-substitution abundance is just the loose threshold.
-(Matching code: <code>cenpb_flank_uncapped.py</code> — a 10-bp core gate <code>TTCGTTGGAA{{s&lt;=3}}</code>
-then the full box <code>[CT]TTCGTTGGAA[AG]CGGGA{{s&lt;=5}}</code>, both strands.)</p>
+<p class="sub">So ~1 in 3,500 random 17-mers matches at ≤5 subs. But you cannot simply multiply by
+the total window count: <b>satellites are tandem repeats</b>, so the same k-mers recur many times —
+the relevant number is the count of <b>distinct</b> 17-mers, which is far smaller. Measured (both
+strands, per species):</p>
+<table class="tbl" style="max-width:600px">
+<tr><th>species</th><th>total windows</th><th>distinct 17-mers</th><th>expected chance ≤5-sub matches</th></tr>
+<tr><td>goshawk (very homogeneous)</td><td>631,000</td><td>~5,000 (0.8%)</td><td><b>~1.4</b></td></tr>
+<tr><td>Danio (fish)</td><td>677,000</td><td>~11,000</td><td>~3</td></tr>
+<tr><td>Nebria (invertebrate)</td><td>487,000</td><td>~37,000</td><td>~10</td></tr>
+<tr><td>Triglochin (diverse plant)</td><td>4,300,000</td><td>~284,000 (6.6%)</td><td>~81</td></tr>
+</table>
+<p class="sub">So the expected number of chance box-matches is <b>~1–80, scaling with how diverse
+the satellite is</b> (not tens of thousands): a k-mer-rich satellite recovers a ≤5-sub window
+easily, a homogeneous one (goshawk, ~1.4 expected) only marginally. The rigorous accounting —
+which preserves each satellite's own composition <i>and</i> repetitiveness — is the
+<b>dinucleotide-shuffle null</b> of the de-novo test below, where no DToL satellite (including the
+goshawk) beats its own shuffle. The meaningful flip side stays: <b>≤2 substitutions is &lt; 1 in 2
+million</b> (essentially never by chance), which is why <b>Method 1 finding ~0 exact
+canonical/broad/degenerate hits in DToL is real signal</b>. (Matching code:
+<code>cenpb_flank_uncapped.py</code> — core gate <code>TTCGTTGGAA{{s&lt;=3}}</code> then
+<code>[CT]TTCGTTGGAA[AG]CGGGA{{s&lt;=5}}</code>, both strands.)</p>
 <p class="sub"><b>The CENP-B box is functional, not abundant.</b> Tellingly, the box is <i>not</i> the
 most common sequence even in human α-satellite: the most frequent 17-mer there is
 <code>CAAAAAGAGTGTTTCA</code> (~18% identity to the box) — a different conserved part of the 171-bp
