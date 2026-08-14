@@ -148,6 +148,7 @@ build_parrett <- function(fname, tag, ttl) {
     scale_size_continuous(name = "log10(pairs)", range = c(1.8, 5.5)) +
     scale_x_continuous(name = "TimeTree node age (Mya)", limits = c(0, mx * 1.03), expand = expansion(0)) +
     scale_y_continuous(name = "Estimated node age (Mya)", limits = c(0, mx * 1.03), expand = expansion(0)) +
+    coord_fixed(ratio = 1) +
     labs(tag = tag, title = ttl,
          subtitle = sprintf("%d node-age comparisons; dashed = 1:1 line", nrow(d))) +
     theme_bw(base_size = 13) +
@@ -168,7 +169,7 @@ p_e <- build_parrett("parrett_uncalibrated.tsv",       "E", "uncalibrated (no ca
 # collect the shared Group / log10(pairs) legends of the B-E row into one
 p_row <- (p_b | p_c | p_d | p_e) + plot_layout(guides = "collect")
 p_combined <- (p_a / p_row) +
-  plot_layout(heights = c(2.6, 1.6)) +
+  plot_layout(heights = c(2.4, 1.9)) +
   plot_annotation(
     title   = "Supplementary Figure - Calibration validation: 325-species DToL chronogram",
     caption = paste0(
