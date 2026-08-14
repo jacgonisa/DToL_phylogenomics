@@ -1,36 +1,60 @@
 # CENP-B box search — response to reviewers
 
-**How we searched.** We screened the centromeric satellites of the 325 DToL species
-for the 17-bp **CENP-B box** (`[CT]TTCGTTGGAA[AG]CGGGA`; Masumoto et al. 1989), on
-both strands, across all annotated **putative centromeric satellite** arrays (162 of 325 species
-have satellites). We used two approaches, with human HG002 α-satellite as a positive
-control and human HSat as a negative control:
+We screened the centromeric satellite repertoire of the 325 DToL species for the 17-bp
+**CENP-B box** (canonical consensus `[CT]TTCGTTGGAA[AG]CGGGA`; Masumoto et al. 1989), on
+both strands, across all putative centromeric satellite arrays (162 of 325 species carry
+satellites), using two complementary approaches. Human HG002 α-satellite was the positive
+control and human HSat the negative control.
 
-1. **Exact motif match** — the canonical box and two looser IUPAC variants (Barra &
-   Fachinetti 2026), counted against a composition-matched (dinucleotide-shuffle) null.
-2. **Relaxed / de-novo match** — box-like windows within ≤5 substitutions, plus an
-   unbiased scan of every window against a shuffled-sequence null.
+## Method 1 — simple motif parsing (mismatch scan)
+The canonical box was searched allowing an increasing number of mismatches (0–5), against a
+mononucleotide-shuffled null, run both on a curated monomer set (≤500 monomers/species) and,
+exhaustively, on the full uncapped set of ~24.5 million satellite arrays. We also counted the two
+looser IUPAC variants of the box — **broad** and **degenerate** (Barra & Fachinetti,
+bioRxiv 2026.05.25.727640) — against a dinucleotide-preserving null.
 
-**What we found.**
-- The **exact CENP-B box occurs only in human α-satellite** (positive control). It is
-  **absent from all 325 DToL species** — no species carries a canonical box.
-- Relaxed (≤5-substitution) "box-like" hits appear in ~94% of species, but this is
-  expected by chance (≤5 subs on 17 bp is very permissive) and does **not** exceed a
-  shuffled-sequence null in any species — whereas human α-satellite clearly does.
-- The strongest relaxed signal is in **birds** (e.g. the goshawk has a satellite motif
-  15/17 identical to the box, lacking only the central CpG). We report this as a
-  **suggestive candidate** CENP-B-like motif, not a confirmed box; protein binding was
-  not tested.
+**Result.** The exact canonical box (0 mismatches) occurs **only in human α-satellite** (HG002
+annotation, positive control; 13,359 of 22.5 M arrays). **No DToL species carries a single exact
+box**, and the broad/degenerate variants are likewise essentially absent (~0 in every clade). At
+relaxed thresholds, hits appear broadly but at low, composition-driven rates that **do not exceed
+the shuffled null** in any clade — as expected, since a ≤5-substitution match to a 17-bp motif
+arises only ~1 in 3,850 by chance, and satellites contain many distinct k-mers.
 
-**In short:** a functional CENP-B box is confined to human/mammalian α-satellite; we
-find no confirmed CENP-B box elsewhere in the DToL set, with birds as a candidate worth
-follow-up.
+## Method 2 — songbird ±5-flank approach (Formenti et al., Cell 2026)
+Following the zebra-finch T2T paper (Suppl. Fig. 15), the box was matched as fixed 17-bp windows
+(≤5 substitutions, both strands) and, for every species on the full ~24.5 M arrays, we built the
+position-frequency matrix of the box plus ±5 flanking bp. A genuine motif shows high information
+across the 17-bp box that collapses in the flanks (Δ = box − flank information > 0); we also report
+the box consensus, its substitutions from canonical, and the prevalence (boxes/Mbp).
 
-**Suggested figures.**
-- Method 1 (exact match): **`cenpb_paper_motifs.pdf`** — enrichment vs motif density; only
-  α-satellite is a real box (top-right), all DToL clades sit near the null.
-- Method 2 (de-novo): **`cenpb_denovo_bestwindow.pdf`** — best box-like window vs a shuffled
-  null; α-satellite is above the diagonal, all DToL (birds included) sit on it.
+**Result (seeded search).** Among the box-seeded hits, birds give the strongest signal: the goshawk
+carries a satellite consensus **15/17 identical** to the canonical box — differing only at the central
+CpG — with the highest box-vs-flank Δ (0.85) in the 325-species dataset; ptarmigan and takahē follow.
+
+**Unbiased de-novo check.** Because the ±5-flank search is *seeded* on the box (it only ever collects
+windows already ≤5 substitutions away), we added an unbiased test: scan every window of every array
+(no seeding), take the best match to the box, and compare to a dinucleotide-shuffle of the *same*
+satellite. Human α-satellite scores well above its shuffle (a real box in every monomer); by
+contrast **every DToL clade — birds included — sits on the null.** So the near-canonical bird
+consensus, while striking, is a *suggestive candidate* that does not exceed chance the way human
+α-satellite does.
+
+## Summary
+The canonical, functional CENP-B box is confined to **human/mammalian α-satellite**. In DToL we find
+**no confirmed CENP-B box**: the exact box (and its broad/degenerate variants) is absent, and the
+relaxed ±5-flank hits do not exceed a composition-matched null. The one signal worth following up is
+in **birds** — a diverged, box-shaped satellite motif 15/17 identical to the box but lacking the
+central CpG (goshawk, ptarmigan, takahē) — a plausible **candidate** CENP-B-like / TIGD-family box
+that we **flag but do not confirm** (protein binding not tested; it does not beat the de-novo null).
+This is consistent with, but does not yet establish, the recently reported avian CENP-B-like system.
+
+## Suggested figures (vector PDFs, Inkscape-editable)
+- Method 1: **`cenpb_paper_motifs.pdf`** — enrichment vs motif density; only α-satellite is a real
+  box (top-right), all DToL clades sit near the null.
+- Method 2: **`cenpb_denovo_bestwindow.pdf`** — best box-like window vs a shuffled null; α-satellite
+  is above the diagonal, all DToL (birds included) sit on it.
 - Overview: **`cenpb_box_tree_325sp.pdf`** — the signal mapped onto the chronogram.
+- Optional (the bird candidate): **`cenpb_flank_uncapped_scatter.pdf`** — box vs flank information,
+  showing the goshawk's near-canonical motif.
 
 *(Full methods, all figures and per-species data: `cenpb_box_report.html`.)*
