@@ -279,11 +279,7 @@ p <- p +
     color = tip_df$tip_col, fill = tip_df$tip_col,
     size = 1.6, stroke = 0.4
   ) +
-  geom_text(
-    data = singleton_tips,
-    aes(x = x, y = y, label = subclade, angle = angle, hjust = hjust),
-    inherit.aes = FALSE, size = 1.9, color = "#2f2f2f"
-  ) +
+  # per-tip (species) name labels removed for now
   scale_shape_manual(values = shape_map, drop = FALSE, guide = "none") +
   geom_point(
     data = bg_legend_df,
