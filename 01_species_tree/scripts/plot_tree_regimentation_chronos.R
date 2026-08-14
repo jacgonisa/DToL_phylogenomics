@@ -521,7 +521,7 @@ p <- p +
     name = "HOR regimentation\n(max/species)") +
   ggnewscale::new_scale_fill() +
   geom_fruit(data = regi_df, geom = geom_tile, mapping = aes(y = label, fill = hor),
-             width = 0.045 * max_x, offset = 0.045, axis.params = list(axis = "none")) +
+             width = 0.045 * max_x, offset = 0.085, axis.params = list(axis = "none")) +
   scale_fill_gradientn(
     colours  = c("#f7fcf5","#c7e9c0","#74c476","#238b45","#00441b"),
     na.value = "#e0e0e0",
@@ -540,14 +540,14 @@ sat_df <- tibble(label = tree_plot$tip.label) %>%
 p <- p +
   ggnewscale::new_scale_fill() +
   geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = sat_len),
-             width = 0.045 * max_x, offset = 0.045, axis.params = list(axis = "none")) +
+             width = 0.045 * max_x, offset = 0.085, axis.params = list(axis = "none")) +
   scale_fill_gradientn(
     colours  = c("#fcfbfd","#dadaeb","#9e9ac8","#6a51a3","#3f007d"),
     na.value = "#e0e0e0", trans = "log10",
     name = "Main satellite\nmonomer length (bp)") +
   ggnewscale::new_scale_fill() +
   geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = sat_at),
-             width = 0.045 * max_x, offset = 0.045, axis.params = list(axis = "none")) +
+             width = 0.045 * max_x, offset = 0.085, axis.params = list(axis = "none")) +
   scale_fill_gradientn(
     colours  = c("#2166ac","#67a9cf","#f7f7f7","#ef8a62","#b2182b"),
     na.value = "#e0e0e0", limits = c(20, 95),
