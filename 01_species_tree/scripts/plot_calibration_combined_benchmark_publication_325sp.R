@@ -169,7 +169,7 @@ p_e <- build_parrett("parrett_uncalibrated.tsv",       "E", "uncalibrated (no ca
 # collect the shared Group / log10(pairs) legends of the B-E row into one
 p_row <- (p_b | p_c | p_d | p_e) + plot_layout(guides = "collect")
 p_combined <- (p_a / p_row) +
-  plot_layout(heights = c(2.4, 1.9)) +
+  plot_layout(heights = c(2.2, 2.0)) +
   plot_annotation(
     title   = "Supplementary Figure - Calibration validation: 325-species DToL chronogram",
     caption = paste0(
@@ -191,7 +191,7 @@ p_combined <- (p_a / p_row) +
 
 for (ext in c(".pdf", ".png")) {
   out <- file.path(FIG_DIR, paste0("calibration_combined_qc_benchmark_325sp_publication", ext))
-  ggsave(out, p_combined, width = 18.5, height = 20,
+  ggsave(out, p_combined, width = 22, height = 23,
          dpi = if (ext == ".png") 320 else 100, bg = "white")
   cat("Saved:", basename(out), "\n")
 }
