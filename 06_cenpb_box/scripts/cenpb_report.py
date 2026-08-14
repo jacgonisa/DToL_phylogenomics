@@ -174,16 +174,21 @@ not evidence of real boxes. This is precisely why the unbiased test below is nee
 of its 17-mers would still fall within ≤5 substitutions of the box by chance? This expected number
 is <b>E = D × p</b>, where <b>p</b> = the probability that one random 17-mer is ≤5 substitutions from
 the box, and <b>D</b> = the number of <b>distinct</b> 17-mers the satellite contains.</p>
-<p class="sub"><b>The per-motif probability, p.</b> A 17-mer qualifies if it matches ≥ 12 of the 17
-positions. Of the 4¹⁷ ≈ 17 billion possible 17-mers, ~4.9 million are within ≤5 substitutions of the
-box, so p ≈ 4.9M / 17B ≈ <b>2.9×10⁻⁴ ≈ 1 in 3,500</b> (Monte-Carlo over 2×10⁶ random 17-mers).
-Tighter thresholds are far rarer:</p>
-<table class="tbl" style="max-width:440px">
-<tr><th>threshold</th><th>P(one random 17-mer matches)</th><th>≈ 1 in</th></tr>
-<tr><td>≤2 substitutions</td><td>&lt; 5×10⁻⁷</td><td><b>&gt; 2,000,000</b></td></tr>
-<tr><td>≤3 substitutions</td><td>4.5×10⁻⁶</td><td>222,000</td></tr>
-<tr><td>≤4 substitutions</td><td>4.3×10⁻⁵</td><td>23,000</td></tr>
-<tr><td><b>≤5 substitutions</b></td><td><b>2.9×10⁻⁴</b></td><td><b>~3,500</b></td></tr>
+<p class="sub"><b>The per-motif probability, p — computed exactly.</b> The box fixes a specific base
+at 15 of the 17 positions (2 positions allow 2 bases). A random base matches a fixed position only
+<b>¼</b> of the time and a degenerate position <b>½</b>, so a random 17-mer is <i>expected</i> to have
+15×¾ + 2×½ = <b>12.25 mismatches</b> — i.e. it matches the box at only ~5 of 17 positions by chance.
+A ≤5-substitution match needs ≥12 matches — deep in the tail, hence rare. Counting exactly: each
+fixed position contributes (1 match + 3 mismatch) bases and each degenerate (2 + 2), so the number of
+17-mers with exactly <i>k</i> mismatches is the coefficient of <i>x<sup>k</sup></i> in
+<b>(1+3x)<sup>15</sup>(2+2x)<sup>2</sup></b>. Summing <i>k</i> = 0…5 and dividing by
+4<sup>17</sup> (≈ 17 billion): ~4.4 million qualify, so <b>p ≈ 2.6×10⁻⁴ ≈ 1 in 3,850</b>.</p>
+<table class="tbl" style="max-width:480px">
+<tr><th>threshold</th><th>fraction of all 4¹⁷ 17-mers (exact)</th><th>≈ 1 in</th></tr>
+<tr><td>≤2 substitutions</td><td>2.5×10⁻⁷</td><td><b>4,000,000</b></td></tr>
+<tr><td>≤3 substitutions</td><td>3.6×10⁻⁶</td><td>281,000</td></tr>
+<tr><td>≤4 substitutions</td><td>3.5×10⁻⁵</td><td>28,000</td></tr>
+<tr><td><b>≤5 substitutions</b></td><td><b>2.6×10⁻⁴</b></td><td><b>~3,850</b></td></tr>
 </table>
 <p class="sub"><b>The count, D — the key correction.</b> D is the number of <b>distinct</b> 17-mers,
 <b>not</b> the total number of windows. A satellite is a tandem repeat, so the same 17-mers recur
@@ -191,14 +196,14 @@ thousands of times; repeated copies of an already-counted k-mer are not independ
 match, so only the distinct k-mers contribute. Measured (both strands):</p>
 <table class="tbl" style="max-width:600px">
 <tr><th>species</th><th>total windows</th><th>distinct 17-mers (D)</th><th>E = D × p</th></tr>
-<tr><td>goshawk (very homogeneous)</td><td>631,000</td><td>~5,000 (0.8% unique)</td><td><b>~1.4</b></td></tr>
-<tr><td>Danio (fish)</td><td>677,000</td><td>~11,000</td><td>~3</td></tr>
-<tr><td>Nebria (invertebrate)</td><td>487,000</td><td>~37,000</td><td>~10</td></tr>
-<tr><td>Triglochin (diverse plant)</td><td>4,300,000</td><td>~284,000 (6.6% unique)</td><td>~81</td></tr>
+<tr><td>goshawk (very homogeneous)</td><td>631,000</td><td>~5,000 (0.8% unique)</td><td><b>~1.3</b></td></tr>
+<tr><td>Danio (fish)</td><td>677,000</td><td>~11,000</td><td>~2.9</td></tr>
+<tr><td>Nebria (invertebrate)</td><td>487,000</td><td>~37,000</td><td>~9.5</td></tr>
+<tr><td>Triglochin (diverse plant)</td><td>4,300,000</td><td>~284,000 (6.6% unique)</td><td>~74</td></tr>
 </table>
-<p class="sub"><b>Result.</b> goshawk 4,992 × 1/3,500 ≈ <b>1.4</b>; Triglochin 284,185 × 1/3,500 ≈
-<b>81</b>. So a homogeneous satellite is expected to contain ~1 box-like 17-mer by chance, a diverse
-one ~80 — recovery scales with k-mer diversity, and the <b>94% recovery is expected by chance</b>,
+<p class="sub"><b>Result.</b> goshawk 4,992 × 1/3,850 ≈ <b>1.3</b>; Triglochin 284,185 × 1/3,850 ≈
+<b>74</b>. So a homogeneous satellite is expected to contain ~1 box-like 17-mer by chance, a diverse
+one ~74 — recovery scales with k-mer diversity, and the <b>94% recovery is expected by chance</b>,
 not evidence of a box. (E = D × p is approximate: it treats the distinct k-mers as independent and
 uniform-random, whereas real satellite k-mers are correlated and AT-skewed. The assumption-free
 version is the <b>dinucleotide-shuffle null</b> below, which shuffles the real satellite — same D and
