@@ -26,4 +26,11 @@ control and human HSat as a negative control:
 find no confirmed CENP-B box elsewhere in the DToL set, with birds as a candidate worth
 follow-up.
 
-*(Full methods, figures and per-species data: `cenpb_box_report.html`.)*
+**Suggested figures.**
+- Method 1 (exact match): **`cenpb_paper_motifs.png`** — enrichment vs motif density; only
+  α-satellite is a real box (top-right), all DToL clades sit near the null.
+- Method 2 (de-novo): **`cenpb_denovo_bestwindow.png`** — best box-like window vs a shuffled
+  null; α-satellite is above the diagonal, all DToL (birds included) sit on it.
+- Overview: **`cenpb_box_tree_325sp.png`** — the signal mapped onto the chronogram.
+
+*(Full methods, all figures and per-species data: `cenpb_box_report.html`.)*
