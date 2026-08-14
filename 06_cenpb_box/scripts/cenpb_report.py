@@ -170,45 +170,44 @@ box-like window; 6 have only 1–4 weak hits; and <b>4 recover nothing</b> (<i>B
 the GC-rich <code>TTCG…CGGG</code> core). But <b>≤5 substitutions on 17 bp is very permissive</b> —
 nearly any GC-containing satellite has such a window by chance — so 94% recovery is <i>expected</i>,
 not evidence of real boxes. This is precisely why the unbiased test below is needed.</p>
-<p class="sub"><b>Why ≤5 subs matches so easily — the numbers game.</b> The threshold is loose: a
-window needs only ≥ 12/17 = 70.6% identity. From a Monte-Carlo over random 17-mers, the probability
-that one matches the box is:</p>
+<p class="sub"><b>Why ≤5 subs matches so easily — think of it as a lottery.</b> If a satellite had
+<i>no</i> real box, how many of its 17-mers would look box-like (≤5 substitutions) just by luck?
+Treat <b>each distinct 17-mer as one lottery ticket</b>: <b>p</b> = the chance a single ticket "wins"
+(a random 17-mer landing ≤5 subs from the box), <b>D</b> = how many tickets the satellite holds (its
+number of <i>distinct</i> 17-mers). The expected number of chance box-matches is then simply
+<b>E = D × p</b> (tickets × chance per ticket).</p>
+<p class="sub"><b>Chance per ticket, p.</b> A 17-mer "wins" if it matches ≥ 12 of 17 positions. Of the
+4¹⁷ ≈ 17 billion possible 17-mers, ~4.9 million lie within ≤5 substitutions of the box, so
+p ≈ 4.9M / 17B ≈ <b>2.9×10⁻⁴ ≈ 1 in 3,500</b> (Monte-Carlo over 2×10⁶ random 17-mers). Tighter
+thresholds are far rarer:</p>
 <table class="tbl" style="max-width:440px">
-<tr><th>threshold</th><th>P(random 17-mer matches)</th><th>≈ 1 in</th></tr>
+<tr><th>threshold</th><th>P(one random 17-mer matches)</th><th>≈ 1 in</th></tr>
 <tr><td>≤2 substitutions</td><td>&lt; 5×10⁻⁷</td><td><b>&gt; 2,000,000</b></td></tr>
 <tr><td>≤3 substitutions</td><td>4.5×10⁻⁶</td><td>222,000</td></tr>
 <tr><td>≤4 substitutions</td><td>4.3×10⁻⁵</td><td>23,000</td></tr>
 <tr><td><b>≤5 substitutions</b></td><td><b>2.9×10⁻⁴</b></td><td><b>~3,500</b></td></tr>
 </table>
-<p class="sub">So ~1 in 3,500 random 17-mers matches at ≤5 subs. But you cannot simply multiply by
-the total window count: <b>satellites are tandem repeats</b>, so the same k-mers recur many times —
-the relevant number is the count of <b>distinct</b> 17-mers, which is far smaller. Measured (both
-strands, per species):</p>
+<p class="sub"><b>Number of tickets, D — the key correction.</b> D is the number of <b>distinct</b>
+17-mers, <b>not</b> the total window count. A tandem satellite is one repeat unit copied thousands of
+times, so most windows are the <i>same ticket photocopied</i> — and photocopying a ticket gives no
+extra chance to win. Measured (both strands):</p>
 <table class="tbl" style="max-width:600px">
-<tr><th>species</th><th>total windows</th><th>distinct 17-mers</th><th>expected chance ≤5-sub matches</th></tr>
-<tr><td>goshawk (very homogeneous)</td><td>631,000</td><td>~5,000 (0.8%)</td><td><b>~1.4</b></td></tr>
+<tr><th>species</th><th>total windows (photocopies)</th><th>distinct 17-mers (tickets, D)</th><th>E = D × p</th></tr>
+<tr><td>goshawk (very homogeneous)</td><td>631,000</td><td>~5,000 (0.8% unique)</td><td><b>~1.4</b></td></tr>
 <tr><td>Danio (fish)</td><td>677,000</td><td>~11,000</td><td>~3</td></tr>
 <tr><td>Nebria (invertebrate)</td><td>487,000</td><td>~37,000</td><td>~10</td></tr>
-<tr><td>Triglochin (diverse plant)</td><td>4,300,000</td><td>~284,000 (6.6%)</td><td>~81</td></tr>
+<tr><td>Triglochin (diverse plant)</td><td>4,300,000</td><td>~284,000 (6.6% unique)</td><td>~81</td></tr>
 </table>
-<p class="sub"><b>Formula.</b> expected chance matches <b>E = D × p</b>, where <b>D</b> = number of
-distinct 17-mers in the species' satellites (both strands, each counted once as
-<code>min(w, rc(w))</code>) and <b>p</b> = P(a random 17-mer is ≤5 substitutions from the canonical
-box) ≈ <b>2.86×10⁻⁴</b> (≈ 1/3,497, Monte-Carlo over 2×10⁶ uniform 17-mers). E.g. goshawk
-4,992 × (1/3,497) ≈ 1.4; Triglochin 284,185 × (1/3,497) ≈ 81. This is only an estimate — it treats
-the distinct k-mers as independent, uniform-random 17-mers, whereas real satellite k-mers are
-correlated and composition-skewed (AT-rich satellites make the GC-rich box rarer). The
-assumption-free version is the dinucleotide-shuffle null below.</p>
-<p class="sub">So the expected number of chance box-matches is <b>~1–80, scaling with how diverse
-the satellite is</b> (not tens of thousands): a k-mer-rich satellite recovers a ≤5-sub window
-easily, a homogeneous one (goshawk, ~1.4 expected) only marginally. The rigorous accounting —
-which preserves each satellite's own composition <i>and</i> repetitiveness — is the
-<b>dinucleotide-shuffle null</b> of the de-novo test below, where no DToL satellite (including the
-goshawk) beats its own shuffle. The meaningful flip side stays: <b>≤2 substitutions is &lt; 1 in 2
-million</b> (essentially never by chance), which is why <b>Method 1 finding ~0 exact
-canonical/broad/degenerate hits in DToL is real signal</b>. (Matching code:
-<code>cenpb_flank_uncapped.py</code> — core gate <code>TTCGTTGGAA{{s&lt;=3}}</code> then
-<code>[CT]TTCGTTGGAA[AG]CGGGA{{s&lt;=5}}</code>, both strands.)</p>
+<p class="sub"><b>Putting it together.</b> goshawk 4,992 × 1/3,500 ≈ <b>1.4</b> expected wins; Triglochin
+284,185 × 1/3,500 ≈ <b>81</b>. A homogeneous satellite expects ~1 box-like 17-mer by luck, a diverse
+one ~80 — so <b>recovery scales with k-mer diversity, and the 94% recovery is just the numbers
+game</b>, not a real box. (E = D × p is a back-of-envelope: it assumes the tickets are independent
+and uniform-random, whereas real satellite k-mers are correlated and AT-skewed. The assumption-free
+version is the <b>dinucleotide-shuffle null</b> below, which shuffles the real satellite — same D,
+same composition — where no DToL satellite, goshawk included, beats its own shuffle.) The flip side:
+<b>≤2 substitutions is &lt; 1 in 2 million</b> — essentially never by luck — which is why <b>Method 1
+finding ~0 exact hits is real signal</b>. Code: <code>cenpb_flank_uncapped.py</code>
+(<code>TTCGTTGGAA{{s&lt;=3}}</code> gate → <code>[CT]TTCGTTGGAA[AG]CGGGA{{s&lt;=5}}</code>, both strands).</p>
 <p class="sub"><b>The CENP-B box is functional, not abundant.</b> Tellingly, the box is <i>not</i> the
 most common sequence even in human α-satellite: the most frequent 17-mer there is
 <code>CAAAAAGAGTGTTTCA</code> (~18% identity to the box) — a different conserved part of the 171-bp
