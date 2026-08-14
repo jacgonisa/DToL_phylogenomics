@@ -183,6 +183,13 @@ fixed position contributes (1 match + 3 mismatch) bases and each degenerate (2 +
 17-mers with exactly <i>k</i> mismatches is the coefficient of <i>x<sup>k</sup></i> in
 <b>(1+3x)<sup>15</sup>(2+2x)<sup>2</sup></b>. Summing <i>k</i> = 0…5 and dividing by
 4<sup>17</sup> (≈ 17 billion): ~4.4 million qualify, so <b>p ≈ 2.6×10⁻⁴ ≈ 1 in 3,850</b>.</p>
+<div class="fig">{img(FIG/'cenpb_p_formula.png',w="74%")}<div class="cap">
+Formal definition. <i>N<sub>k</sub></i> = number of 17-mers at exactly <i>k</i> mismatches, split as
+<i>i</i> on the 15 fixed positions and <i>j</i> on the 2 degenerate positions: the fixed factor
+<code>C(15,i)·3ⁱ</code> picks which fixed positions mismatch (3 wrong bases each), the degenerate
+factor <code>C(2,j)·2ʲ·2²⁻ʲ</code> likewise. <i>p</i> sums <i>k</i> = 0…5 over all 4¹⁷ possible
+17-mers; <i>D</i> = number of distinct 17-mers in the satellite; <i>E</i> = <i>D·p</i> = expected
+chance matches.</div></div>
 <table class="tbl" style="max-width:480px">
 <tr><th>threshold</th><th>fraction of all 4¹⁷ 17-mers (exact)</th><th>≈ 1 in</th></tr>
 <tr><td>≤2 substitutions</td><td>2.5×10⁻⁷</td><td><b>4,000,000</b></td></tr>
