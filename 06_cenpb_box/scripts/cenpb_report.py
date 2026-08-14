@@ -254,7 +254,10 @@ average out). So the honest reading: birds have a <b>candidate CENP-B-like motif
 <b>not confirmed</b> as a box-carrying satellite the way human α-satellite is.</p>
 
 <h3>Why the two methods disagree on birds</h3>
-<div class="fig">{img(FIG/'cenpb_goshawk_alignment.png')}<div class="cap">
+<div class="fig">{img(FIG/'cenpb_hawk_box_AB.png')}<div class="cap">
+<b>(A)</b> the box definitions (canonical/broad/degenerate IUPAC) aligned to the goshawk satellite
+consensus, and <b>(B)</b> the goshawk motif itself as a sequence logo (its 1,722 box-like windows +
+±5 flanks): a conserved 17-bp box with random flanks, with the eroded CpG visible.<br>
 The goshawk motif is 15/17 identical to canonical; its only two substitutions land on the 5′
 <b>CpG</b> (positions 4–5) that <i>all three</i> IUPAC tiers hold fixed (the TTCG anchor). So
 position-based IUPAC matching scores <b>0</b>, while the distance-based songbird ≤5-substitution
