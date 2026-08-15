@@ -472,11 +472,15 @@ if (nrow(cal_xy) > 0) {
 cf <- read.csv("/home/jg2070/Desktop/DToL_phylogenomics/01_species_tree/data/cen_families.csv", stringsAsFactors = FALSE)
 cf$regimentation_score <- suppressWarnings(as.numeric(cf$regimentation_score))
 cf$HOR_score           <- suppressWarnings(as.numeric(cf$HOR_score))
+cf$count_total         <- suppressWarnings(as.numeric(cf$count_total))
 cf$pfx  <- sub("\\d.*$", "", tolower(cf$fasta))
 tip_pfx <- sub("\\d.*$", "", tolower(tree_plot$tip.label))
-agg <- cf %>% group_by(pfx, is_holocentric) %>%
-  summarise(regi = suppressWarnings(max(regimentation_score, na.rm = TRUE)),
-            hor  = suppressWarnings(max(HOR_score, na.rm = TRUE)), .groups = "drop")
+# Dominant array per species = family with the most copies (count_total), harmonised
+# with the satellite length/GC rings below (which pick the largest array by tot.bp).
+agg <- cf %>% group_by(pfx) %>%
+  slice_max(count_total, n = 1, with_ties = FALSE) %>%
+  ungroup() %>%
+  transmute(pfx, is_holocentric, regi = regimentation_score, hor = HOR_score)
 lk <- function(pp) { h <- tree_plot$tip.label[tip_pfx == pp]; if (length(h) == 1) return(h)
   h <- tree_plot$tip.label[startsWith(tree_plot$tip.label, pp)]; if (length(h) >= 1) return(h[1]); NA_character_ }
 agg$tip <- vapply(agg$pfx, lk, character(1))
@@ -495,23 +499,28 @@ p <- p +
   scale_fill_gradientn(
     colours  = c("#fff5eb","#fdd0a2","#fd8d3c","#e6550d","#a63603","#4d0000"),
     na.value = "#e0e0e0", limits = c(0, 100),
-    name = "HOR regimentation\n(max/species)") +
+    name = "HOR regimentation\n(dominant array)") +
   ggnewscale::new_scale_fill() +
   geom_fruit(data = regi_df, geom = geom_tile, mapping = aes(y = label, fill = hor),
              width = 0.045 * max_x, offset = 0.085, axis.params = list(axis = "none")) +
   scale_fill_gradientn(
     colours  = c("#f7fcf5","#c7e9c0","#74c476","#238b45","#00441b"),
     na.value = "#e0e0e0",
-    name = "HOR score\n(max/species)")
+    name = "HOR score\n(dominant array)")
 
-# ── Rings: main centromeric satellite length + AT% (dominant satellite/sp) ─────
-satdat <- read.delim("/home/jg2070/Desktop/DToL_phylogenomics/01_species_tree/data/main_satellite_length_at.tsv",
-                     stringsAsFactors = FALSE)
-satdat$pfx <- sub("\\d.*$", "", tolower(satdat$fasta))
-satdat$tip <- vapply(satdat$pfx, lk, character(1))
+# ── Rings: dominant satellite monomer length + satellite GC% + host genome GC% ──
+# Dominant array per species = largest by tot.bp (read.csv renames gc% -> gc.).
+sd <- read.csv("/home/jg2070/Desktop/DToL_phylogenomics/01_species_tree/data/dtol.sat.dat.csv",
+               stringsAsFactors = FALSE)
+sd$pfx <- sub("\\d.*$", "", tolower(sd$fasta))
+sd <- sd %>% group_by(pfx) %>% slice_max(tot.bp, n = 1, with_ties = FALSE) %>% ungroup()
+sd$tip <- vapply(sd$pfx, lk, character(1))
 sat_df <- tibble(label = tree_plot$tip.label) %>%
-  left_join(satdat %>% filter(!is.na(tip)) %>%
-              transmute(label = tip, sat_len = sat_length_bp, sat_at = sat_AT_pct),
+  left_join(sd %>% filter(!is.na(tip)) %>%
+              transmute(label = tip,
+                        sat_len   = width,
+                        sat_gc    = 100 * gc.,     # satellite GC% (gc. is a 0-1 fraction)
+                        genome_gc = genome.gc),    # host genome GC% (already a percent)
             by = "label")
 
 p <- p +
@@ -523,12 +532,19 @@ p <- p +
     na.value = "#e0e0e0", trans = "log10",
     name = "Main satellite\nmonomer length (bp)") +
   ggnewscale::new_scale_fill() +
-  geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = sat_at),
+  geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = sat_gc),
              width = 0.045 * max_x, offset = 0.085, axis.params = list(axis = "none")) +
   scale_fill_gradientn(
     colours  = c("#2166ac","#67a9cf","#f7f7f7","#ef8a62","#b2182b"),
-    na.value = "#e0e0e0", limits = c(20, 95),
-    name = "Main satellite\nAT %")
+    na.value = "#e0e0e0", limits = c(5, 80),
+    name = "Main satellite\nGC %") +
+  ggnewscale::new_scale_fill() +
+  geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = genome_gc),
+             width = 0.045 * max_x, offset = 0.085, axis.params = list(axis = "none")) +
+  scale_fill_gradientn(
+    colours  = c("#ffffcc","#a1dab4","#41b6c4","#2c7fb8","#253494"),
+    na.value = "#e0e0e0", limits = c(20, 50),
+    name = "Host genome\nGC %")
 
 # ── Save outputs ──────────────────────────────────────────────────────────────
 pdf(out_pdf, width = 15, height = 18)
