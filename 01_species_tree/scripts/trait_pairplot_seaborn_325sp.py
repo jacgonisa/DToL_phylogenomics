@@ -5,13 +5,14 @@ trait_pgls_correlations_325sp.R), with BOTH naive Pearson r and phylogenetically
 corrected r (PIC/PGLS) annotated in the upper triangle, plus a two-triangle
 correlation heatmap (upper = naive Pearson, lower = phylo PIC)."""
 
-import numpy as np, pandas as pd, seaborn as sns, matplotlib.pyplot as plt
+import os, numpy as np, pandas as pd, seaborn as sns, matplotlib.pyplot as plt
 from itertools import combinations
 
+AGG  = os.environ.get("AGG", "ian").lower()
 DATA = "/home/jg2070/Desktop/DToL_phylogenomics/01_species_tree/data"
 FIG  = "/home/jg2070/Desktop/DToL_phylogenomics/01_species_tree/figures"
-tab  = pd.read_csv(f"{DATA}/centromere_trait_table_325sp.tsv", sep="\t")
-cor  = pd.read_csv(f"{DATA}/pgls_trait_correlations_325sp.tsv", sep="\t")
+tab  = pd.read_csv(f"{DATA}/centromere_trait_table_325sp_{AGG}.tsv", sep="\t")
+cor  = pd.read_csv(f"{DATA}/pgls_trait_correlations_325sp_{AGG}.tsv", sep="\t")
 
 # log-transform the two skewed size traits for display + correlation consistency
 tab["mono_len_bp"] = np.log10(tab["mono_len_bp"])
@@ -54,11 +55,12 @@ for r in range(n):
 for i,t in enumerate(traits):
     g.axes[-1][i].set_xlabel(labels[t]); g.axes[i][0].set_ylabel(labels[t])
 g.add_legend(title="Clade", bbox_to_anchor=(1.01,0.5))
-g.figure.suptitle("Centromere / genome trait pairplot (dominant array, n=173 species)\n"
+agg_lab = "dominant array" if AGG=="ian" else "freq-weighted mean"
+g.figure.suptitle(f"Centromere / genome trait pairplot ({agg_lab}, {len(d)} species)\n"
                   "upper: naive Pearson vs phylogenetically corrected (PIC) r",
                   y=1.02, fontsize=12, fontweight="bold")
-g.savefig(f"{FIG}/trait_pairplot_seaborn_325sp.png", dpi=200, bbox_inches="tight")
-g.savefig(f"{FIG}/trait_pairplot_seaborn_325sp.pdf", bbox_inches="tight")
+g.savefig(f"{FIG}/trait_pairplot_seaborn_325sp_{AGG}.png", dpi=200, bbox_inches="tight")
+g.savefig(f"{FIG}/trait_pairplot_seaborn_325sp_{AGG}.pdf", bbox_inches="tight")
 print("Wrote pairplot")
 
 # ── two-triangle correlation heatmap: upper naive, lower phylo ───────────────────
@@ -76,6 +78,6 @@ sns.heatmap(M, annot=S, fmt="", cmap="RdBu_r", center=0, vmin=-0.6, vmax=0.6,
 ax.set_title("Trait correlations: upper = naive Pearson, lower = phylogenetic (PIC)\n"
              "*** p<0.001  ** p<0.01  * p<0.05", fontsize=11, fontweight="bold")
 plt.xticks(rotation=40,ha="right"); plt.yticks(rotation=0); plt.tight_layout()
-fig.savefig(f"{FIG}/trait_corr_heatmap_naive_vs_phylo_325sp.png", dpi=200, bbox_inches="tight")
-fig.savefig(f"{FIG}/trait_corr_heatmap_naive_vs_phylo_325sp.pdf", bbox_inches="tight")
+fig.savefig(f"{FIG}/trait_corr_heatmap_naive_vs_phylo_325sp_{AGG}.png", dpi=200, bbox_inches="tight")
+fig.savefig(f"{FIG}/trait_corr_heatmap_naive_vs_phylo_325sp_{AGG}.pdf", bbox_inches="tight")
 print("Wrote heatmap")
