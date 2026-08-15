@@ -66,8 +66,8 @@ traits <- list(
                        title = "HOR score")
 )
 
-# ── contMap + phylosig per trait ────────────────────────────────────────────────
-sig <- list()
+# ── contMap + phylosig + model selection per trait ──────────────────────────────
+sig <- list(); models <- list()
 for (nm in names(traits)) {
   tt   <- traits[[nm]]
   x    <- tt$x
@@ -103,6 +103,29 @@ for (nm in names(traits)) {
     stringsAsFactors = FALSE)
   cat(sprintf("[%s] Blomberg K=%.3f (p=%.3g)  Pagel lambda=%.3f (p=%.3g)\n",
               nm, kK$K, kK$P, kL$lambda, kL$P))
+
+  # ── explicit model fit: BM vs OU vs EB vs white noise (geiger, AICc) ──────────
+  fits <- lapply(c("BM","OU","EB","white"), function(md)
+    tryCatch(geiger::fitContinuous(trx, x, model = md, ncores = 1),
+             error = function(e) NULL))
+  names(fits) <- c("BM","OU","EB","white")
+  mrows <- lapply(names(fits), function(md) {
+    f <- fits[[md]]; if (is.null(f)) return(NULL)
+    par <- switch(md,
+      OU    = sprintf("alpha=%.4g", f$opt$alpha),
+      EB    = sprintf("a=%.4g",     f$opt$a),
+      white = "-", BM = sprintf("sigsq=%.4g", f$opt$sigsq))
+    data.frame(trait = nm, model = md, k = f$opt$k,
+               lnL = round(f$opt$lnL, 3), AICc = round(f$opt$aicc, 3),
+               param = par, stringsAsFactors = FALSE)
+  })
+  mt <- do.call(rbind, mrows)
+  mt$dAICc  <- round(mt$AICc - min(mt$AICc), 3)
+  w <- exp(-0.5 * (mt$AICc - min(mt$AICc))); mt$weight <- round(w / sum(w), 4)
+  mt <- mt[order(mt$AICc), ]
+  models[[nm]] <- mt
+  cat(sprintf("[%s] best model: %s (AICc weight=%.3f)\n",
+              nm, mt$model[1], mt$weight[1]))
 }
 
 sig_tbl <- do.call(rbind, sig)
@@ -110,3 +133,9 @@ out_tsv <- file.path(FIG_DIR, "asr_continuous_phylosig.tsv")
 write.table(sig_tbl, out_tsv, sep = "\t", quote = FALSE, row.names = FALSE)
 cat("\nPhylogenetic-signal summary:\n"); print(sig_tbl)
 cat("Wrote:", out_tsv, "\n")
+
+mod_tbl <- do.call(rbind, models)
+mod_out <- file.path(FIG_DIR, "asr_continuous_model_selection.tsv")
+write.table(mod_tbl, mod_out, sep = "\t", quote = FALSE, row.names = FALSE)
+cat("\nModel selection (BM / OU / EB / white noise, AICc):\n"); print(mod_tbl)
+cat("Wrote:", mod_out, "\n")

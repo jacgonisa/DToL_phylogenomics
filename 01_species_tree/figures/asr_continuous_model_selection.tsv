@@ -1,0 +1,9 @@
+trait	model	k	lnL	AICc	param	dAICc	weight
+regimentation	OU	3	-663.474	1333.114	alpha=0.02052	0	0.925
+regimentation	white	2	-667.028	1338.139	-	5.025	0.075
+regimentation	BM	2	-701.436	1406.954	sigsq=5.386	73.84	0
+regimentation	EB	3	-701.441	1409.047	a=-1e-06	75.933	0
+HORscore	OU	3	-625.938	1258.041	alpha=0.01173	0	0.9888
+HORscore	white	2	-631.46	1267.003	-	8.962	0.0112
+HORscore	BM	2	-655.729	1315.54	sigsq=2.916	57.499	0
+HORscore	EB	3	-655.734	1317.633	a=-1e-06	59.592	0
