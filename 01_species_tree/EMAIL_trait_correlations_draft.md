@@ -6,47 +6,49 @@
 
 ---
 
-**Subject: Centromere trait correlations — what survives two corrections**
+**Subject: Centromere trait correlations — a three-step filter to the real links**
 
 Hi all,
 
-I looked at how the centromere/genome traits co-vary across the 325-species tree. The
-honest answer to "which features correlate" needs **two** corrections, and each removes a
-different kind of false signal.
+I went at "which centromere/genome features actually correlate" across the 325-species
+tree in three steps, tightening the filter each time and seeing what survives.
 
-**Correction 1 — phylogeny.** Whether this matters depends on the trait (see signal
-barplot). Two classes:
-- **Genome-architecture traits** (genome GC, genome size, satellite GC, chromosome
-  number) are strongly phylogenetically structured (Pagel's λ ≈ 0.65–1.0). Their naive
-  cross-species correlations are inflated by shared ancestry and **collapse once
-  corrected** — e.g. satellite-GC ↔ genome-GC 0.55 → 0.24; GC ↔ chromosome-number 0.27 →
-  n.s. These were phylogenetic artifacts.
-- **HOR/centromere traits** (regimentation, HOR score, monomer length) carry little or no
-  signal (λ ≈ 0.0–0.22). So their correlations *can't* be shared-ancestry artifacts, and
-  indeed **correction barely changes them** (regi ↔ HOR 0.595 → 0.594; regi ↔ monomer
-  0.38 → 0.40). These couplings are real and phylogeny-independent.
+**Step 1 — plain correlations.** I started with ordinary pairwise correlations between
+species. Lots of things lit up: regimentation ↔ HOR score (r = 0.59), regimentation ↔
+monomer length (0.38), HOR score ↔ monomer length (0.31), and among the genomic traits
+satellite-GC ↔ genome-GC (0.55), genome-size ↔ chromosome-number (0.36), GC ↔
+chromosome-number (0.27), satellite-GC ↔ chromosome-number (0.20). At face value it looks
+like almost everything is linked.
 
-  (So the point isn't "weak signal ⇒ ancestry-driven" — it's the opposite: the traits
-  that *have* signal are the ones whose correlations need correcting; for the HOR traits,
-  correction doing nothing is the evidence the couplings are genuine.)
+**Step 2 — correct for phylogeny (what survived?).** Species aren't independent data
+points, so I corrected for the tree (PGLS + independent contrasts). This **wiped out the
+genome-architecture correlations**: satellite-GC ↔ genome-GC fell 0.55 → 0.24, GC ↔
+chromosome-number and satellite-GC ↔ chromosome-number dropped to non-significant,
+genome-size ↔ chromosome-number weakened. Those were just shared ancestry (see the signal
+barplot — GC, genome size, chromosome number are strongly tree-structured, λ ≈ 0.65–1.0).
 
-**Correction 2 — partial correlation.** A pairwise correlation can be a chain, not a
-direct link. Holding the third trait constant (partial PGLS / partial correlation on the
-contrasts):
-- **regimentation ↔ HOR score survives** (0.59 → 0.54, ***) — genuinely coupled.
-- **regimentation ↔ monomer length survives** (0.40 → 0.29, ***).
-- **HOR score ↔ monomer length does NOT** — it drops to n.s. (0.31 → 0.09) once
-  regimentation is controlled. So "longer monomers → higher HOR score" is **indirect**:
-  it runs through regimentation. Monomer length's real partner is periodicity/order, not
-  the amount of HOR sharing.
+But the **HOR/centromere correlations barely moved**: regimentation ↔ HOR score 0.595 →
+0.594, regimentation ↔ monomer length 0.38 → 0.40, HOR ↔ monomer 0.31. **These survived
+phylogenetic correction** — they're real, not ancestry (these traits carry almost no
+phylogenetic signal, λ ≈ 0–0.22, so there was nothing for the tree to explain away).
 
-**Bottom line.** After removing both shared ancestry and mediation, the surviving,
-direct, centromere-intrinsic relationships are: **regimentation ↔ HOR score**,
-**regimentation ↔ monomer length**, and (in the genomic block) **genome size ↔
-chromosome number**. Everything else is either phylogeny or mediation. Results are
-identical under both aggregation schemes (dominant family / copy-number-weighted mean).
+**Step 3 — partial correlation (what survived now?).** The three surviving HOR links could
+still be a chain rather than three independent links, so I held the third trait constant
+(partial correlation on the contrasts / partial PGLS):
+- **regimentation ↔ HOR score survived** (0.54, ***) — a genuine direct coupling.
+- **regimentation ↔ monomer length survived** (0.29, ***).
+- **HOR score ↔ monomer length did NOT** — it collapsed to non-significant (0.31 → 0.09)
+  once regimentation was controlled. So that one was **mediated**: longer monomers →
+  more regimentation → (regimentation tracks HOR score). Monomer length's real partner is
+  periodicity/order, not the amount of HOR sharing.
 
-*Caveat to pre-empt:* part of the monomer-length ↔ regimentation link may be
+**Where it lands.** After both filters, the direct, real, centromere-intrinsic
+relationships are **regimentation ↔ HOR score** and **regimentation ↔ monomer length**
+(plus **genome size ↔ chromosome number** in the genomic block). Everything else was
+either shared ancestry or mediation — and **regimentation sits at the hub**. Identical
+result under both aggregation schemes (dominant family / copy-number-weighted mean).
+
+*One caveat to pre-empt:* part of the monomer-length ↔ regimentation link may be
 detectability — longer monomers give cleaner periodicity calls.
 
 ---
