@@ -18,9 +18,11 @@ cor  = pd.read_csv(f"{DATA}/pgls_trait_correlations_325sp_{AGG}.tsv", sep="\t")
 tab["mono_len_bp"] = np.log10(tab["mono_len_bp"])
 tab["genome_mb"]   = np.log10(tab["genome_mb"])
 traits = ["regi","hor","mono_len_bp","sat_gc","genome_gc","genome_mb","chr_n"]
-labels = {"regi":"HOR regim.","hor":"HOR score","mono_len_bp":"log10 monomer bp",
-          "sat_gc":"sat GC%","genome_gc":"genome GC%","genome_mb":"log10 genome Mb",
+labels = {"regi":"HOR regim.","hor":"HOR score","mono_len_bp":"monomer length (bp)",
+          "sat_gc":"sat GC%","genome_gc":"genome GC%","genome_mb":"genome size (Mb)",
           "chr_n":"chrom. number"}
+# these two are plotted as log10; show real units on the axes
+logticks = {"mono_len_bp":[30,100,300,1000], "genome_mb":[200,1000,5000]}
 pal = {"Vertebrata":"#1f78b4","Invertebrata":"#e6550d","Viridiplantae":"#31a354",
        "Fungi":"#7a0177","Protist":"#525252","Other":"#999999"}
 
@@ -54,6 +56,11 @@ for r in range(n):
             plt.sca(g.axes[r][c]); annot(None,None,_r=r,_c=c)
 for i,t in enumerate(traits):
     g.axes[-1][i].set_xlabel(labels[t]); g.axes[i][0].set_ylabel(labels[t])
+# relabel the log10-plotted axes (monomer length, genome size) with real units
+for t,vals in logticks.items():
+    i = traits.index(t); pos = [np.log10(v) for v in vals]
+    g.axes[-1][i].set_xticks(pos); g.axes[-1][i].set_xticklabels([str(v) for v in vals])
+    g.axes[i][0].set_yticks(pos); g.axes[i][0].set_yticklabels([str(v) for v in vals])
 g.add_legend(title="Clade", bbox_to_anchor=(1.01,0.5))
 agg_lab = "dominant array" if AGG=="ian" else "freq-weighted mean"
 g.figure.suptitle(f"Centromere / genome trait pairplot ({agg_lab}, {len(d)} species)\n"
