@@ -159,3 +159,26 @@ rownames(part) <- NULL
 write.table(part, PART_F, sep="\t", quote=FALSE, row.names=FALSE)
 cat("\nPartial PGLS (regi/hor/log10 monomer trio, n=", nrow(trio), "):\n", sep=""); print(part)
 cat("\nWrote:", PART_F, "\n")
+
+# ── Phylogenetic pairwise vs partial correlation (PIC contrasts) for the trio ────
+# Partial r controlling for the 3rd trait, from the standard formula on PIC r's;
+# significance stars taken from the PGLS partial-slope p-values above.
+cr <- pic(setNames(trio$regi, trio$sp), phy3)
+ch <- pic(setNames(trio$hor,  trio$sp), phy3)
+cm <- pic(setNames(trio$mono_len_bp, trio$sp), phy3)
+rr   <- function(a,b) sum(a*b)/sqrt(sum(a^2)*sum(b^2))
+pcor <- function(rxy,rxz,ryz) (rxy - rxz*ryz)/sqrt((1-rxz^2)*(1-ryz^2))
+r_rh<-rr(cr,ch); r_rm<-rr(cr,cm); r_hm<-rr(ch,cm)
+pget <- function(resp,pred) part$partial_p[part$response==resp & part$predictor==pred][1]
+trio_tbl <- data.frame(
+  pair       = c("regimentation~HOR","regimentation~monomer","HOR~monomer"),
+  control_for= c("monomer length","HOR score","regimentation"),
+  n          = nrow(trio),
+  pic_r_pairwise = round(c(r_rh, r_rm, r_hm), 3),
+  pic_r_partial  = round(c(pcor(r_rh,r_rm,r_hm), pcor(r_rm,r_rh,r_hm), pcor(r_hm,r_rh,r_rm)), 3),
+  partial_p  = signif(c(pget("regi","hor"), pget("regi","mono_len_bp"), pget("hor","mono_len_bp")), 3),
+  stringsAsFactors = FALSE)
+PTRIO_F <- file.path(OUT_DIR, sprintf("phylo_pairwise_vs_partial_trio_%s.tsv", AGG))
+write.table(trio_tbl, PTRIO_F, sep="\t", quote=FALSE, row.names=FALSE)
+cat("\nPhylo pairwise vs partial r (trio):\n"); print(trio_tbl)
+cat("\nWrote:", PTRIO_F, "\n")

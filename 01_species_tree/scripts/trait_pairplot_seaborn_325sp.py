@@ -81,3 +81,22 @@ plt.xticks(rotation=40,ha="right"); plt.yticks(rotation=0); plt.tight_layout()
 fig.savefig(f"{FIG}/trait_corr_heatmap_naive_vs_phylo_325sp_{AGG}.png", dpi=200, bbox_inches="tight")
 fig.savefig(f"{FIG}/trait_corr_heatmap_naive_vs_phylo_325sp_{AGG}.pdf", bbox_inches="tight")
 print("Wrote heatmap")
+
+# ── partial vs pairwise (phylogenetic) for the regi/HOR/monomer trio ─────────────
+trio = pd.read_csv(f"{DATA}/phylo_pairwise_vs_partial_trio_{AGG}.tsv", sep="\t")
+xlab = [f"{p}\n(control: {c})" for p,c in zip(trio.pair, trio.control_for)]
+xi = np.arange(len(trio)); w = 0.38
+fig,ax = plt.subplots(figsize=(8,4.8))
+ax.bar(xi-w/2, trio.pic_r_pairwise, w, label="pairwise (phylo, PIC)", color="#9ecae1", edgecolor="k", lw=.5)
+ax.bar(xi+w/2, trio.pic_r_partial,  w, label="partial (control 3rd trait)", color="#fc9272", edgecolor="k", lw=.5)
+for k,(rp,pp) in enumerate(zip(trio.pic_r_partial, trio.partial_p)):
+    ax.text(xi[k]+w/2, rp+0.02*np.sign(rp+1e-9), star(pp), ha="center",
+            va="bottom" if rp>=0 else "top", fontsize=11, fontweight="bold")
+ax.axhline(0, color="grey", lw=.8); ax.set_xticks(xi); ax.set_xticklabels(xlab, fontsize=9)
+ax.set_ylabel("phylogenetic correlation r"); ax.set_ylim(-0.15, max(0.75, trio.pic_r_pairwise.max()+0.1))
+ax.set_title(f"Pairwise vs partial phylogenetic correlation — regi/HOR/monomer trio ({agg_lab})\n"
+             "partial holds the 3rd trait constant; stars = PGLS partial-slope p", fontsize=10, fontweight="bold")
+ax.legend(frameon=False, fontsize=9); plt.tight_layout()
+fig.savefig(f"{FIG}/trait_partial_vs_pairwise_trio_325sp_{AGG}.png", dpi=200, bbox_inches="tight")
+fig.savefig(f"{FIG}/trait_partial_vs_pairwise_trio_325sp_{AGG}.pdf", bbox_inches="tight")
+print("Wrote partial-vs-pairwise trio panel")
