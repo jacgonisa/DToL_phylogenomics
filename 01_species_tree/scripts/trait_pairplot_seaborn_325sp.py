@@ -100,3 +100,21 @@ ax.legend(frameon=False, fontsize=9); plt.tight_layout()
 fig.savefig(f"{FIG}/trait_partial_vs_pairwise_trio_325sp_{AGG}.png", dpi=200, bbox_inches="tight")
 fig.savefig(f"{FIG}/trait_partial_vs_pairwise_trio_325sp_{AGG}.pdf", bbox_inches="tight")
 print("Wrote partial-vs-pairwise trio panel")
+
+# ── phylogenetic signal per trait (Pagel lambda) ────────────────────────────────
+sig = pd.read_csv(f"{DATA}/trait_phylo_signal_{AGG}.tsv", sep="\t").sort_values("lambda")
+col = ["#fc9272" if s=="weak" else "#3182bd" for s in sig.structured]
+fig,ax = plt.subplots(figsize=(7,4.3))
+ax.barh([labels[t] for t in sig.trait], sig["lambda"], color=col, edgecolor="k", lw=.5)
+ax.axvline(0.5, color="grey", ls="--", lw=1)
+for y,(l,k) in enumerate(zip(sig["lambda"], sig["K"])):
+    ax.text(l+0.02, y, f"λ={l:.2f} (K={k:.2f})", va="center", fontsize=8)
+ax.set_xlim(0,1.2); ax.set_xlabel("Pagel's λ  (0 = no phylogenetic signal, 1 = Brownian)")
+ax.set_title(f"Phylogenetic signal per trait ({agg_lab})\n"
+             "blue = tree-structured (λ≥0.5) → correlations can be shared-ancestry artifacts;\n"
+             "red = weak signal → correlations are already phylogeny-independent",
+             fontsize=9.5, fontweight="bold", loc="left")
+plt.tight_layout()
+fig.savefig(f"{FIG}/trait_phylo_signal_325sp_{AGG}.png", dpi=200, bbox_inches="tight")
+fig.savefig(f"{FIG}/trait_phylo_signal_325sp_{AGG}.pdf", bbox_inches="tight")
+print("Wrote phylo-signal barplot")

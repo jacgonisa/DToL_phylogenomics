@@ -1,0 +1,8 @@
+trait	n	K	lambda	structured
+regi	149	0.087	0.217	weak
+hor	149	0.098	0.183	weak
+mono_len_bp	173	0.087	0.002	weak
+sat_gc	173	0.109	0.754	strong
+genome_gc	173	0.453	1.001	strong
+genome_mb	173	0.149	0.867	strong
+chr_n	173	0.105	0.654	strong

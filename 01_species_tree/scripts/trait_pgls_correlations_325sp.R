@@ -6,7 +6,7 @@
 # Outputs feed the seaborn pairplot (trait_pairplot_seaborn_325sp.py).
 
 suppressPackageStartupMessages({
-  library(ape); library(nlme); library(readxl); library(dplyr); library(stringr)
+  library(ape); library(nlme); library(phytools); library(readxl); library(dplyr); library(stringr)
 })
 
 BASE    <- "/home/jg2070/Desktop/dtol_review_August"
@@ -182,3 +182,21 @@ PTRIO_F <- file.path(OUT_DIR, sprintf("phylo_pairwise_vs_partial_trio_%s.tsv", A
 write.table(trio_tbl, PTRIO_F, sep="\t", quote=FALSE, row.names=FALSE)
 cat("\nPhylo pairwise vs partial r (trio):\n"); print(trio_tbl)
 cat("\nWrote:", PTRIO_F, "\n")
+
+# ── Phylogenetic signal per trait (K, Pagel lambda) ─────────────────────────────
+# Explains WHICH correlations phylogenetic correction affects: only tree-structured
+# (high-lambda) traits can carry shared-ancestry artifacts. Low-lambda HOR traits
+# barely change under correction.
+sig_tab <- do.call(rbind, lapply(traits, function(nm){
+  v <- tab[[nm]]; names(v) <- tab$label; v <- v[is.finite(v)]; v <- trans(v, nm)
+  phy <- keep.tip(tr, intersect(names(v), tr$tip.label)); v <- v[phy$tip.label]
+  data.frame(trait=nm, n=length(v),
+             K=round(as.numeric(phylosig(phy, v, method="K")),3),
+             lambda=round(phylosig(phy, v, method="lambda")$lambda,3),
+             structured=ifelse(phylosig(phy, v, method="lambda")$lambda>=0.5,"strong","weak"),
+             stringsAsFactors=FALSE)
+}))
+SIG_F <- file.path(OUT_DIR, sprintf("trait_phylo_signal_%s.tsv", AGG))
+write.table(sig_tab, SIG_F, sep="\t", quote=FALSE, row.names=FALSE)
+cat("\nPhylogenetic signal per trait:\n"); print(sig_tab)
+cat("\nWrote:", SIG_F, "\n")
