@@ -32,8 +32,14 @@ TOP_FIG   <- file.path(PUB_DIR, "figures")
 excel_path <- file.path(BASE, "2026_trees/annotation_centromeres/DTOL_327_master_March.xlsx")
 iTOL_path  <- file.path(PUB_DIR, "02_ASR/inputs/full/branch_symbol_anno.tsv")
 tree_path  <- file.path(TR_DIR, "full_325sp_chronos_over_correlated_fa.nwk")
-out_pdf    <- file.path(FIG_DIR, "centromere_regimentation_HOR_tree_325sp.pdf")
-out_png    <- file.path(FIG_DIR, "centromere_regimentation_HOR_tree_325sp.png")
+# Aggregation for poly-/di-typic species (multiple centromeric families):
+#   ian   = dominant family (highest copy number)          [Ian's preference]
+#   piotr = genomic average weighted by family frequency   [Piotr's preference]
+AGG <- tolower(Sys.getenv("AGG", "ian"))
+stopifnot(AGG %in% c("ian", "piotr"))
+agg_lab <- if (AGG == "ian") "dominant array" else "freq-weighted mean"
+out_pdf    <- file.path(FIG_DIR, sprintf("centromere_regimentation_HOR_tree_325sp_%s.pdf", AGG))
+out_png    <- file.path(FIG_DIR, sprintf("centromere_regimentation_HOR_tree_325sp_%s.png", AGG))
 
 dir.create(FIG_DIR, showWarnings = FALSE, recursive = TRUE)
 dir.create(TOP_FIG, showWarnings = FALSE, recursive = TRUE)
@@ -475,12 +481,20 @@ cf$HOR_score           <- suppressWarnings(as.numeric(cf$HOR_score))
 cf$count_total         <- suppressWarnings(as.numeric(cf$count_total))
 cf$pfx  <- sub("\\d.*$", "", tolower(cf$fasta))
 tip_pfx <- sub("\\d.*$", "", tolower(tree_plot$tip.label))
-# Dominant array per species = family with the most copies (count_total), harmonised
-# with the satellite length/GC rings below (which pick the largest array by tot.bp).
-agg <- cf %>% group_by(pfx) %>%
-  slice_max(count_total, n = 1, with_ties = FALSE) %>%
-  ungroup() %>%
-  transmute(pfx, is_holocentric, regi = regimentation_score, hor = HOR_score)
+# Per-species aggregation (see AGG at top): dominant family by copy number, or a
+# copy-number-weighted genomic mean across all centromeric families.
+if (AGG == "ian") {
+  agg <- cf %>% group_by(pfx) %>%
+    slice_max(count_total, n = 1, with_ties = FALSE) %>%
+    ungroup() %>%
+    transmute(pfx, is_holocentric, regi = regimentation_score, hor = HOR_score)
+} else {
+  agg <- cf %>% group_by(pfx) %>%
+    summarise(is_holocentric = first(is_holocentric),
+              regi = weighted.mean(regimentation_score, count_total, na.rm = TRUE),
+              hor  = weighted.mean(HOR_score,           count_total, na.rm = TRUE),
+              .groups = "drop")
+}
 lk <- function(pp) { h <- tree_plot$tip.label[tip_pfx == pp]; if (length(h) == 1) return(h)
   h <- tree_plot$tip.label[startsWith(tree_plot$tip.label, pp)]; if (length(h) >= 1) return(h[1]); NA_character_ }
 agg$tip <- vapply(agg$pfx, lk, character(1))
@@ -499,28 +513,35 @@ p <- p +
   scale_fill_gradientn(
     colours  = c("#fff5eb","#fdd0a2","#fd8d3c","#e6550d","#a63603","#4d0000"),
     na.value = "#e0e0e0", limits = c(0, 100),
-    name = "HOR regimentation\n(dominant array)") +
+    name = sprintf("HOR regimentation\n(%s)", agg_lab)) +
   ggnewscale::new_scale_fill() +
   geom_fruit(data = regi_df, geom = geom_tile, mapping = aes(y = label, fill = hor),
              width = 0.045 * max_x, offset = 0.085, axis.params = list(axis = "none")) +
   scale_fill_gradientn(
     colours  = c("#f7fcf5","#c7e9c0","#74c476","#238b45","#00441b"),
     na.value = "#e0e0e0",
-    name = "HOR score\n(dominant array)")
+    name = sprintf("HOR score\n(%s)", agg_lab))
 
-# ── Rings: dominant satellite monomer length + satellite GC% + host genome GC% ──
-# Dominant array per species = largest by tot.bp (read.csv renames gc% -> gc.).
+# ── Rings: satellite monomer length + satellite GC% + genome GC% + genome size + chr# ──
+# read.csv renames gc% -> gc.; genome.bp / chrs / genome.gc are genome-level (constant
+# per species) so aggregation only affects the satellite-family metrics.
 sd <- read.csv("/home/jg2070/Desktop/DToL_phylogenomics/01_species_tree/data/dtol.sat.dat.csv",
                stringsAsFactors = FALSE)
 sd$pfx <- sub("\\d.*$", "", tolower(sd$fasta))
-sd <- sd %>% group_by(pfx) %>% slice_max(tot.bp, n = 1, with_ties = FALSE) %>% ungroup()
-sd$tip <- vapply(sd$pfx, lk, character(1))
+if (AGG == "ian") {
+  sd_ag <- sd %>% group_by(pfx) %>% slice_max(n, n = 1, with_ties = FALSE) %>% ungroup() %>%
+    transmute(pfx, sat_len = width, sat_gc = 100 * gc.,
+              genome_gc = genome.gc, genome_bp = genome.bp, chrs = chrs)
+} else {
+  sd_ag <- sd %>% group_by(pfx) %>%
+    summarise(sat_len   = weighted.mean(width,      n, na.rm = TRUE),
+              sat_gc    = weighted.mean(100 * gc.,  n, na.rm = TRUE),
+              genome_gc = first(genome.gc), genome_bp = first(genome.bp),
+              chrs = first(chrs), .groups = "drop")
+}
+sd_ag$tip <- vapply(sd_ag$pfx, lk, character(1))
 sat_df <- tibble(label = tree_plot$tip.label) %>%
-  left_join(sd %>% filter(!is.na(tip)) %>%
-              transmute(label = tip,
-                        sat_len   = width,
-                        sat_gc    = 100 * gc.,     # satellite GC% (gc. is a 0-1 fraction)
-                        genome_gc = genome.gc),    # host genome GC% (already a percent)
+  left_join(sd_ag %>% filter(!is.na(tip)) %>% select(-pfx) %>% rename(label = tip),
             by = "label")
 
 p <- p +
@@ -544,7 +565,21 @@ p <- p +
   scale_fill_gradientn(
     colours  = c("#ffffcc","#a1dab4","#41b6c4","#2c7fb8","#253494"),
     na.value = "#e0e0e0", limits = c(20, 50),
-    name = "Host genome\nGC %")
+    name = "Host genome\nGC %") +
+  ggnewscale::new_scale_fill() +
+  geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = genome_bp / 1e6),
+             width = 0.045 * max_x, offset = 0.085, axis.params = list(axis = "none")) +
+  scale_fill_gradientn(
+    colours  = c("#f7fcfd","#bfd3e6","#8c96c6","#8856a7","#810f7c"),
+    na.value = "#e0e0e0", trans = "log10",
+    name = "Genome size\n(Mb)") +
+  ggnewscale::new_scale_fill() +
+  geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = chrs),
+             width = 0.045 * max_x, offset = 0.085, axis.params = list(axis = "none")) +
+  scale_fill_gradientn(
+    colours  = c("#ffffe5","#fee391","#fe9929","#d95f0e","#993404"),
+    na.value = "#e0e0e0",
+    name = "Chromosome\nnumber (n)")
 
 # ── Save outputs ──────────────────────────────────────────────────────────────
 pdf(out_pdf, width = 15, height = 18)
