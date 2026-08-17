@@ -120,7 +120,7 @@ build_parrett <- function(fname, tag, ttl) {
   d <- read.delim(file.path(QC_DIR, fname), stringsAsFactors = FALSE)
   d$broad <- factor(d$broad, levels = names(broad_pal))
   r2  <- round(summary(lm(our_age ~ tt_node_age, d))$r.squared, 3)
-  rho <- round(cor(d$tt_node_age, d$our_age, method = "spearman"), 3)
+  pear <- round(cor(d$tt_node_age, d$our_age, method = "pearson"), 3)
   mx  <- max(c(d$tt_node_age, d$our_age), na.rm = TRUE)
   ggplot(d, aes(tt_node_age, our_age, colour = broad)) +
     geom_abline(slope = 1, intercept = 0, linetype = "dashed",
@@ -130,7 +130,7 @@ build_parrett <- function(fname, tag, ttl) {
     geom_point(aes(size = log10(n_pairs + 1)), alpha = 0.72, shape = 16) +
     annotate("text", x = mx * 0.04, y = mx * 0.90, hjust = 0, size = 4.3,
              colour = "grey20", lineheight = 1.4,
-             label = sprintf("Spearman = %.3f\nR² = %.3f", rho, r2)) +
+             label = sprintf("Pearson = %.3f\nR² = %.3f", pear, r2)) +
     scale_colour_manual(values = broad_pal, name = "Group", na.value = "grey60") +
     scale_size_continuous(name = "log10(pairs)", range = c(1.8, 5.5)) +
     scale_x_continuous(name = "TimeTree node age (Mya)", limits = c(0, mx * 1.03), expand = expansion(0)) +
