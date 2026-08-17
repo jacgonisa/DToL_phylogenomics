@@ -530,32 +530,14 @@ sat_df <- tibble(label = tree_plot$tip.label) %>%
   left_join(sd_ag %>% filter(!is.na(tip)) %>% select(-pfx) %>% rename(label = tip),
             by = "label")
 
-# ── Centromere-architecture track (innermost, discrete) ───────────────────────
-arch_pal <- c("Satellite"="#ff006e", "Transposon"="#3a86ff", "Mixed (Sat/Trans)"="#8338ec",
-              "Holocentric"="#2d7d32", "Unknown"="#c8c8c8")
-arch_df <- plot_df %>%
-  transmute(label,
-            arch = dplyr::case_when(
-              classification == "Satellite"            ~ "Satellite",
-              classification == "Transposon"           ~ "Transposon",
-              classification == "Satellite/transposon" ~ "Mixed (Sat/Trans)",
-              classification == "Holocentric"          ~ "Holocentric",
-              TRUE                                     ~ "Unknown")) %>%
-  mutate(arch = factor(arch, levels = names(arch_pal)))
-
 # ── Rings, added INSIDE -> OUTSIDE = Ian's outside->inside order reversed ──────
+# (centromere architecture is already shown by the tip symbols, so no ring for it)
 ro <- 0.085                        # spacing between rings
 p <- p +
-  # (1 innermost) Centromere architecture
-  ggnewscale::new_scale_fill() +
-  geom_fruit(data = arch_df, geom = geom_tile, mapping = aes(y = label, fill = arch),
-             width = 0.045 * max_x, offset = 0.10, axis.params = list(axis = "none")) +
-  scale_fill_manual(values = arch_pal, na.value = "#e0e0e0", drop = FALSE,
-                    name = "Centromere architecture") +
-  # (2) HOR regimentation
+  # (1 innermost) HOR regimentation
   ggnewscale::new_scale_fill() +
   geom_fruit(data = regi_df, geom = geom_tile, mapping = aes(y = label, fill = regi),
-             width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
+             width = 0.045 * max_x, offset = 0.10, axis.params = list(axis = "none")) +
   scale_fill_gradientn(colours = c("#fff5eb","#fdd0a2","#fd8d3c","#e6550d","#a63603","#4d0000"),
     na.value = "#e0e0e0", limits = c(0, 100), name = sprintf("HOR regimentation\n(%s)", agg_lab)) +
   # (3) HOR score
