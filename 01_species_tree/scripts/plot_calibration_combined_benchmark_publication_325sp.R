@@ -187,7 +187,9 @@ p_b <- ggplot(swl, aes(value, lambda, colour = model, group = interaction(model,
   scale_colour_manual(values = mcol, name = "rate model") +
   scale_shape_manual(values = c("Pearson r" = 16, "R²" = 17), name = "metric") +
   scale_linetype_manual(values = c("Pearson r" = "solid", "R²" = "dashed"), name = "metric") +
-  labs(tag = "B", x = "concordance with TimeTree (r, R²)", y = "λ (smoothing parameter)",
+  scale_y_discrete(limits = c("0","0.1","1","10"),
+                   name = expression(lambda~"(smoothing parameter)")) +
+  labs(tag = "B", x = expression("concordance with TimeTree (r, R"^2*")"),
        title = "Node-age concordance with TimeTree",
        subtitle = sprintf("n = 213 nodes / 210 shared taxa. Best = correlated λ=0.1 (circled). Strict clock r=%.3f / R²=%.3f (no λ); root-only baseline r=%.3f / R²=%.3f.",
                           clk$Pearson, clk$R2, ro$Pearson, ro$R2)) +
