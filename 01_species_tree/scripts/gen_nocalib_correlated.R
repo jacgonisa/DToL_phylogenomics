@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# Generate parrett_uncalibrated.tsv: raw ML tree node "ages" vs TimeTree.
+# Generate parrett_nocalib_correlated.tsv: raw ML tree node "ages" vs TimeTree.
 # Uncalibrated ML branch lengths (subst/site) are root-scaled to the chronos
 # root age (strict-clock rescaling) so they plot on the same My axis.
 suppressPackageStartupMessages({library(ape); library(dplyr)})
@@ -35,11 +35,11 @@ ml.tree <- read.tree(uncal_file)
 # model="relaxed" (cf. Revell 2024, phytools blog "Obtaining a time-calibrated
 # ultrametric tree"): here relaxed yields node ages that correlate better with the
 # calibrated tree than correlated does.
-tr_our <- chronos(ml.tree, lambda = 1, model = "relaxed")
+tr_our <- chronos(ml.tree, lambda = 1, model = "correlated")
 class(tr_our) <- "phylo"
 # Keep the node ages in RELATIVE units (root = 1), as in the phytools blog: we do NOT
 # rescale to Mya. Only the correlation with TimeTree is reported, which is scale-invariant.
-write.tree(tr_our, file.path(PUB_DIR, "outputs/full_325sp_chronos_nocalib_relaxed.nwk"))
+write.tree(tr_our, file.path(PUB_DIR, "outputs/full_325sp_chronos_nocalib_correlated.nwk"))
 
 tr_tt$tip.label <- ifelse(tr_tt$tip.label %in% names(tt_corrections),
                           tt_corrections[tr_tt$tip.label], tr_tt$tip.label)
@@ -67,6 +67,6 @@ c1 <- sp_to_code[node_avg$sp1]; c2 <- sp_to_code[node_avg$sp2]
 node_avg$broad <- ifelse(!is.na(code_to_broad[c1]) & !is.na(code_to_broad[c2]) &
                          code_to_broad[c1]==code_to_broad[c2], code_to_broad[c1], "Cross-group")
 out <- node_avg[, c("tt_node_age","broad","our_age","n_pairs")]
-write.table(out, file.path(QC_DIR,"parrett_uncalibrated.tsv"), sep="\t", quote=FALSE, row.names=FALSE)
-cat("Wrote parrett_uncalibrated.tsv:", nrow(out), "nodes (relative units, root = 1)\n")
+write.table(out, file.path(QC_DIR,"parrett_nocalib_correlated.tsv"), sep="\t", quote=FALSE, row.names=FALSE)
+cat("Wrote parrett_nocalib_correlated.tsv:", nrow(out), "nodes (relative units, root = 1)\n")
 cat("shallow R2 (<100My):", round(summary(lm(our_age~tt_node_age, subset(out, tt_node_age<100)))$r.squared,3), "\n")

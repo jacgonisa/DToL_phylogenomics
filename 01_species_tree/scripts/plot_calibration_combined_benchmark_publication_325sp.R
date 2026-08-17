@@ -162,12 +162,13 @@ p_c <- build_parrett("parrett_chronos_relaxed.tsv",    "C", "62 calibrations (re
 p_d <- build_parrett("parrett_ratesmoothed.tsv",       "D", "root-only (correlated)")
 p_e <- build_parrett("parrett_rootonly_relaxed.tsv",   "E", "root-only (relaxed)")
 p_f <- build_parrett("parrett_uncalibrated.tsv",       "F", "no calibration (relaxed)", relative = TRUE)
+p_g <- build_parrett("parrett_nocalib_correlated.tsv", "G", "no calibration (correlated)", relative = TRUE)
 
 # ── Combine ───────────────────────────────────────────────────────────────────
-# collect the shared Group / log10(pairs) legends of the B-F row into one
-p_row <- (p_b | p_c | p_d | p_e | p_f) + plot_layout(guides = "collect")
+# collect the shared Group / log10(pairs) legends of the B-G row into one
+p_row <- ((p_b | p_c | p_d) / (p_e | p_f | p_g)) + plot_layout(guides = "collect")
 p_combined <- (p_a / p_row) +
-  plot_layout(heights = c(2.2, 2.0)) +
+  plot_layout(heights = c(1.7, 2.4)) +
   plot_annotation(
     title   = "Supplementary Figure - Calibration validation: 325-species DToL chronogram",
     caption = paste0(
@@ -175,12 +176,14 @@ p_combined <- (p_a / p_row) +
       "median (precomputed_age); red line = TimeTree range (precomputed_ci_low-high) - the ",
       "imposed constraint for nodes with a real range (else median +/-20%); black circle = ",
       "calibrated age (chronos correlated). All 62 constraints are TimeTree-derived.  ",
-      "B-F: PAReTT node-age concordance with TimeTree (all shared species pairs). B-E are a 2x2 of ",
+      "B-G: PAReTT node-age concordance with TimeTree (all shared species pairs). B-E are a 2x2 of ",
       "chronos with the full 62 calibrations (B correlated, C relaxed) vs chronos with only the ",
-      "Eukaryota root age fixed (D correlated, E relaxed); all lambda=1, dashed = 1:1. F is chronos ",
-      "penalized-likelihood rate-smoothing with NO calibration points (relaxed), whose node ages are ",
-      "in relative units (not Mya), so only the correlation is shown. The 62 internal calibrations raise ",
-      "the TimeTree concordance to R2~0.96 (Pearson ~0.98), vs ~0.61 root-only and ~0.68 with no calibration."
+      "Eukaryota root age fixed (D correlated, E relaxed); all lambda=1, dashed = 1:1. F and G are ",
+      "chronos penalized-likelihood rate-smoothing with NO calibration points (F relaxed, G correlated), ",
+      "with node ages in relative units (not Mya), so only the correlation is shown. The 62 internal ",
+      "calibrations give R2~0.96 (Pearson ~0.98); root-only ~0.61; no calibration R2 0.68 (relaxed) / 0.90 ",
+      "(correlated). Note that unlike the phytools blog example, here the correlated no-calibration model ",
+      "correlates better with the calibrated ages than the relaxed one."
     ),
     theme = theme(plot.title = element_text(face = "bold", size = 17),
                   plot.caption = element_text(size = 10, colour = "grey35", hjust = 0),
