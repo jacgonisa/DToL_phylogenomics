@@ -12,7 +12,7 @@ from Bio import Phylo
 ROOT = Path("/home/jg2070/Desktop/dtol_review_August")
 PUB  = ROOT/"DToL_phylogenomics_publication_325genomes"
 TSV  = ROOT/"2026_trees/annotation_centromeres/repeat_similarity/seqsim_blastn_melters_325sp.tsv"
-TREE = PUB/"01_species_tree/outputs/full_325sp_chronos_over_correlated.nwk"
+TREE = PUB/"01_species_tree/outputs/full_325sp_calibrated_correlatedlambda01.nwk"  # winning model: correlated, lambda=0.1
 OUT  = PUB/"05_satellite_similarity/figures"
 
 # ── recompute mya from the chronos-correlated tree ────────────────────────────
