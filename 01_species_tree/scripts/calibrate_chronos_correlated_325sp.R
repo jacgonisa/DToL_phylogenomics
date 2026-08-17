@@ -8,6 +8,7 @@ args <- commandArgs(trailingOnly=TRUE)
 CONSTR <- if (length(args)>=1) args[1] else "over_calib.tsv"
 OUT    <- if (length(args)>=2) args[2] else "outputs/full_325sp_chronos_over_correlated.nwk"
 MODEL  <- if (length(args)>=3) args[3] else "correlated"   # chronos model: correlated | relaxed | discrete
+LAMBDA <- if (length(args)>=4) as.numeric(args[4]) else 1   # smoothing parameter lambda
 
 SP  <- "/home/jg2070/Desktop/dtol_review_August/DToL_phylogenomics_publication_325genomes/01_species_tree"
 CTRL<- chronos.control(iter.max=1e6, eval.max=1e6, dual.iter.max=1e4, tol=1e-8)
@@ -43,7 +44,7 @@ best <- NULL; best_phiic <- Inf; best_conv <- FALSE
 for (i in seq_len(NRESTART)) {
   conv <- TRUE
   fiti <- withCallingHandlers(
-    tryCatch(chronos(tree, lambda=1, model=MODEL, calibration=calib, control=CTRL),
+    tryCatch(chronos(tree, lambda=LAMBDA, model=MODEL, calibration=calib, control=CTRL),
              error=function(e){conv<<-FALSE; NULL}),
     warning=function(w){ if(grepl("without convergence", conditionMessage(w))) conv<<-FALSE
                          invokeRestart("muffleWarning") })

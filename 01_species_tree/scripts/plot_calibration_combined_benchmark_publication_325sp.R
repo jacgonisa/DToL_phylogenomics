@@ -157,12 +157,12 @@ build_parrett <- function(fname, tag, ttl, relative = FALSE) {
       labs(subtitle = sprintf("%d node-age comparisons; dashed = 1:1 line", nrow(d)))
   }
 }
-p_b <- build_parrett("parrett_chronos_correlated.tsv", "B", "62 calibrations (correlated)")
-p_c <- build_parrett("parrett_chronos_relaxed.tsv",    "C", "62 calibrations (relaxed)")
+p_b <- build_parrett("parrett_chronos_correlated.tsv", "B", "62 cal, correlated (λ=1)")
+p_c <- build_parrett("parrett_correlated_l01.tsv",     "C", "62 cal, correlated (λ=0.1)")
 p_d <- build_parrett("parrett_ratesmoothed.tsv",       "D", "root-only (correlated)")
-p_e <- build_parrett("parrett_rootonly_relaxed.tsv",   "E", "root-only (relaxed)")
-p_f <- build_parrett("parrett_uncalibrated.tsv",       "F", "no calibration (relaxed)", relative = TRUE)
-p_g <- build_parrett("parrett_nocalib_correlated.tsv", "G", "no calibration (correlated)", relative = TRUE)
+p_e <- build_parrett("parrett_chronos_relaxed.tsv",    "E", "62 cal, relaxed (λ=1)")
+p_f <- build_parrett("parrett_relaxed_l01.tsv",        "F", "62 cal, relaxed (λ=0.1)")
+p_g <- build_parrett("parrett_rootonly_relaxed.tsv",   "G", "root-only (relaxed)")
 
 # ── Combine ───────────────────────────────────────────────────────────────────
 # collect the shared Group / log10(pairs) legends of the B-G row into one
@@ -176,14 +176,12 @@ p_combined <- (p_a / p_row) +
       "median (precomputed_age); red line = TimeTree range (precomputed_ci_low-high) - the ",
       "imposed constraint for nodes with a real range (else median +/-20%); black circle = ",
       "calibrated age (chronos correlated). All 62 constraints are TimeTree-derived.  ",
-      "B-G: PAReTT node-age concordance with TimeTree (all shared species pairs). B-E are a 2x2 of ",
-      "chronos with the full 62 calibrations (B correlated, C relaxed) vs chronos with only the ",
-      "Eukaryota root age fixed (D correlated, E relaxed); all lambda=1, dashed = 1:1. F and G are ",
-      "chronos penalized-likelihood rate-smoothing with NO calibration points (F relaxed, G correlated), ",
-      "with node ages in relative units (not Mya), so only the correlation is shown. The 62 internal ",
-      "calibrations give R2~0.96 (Pearson ~0.98); root-only ~0.61; no calibration R2 0.68 (relaxed) / 0.90 ",
-      "(correlated). Note that unlike the phytools blog example, here the correlated no-calibration model ",
-      "correlates better with the calibrated ages than the relaxed one."
+      "B-G: PAReTT node-age concordance with TimeTree (all shared species pairs), dashed = 1:1. ",
+      "Rows = chronos rate model (top correlated, bottom relaxed); columns = the full 62 calibrations at ",
+      "the smoothing parameter lambda=1 (B, E) and lambda=0.1 (C, F), and chronos with only the Eukaryota ",
+      "root age fixed (D, G). The calibrated chronogram is robust to lambda (Pearson ~0.98, R2 ~0.96 at ",
+      "both lambda=1 and lambda=0.1, correlated ~ relaxed), and far exceeds the root-only baseline ",
+      "(Pearson 0.78, R2 0.61)."
     ),
     theme = theme(plot.title = element_text(face = "bold", size = 17),
                   plot.caption = element_text(size = 10, colour = "grey35", hjust = 0),
