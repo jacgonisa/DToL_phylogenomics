@@ -7,7 +7,10 @@ relaxed	0	0.97	0.94
 relaxed	0.1	0.978	0.957
 relaxed	1	0.978	0.957
 relaxed	10	0.957	0.915
+discrete	0	0.968	0.938
+discrete	0.1	0.969	0.939
 discrete	1	0.969	0.939
+discrete	10	0.969	0.938
 clock	NA	0.969	0.939
 root-only	corr	0.78	0.608
 root-only	relax	0.78	0.608

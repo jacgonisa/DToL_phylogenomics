@@ -72,8 +72,20 @@ df$node_f <- fct_rev(factor(df$clean_label, levels = df$clean_label))
 ylev  <- levels(df$node_f)
 ycols <- unname(clade_pal[as.character(df$clade[match(ylev, df$clean_label)])])
 
+# clade background bands: a light tint of each clade colour behind its rows
+clade_bg_pal <- c(Root = "#F5F5F5", Opisthokonta = "#ECEFF1", Metazoa = "#E3F2FD",
+                  Viridiplantae = "#E8F5E9", Fungi = "#F3E5F5")
+df$ypos <- as.integer(df$node_f)
+clade_bands <- df %>% group_by(clade) %>%
+  summarise(ymin = min(ypos) - 0.5, ymax = max(ypos) + 0.5, .groups = "drop")
+
 # ── Panel A: TimeTree range (line) + median (diamond) + calibrated age (circle)
 p_a <- ggplot(df) +
+  # light clade-coloured background bands for quick clade identification
+  geom_rect(data = clade_bands, aes(xmin = -Inf, xmax = Inf, ymin = ymin, ymax = ymax, fill = clade),
+            inherit.aes = FALSE, alpha = 0.6) +
+  scale_fill_manual(values = clade_bg_pal, guide = "none") +
+  new_scale_fill() +
   # invisible layer purely to build the clade colour legend (y-axis is coloured too)
   geom_point(aes(x = ord_age, y = node_f, colour = clade), alpha = 0, na.rm = TRUE) +
   scale_colour_manual(values = clade_pal, name = "Clade",
@@ -157,34 +169,39 @@ build_parrett <- function(fname, tag, ttl, relative = FALSE) {
       labs(subtitle = sprintf("%d node-age comparisons; dashed = 1:1 line", nrow(d)))
   }
 }
-# ── Panel B: R2 / Pearson summary across rate models x smoothing lambda ───────
+# ── Panel B: R2 / Pearson dot plot across rate models x smoothing lambda ──────
 bs <- read.delim(file.path(QC_DIR, "benchmark_summary.tsv"), stringsAsFactors = FALSE)
-sw <- subset(bs, model %in% c("correlated","relaxed") & lambda %in% c("0","0.1","1","10"))
+sw <- subset(bs, model %in% c("correlated","relaxed","discrete") & lambda %in% c("0","0.1","1","10"))
 sw$lambda <- factor(sw$lambda, levels = c("0","0.1","1","10"))
-sw$model  <- factor(sw$model,  levels = c("relaxed","correlated"))
-sw$lab <- sprintf("R²=%.3f\nr=%.3f", sw$R2, sw$Pearson)
-best   <- sw[which.max(sw$R2), ]
-clk    <- subset(bs, model == "clock")[1, ]
-disc   <- subset(bs, model == "discrete")[1, ]
-ro     <- subset(bs, model == "root-only")[1, ]
-p_b <- ggplot(sw, aes(lambda, model, fill = R2)) +
-  geom_tile(colour = "white", linewidth = 1.4) +
-  geom_tile(data = best, fill = NA, colour = "black", linewidth = 1.8) +
-  geom_text(aes(label = lab), size = 4.4, lineheight = 0.9) +
-  scale_fill_gradient(low = "#FDE7C9", high = "#1565C0", limits = c(0.9, 1), name = "R²") +
-  scale_x_discrete(name = "smoothing parameter λ", expand = expansion(0)) +
-  scale_y_discrete(name = NULL, expand = expansion(0)) +
-  labs(tag = "B",
-       title = "Node-age concordance with TimeTree across rate models and smoothing",
-       subtitle = sprintf("n = 213 TimeTree-datable nodes (210 shared taxa). Best = correlated, λ=0.1 (black outline).\nReferences (λ=1): discrete R²=%.3f/r=%.3f; strict clock R²=%.3f/r=%.3f; root-only baseline R²=%.3f/r=%.3f.",
-                          disc$R2, disc$Pearson, clk$R2, clk$Pearson, ro$R2, ro$Pearson)) +
+sw$model  <- factor(sw$model,  levels = c("correlated","relaxed","discrete"))
+clk <- subset(bs, model == "clock")[1, ]; ro <- subset(bs, model == "root-only")[1, ]
+# long format: one facet per metric
+swl <- rbind(data.frame(model = sw$model, lambda = sw$lambda, metric = "R²",        value = sw$R2),
+             data.frame(model = sw$model, lambda = sw$lambda, metric = "Pearson r", value = sw$Pearson))
+swl$metric <- factor(swl$metric, levels = c("Pearson r", "R²"))
+clkdf <- data.frame(metric = factor(c("Pearson r","R²"), levels=c("Pearson r","R²")), x = c(clk$Pearson, clk$R2))
+mcol <- c(correlated = "#1565C0", relaxed = "#EF6C00", discrete = "#6A1B9A")
+mshp <- c(correlated = 16, relaxed = 17, discrete = 15)
+dodge <- position_dodge(width = 0.6)
+p_b <- ggplot(swl, aes(value, lambda, colour = model, shape = model)) +
+  geom_vline(data = clkdf, aes(xintercept = x), linetype = "dashed", colour = "grey45") +
+  geom_point(size = 3.7, alpha = 0.92, position = dodge) +
+  facet_wrap(~ metric, ncol = 2, scales = "free_x") +
+  scale_colour_manual(values = mcol, name = "rate model") +
+  scale_shape_manual(values = mshp, name = "rate model") +
+  scale_y_discrete(name = "smoothing parameter λ") +
+  labs(tag = "B", x = NULL,
+       title = "Node-age concordance with TimeTree",
+       subtitle = sprintf("n = 213 nodes / 210 shared taxa.  dashed line = strict clock (R²=%.3f, r=%.3f).  Best = correlated λ=0.1.  Root-only baseline R²=%.3f / r=%.3f (off scale).",
+                          clk$R2, clk$Pearson, ro$R2, ro$Pearson)) +
   theme_bw(base_size = 13) +
   theme(plot.tag = element_text(face = "bold", size = 19),
         plot.title = element_text(face = "bold", size = 14),
-        plot.subtitle = element_text(size = 9.5, colour = "grey35"),
-        axis.title.x = element_text(size = 13, face = "bold"),
-        axis.text = element_text(size = 12), legend.position = "right",
-        panel.grid = element_blank())
+        plot.subtitle = element_text(size = 9, colour = "grey35"),
+        axis.title.y = element_text(size = 13, face = "bold"),
+        axis.text = element_text(size = 11.5), legend.position = "right",
+        strip.text = element_text(face = "bold", size = 12),
+        panel.grid.minor = element_blank())
 
 # ── Panel C: the single best-fitting chronogram (correlated, lambda = 0.1) ────
 p_c <- build_parrett("parrett_correlated_l01.tsv", "C", "Best fit: correlated (λ = 0.1)")
