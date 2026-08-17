@@ -147,10 +147,10 @@ build_parrett <- function(fname, tag, ttl) {
           legend.title = element_text(size = 13, face = "bold"),
           axis.text = element_text(size = 12), panel.grid.minor = element_blank())
 }
-p_b <- build_parrett("parrett_chronos_correlated.tsv", "B", "chronos correlated")
-p_c <- build_parrett("parrett_chronos_relaxed.tsv",    "C", "chronos relaxed")
-p_d <- build_parrett("parrett_ratesmoothed.tsv",       "D", "rate-smoothed (root only)")
-p_e <- build_parrett("parrett_uncalibrated.tsv",       "E", "uncalibrated (no calibration)")
+p_b <- build_parrett("parrett_chronos_correlated.tsv", "B", "62 calibrations (correlated)")
+p_c <- build_parrett("parrett_chronos_relaxed.tsv",    "C", "62 calibrations (relaxed)")
+p_d <- build_parrett("parrett_ratesmoothed.tsv",       "D", "root-only (correlated)")
+p_e <- build_parrett("parrett_rootonly_relaxed.tsv",   "E", "root-only (relaxed)")
 
 # ── Combine ───────────────────────────────────────────────────────────────────
 # collect the shared Group / log10(pairs) legends of the B-E row into one
@@ -164,10 +164,11 @@ p_combined <- (p_a / p_row) +
       "median (precomputed_age); red line = TimeTree range (precomputed_ci_low-high) - the ",
       "imposed constraint for nodes with a real range (else median +/-20%); black circle = ",
       "calibrated age (chronos correlated). All 62 constraints are TimeTree-derived.  ",
-      "B-E: PAReTT node-age concordance with TimeTree (all shared species pairs) for ",
-      "chronos correlated (B), chronos relaxed (C), rate-smoothed chronos with only the ",
-      "root age fixed (D) and uncalibrated penalized-likelihood rate-smoothing with no ",
-      "calibration points (E, chronos correlated, lambda=1); dashed = 1:1."
+      "B-E: PAReTT node-age concordance with TimeTree (all shared species pairs), as a 2x2 of ",
+      "chronos with the full 62 calibrations (B correlated, C relaxed) vs chronos with only the ",
+      "Eukaryota root age fixed (D correlated, E relaxed); all lambda=1, dashed = 1:1. The 62 ",
+      "internal calibrations raise the TimeTree concordance from R2~0.61 (root-only) to ~0.96, ",
+      "essentially independent of the correlated/relaxed rate model."
     ),
     theme = theme(plot.title = element_text(face = "bold", size = 17),
                   plot.caption = element_text(size = 10, colour = "grey35", hjust = 0),

@@ -57,6 +57,7 @@ make_parrett <- function(tree_file, out_name) {
 
 make_parrett("full_325sp_chronos_over_correlated.nwk",    "parrett_chronos_correlated.tsv")
 make_parrett("full_325sp_chronos_over_relaxed.nwk",       "parrett_chronos_relaxed.tsv")
-make_parrett("full_325sp_chronos_rootonly_ratesmoothed.nwk","parrett_ratesmoothed.tsv")
+make_parrett("full_325sp_chronos_rootonly_ratesmoothed.nwk","parrett_ratesmoothed.tsv")   # root-only, correlated
+make_parrett("full_325sp_chronos_rootonly_relaxed.nwk",   "parrett_rootonly_relaxed.tsv") # root-only, relaxed
 make_parrett("full_325sp_chronos_nocalib_relaxed.nwk",    "parrett_uncalibrated.tsv")
 cat("Done.\n")
