@@ -1,83 +1,29 @@
-We assume we already have all the BUSCO output, which was obtained running
+# DToL phylogenomics — centromere evolution across 325 species
 
-```
-busco -i genomes/ -l eukaryota_odb10 -m geno -o BUSCO_genomes -c 15 
-```
+Reproducible analyses for the Darwin Tree of Life centromere-evolution study: a
+time-calibrated 325-species phylogeny and, on it, the evolution of centromere
+architecture, the centromeric histone CENP-A/CENH3, and centromeric satellite DNA
+(including the CENP-B box). Each module is self-contained with its own `README.md`,
+`scripts/`, `data/` and `figures/`.
 
-We then parse the shared BUSCOs
+## Modules
+| | Analysis | What it does | Key output |
+|---|---|---|---|
+| **01** | [Species tree](01_species_tree/) | 325-species tree via FastSpeciesTree (DIAMOND pseudo-alignment → partitioned IQ-TREE) + `chronos` time-calibration (62 TimeTree points, correlated λ=0.1) | calibrated chronogram |
+| **02** | [ASR](02_asr/) | Mk models of centromere-architecture evolution; alpha–omega cyclical hypothesis | ASR trees, model table |
+| **03** | [Entropy](03_entropy/) | per-position conservation of the CENP-A/CENH3 alignment | positional-entropy profile |
+| **04** | [CENP-A phylogeny](04_cenpa_phylogeny/) | CENP-A/CENH3 vs H3 phylogeny (IQ-TREE VT+G4) + GroupSim | 422 CENP-A / 897 H3 tree |
+| **05** | [Satellite similarity](05_satellite_similarity/) | satellite divergence / similarity decay & half-life | decay curves |
+| **06** | [CENP-B box](06_cenpb_box/) | CENP-B box screen of the satellites (2 methods, HG002 controls) | per-species motif scatter, HTML report |
 
-```
-python scripts/parse_shared_buscos.py
-```
+Each module's README lists its run order and inputs. Analyses target the **325
+published species** (the calibrated species-tree tips).
 
+## Data
+- Repo: `github.com/jacgonisa/DToL_phylogenomics`.
+- Large inputs (assemblies, `all.satellites.txt`, HG002) live outside the repo; each
+  module README states the paths and how its `data/` tables were produced.
 
-We can also detect absent BUSCOs. Here, absent BUSCOs would be those that are not labeled as "Complete". So "Duplicated" BUSCOs, which is the mejority of BUSCOs in polyploid species...
-
-```
-##Considering duplicated buscos as absent
-python scripts/find_absent_busco.py
-
-
-##Not considerating duplicated buscos as absent
-python scripts/find_absent_busco_duplicatednotincluded.py
-
-```
-
-
-
-Retrieving BUSCOs fasta files
-```
-bash scripts/get_fasta_busco_bioython.sh
-```
-Trim alignments
-
-```
-bash scripts/trim_alignments.sh
-```
-
-And rename to change the name of the protein with only the species name, so we can concatenate
-
-```
-scripts/rename_alignments.sh
-
-mv grouped_busco_fastas/review_allbuscos_442species/trimmed_msas/*.renamed.msa grouped_busco_fastas/review_allbuscos_442species/renamed_trimmed_msas/
-
-```
-
-And finally, concatenate alignment with iqtree built-in function
-
-
-```
-iqtree2 -p grouped_busco_fastas/review_allbuscos_442species/renamed_trimmed_msas/ --out-aln concatenated_alignment/concatenated_alignment_255busco_432species
-```
-
-Build the tree, with one model per partition
-
-```
-iqtree -s concatenated_alignment/concatenated_alignment_255busco_432species -p concatenated_alignment/concatenated_alignment_255busco_432species.nex -m MFP+MERGE -rcluster 10 -nt AUTO -B 1000
-```
-
-I am also building a faster tree, with one partition for the full supermatrix
-
-```
-iqtree \
-  -s concatenated_alignment/concatenated_alignment_255busco_432species \
-  -m MFP \
-  -nt AUTO \
-  -B 1000 \
-  -pre trees/run_notpartitioned
-
-```
-
-## Species tree, calibration & plotting (325-species)
-
-See [`01_species_tree/`](01_species_tree/) for the full pipeline downstream of
-proteome annotation:
-- **Tree building** — the 325-species **FastSpeciesTree** (supermatrix, IQ-TREE;
-  BLAST gene selection → MAFFT → IQ-TREE). This supersedes the BUSCO strategy
-  described above.
-- **Time-calibration** — `chronos` (penalised likelihood) with the 64-point
-  calibration set (`over_calib.tsv`; rule = TimeTree CI range where available,
-  else median ±20%), restarts until convergence; TimeTree constraint retrieval
-  via the TimeTree API; node-age concordance benchmark + supplementary table.
-- **Plotting** — annotated fan chronograms (clade + centromere architecture).
+The species tree is built with **FastSpeciesTree** (a DIAMOND-anchored pseudo-alignment
+of BUSCO orthologs → partitioned IQ-TREE); see `01_species_tree/METHODS.md`. This
+replaces an earlier BUSCO-supermatrix workflow, which has been removed.
