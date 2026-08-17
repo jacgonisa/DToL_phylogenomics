@@ -1,7 +1,7 @@
 response	predictor	n	partial_slope	partial_p	pgls_lambda
-regi	hor	150	0.7508	5.26e-18	0.254
+regi	hor	150	0.7508	0	0.254
 regi	mono_len_bp	150	13.6905	0.000497	0.254
-hor	regi	150	0.5326	4.92e-18	0.289
+hor	regi	150	0.5326	0	0.289
 hor	mono_len_bp	150	-0.1137	0.973	0.289
-mono_len_bp	regi	150	0.005	1.8e-05	-0.232
-mono_len_bp	hor	150	0.0013	8.26e-17	-0.232
+mono_len_bp	regi	150	0.0051	0.000756	0
+mono_len_bp	hor	150	8e-04	0.648	0

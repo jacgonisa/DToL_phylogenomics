@@ -6,7 +6,7 @@
 # Outputs feed the seaborn pairplot (trait_pairplot_seaborn_325sp.py).
 
 suppressPackageStartupMessages({
-  library(ape); library(nlme); library(phytools); library(readxl); library(dplyr); library(stringr)
+  library(ape); library(caper); library(phytools); library(readxl); library(dplyr); library(stringr)
 })
 
 BASE    <- "/home/jg2070/Desktop/dtol_review_August"
@@ -90,16 +90,14 @@ pic_rp <- function(phy, x, y) {          # Felsenstein PIC correlation + test (t
   p  <- summary(lm(cy ~ cx + 0))$coefficients["cx","Pr(>|t|)"]   # contrasts regression through origin
   c(r=r, p=p)
 }
-pgls_fit <- function(phy, d) {           # returns lambda, slope p; corPagel, fallback BM
-  out <- tryCatch({
-    m <- gls(y ~ x, data=d, correlation=corPagel(1, phy, form=~sp, fixed=FALSE), method="ML")
-    c(lambda=as.numeric(coef(m$modelStruct$corStruct, unconstrained=FALSE)),
-      p=summary(m)$tTable["x","p-value"])
-  }, error=function(e) tryCatch({
-    m <- gls(y ~ x, data=d, correlation=corBrownian(1, phy, form=~sp), method="ML")
-    c(lambda=1, p=summary(m)$tTable["x","p-value"])
-  }, error=function(e) c(lambda=NA, p=NA)))
-  out
+pgls_fit <- function(phy, d) {           # caper::pgls, Pagel's lambda by ML (Brownian fallback)
+  cd <- comparative.data(phy, d, names.col="sp", vcv=TRUE, warn.dropped=FALSE)
+  m  <- tryCatch(pgls(y ~ x, data=cd, lambda="ML"), error=function(e) NULL)
+  if (is.null(m)) m <- tryCatch(pgls(y ~ x, data=cd, lambda=1), error=function(e) NULL)  # BM if ML fails
+  if (is.null(m)) return(c(lambda=NA, p=NA))
+  p <- summary(m)$coefficients["x","Pr(>|t|)"]
+  if (is.finite(p) && p == 0) p <- 2.2e-16                 # floor underflow (p ~ machine eps)
+  c(lambda=unname(m$param["lambda"]), p=p)
 }
 
 res <- list()
@@ -116,7 +114,7 @@ for (i in 1:(length(traits)-1)) for (j in (i+1):length(traits)) {
   d  <- data.frame(sp=phy$tip.label, x=x, y=y, row.names=phy$tip.label)
   pg <- pgls_fit(phy, d)
   lam <- unname(pg["lambda"]); pgp <- unname(pg["p"])
-  if (!is.finite(pgp) || pgp <= 0 || (is.finite(lam) && lam > 1.001)) pgp <- NA  # guard corPagel artifacts
+  if (!is.finite(pgp)) pgp <- NA        # caper bounds lambda to [0,1]; only guard failed fits
   res[[paste(a,b)]] <- data.frame(
     trait_x=a, trait_y=b, n=nrow(dd),
     pearson_r=round(unname(ct$estimate),3), pearson_p=signif(ct$p.value,3),
@@ -138,16 +136,15 @@ trio <- tab %>% select(label, regi, hor, mono_len_bp) %>%
 phy3 <- keep.tip(tr, trio$label); trio <- trio[match(phy3$tip.label, trio$label), ]
 trio$sp <- phy3$tip.label
 
-partial_pgls <- function(form) {
-  m <- tryCatch(gls(form, data=trio, correlation=corPagel(1, phy3, form=~sp, fixed=FALSE), method="ML"),
-                error=function(e) gls(form, data=trio, correlation=corBrownian(1, phy3, form=~sp), method="ML"))
-  tt <- summary(m)$tTable
-  lam <- tryCatch({v <- as.numeric(coef(m$modelStruct$corStruct, unconstrained=FALSE))
-                   if (length(v) == 0) 1 else v[1]}, error=function(e) NA)  # corBrownian fallback -> lambda=1
-  preds <- rownames(tt)[rownames(tt) != "(Intercept)"]
+cd3 <- comparative.data(phy3, as.data.frame(trio), names.col="sp", vcv=TRUE, warn.dropped=FALSE)
+partial_pgls <- function(form) {         # caper::pgls multiple regression; partial slope + p per predictor
+  m  <- pgls(form, data=cd3, lambda="ML")
+  co <- summary(m)$coefficients
+  lam <- unname(m$param["lambda"])
+  preds <- rownames(co)[rownames(co) != "(Intercept)"]
   do.call(rbind, lapply(preds, function(p) data.frame(
     response = as.character(form)[2], predictor = p, n = nrow(trio),
-    partial_slope = round(tt[p,"Value"],4), partial_p = signif(tt[p,"p-value"],3),
+    partial_slope = round(co[p,"Estimate"],4), partial_p = signif(co[p,"Pr(>|t|)"],3),
     pgls_lambda = round(lam,3), stringsAsFactors=FALSE)))
 }
 part <- rbind(

@@ -506,23 +506,9 @@ regi_df <- tibble(label = tree_plot$tip.label) %>%
   mutate(regi = ifelse(holo %in% TRUE | !is.finite(regi), NA, regi),
          hor  = ifelse(holo %in% TRUE | !is.finite(hor),  NA, hor))
 
-p <- p +
-  ggnewscale::new_scale_fill() +
-  geom_fruit(data = regi_df, geom = geom_tile, mapping = aes(y = label, fill = regi),
-             width = 0.045 * max_x, offset = 0.10, axis.params = list(axis = "none")) +
-  scale_fill_gradientn(
-    colours  = c("#fff5eb","#fdd0a2","#fd8d3c","#e6550d","#a63603","#4d0000"),
-    na.value = "#e0e0e0", limits = c(0, 100),
-    name = sprintf("HOR regimentation\n(%s)", agg_lab)) +
-  ggnewscale::new_scale_fill() +
-  geom_fruit(data = regi_df, geom = geom_tile, mapping = aes(y = label, fill = hor),
-             width = 0.045 * max_x, offset = 0.085, axis.params = list(axis = "none")) +
-  scale_fill_gradientn(
-    colours  = c("#f7fcf5","#c7e9c0","#74c476","#238b45","#00441b"),
-    na.value = "#e0e0e0",
-    name = sprintf("HOR score\n(%s)", agg_lab))
+# (all rings are added together below, in Ian's outside->inside order)
 
-# ── Rings: satellite monomer length + satellite GC% + genome GC% + genome size + chr# ──
+# ── Ring data: satellite monomer length + total amount + genome GC + size + chr# ──
 # read.csv renames gc% -> gc.; genome.bp / chrs / genome.gc are genome-level (constant
 # per species) so aggregation only affects the satellite-family metrics.
 sd <- read.csv("/home/jg2070/Desktop/DToL_phylogenomics/01_species_tree/data/dtol.sat.dat.csv",
@@ -530,12 +516,12 @@ sd <- read.csv("/home/jg2070/Desktop/DToL_phylogenomics/01_species_tree/data/dto
 sd$pfx <- sub("\\d.*$", "", tolower(sd$fasta))
 if (AGG == "ian") {
   sd_ag <- sd %>% group_by(pfx) %>% slice_max(n, n = 1, with_ties = FALSE) %>% ungroup() %>%
-    transmute(pfx, sat_len = width, sat_gc = 100 * gc.,
+    transmute(pfx, sat_len = width, sat_totbp = tot.bp,
               genome_gc = genome.gc, genome_bp = genome.bp, chrs = chrs)
 } else {
   sd_ag <- sd %>% group_by(pfx) %>%
-    summarise(sat_len   = weighted.mean(width,      n, na.rm = TRUE),
-              sat_gc    = weighted.mean(100 * gc.,  n, na.rm = TRUE),
+    summarise(sat_len   = weighted.mean(width, n, na.rm = TRUE),
+              sat_totbp = sum(tot.bp, na.rm = TRUE),          # total centromeric satellite bp
               genome_gc = first(genome.gc), genome_bp = first(genome.bp),
               chrs = first(chrs), .groups = "drop")
 }
@@ -544,42 +530,70 @@ sat_df <- tibble(label = tree_plot$tip.label) %>%
   left_join(sd_ag %>% filter(!is.na(tip)) %>% select(-pfx) %>% rename(label = tip),
             by = "label")
 
+# ── Centromere-architecture track (innermost, discrete) ───────────────────────
+arch_pal <- c("Satellite"="#ff006e", "Transposon"="#3a86ff", "Mixed (Sat/Trans)"="#8338ec",
+              "Holocentric"="#2d7d32", "Unknown"="#c8c8c8")
+arch_df <- plot_df %>%
+  transmute(label,
+            arch = dplyr::case_when(
+              classification == "Satellite"            ~ "Satellite",
+              classification == "Transposon"           ~ "Transposon",
+              classification == "Satellite/transposon" ~ "Mixed (Sat/Trans)",
+              classification == "Holocentric"          ~ "Holocentric",
+              TRUE                                     ~ "Unknown")) %>%
+  mutate(arch = factor(arch, levels = names(arch_pal)))
+
+# ── Rings, added INSIDE -> OUTSIDE = Ian's outside->inside order reversed ──────
+ro <- 0.085                        # spacing between rings
 p <- p +
+  # (1 innermost) Centromere architecture
+  ggnewscale::new_scale_fill() +
+  geom_fruit(data = arch_df, geom = geom_tile, mapping = aes(y = label, fill = arch),
+             width = 0.045 * max_x, offset = 0.10, axis.params = list(axis = "none")) +
+  scale_fill_manual(values = arch_pal, na.value = "#e0e0e0", drop = FALSE,
+                    name = "Centromere architecture") +
+  # (2) HOR regimentation
+  ggnewscale::new_scale_fill() +
+  geom_fruit(data = regi_df, geom = geom_tile, mapping = aes(y = label, fill = regi),
+             width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
+  scale_fill_gradientn(colours = c("#fff5eb","#fdd0a2","#fd8d3c","#e6550d","#a63603","#4d0000"),
+    na.value = "#e0e0e0", limits = c(0, 100), name = sprintf("HOR regimentation\n(%s)", agg_lab)) +
+  # (3) HOR score
+  ggnewscale::new_scale_fill() +
+  geom_fruit(data = regi_df, geom = geom_tile, mapping = aes(y = label, fill = hor),
+             width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
+  scale_fill_gradientn(colours = c("#f7fcf5","#c7e9c0","#74c476","#238b45","#00441b"),
+    na.value = "#e0e0e0", name = sprintf("HOR score\n(%s)", agg_lab)) +
+  # (4) Satellite total amount (bp)
+  ggnewscale::new_scale_fill() +
+  geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = sat_totbp),
+             width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
+  scale_fill_gradientn(colours = c("#fff7f3","#fcc5c0","#f768a1","#ae017e","#49006a"),
+    na.value = "#e0e0e0", trans = "log10", name = "Satellite total\namount (bp)") +
+  # (5) Satellite monomer length (bp)
   ggnewscale::new_scale_fill() +
   geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = sat_len),
-             width = 0.045 * max_x, offset = 0.085, axis.params = list(axis = "none")) +
-  scale_fill_gradientn(
-    colours  = c("#fcfbfd","#dadaeb","#9e9ac8","#6a51a3","#3f007d"),
-    na.value = "#e0e0e0", trans = "log10",
-    name = "Main satellite\nmonomer length (bp)") +
-  ggnewscale::new_scale_fill() +
-  geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = sat_gc),
-             width = 0.045 * max_x, offset = 0.085, axis.params = list(axis = "none")) +
-  scale_fill_gradientn(
-    colours  = c("#2166ac","#67a9cf","#f7f7f7","#ef8a62","#b2182b"),
-    na.value = "#e0e0e0", limits = c(5, 80),
-    name = "Main satellite\nGC %") +
+             width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
+  scale_fill_gradientn(colours = c("#fcfbfd","#dadaeb","#9e9ac8","#6a51a3","#3f007d"),
+    na.value = "#e0e0e0", trans = "log10", name = "Satellite\nmonomer length (bp)") +
+  # (6) Host genome GC%
   ggnewscale::new_scale_fill() +
   geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = genome_gc),
-             width = 0.045 * max_x, offset = 0.085, axis.params = list(axis = "none")) +
-  scale_fill_gradientn(
-    colours  = c("#ffffcc","#a1dab4","#41b6c4","#2c7fb8","#253494"),
-    na.value = "#e0e0e0", limits = c(20, 50),
-    name = "Host genome\nGC %") +
-  ggnewscale::new_scale_fill() +
-  geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = genome_bp / 1e6),
-             width = 0.045 * max_x, offset = 0.085, axis.params = list(axis = "none")) +
-  scale_fill_gradientn(
-    colours  = c("#f7fcfd","#bfd3e6","#8c96c6","#8856a7","#810f7c"),
-    na.value = "#e0e0e0", trans = "log10",
-    name = "Genome size\n(Mb)") +
+             width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
+  scale_fill_gradientn(colours = c("#ffffcc","#a1dab4","#41b6c4","#2c7fb8","#253494"),
+    na.value = "#e0e0e0", limits = c(20, 50), name = "Host genome\nGC %") +
+  # (7) Chromosome number
   ggnewscale::new_scale_fill() +
   geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = chrs),
-             width = 0.045 * max_x, offset = 0.085, axis.params = list(axis = "none")) +
-  scale_fill_gradientn(
-    colours  = c("#ffffe5","#fee391","#fe9929","#d95f0e","#993404"),
-    na.value = "#e0e0e0",
-    name = "Chromosome\nnumber (n)")
+             width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
+  scale_fill_gradientn(colours = c("#ffffe5","#fee391","#fe9929","#d95f0e","#993404"),
+    na.value = "#e0e0e0", name = "Chromosome\nnumber (n)") +
+  # (8 outermost) Genome size (Mb)
+  ggnewscale::new_scale_fill() +
+  geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = genome_bp / 1e6),
+             width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
+  scale_fill_gradientn(colours = c("#f7fcfd","#bfd3e6","#8c96c6","#8856a7","#810f7c"),
+    na.value = "#e0e0e0", trans = "log10", name = "Genome size\n(Mb)")
 
 # ── Save outputs ──────────────────────────────────────────────────────────────
 pdf(out_pdf, width = 15, height = 18)
