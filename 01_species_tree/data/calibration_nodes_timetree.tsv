@@ -1,63 +1,63 @@
 label	clade	taxonA	taxonB	our_age	tt_median	tt_ci_low	tt_ci_high	tt_adjusted	status	source
-Eukaryota_root	Root	Eimeria tenella	Taurulus bubalis	1446.84666864	1530	1085	1671	1598.44475	ok	TimeTree pairwise API
-Opisthokonta	Opisthokonta	Membranipora membranacea	Agaricus bisporus	1384.84	1274.566785	985	1392	1274.56678	ok	TimeTree pairwise API
-Metazoa	Metazoa	Nephrotoma flavescens	Sycon ciliatum	1018.01	758.11408	701.84693	1020	NA	ok	TimeTree pairwise API
-Bilateria	Metazoa	Marthasterias glacialis	Nephrotoma flavescens	629.55	686.16492	627	830	707.60436	ok	TimeTree pairwise API
-Euteleostomi	Metazoa	Acipenser ruthenus	Falco cherrug	433.99	429	423.2502	440	NA	ok	TimeTree pairwise API
-Protostomia	Metazoa	Membranipora membranacea	Nephrotoma flavescens	594.2	610	543	670.0936	691.52226	ok	TimeTree pairwise API
-Arthropoda	Metazoa	Nephrotoma flavescens	Meta bourneti	567.18	547.5614	536.6124	600	563.30898	ok	TimeTree pairwise API
-Gastropoda	Metazoa	Steromphala cineraria	Patella pellucida	486.01	421.6005	379.742	500	476.33675	ok	TimeTree pairwise API
-Tridacna	Metazoa	Tridacna crocea	Tridacna gigas	119.13	82.09854	17.04908	147.148	51.60312	ok	TimeTree pairwise API
-Hexapoda	Metazoa	Nephrotoma flavescens	Orchesella flavescens	464.65	459.040128	425.4415	478.08851	459.04013	ok	TimeTree pairwise API
-Pterygota	Metazoa	Nephrotoma flavescens	Ischnura elegans	418.72	400.9845	377.37	441.6044	NA	ok	TimeTree pairwise API
-Palaeoptera	Metazoa	Siphlonurus alternatus	Ischnura elegans	341.06	365.53	325.781	430.6273	NA	ok	TimeTree pairwise API
-Neoptera	Metazoa	Leuctra nigra	Nephrotoma flavescens	370.21	383.15	346.5226	391.78281	NA	ok	TimeTree pairwise API
-Polyneoptera	Metazoa	Leuctra nigra	Ectobius pallidus	191.8	270.35005	25	370.60247	308.09354	ok	TimeTree pairwise API
-Paraneoptera	Metazoa	Icerya purchasi	Mesopsocus fuscifrons	236.78	353.075	172.5756	416.60242	NA	ok	TimeTree pairwise API
-Endopterygota	Metazoa	Anoplius nigerrimus	Leistus spinibarbis	347.02	344	310.705	389.69061	NA	ok	TimeTree pairwise API
-Apidae	Metazoa	Bombus hypnorum	Nomada fabriciana	103.53	108.01197	98.44635	112.01	108.01197	ok	TimeTree pairwise API
-Coleoptera	Metazoa	Chrysolina oricalcia	Ophonus ardosiacus	247.02	279.5828425	189.63	307.18618	282.37087	ok	TimeTree pairwise API
-Metazoa_node16	Metazoa	Micropterix aruncella	Atherix ibis	277.13	286.142524	151.94	344.7	299.39011	ok	TimeTree pairwise API
-Metazoa_node17	Metazoa	Abia candens	Tiphia femorata	259.14	239.527112	223.7192	303.9715	264.81838	ok	TimeTree pairwise API
-Actinopteri	Metazoa	Acipenser ruthenus	Thunnus maccoyii	358	349.9435	333.37039	372	NA	ok	TimeTree pairwise API
-Amniota	Metazoa	Diceros bicornis	Lagopus muta	321.08	318.95	316	322.37	NA	ok	TimeTree pairwise API
-Sauria	Metazoa	Lagopus muta	Vipera latastei	276.95	279.8315	274.9	286.76	NA	ok	TimeTree pairwise API
-Otophysi	Metazoa	Danio rerio	Pangasianodon hypophthalmus	153.65	142.11161	131.96878	169.97238	NA	ok	TimeTree pairwise API
-Viridiplantae	Viridiplantae	Rosa canina	Pycnococcus provasolii	1096.48	936.3045	729	1105.66	991.81755	ok	TimeTree pairwise API
-Chlorophyceae	Viridiplantae	Dunaliella primolecta	Marvania coccoides	865.58	827.49875	662.025	1000	NA	ok	TimeTree pairwise API
-Vir_node1	Viridiplantae	Rosa canina	Potentilla anserina	29.32	27.14705	21.11639	57.76269	39.5133	ok	TimeTree pairwise API
-Embryophyta	Viridiplantae	Herbertus hutchinsiae	Rosa canina	496.52	479.80268	460	497.28566	483.71844	ok	TimeTree pairwise API
-Marchantiophyta	Viridiplantae	Herbertus hutchinsiae	Lunularia cruciata	308.54	374.21834	304.84047	437.85596	376.37958	ok	TimeTree pairwise API
-Juncaceae	Viridiplantae	Luzula sylvatica	Juncus squarrosus	58.31	54.588575	44.3381	69.5937249999999	65.64998	ok	TimeTree pairwise API
-Vir_node5	Viridiplantae	Schoenoplectus triqueter	Carex depauperata	44.11	50.6842	29.92	59.60731	NA	ok	TimeTree pairwise API
-Arabidopsis	Viridiplantae	Arabidopsis thaliana	Cardamine hirsuta	19.55	17.10331	5.9404	29.226877	18.38876	ok	TimeTree pairwise API
-Caryophyllales	Viridiplantae	Polygonum aviculare	Arenaria serpyllifolia	88.93	86.13303	81.319	96.9973984444444	106.26849	ok	TimeTree pairwise API
-Vir_node8	Viridiplantae	Polygonum aviculare	Juncus squarrosus	152.56	159.612765	142.06	163.4582	159.61276	ok	TimeTree pairwise API
-Hologalegina	Viridiplantae	Trifolium fragiferum	Astragalus glycyphyllos	37.4	35.17603	27.77651	44.25388	34.23666	ok	TimeTree pairwise API
-Vir_node10	Viridiplantae	Potamogeton natans	Juncus squarrosus	127.53	132.369321	125.28	137.90238	138.76096	ok	TimeTree pairwise API
-Vir_node11	Viridiplantae	Phragmites australis	Hierochloe odorata	48.67	49.12535	41.44	51.90288	59.13017	ok	TimeTree pairwise API
-Vir_node12	Viridiplantae	Trifolium fragiferum	Berberis vulgaris	127.04	129.33049	126.01	132.41053	142.16536	ok	TimeTree pairwise API
-Rosales	Viridiplantae	Geum urbanum	Urtica urens	92.24	87.6298	76	95.46924	NA	ok	TimeTree pairwise API
-Pentapetalae	Viridiplantae	Geum urbanum	Polygonum aviculare	122.08	118.048115	111.37	123.92863	125.1196	ok	TimeTree pairwise API
-Poales	Viridiplantae	Sparganium emersum	Juncus squarrosus	111.33	106	94.0766	117	110.07878	ok	TimeTree pairwise API
-Vir_node16	Viridiplantae	Tanacetum vulgare	Arctium minus	44.26	39.06	36.62237	45.1396722888889	42.38943	ok	TimeTree pairwise API
-Vir_node17	Viridiplantae	Polytrichastrum sexangulare	Rhynchostegium confertum	215.75	213.86841	181.26	354.8493	230.39252	ok	TimeTree pairwise API
-Dikarya	Fungi	Agaricus bisporus	Platismatia glauca	729.7	642.03	583.1666	749	NA	ok	TimeTree pairwise API
-Saccharomyceta	Fungi	Metschnikowia zobellii	Platismatia glauca	511.03	533.610775	437.812	670.18766	523.44819	ok	TimeTree pairwise API
-Sordariomyceta	Fungi	Leotia lubrica	Cordyceps fumosorosea	279.87	293.5166	239.72557	320	320.40792	ok	TimeTree pairwise API
-Platismatia_Cladonia	Fungi	Cladonia squamosa	Platismatia glauca	130.17	139.0437	93.88098	146.36288	124.68304	ok	TimeTree pairwise API
-Clavariaceae	Fungi	Ramariopsis corniculata	Clavaria fumosa	67.67	62.906845	56.47129	69.3424	62.90684	ok	TimeTree pairwise API
-Russula_Hericium	Fungi	Hericium erinaceus	Russula vesca	70.86	114.1563945	69.04064	143.1183	111.84995	ok	TimeTree pairwise API
-Agaricus_Chlorophyllum	Fungi	Chlorophyllum brunneum	Agaricus bisporus	53.87	59.8202	46.375	73.2654	59.0299	ok	TimeTree pairwise API
-Panellus_Mycena	Fungi	Mycena galericulata	Panellus stipticus	13.48	7.90714	2.12428	13.69	4.0046	ok	TimeTree pairwise API
-over0	Metazoa	Falco peregrinus	Falco cherrug	1.78	2.1394	1.66	2.77654	2.1297	ok	TimeTree pairwise API
-over1	Metazoa	Patella vulgata	Patella pellucida	8.08	9	0	0	NA	ok	TimeTree pairwise API
-over2	Metazoa	Thunnus albacares	Thunnus maccoyii	3.52	3.85288	3.41299	4.29277	3.71368	ok	TimeTree pairwise API
-over3	Metazoa	Taeniopygia guttata	Corvus hawaiiensis	42.5	38	0	38	16.04062	ok	TimeTree pairwise API
-over4	Metazoa	Lagopus muta	Gallus gallus	32.77	32.777995	27.9122	42.4	35.84266	ok	TimeTree pairwise API
-over5	Viridiplantae	Rhynchostegium confertum	Thuidium tamariscinum	71.59	71.702555	48.81441	94.5907	79.03184	ok	TimeTree pairwise API
-over6	Metazoa	Phorcus lineatus	Steromphala cineraria	66.72	75.9871	0	0	46.72245	ok	TimeTree pairwise API
-over7	Metazoa	Porphyrio hochstetteri	Lagopus muta	97.25	90.83966	86.50225	101.8	NA	ok	TimeTree pairwise API
-over8	Viridiplantae	Geum rivale	Geum urbanum	10.41	12.93	0	0	NA	ok	TimeTree pairwise API
-over9	Metazoa	Leistus spinibarbis	Pterostichus madidus	36.56	45.70566	0	0	101.6741	ok	TimeTree pairwise API
-Amphiesmen	Metazoa	Pieris napi	Limnephilus lunatus	262.24	246.402165	172.2845	302.41203	246.40217	ok	TimeTree pairwise API
+Eukaryota_root	Root	Eimeria tenella	Taurulus bubalis	1474.609	1530	1085	1671	1598.44475	ok	TimeTree pairwise API
+Opisthokonta	Opisthokonta	Membranipora membranacea	Agaricus bisporus	1274.921	1274.566785	985	1392	1274.56678	ok	TimeTree pairwise API
+Metazoa	Metazoa	Nephrotoma flavescens	Sycon ciliatum	871.323	758.11408	701.84693	1020		ok	TimeTree pairwise API
+Bilateria	Metazoa	Marthasterias glacialis	Nephrotoma flavescens	700.334	686.16492	627	830	707.60436	ok	TimeTree pairwise API
+Euteleostomi	Metazoa	Acipenser ruthenus	Falco cherrug	436.527	429	423.2502	440		ok	TimeTree pairwise API
+Protostomia	Metazoa	Membranipora membranacea	Nephrotoma flavescens	653.039	610	543	670.0936	691.52226	ok	TimeTree pairwise API
+Arthropoda	Metazoa	Nephrotoma flavescens	Meta bourneti	566.392	547.5614	536.6124	600	563.30898	ok	TimeTree pairwise API
+Gastropoda	Metazoa	Steromphala cineraria	Patella pellucida	471.092	421.6005	379.742	500	476.33675	ok	TimeTree pairwise API
+Tridacna	Metazoa	Tridacna crocea	Tridacna gigas	46.832	82.09854	17.04908	147.148	51.60312	ok	TimeTree pairwise API
+Hexapoda	Metazoa	Nephrotoma flavescens	Orchesella flavescens	433.471	459.040128	425.4415	478.08851	459.04013	ok	TimeTree pairwise API
+Pterygota	Metazoa	Nephrotoma flavescens	Ischnura elegans	386.211	400.9845	377.37	441.6044		ok	TimeTree pairwise API
+Palaeoptera	Metazoa	Siphlonurus alternatus	Ischnura elegans	337.398	365.53	325.781	430.6273		ok	TimeTree pairwise API
+Neoptera	Metazoa	Leuctra nigra	Nephrotoma flavescens	372.217	383.15	346.5226	391.78281		ok	TimeTree pairwise API
+Polyneoptera	Metazoa	Leuctra nigra	Ectobius pallidus	332.741	270.35005	25	370.60247	308.09354	ok	TimeTree pairwise API
+Paraneoptera	Metazoa	Icerya purchasi	Mesopsocus fuscifrons	297.71	353.075	172.5756	416.60242		ok	TimeTree pairwise API
+Endopterygota	Metazoa	Anoplius nigerrimus	Leistus spinibarbis	342.296	344	310.705	389.69061		ok	TimeTree pairwise API
+Apidae	Metazoa	Bombus hypnorum	Nomada fabriciana	100.602	108.01197	98.44635	112.01	108.01197	ok	TimeTree pairwise API
+Coleoptera	Metazoa	Chrysolina oricalcia	Ophonus ardosiacus	298.099	279.5828425	189.63	307.18618	282.37087	ok	TimeTree pairwise API
+Metazoa_node16	Metazoa	Micropterix aruncella	Atherix ibis	316.524	286.142524	151.94	344.7	299.39011	ok	TimeTree pairwise API
+Metazoa_node17	Metazoa	Abia candens	Tiphia femorata	254.576	239.527112	223.7192	303.9715	264.81838	ok	TimeTree pairwise API
+Actinopteri	Metazoa	Acipenser ruthenus	Thunnus maccoyii	341.898	349.9435	333.37039	372		ok	TimeTree pairwise API
+Amniota	Metazoa	Diceros bicornis	Lagopus muta	321.311	318.95	316	322.37		ok	TimeTree pairwise API
+Sauria	Metazoa	Lagopus muta	Vipera latastei	286.669	279.8315	274.9	286.76		ok	TimeTree pairwise API
+Otophysi	Metazoa	Danio rerio	Pangasianodon hypophthalmus	147.085	142.11161	131.96878	169.97238		ok	TimeTree pairwise API
+Viridiplantae	Viridiplantae	Rosa canina	Pycnococcus provasolii	1059.563	936.3045	729	1105.66	991.81755	ok	TimeTree pairwise API
+Chlorophyceae	Viridiplantae	Dunaliella primolecta	Marvania coccoides	761.173	827.49875	662.025	1000		ok	TimeTree pairwise API
+Vir_node1	Viridiplantae	Rosa canina	Potentilla anserina	53.458	27.14705	21.11639	57.76269	39.5133	ok	TimeTree pairwise API
+Embryophyta	Viridiplantae	Herbertus hutchinsiae	Rosa canina	476.336	479.80268	460	497.28566	483.71844	ok	TimeTree pairwise API
+Marchantiophyta	Viridiplantae	Herbertus hutchinsiae	Lunularia cruciata	329.503	374.21834	304.84047	437.85596	376.37958	ok	TimeTree pairwise API
+Juncaceae	Viridiplantae	Luzula sylvatica	Juncus squarrosus	52.394	54.588575	44.3381	69.5937249999999	65.64998	ok	TimeTree pairwise API
+Vir_node5	Viridiplantae	Schoenoplectus triqueter	Carex depauperata	45.691	50.6842	29.92	59.60731		ok	TimeTree pairwise API
+Arabidopsis	Viridiplantae	Arabidopsis thaliana	Cardamine hirsuta	15.429	17.10331	5.9404	29.226877	18.38876	ok	TimeTree pairwise API
+Caryophyllales	Viridiplantae	Polygonum aviculare	Arenaria serpyllifolia	83.145	86.13303	81.319	96.9973984444444	106.26849	ok	TimeTree pairwise API
+Vir_node8	Viridiplantae	Polygonum aviculare	Juncus squarrosus	160.479	159.612765	142.06	163.4582	159.61276	ok	TimeTree pairwise API
+Hologalegina	Viridiplantae	Trifolium fragiferum	Astragalus glycyphyllos	28.118	35.17603	27.77651	44.25388	34.23666	ok	TimeTree pairwise API
+Vir_node10	Viridiplantae	Potamogeton natans	Juncus squarrosus	131.655	132.369321	125.28	137.90238	138.76096	ok	TimeTree pairwise API
+Vir_node11	Viridiplantae	Phragmites australis	Hierochloe odorata	43.214	49.12535	41.44	51.90288	59.13017	ok	TimeTree pairwise API
+Vir_node12	Viridiplantae	Trifolium fragiferum	Berberis vulgaris	128.468	129.33049	126.01	132.41053	142.16536	ok	TimeTree pairwise API
+Rosales	Viridiplantae	Geum urbanum	Urtica urens	85.417	87.6298	76	95.46924		ok	TimeTree pairwise API
+Pentapetalae	Viridiplantae	Geum urbanum	Polygonum aviculare	112.324	118.048115	111.37	123.92863	125.1196	ok	TimeTree pairwise API
+Poales	Viridiplantae	Sparganium emersum	Juncus squarrosus	97.131	106	94.0766	117	110.07878	ok	TimeTree pairwise API
+Vir_node16	Viridiplantae	Tanacetum vulgare	Arctium minus	37.113	39.06	36.62237	45.1396722888889	42.38943	ok	TimeTree pairwise API
+Vir_node17	Viridiplantae	Polytrichastrum sexangulare	Rhynchostegium confertum	287.866	213.86841	181.26	354.8493	230.39252	ok	TimeTree pairwise API
+Dikarya	Fungi	Agaricus bisporus	Platismatia glauca	612.898	642.03	583.1666	749		ok	TimeTree pairwise API
+Saccharomyceta	Fungi	Metschnikowia zobellii	Platismatia glauca	555.071	533.610775	437.812	670.18766	523.44819	ok	TimeTree pairwise API
+Sordariomyceta	Fungi	Leotia lubrica	Cordyceps fumosorosea	280.843	293.5166	239.72557	320	320.40792	ok	TimeTree pairwise API
+Platismatia_Cladonia	Fungi	Cladonia squamosa	Platismatia glauca	138.274	139.0437	93.88098	146.36288	124.68304	ok	TimeTree pairwise API
+Clavariaceae	Fungi	Ramariopsis corniculata	Clavaria fumosa	67.98	62.906845	56.47129	69.3424	62.90684	ok	TimeTree pairwise API
+Russula_Hericium	Fungi	Hericium erinaceus	Russula vesca	85.021	114.1563945	69.04064	143.1183	111.84995	ok	TimeTree pairwise API
+Agaricus_Chlorophyllum	Fungi	Chlorophyllum brunneum	Agaricus bisporus	59.364	59.8202	46.375	73.2654	59.0299	ok	TimeTree pairwise API
+Panellus_Mycena	Fungi	Mycena galericulata	Panellus stipticus	10.137	7.90714	2.12428	13.69	4.0046	ok	TimeTree pairwise API
+over0	Metazoa	Falco peregrinus	Falco cherrug	2.114	2.1394	1.66	2.77654	2.1297	ok	TimeTree pairwise API
+over1	Metazoa	Patella vulgata	Patella pellucida	9.332	9	0	0		ok	TimeTree pairwise API
+over2	Metazoa	Thunnus albacares	Thunnus maccoyii	4.054	3.85288	3.41299	4.29277	3.71368	ok	TimeTree pairwise API
+over3	Metazoa	Taeniopygia guttata	Corvus hawaiiensis	31.077	38	0	38	16.04062	ok	TimeTree pairwise API
+over4	Metazoa	Lagopus muta	Gallus gallus	28.311	32.777995	27.9122	42.4	35.84266	ok	TimeTree pairwise API
+over5	Viridiplantae	Rhynchostegium confertum	Thuidium tamariscinum	53.816	71.702555	48.81441	94.5907	79.03184	ok	TimeTree pairwise API
+over6	Metazoa	Phorcus lineatus	Steromphala cineraria	71.851	75.9871	0	0	46.72245	ok	TimeTree pairwise API
+over7	Metazoa	Porphyrio hochstetteri	Lagopus muta	93.331	90.83966	86.50225	101.8		ok	TimeTree pairwise API
+over8	Viridiplantae	Geum rivale	Geum urbanum	12.869	12.93	0	0		ok	TimeTree pairwise API
+over9	Metazoa	Leistus spinibarbis	Pterostichus madidus	46.38	45.70566	0	0	101.6741	ok	TimeTree pairwise API
+Amphiesmen	Metazoa	Pieris napi	Limnephilus lunatus	203.328	246.402165	172.2845	302.41203	246.40217	ok	TimeTree pairwise API

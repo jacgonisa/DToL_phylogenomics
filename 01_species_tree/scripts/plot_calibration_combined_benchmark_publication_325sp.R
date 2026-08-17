@@ -103,11 +103,11 @@ p_a <- ggplot(df) +
   # TimeTree median (red diamond) + calibrated age (black circle)
   geom_point(aes(x = tt_median, y = node_f, fill = "TimeTree median"),
              shape = 23, size = 2.9, colour = "white", stroke = 0.35, na.rm = TRUE) +
-  geom_point(aes(x = our_age, y = node_f, fill = "Calibrated age (chronos correlated)"),
+  geom_point(aes(x = our_age, y = node_f, fill = "Calibrated age (correlated, λ=0.1)"),
              shape = 21, size = 2.9, colour = "white", stroke = 0.35, na.rm = TRUE) +
   scale_fill_manual(name = NULL,
-                    breaks = c("Calibrated age (chronos correlated)", "TimeTree median"),
-                    values = c("Calibrated age (chronos correlated)" = "black",
+                    breaks = c("Calibrated age (correlated, λ=0.1)", "TimeTree median"),
+                    values = c("Calibrated age (correlated, λ=0.1)" = "black",
                                "TimeTree median" = "#d62728"),
                     guide = guide_legend(order = 3, override.aes = list(
                       shape = c(21, 23), size = 3.6))) +
