@@ -79,9 +79,7 @@ for r in csv.DictReader(open(CALIB), delimiter="\t"):
     a = sp[re.sub(r"[0-9.].*$","", r["tip_a"].lower())]
     b = sp[re.sub(r"[0-9.].*$","", r["tip_b"].lower())]
     med, lo, hi, adj, st = pair(ALIAS.get(a, a), ALIAS.get(b, b))
-    LIT = {"Limnephilidae": "Literature: 2026 Limnephilidae phylogenomics study (Limnephilini divergence)",
-           "Luzula_TT":     "Literature: Luzula crown ~10 Ma (expert/literature estimate)"}
-    source = LIT.get(r["label"], "TimeTree pairwise API" if med is not None else "unresolved")
+    source = "TimeTree pairwise API" if med is not None else "unresolved"
     rows.append(dict(label=r["label"], clade=r["clade"], taxonA=a, taxonB=b,
                      our_age=r["actual_age"], tt_median=med, tt_ci_low=lo,
                      tt_ci_high=hi, tt_adjusted=adj, status=st, source=source))

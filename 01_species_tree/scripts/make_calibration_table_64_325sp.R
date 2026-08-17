@@ -45,8 +45,6 @@ d <- ntt %>%
 
 src_short <- function(s) dplyr::case_when(
   grepl("^TimeTree", s)     ~ "TimeTree",
-  grepl("Limnephilidae", s) ~ "Lit: 2026 Limnephilidae phylogenomics study",
-  grepl("Luzula", s)        ~ "Lit: Luzula crown ~10 Ma (literature)",
   TRUE ~ s)
 
 supp <- transmute(d,
@@ -63,7 +61,7 @@ supp <- transmute(d,
   TimeTree_range_high = ifelse(is.na(tt_ci_high), NA, round(tt_ci_high, 2)),
   Source           = src_short(source))
 
-out_tsv <- file.path(OUT_DIR, "calibration_table_325sp_supp_64.tsv")
+out_tsv <- file.path(OUT_DIR, "calibration_table_325sp_supp_62.tsv")
 write.table(supp, out_tsv, sep = "\t", row.names = FALSE, quote = FALSE, na = "")
 cat("Saved:", out_tsv, "  (", nrow(supp), "nodes )\n")
 print(table(supp$Clade)); cat("TimeTree:", sum(supp$Source=="TimeTree"),
@@ -93,16 +91,16 @@ th <- ttheme_minimal(
                  fg_params2 = NULL))
 th$colhead$fg_params$col <- "white"
 g <- tableGrob(disp2, rows = NULL, theme = th)
-title <- textGrob("Supplementary Table - Calibration constraints used for the 325-species DToL chronogram (all 64 nodes)",
+title <- textGrob("Supplementary Table - Calibration constraints used for the 325-species DToL chronogram (all 62 nodes)",
                   gp = gpar(fontface = "bold", fontsize = 10), x = 0.01, hjust = 0)
 sub <- textGrob(paste0("Min/Max = calibration constraint bounds imposed on chronos.  Calib. age = calibrated node age (chronos correlated).  ",
-                       "TT median / TT range = TimeTree pairwise median and range (API).  Source: TimeTree (62) or literature (2, italic)."),
+                       "TT median / TT range = TimeTree pairwise median and range (API).  All 62 constraints TimeTree-derived."),
                 gp = gpar(fontsize = 6.5, col = "grey35"), x = 0.01, hjust = 0)
 tab <- arrangeGrob(g, top = sub)
 full <- arrangeGrob(title, tab, heights = unit.c(unit(1.4,"lines"), unit(1,"null")))
 
 for (ext in c("pdf","png")) {
-  out <- file.path(FIG_DIR, paste0("calibration_table_325sp_supp_64.", ext))
+  out <- file.path(FIG_DIR, paste0("calibration_table_325sp_supp_62.", ext))
   ggsave(out, full, width = 11, height = 16, dpi = 300,
          bg = "white", limitsize = FALSE)
   cat("Saved:", out, "\n")

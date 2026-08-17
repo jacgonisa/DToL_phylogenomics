@@ -4,7 +4,6 @@ Opisthokonta	Opisthokonta	Membranipora membranacea	Agaricus bisporus	985	1392	98
 Metazoa	Falco	Falco peregrinus	Falco cherrug	1.68	2.52	2.5	2.14	2.13	1.66	2.78	TimeTree
 Metazoa	Thunnus	Thunnus albacares	Thunnus maccoyii	2.96	4.44	3.1	3.85	3.71	3.41	4.29	TimeTree
 Metazoa	Patella	Patella vulgata	Patella pellucida	7.2	10.8	10.8	9		0	0	TimeTree
-Metazoa	Limnephilidae (caddisfly)	Glyphotaelius pellucidus	Limnephilus lunatus	10	18	10					Lit: 2026 Limnephilidae phylogenomics study
 Metazoa	Taeniopygia/Corvus	Taeniopygia guttata	Corvus hawaiiensis	12.8	19.2	19.2	38	16.04	0	38	TimeTree
 Metazoa	Tridacna	Tridacna crocea	Tridacna gigas	17	147.1	47.2	82.1	51.6	17.05	147.15	TimeTree
 Metazoa	Polyneoptera	Leuctra nigra	Ectobius pallidus	25	370.6	271.9	270.35	308.09	25	370.6	TimeTree
@@ -34,7 +33,6 @@ Metazoa	Protostomia	Membranipora membranacea	Nephrotoma flavescens	543	670.1	606
 Metazoa	Bilateria	Marthasterias glacialis	Nephrotoma flavescens	627	830	629.7	686.16	707.6	627	830	TimeTree
 Metazoa	Metazoa	Nephrotoma flavescens	Sycon ciliatum	701.8	1020	736.1	758.11		701.85	1020	TimeTree
 Viridiplantae	Arabidopsis	Arabidopsis thaliana	Cardamine hirsuta	5.94	29.23	29.2	17.1	18.39	5.94	29.23	TimeTree
-Viridiplantae	Luzula	Luzula pallescens	Luzula sylvatica	6	10	10					Lit: Luzula crown ~10 Ma (literature)
 Viridiplantae	Geum	Geum rivale	Geum urbanum	10.32	15.48	15.5	12.93		0	0	TimeTree
 Viridiplantae	Potamogetonaceae/Droseraceae	Rosa canina	Potentilla anserina	21.12	57.76	32.1	27.15	39.51	21.12	57.76	TimeTree
 Viridiplantae	Hologalegina	Trifolium fragiferum	Astragalus glycyphyllos	27.8	44.3	44.3	35.18	34.24	27.78	44.25	TimeTree

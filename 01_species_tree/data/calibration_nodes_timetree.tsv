@@ -60,6 +60,4 @@ over6	Metazoa	Phorcus lineatus	Steromphala cineraria	66.72	75.9871	0	0	46.72245	
 over7	Metazoa	Porphyrio hochstetteri	Lagopus muta	97.25	90.83966	86.50225	101.8	NA	ok	TimeTree pairwise API
 over8	Viridiplantae	Geum rivale	Geum urbanum	10.41	12.93	0	0	NA	ok	TimeTree pairwise API
 over9	Metazoa	Leistus spinibarbis	Pterostichus madidus	36.56	45.70566	0	0	101.6741	ok	TimeTree pairwise API
-Limnephilidae	Metazoa	Glyphotaelius pellucidus	Limnephilus lunatus	14.24	NA	NA	NA	NA	no_data	Literature: 2026 Limnephilidae phylogenomics study (Limnephilini divergence)
 Amphiesmen	Metazoa	Pieris napi	Limnephilus lunatus	262.24	246.402165	172.2845	302.41203	246.40217	ok	TimeTree pairwise API
-Luzula_TT	Viridiplantae	Luzula pallescens	Luzula sylvatica	8.83	NA	NA	NA	NA	no_data	Literature: Luzula crown ~10 Ma (expert/literature estimate)

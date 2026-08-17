@@ -36,8 +36,8 @@ c64 <- read.delim(file.path(QC_DIR, "calib64_constraints_for_panelA.tsv"),
 df$disp_label <- c64$disp_label[match(df$label, c64$label)]
 df$age_min <- as.numeric(c64$age_min[match(df$label, c64$label)])
 df$age_max <- as.numeric(c64$age_max[match(df$label, c64$label)])
-# literature-derived nodes (not in TimeTree): show their constraint interval instead
-df$is_lit <- df$label %in% c("Limnephilidae", "Luzula_TT")
+# all calibration nodes are now TimeTree-sourced (no literature-only constraints)
+df$is_lit <- FALSE
 df$clade <- factor(df$clade, levels = clade_order)
 num <- function(x) { x <- as.character(x)
   suppressWarnings(as.numeric(ifelse(x %in% c("None","NA",""), NA, x))) }
@@ -87,18 +87,8 @@ p_a <- ggplot(df) +
   geom_segment(aes(x = tt_ci_low, xend = tt_ci_high, y = node_f, yend = node_f,
                    colour = "TimeTree range (CI)"),
                linewidth = 0.95, lineend = "butt", na.rm = TRUE) +
-  # literature-derived constraint (Limnephilidae, Luzula) - not in TimeTree
-  geom_segment(data = df[df$is_lit, ],
-               aes(x = age_min, xend = age_max, y = node_f, yend = node_f,
-                   colour = "Literature-derived constraint"),
-               linewidth = 0.95, lineend = "butt", na.rm = TRUE) +
-  geom_text(data = df[df$is_lit, ],
-            aes(x = age_max, y = node_f, label = "not TimeTree-derived"),
-            hjust = -0.06, size = 3.1, colour = "#555555", fontface = "italic",
-            na.rm = TRUE) +
   scale_colour_manual(name = NULL,
-                      values = c("TimeTree range (CI)" = "#d62728",
-                                 "Literature-derived constraint" = "#555555"),
+                      values = c("TimeTree range (CI)" = "#d62728"),
                       guide = guide_legend(order = 2,
                         override.aes = list(linewidth = 1.5))) +
   # TimeTree median (red diamond) + calibrated age (black circle)
@@ -173,12 +163,10 @@ p_combined <- (p_a / p_row) +
   plot_annotation(
     title   = "Supplementary Figure - Calibration validation: 325-species DToL chronogram",
     caption = paste0(
-      "A: The 64 calibration nodes (y-axis labels coloured by clade). Red diamond = TimeTree ",
+      "A: The 62 calibration nodes (y-axis labels coloured by clade). Red diamond = TimeTree ",
       "median (precomputed_age); red line = TimeTree range (precomputed_ci_low-high) - the ",
       "imposed constraint for nodes with a real range (else median +/-20%); black circle = ",
-      "calibrated age (chronos correlated). Grey line + * = literature-derived constraint for the ",
-      "two nodes absent from TimeTree: Limnephilidae (2026 Limnephilidae phylogenomics study) and ",
-      "Luzula (crown ~10 Ma, literature).  ",
+      "calibrated age (chronos correlated). All 62 constraints are TimeTree-derived.  ",
       "B-E: PAReTT node-age concordance with TimeTree (all shared species pairs) for ",
       "chronos correlated (B), chronos relaxed (C), rate-smoothed chronos with only the ",
       "root age fixed (D) and uncalibrated penalized-likelihood rate-smoothing with no ",
