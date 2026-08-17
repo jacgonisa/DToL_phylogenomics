@@ -32,7 +32,8 @@ tt_corrections <- c("Ailanthus_altissimus"="Ailanthus_altissima")
 tr_tt   <- read.tree(tt_file)
 ml.tree <- read.tree(uncal_file)
 # penalized-likelihood rate-smoothing with NO calibration points
-tr_our <- chronos(ml.tree, lambda = 1, model = "relaxed")
+# (correlated model, to match the rate-smoothed root-only baseline and the final tree)
+tr_our <- chronos(ml.tree, lambda = 1, model = "correlated")
 class(tr_our) <- "phylo"
 # no calibration -> root age defaults to 1; rescale so the ROOT equals the
 # Eukaryota root calibration (midpoint of its constraint), independent of the

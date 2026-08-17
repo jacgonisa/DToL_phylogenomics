@@ -167,7 +167,7 @@ p_combined <- (p_a / p_row) +
       "B-E: PAReTT node-age concordance with TimeTree (all shared species pairs) for ",
       "chronos correlated (B), chronos relaxed (C), rate-smoothed chronos with only the ",
       "root age fixed (D) and uncalibrated penalized-likelihood rate-smoothing with no ",
-      "calibration points (E, chronos relaxed, lambda=1); dashed = 1:1."
+      "calibration points (E, chronos correlated, lambda=1); dashed = 1:1."
     ),
     theme = theme(plot.title = element_text(face = "bold", size = 17),
                   plot.caption = element_text(size = 10, colour = "grey35", hjust = 0),
