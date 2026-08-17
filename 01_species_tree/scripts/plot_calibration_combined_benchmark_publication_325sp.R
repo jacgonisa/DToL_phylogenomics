@@ -169,38 +169,34 @@ build_parrett <- function(fname, tag, ttl, relative = FALSE) {
       labs(subtitle = sprintf("%d node-age comparisons; dashed = 1:1 line", nrow(d)))
   }
 }
-# ── Panel B: R2 / Pearson dot plot across rate models x smoothing lambda ──────
+# ── Panel B: R2 / Pearson dot-and-line plot (colour = model, shape = metric) ──
 bs <- read.delim(file.path(QC_DIR, "benchmark_summary.tsv"), stringsAsFactors = FALSE)
 sw <- subset(bs, model %in% c("correlated","relaxed","discrete") & lambda %in% c("0","0.1","1","10"))
 sw$lambda <- factor(sw$lambda, levels = c("0","0.1","1","10"))
 sw$model  <- factor(sw$model,  levels = c("correlated","relaxed","discrete"))
 clk <- subset(bs, model == "clock")[1, ]; ro <- subset(bs, model == "root-only")[1, ]
-# long format: one facet per metric
-swl <- rbind(data.frame(model = sw$model, lambda = sw$lambda, metric = "R²",        value = sw$R2),
-             data.frame(model = sw$model, lambda = sw$lambda, metric = "Pearson r", value = sw$Pearson))
+swl <- rbind(data.frame(model = sw$model, lambda = sw$lambda, metric = "Pearson r", value = sw$Pearson),
+             data.frame(model = sw$model, lambda = sw$lambda, metric = "R²",        value = sw$R2))
 swl$metric <- factor(swl$metric, levels = c("Pearson r", "R²"))
-clkdf <- data.frame(metric = factor(c("Pearson r","R²"), levels=c("Pearson r","R²")), x = c(clk$Pearson, clk$R2))
+bestl <- subset(swl, model == "correlated" & lambda == "0.1")   # the best fit, both metrics
 mcol <- c(correlated = "#1565C0", relaxed = "#EF6C00", discrete = "#6A1B9A")
-mshp <- c(correlated = 16, relaxed = 17, discrete = 15)
-dodge <- position_dodge(width = 0.6)
-p_b <- ggplot(swl, aes(value, lambda, colour = model, shape = model)) +
-  geom_vline(data = clkdf, aes(xintercept = x), linetype = "dashed", colour = "grey45") +
-  geom_point(size = 3.7, alpha = 0.92, position = dodge) +
-  facet_wrap(~ metric, ncol = 2, scales = "free_x") +
+p_b <- ggplot(swl, aes(value, lambda, colour = model, group = interaction(model, metric))) +
+  geom_point(data = bestl, shape = 21, size = 7, colour = "black", fill = NA, stroke = 1.2) +  # highlight best
+  geom_path(aes(linetype = metric), linewidth = 0.7, alpha = 0.55) +
+  geom_point(aes(shape = metric), size = 3.7, alpha = 0.95) +
   scale_colour_manual(values = mcol, name = "rate model") +
-  scale_shape_manual(values = mshp, name = "rate model") +
-  scale_y_discrete(name = "smoothing parameter λ") +
-  labs(tag = "B", x = NULL,
+  scale_shape_manual(values = c("Pearson r" = 16, "R²" = 17), name = "metric") +
+  scale_linetype_manual(values = c("Pearson r" = "solid", "R²" = "dashed"), name = "metric") +
+  labs(tag = "B", x = "concordance with TimeTree (r, R²)", y = "λ (smoothing parameter)",
        title = "Node-age concordance with TimeTree",
-       subtitle = sprintf("n = 213 nodes / 210 shared taxa.  dashed line = strict clock (R²=%.3f, r=%.3f).  Best = correlated λ=0.1.  Root-only baseline R²=%.3f / r=%.3f (off scale).",
-                          clk$R2, clk$Pearson, ro$R2, ro$Pearson)) +
+       subtitle = sprintf("n = 213 nodes / 210 shared taxa. Best = correlated λ=0.1 (circled). Strict clock r=%.3f / R²=%.3f (no λ); root-only baseline r=%.3f / R²=%.3f.",
+                          clk$Pearson, clk$R2, ro$Pearson, ro$R2)) +
   theme_bw(base_size = 13) +
   theme(plot.tag = element_text(face = "bold", size = 19),
         plot.title = element_text(face = "bold", size = 14),
         plot.subtitle = element_text(size = 9, colour = "grey35"),
-        axis.title.y = element_text(size = 13, face = "bold"),
+        axis.title = element_text(size = 13, face = "bold"),
         axis.text = element_text(size = 11.5), legend.position = "right",
-        strip.text = element_text(face = "bold", size = 12),
         panel.grid.minor = element_blank())
 
 # ── Panel C: the single best-fitting chronogram (correlated, lambda = 0.1) ────
