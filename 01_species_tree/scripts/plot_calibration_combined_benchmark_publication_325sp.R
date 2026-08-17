@@ -66,8 +66,6 @@ clean_label <- function(x) {
   gsub("_", " ", x)
 }
 df$clean_label <- clean_label(df$disp_label)   # no dot markers
-# mark the two literature-derived (non-TimeTree) nodes on their y-axis label
-df$clean_label <- ifelse(df$is_lit, paste0(df$clean_label, " *"), df$clean_label)
 df$ord_age <- ifelse(is.na(df$tt_median), df$our_age, df$tt_median)
 df <- df %>% arrange(clade, ord_age)
 df$node_f <- fct_rev(factor(df$clean_label, levels = df$clean_label))
