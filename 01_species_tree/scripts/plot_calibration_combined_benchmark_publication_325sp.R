@@ -157,31 +157,52 @@ build_parrett <- function(fname, tag, ttl, relative = FALSE) {
       labs(subtitle = sprintf("%d node-age comparisons; dashed = 1:1 line", nrow(d)))
   }
 }
-p_b <- build_parrett("parrett_chronos_correlated.tsv", "B", "62 cal, correlated (λ=1)")
-p_c <- build_parrett("parrett_correlated_l01.tsv",     "C", "62 cal, correlated (λ=0.1)")
-p_d <- build_parrett("parrett_ratesmoothed.tsv",       "D", "root-only (correlated)")
-p_e <- build_parrett("parrett_chronos_relaxed.tsv",    "E", "62 cal, relaxed (λ=1)")
-p_f <- build_parrett("parrett_relaxed_l01.tsv",        "F", "62 cal, relaxed (λ=0.1)")
-p_g <- build_parrett("parrett_rootonly_relaxed.tsv",   "G", "root-only (relaxed)")
+# ── Panel B: R2 / Pearson summary across rate models x smoothing lambda ───────
+bs <- read.delim(file.path(QC_DIR, "benchmark_summary.tsv"), stringsAsFactors = FALSE)
+sw <- subset(bs, model %in% c("correlated","relaxed") & lambda %in% c("0","0.1","1","10"))
+sw$lambda <- factor(sw$lambda, levels = c("0","0.1","1","10"))
+sw$model  <- factor(sw$model,  levels = c("relaxed","correlated"))
+sw$lab <- sprintf("R²=%.3f\nr=%.3f", sw$R2, sw$Pearson)
+best   <- sw[which.max(sw$R2), ]
+clk    <- subset(bs, model == "clock")[1, ]
+disc   <- subset(bs, model == "discrete")[1, ]
+ro     <- subset(bs, model == "root-only")[1, ]
+p_b <- ggplot(sw, aes(lambda, model, fill = R2)) +
+  geom_tile(colour = "white", linewidth = 1.4) +
+  geom_tile(data = best, fill = NA, colour = "black", linewidth = 1.8) +
+  geom_text(aes(label = lab), size = 4.4, lineheight = 0.9) +
+  scale_fill_gradient(low = "#FDE7C9", high = "#1565C0", limits = c(0.9, 1), name = "R²") +
+  scale_x_discrete(name = "smoothing parameter λ", expand = expansion(0)) +
+  scale_y_discrete(name = NULL, expand = expansion(0)) +
+  labs(tag = "B",
+       title = "Node-age concordance with TimeTree across rate models and smoothing",
+       subtitle = sprintf("n = 213 TimeTree-datable nodes (210 shared taxa). Best = correlated, λ=0.1 (black outline).\nReferences (λ=1): discrete R²=%.3f/r=%.3f; strict clock R²=%.3f/r=%.3f; root-only baseline R²=%.3f/r=%.3f.",
+                          disc$R2, disc$Pearson, clk$R2, clk$Pearson, ro$R2, ro$Pearson)) +
+  theme_bw(base_size = 13) +
+  theme(plot.tag = element_text(face = "bold", size = 19),
+        plot.title = element_text(face = "bold", size = 14),
+        plot.subtitle = element_text(size = 9.5, colour = "grey35"),
+        axis.title.x = element_text(size = 13, face = "bold"),
+        axis.text = element_text(size = 12), legend.position = "right",
+        panel.grid = element_blank())
 
-# ── Combine ───────────────────────────────────────────────────────────────────
-# collect the shared Group / log10(pairs) legends of the B-G row into one
-p_row <- ((p_b | p_c | p_d) / (p_e | p_f | p_g)) + plot_layout(guides = "collect")
-p_combined <- (p_a / p_row) +
-  plot_layout(heights = c(1.7, 2.4)) +
+# ── Panel C: the single best-fitting chronogram (correlated, lambda = 0.1) ────
+p_c <- build_parrett("parrett_correlated_l01.tsv", "C", "Best fit: correlated (λ = 0.1)")
+
+# ── Combine: A on top; B (summary) and C (best scatter) below ─────────────────
+p_bc <- (p_b | p_c) + plot_layout(widths = c(1.15, 1))
+p_combined <- (p_a / p_bc) +
+  plot_layout(heights = c(1.5, 1.4)) +
   plot_annotation(
     title   = "Supplementary Figure - Calibration validation: 325-species DToL chronogram",
     caption = paste0(
-      "A: The 62 calibration nodes (y-axis labels coloured by clade). Red diamond = TimeTree ",
-      "median (precomputed_age); red line = TimeTree range (precomputed_ci_low-high) - the ",
-      "imposed constraint for nodes with a real range (else median +/-20%); black circle = ",
-      "calibrated age (chronos correlated). All 62 constraints are TimeTree-derived.  ",
-      "B-G: PAReTT node-age concordance with TimeTree (all shared species pairs), dashed = 1:1. ",
-      "Rows = chronos rate model (top correlated, bottom relaxed); columns = the full 62 calibrations at ",
-      "the smoothing parameter lambda=1 (B, E) and lambda=0.1 (C, F), and chronos with only the Eukaryota ",
-      "root age fixed (D, G). The calibrated chronogram is robust to lambda (Pearson ~0.98, R2 ~0.96 at ",
-      "both lambda=1 and lambda=0.1, correlated ~ relaxed), and far exceeds the root-only baseline ",
-      "(Pearson 0.78, R2 0.61)."
+      "A: The 62 calibration nodes vs TimeTree (red diamond = TimeTree median; red line = TimeTree ",
+      "range / imposed constraint; black circle = calibrated age, chronos correlated). ",
+      "B: node-age concordance (R² and Pearson r vs TimeTree; n = 213 nodes across 210 shared taxa) ",
+      "for the 62-calibration chronogram under correlated vs relaxed rates at smoothing λ = 0, 0.1, 1, 10, ",
+      "with the strict clock and root-only chronograms as references. Concordance is high and robust ",
+      "(R² 0.94-0.97), peaking at correlated λ=0.1. C: the best-fitting chronogram (correlated, λ=0.1); ",
+      "dashed = 1:1 line."
     ),
     theme = theme(plot.title = element_text(face = "bold", size = 17),
                   plot.caption = element_text(size = 10, colour = "grey35", hjust = 0),
@@ -190,7 +211,7 @@ p_combined <- (p_a / p_row) +
 
 for (ext in c(".pdf", ".png")) {
   out <- file.path(FIG_DIR, paste0("calibration_combined_qc_benchmark_325sp_publication", ext))
-  ggsave(out, p_combined, width = 22, height = 23,
+  ggsave(out, p_combined, width = 15, height = 16,
          dpi = if (ext == ".png") 320 else 100, bg = "white")
   cat("Saved:", basename(out), "\n")
 }

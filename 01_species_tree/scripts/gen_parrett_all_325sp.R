@@ -59,6 +59,13 @@ make_parrett("full_325sp_chronos_over_correlated.nwk",    "parrett_chronos_corre
 make_parrett("full_325sp_chronos_over_relaxed.nwk",       "parrett_chronos_relaxed.tsv")
 make_parrett("full_325sp_chronos_over_correlated_l01.nwk","parrett_correlated_l01.tsv")   # 62-cal correlated, lambda=0.1
 make_parrett("full_325sp_chronos_over_relaxed_l01.nwk",   "parrett_relaxed_l01.tsv")      # 62-cal relaxed, lambda=0.1
+make_parrett("full_325sp_chronos_over_correlated_l0.nwk", "parrett_correlated_l0.tsv")    # 62-cal correlated, lambda=0
+make_parrett("full_325sp_chronos_over_relaxed_l0.nwk",    "parrett_relaxed_l0.tsv")       # 62-cal relaxed, lambda=0
+make_parrett("full_325sp_chronos_over_correlated_l10.nwk","parrett_correlated_l10.tsv")   # 62-cal correlated, lambda=10
+make_parrett("full_325sp_chronos_over_relaxed_l10.nwk",   "parrett_relaxed_l10.tsv")      # 62-cal relaxed, lambda=10
+make_parrett("full_325sp_chronos_over_clock.nwk",         "parrett_clock.tsv")            # strict clock (no lambda)
+if (file.exists(file.path(PUB,"outputs","full_325sp_chronos_over_discrete_l1.nwk")))
+  make_parrett("full_325sp_chronos_over_discrete_l1.nwk", "parrett_discrete_l1.tsv")      # discrete, lambda=1 (if present)
 make_parrett("full_325sp_chronos_rootonly_ratesmoothed.nwk","parrett_ratesmoothed.tsv")   # root-only, correlated
 make_parrett("full_325sp_chronos_rootonly_relaxed.nwk",   "parrett_rootonly_relaxed.tsv") # root-only, relaxed
 make_parrett("full_325sp_chronos_nocalib_relaxed.nwk",    "parrett_uncalibrated.tsv")        # no calibration, relaxed
