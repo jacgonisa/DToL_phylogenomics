@@ -37,7 +37,7 @@ ROOT    = Path("/home/jg2070/Desktop/dtol_review_August")
 PUB     = ROOT / "DToL_phylogenomics_publication_325genomes"
 BASE    = ROOT / "2026_trees/annotation_centromeres/repeat_similarity"
 FASTA   = BASE / "sampled_repeats_1000.fasta"
-TREE_F  = PUB / "01_species_tree/outputs/full_325sp_calibrated.nwk"
+TREE_F  = PUB / "01_species_tree/outputs/full_325sp_calibrated_correlatedlambda01.nwk"  # winning model: correlated, lambda=0.1
 TAX_F   = ROOT / "2026_trees/annotation_centromeres/centromere_code_to_species.tsv"
 SAT_TAB = ROOT / "2026_trees/annotation_centromeres/organized/plots/centromere_length/genome_vs_centromere_length_satellite_species_table.tsv"
 FIG_DIR = PUB / "05_satellite_similarity/figures"
@@ -109,35 +109,39 @@ def get_group(code):
 species = sorted([s for s in sp_seqs if s in tip_map and sp_seqs[s]])
 print(f"  {len(species)} satellite species in tree")
 
-# ── write per-species fasta files into a temp dir ─────────────────────────────
-tmpdir = Path(tempfile.mkdtemp(prefix="blast_sat_"))
-print(f"  Writing fastas to {tmpdir} …")
-sp_fa = {}
-for sp in species:
-    fa = tmpdir / f"{sp}.fa"
-    with open(fa,"w") as fh:
-        for i, seq in enumerate(sp_seqs[sp]):
-            fh.write(f">{sp}__{i}\n{seq}\n")
-    sp_fa[sp] = fa
+# BLAST identities are sequence-only (tree-independent); cache them so that re-dating
+# the analysis with a different chronogram only recomputes MRCA times, not the BLAST.
+CACHE = BASE / "seqsim_blastn_raw_identities.tsv"
+if not CACHE.exists():
+    # ── write per-species fasta files into a temp dir ─────────────────────────
+    tmpdir = Path(tempfile.mkdtemp(prefix="blast_sat_"))
+    print(f"  Writing fastas to {tmpdir} …")
+    sp_fa = {}
+    for sp in species:
+        fa = tmpdir / f"{sp}.fa"
+        with open(fa,"w") as fh:
+            for i, seq in enumerate(sp_seqs[sp]):
+                fh.write(f">{sp}__{i}\n{seq}\n")
+        sp_fa[sp] = fa
 
-# doubled-repeat fasta for the DB (Melters: repeats vs a file of duplicated repeats,
-# so phase-shifted / boundary-offset monomers can align across the tandem junction)
-sp_fa_db = {}
-for sp in species:
-    fa = tmpdir / f"{sp}.dup.fa"
-    with open(fa,"w") as fh:
-        for i, seq in enumerate(sp_seqs[sp]):
-            fh.write(f">{sp}__{i}\n{seq}{seq}\n")
-    sp_fa_db[sp] = fa
+    # doubled-repeat fasta for the DB (Melters: repeats vs duplicated repeats, so
+    # phase-shifted / boundary-offset monomers can align across the tandem junction)
+    sp_fa_db = {}
+    for sp in species:
+        fa = tmpdir / f"{sp}.dup.fa"
+        with open(fa,"w") as fh:
+            for i, seq in enumerate(sp_seqs[sp]):
+                fh.write(f">{sp}__{i}\n{seq}{seq}\n")
+        sp_fa_db[sp] = fa
 
-# make BLAST databases
-print(f"  Building {len(species)} BLAST databases …")
-def make_db(sp):
-    subprocess.run([MAKEDB,"-in",str(sp_fa_db[sp]),"-dbtype","nucl",
-                    "-out",str(tmpdir/sp),"-logfile","/dev/null"],
-                   capture_output=True)
-with mp.Pool(NCORES) as pool:
-    pool.map(make_db, species)
+    # make BLAST databases
+    print(f"  Building {len(species)} BLAST databases …")
+    def make_db(sp):
+        subprocess.run([MAKEDB,"-in",str(sp_fa_db[sp]),"-dbtype","nucl",
+                        "-out",str(tmpdir/sp),"-logfile","/dev/null"],
+                       capture_output=True)
+    with mp.Pool(NCORES) as pool:
+        pool.map(make_db, species)
 
 # ── per-pair BLASTN worker ────────────────────────────────────────────────────
 def run_blast_pair(args):
@@ -186,10 +190,17 @@ def run_blast_pair(args):
     return spA, spB, float(np.mean(global_ids)), frac_sig, len(seen)
 
 import itertools
-pairs = [(a, b) for a, b in itertools.combinations(species, 2)]
-print(f"\nRunning BLASTN: {len(pairs):,} pairs on {NCORES} cores …")
-with mp.Pool(NCORES) as pool:
-    results = pool.map(run_blast_pair, pairs, chunksize=5)
+if CACHE.exists():
+    print(f"\nReusing cached BLAST identities: {CACHE.name} (skipping the all-vs-all BLASTN)")
+    _c = pd.read_csv(CACHE, sep="\t")
+    results = list(_c[["spA","spB","mean_pct_id","frac_sig","n_hits"]].itertuples(index=False, name=None))
+else:
+    pairs = [(a, b) for a, b in itertools.combinations(species, 2)]
+    print(f"\nRunning BLASTN: {len(pairs):,} pairs on {NCORES} cores …")
+    with mp.Pool(NCORES) as pool:
+        results = pool.map(run_blast_pair, pairs, chunksize=5)
+    pd.DataFrame(results, columns=["spA","spB","mean_pct_id","frac_sig","n_hits"]).to_csv(CACHE, sep="\t", index=False)
+    print(f"Cached raw BLAST identities -> {CACHE.name}")
 
 # ── build dataframe ───────────────────────────────────────────────────────────
 rows = []
@@ -285,5 +296,6 @@ plt.close()
 
 pd.DataFrame(summary).to_csv(BASE/"seqsim_blastn_melters_summary.tsv", sep="\t", index=False)
 
-import shutil; shutil.rmtree(tmpdir, ignore_errors=True)
+if "tmpdir" in globals():
+    import shutil; shutil.rmtree(tmpdir, ignore_errors=True)
 print("Done.")
