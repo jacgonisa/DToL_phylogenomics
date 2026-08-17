@@ -1,4 +1,4 @@
-pair	control_for	n	pic_r_pairwise	pic_r_partial	partial_p
-regimentation~HOR	monomer length	150	0.594	0.542	0
-regimentation~monomer	HOR score	150	0.415	0.312	0.000497
-HOR~monomer	regimentation	150	0.295	0.066	0.973
+pair	control_for	n	pgls_r_pairwise	pgls_r_partial	partial_p
+regimentation~HOR	monomer length	150	0.659	0.632	0
+regimentation~monomer	HOR score	150	0.36	0.282	0.000497
+HOR~monomer	regimentation	150	0.246	-0.003	0.973

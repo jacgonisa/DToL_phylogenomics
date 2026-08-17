@@ -6,7 +6,8 @@
 # Outputs feed the seaborn pairplot (trait_pairplot_seaborn_325sp.py).
 
 suppressPackageStartupMessages({
-  library(ape); library(caper); library(phytools); library(readxl); library(dplyr); library(stringr)
+  library(ape); library(caper); library(phytools); library(effectsize)
+  library(readxl); library(dplyr); library(stringr)
 })
 
 BASE    <- "/home/jg2070/Desktop/dtol_review_August"
@@ -91,14 +92,15 @@ pic_rp <- function(phy, x, y) {          # phylo correlation from BM covariance 
   p  <- summary(lm(cy ~ cx + 0))$coefficients["cx", "Pr(>|t|)"]   # BM-correlation p (through origin)
   c(r = r, p = p)
 }
-pgls_fit <- function(phy, d) {           # caper::pgls, Pagel's lambda by ML (Brownian fallback)
+pgls_fit <- function(phy, d) {           # caper::pgls (lambda=ML); r = t_to_r(slope t) [lambda-adjusted]
   cd <- comparative.data(phy, d, names.col="sp", vcv=TRUE, warn.dropped=FALSE)
   m  <- tryCatch(pgls(y ~ x, data=cd, lambda="ML"), error=function(e) NULL)
   if (is.null(m)) m <- tryCatch(pgls(y ~ x, data=cd, lambda=1), error=function(e) NULL)  # BM if ML fails
-  if (is.null(m)) return(c(lambda=NA, p=NA))
-  p <- summary(m)$coefficients["x","Pr(>|t|)"]
-  if (is.finite(p) && p == 0) p <- 2.2e-16                 # floor underflow (p ~ machine eps)
-  c(lambda=unname(m$param["lambda"]), p=p)
+  if (is.null(m)) return(c(lambda=NA, p=NA, r=NA))
+  co <- summary(m)$coefficients
+  p <- co["x","Pr(>|t|)"]; if (is.finite(p) && p == 0) p <- 2.2e-16   # floor underflow
+  r <- as.numeric(t_to_r(co["x","t value"], df_error = m$n - nrow(co))$r)  # slope t -> correlation
+  c(lambda=unname(m$param["lambda"]), p=p, r=r)
 }
 
 res <- list()
@@ -111,16 +113,17 @@ for (i in 1:(length(traits)-1)) for (j in (i+1):length(traits)) {
   phy <- keep.tip(tr, dd$label)
   x <- x[phy$tip.label]; y <- y[phy$tip.label]
   ct <- cor.test(x, y)
-  rp <- pic_rp(phy, x, y)
+  rp <- pic_rp(phy, x, y)                                 # phyl.vcv BM r (comparison)
   d  <- data.frame(sp=phy$tip.label, x=x, y=y, row.names=phy$tip.label)
   pg <- pgls_fit(phy, d)
-  lam <- unname(pg["lambda"]); pgp <- unname(pg["p"])
-  if (!is.finite(pgp)) pgp <- NA        # caper bounds lambda to [0,1]; only guard failed fits
+  lam <- unname(pg["lambda"]); pgp <- unname(pg["p"]); pgr <- unname(pg["r"])
+  if (!is.finite(pgp)) pgp <- NA
   res[[paste(a,b)]] <- data.frame(
     trait_x=a, trait_y=b, n=nrow(dd),
     pearson_r=round(unname(ct$estimate),3), pearson_p=signif(ct$p.value,3),
-    phylo_r_pic=round(unname(rp["r"]),3), phylo_p_pic=signif(unname(rp["p"]),3),
-    pgls_lambda=round(lam,3), pgls_p=signif(pgp,3), stringsAsFactors=FALSE)
+    pgls_r=round(pgr,3), pgls_p=signif(pgp,3), pgls_lambda=round(lam,3),  # headline: lambda-adjusted
+    phylo_r_bm=round(unname(rp["r"]),3), phylo_p_bm=signif(unname(rp["p"]),3),  # BM (phyl.vcv) comparison
+    stringsAsFactors=FALSE)
 }
 cor_tbl <- do.call(rbind, res); rownames(cor_tbl) <- NULL
 write.table(cor_tbl, COR_F, sep="\t", quote=FALSE, row.names=FALSE)
@@ -138,14 +141,15 @@ phy3 <- keep.tip(tr, trio$label); trio <- trio[match(phy3$tip.label, trio$label)
 trio$sp <- phy3$tip.label
 
 cd3 <- comparative.data(phy3, as.data.frame(trio), names.col="sp", vcv=TRUE, warn.dropped=FALSE)
-partial_pgls <- function(form) {         # caper::pgls multiple regression; partial slope + p per predictor
+partial_pgls <- function(form) {         # caper::pgls multiple regression; partial slope, p, r per predictor
   m  <- pgls(form, data=cd3, lambda="ML")
   co <- summary(m)$coefficients
-  lam <- unname(m$param["lambda"])
+  lam <- unname(m$param["lambda"]); dfE <- m$n - nrow(co)
   preds <- rownames(co)[rownames(co) != "(Intercept)"]
   do.call(rbind, lapply(preds, function(p) data.frame(
     response = as.character(form)[2], predictor = p, n = nrow(trio),
     partial_slope = round(co[p,"Estimate"],4), partial_p = signif(co[p,"Pr(>|t|)"],3),
+    partial_r = round(as.numeric(t_to_r(co[p,"t value"], df_error = dfE)$r), 3),  # partial correlation
     pgls_lambda = round(lam,3), stringsAsFactors=FALSE)))
 }
 part <- rbind(
@@ -158,21 +162,21 @@ write.table(part, PART_F, sep="\t", quote=FALSE, row.names=FALSE)
 cat("\nPartial PGLS (regi/hor/log10 monomer trio, n=", nrow(trio), "):\n", sep=""); print(part)
 cat("\nWrote:", PART_F, "\n")
 
-# ── Phylogenetic pairwise vs partial correlation for the trio (phytools::phyl.vcv) ──
-# Joint BM correlation matrix R3; pairwise = R3[i,j], partial = precision-matrix formula
-# (-P[i,j]/sqrt(P[i,i]P[j,j])). Significance stars from the PGLS partial-slope p-values.
-X3 <- cbind(regi = trio$regi, hor = trio$hor, mono = trio$mono_len_bp); rownames(X3) <- trio$sp
-R3 <- cov2cor(phyl.vcv(X3, vcv(phy3), lambda = 1)$R)
-P3 <- solve(R3)
-pcor3 <- function(i, j) -P3[i, j] / sqrt(P3[i, i] * P3[j, j])
-pget <- function(resp,pred) part$partial_p[part$response==resp & part$predictor==pred][1]
+# ── PGLS pairwise vs partial correlation for the trio (lambda-adjusted, t_to_r) ──
+# pairwise = single-predictor PGLS r; partial = multiple-predictor PGLS r (control 3rd trait).
+pr_pair <- function(a, b) {              # single-predictor PGLS r for a pair
+  d <- data.frame(sp=trio$sp, x=trio[[a]], y=trio[[b]], row.names=trio$sp)
+  unname(pgls_fit(phy3, d)["r"])
+}
+pgetr <- function(resp,pred) part$partial_r[part$response==resp & part$predictor==pred][1]
+pgetp <- function(resp,pred) part$partial_p[part$response==resp & part$predictor==pred][1]
 trio_tbl <- data.frame(
   pair       = c("regimentation~HOR","regimentation~monomer","HOR~monomer"),
   control_for= c("monomer length","HOR score","regimentation"),
   n          = nrow(trio),
-  pic_r_pairwise = round(c(R3["regi","hor"], R3["regi","mono"], R3["hor","mono"]), 3),
-  pic_r_partial  = round(c(pcor3("regi","hor"), pcor3("regi","mono"), pcor3("hor","mono")), 3),
-  partial_p  = signif(c(pget("regi","hor"), pget("regi","mono_len_bp"), pget("hor","mono_len_bp")), 3),
+  pgls_r_pairwise = round(c(pr_pair("regi","hor"), pr_pair("regi","mono_len_bp"), pr_pair("hor","mono_len_bp")), 3),
+  pgls_r_partial  = c(pgetr("regi","hor"), pgetr("regi","mono_len_bp"), pgetr("hor","mono_len_bp")),
+  partial_p  = signif(c(pgetp("regi","hor"), pgetp("regi","mono_len_bp"), pgetp("hor","mono_len_bp")), 3),
   stringsAsFactors = FALSE)
 PTRIO_F <- file.path(OUT_DIR, sprintf("phylo_pairwise_vs_partial_trio_%s.tsv", AGG))
 write.table(trio_tbl, PTRIO_F, sep="\t", quote=FALSE, row.names=FALSE)

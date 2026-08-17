@@ -32,7 +32,7 @@ def mk(col_r, col_p):
     for _,r in cor.iterrows():
         d[(r.trait_x,r.trait_y)] = (r[col_r], r[col_p]); d[(r.trait_y,r.trait_x)] = (r[col_r], r[col_p])
     return d
-naive = mk("pearson_r","pearson_p"); phylo = mk("phylo_r_pic","phylo_p_pic")
+naive = mk("pearson_r","pearson_p"); phylo = mk("pgls_r","pgls_p")
 def star(p): return "***" if p<1e-3 else "**" if p<1e-2 else "*" if p<0.05 else "ns"
 
 d = tab[["clade"]+traits].dropna(subset=traits, how="all")
@@ -64,7 +64,7 @@ for t,vals in logticks.items():
 g.add_legend(title="Clade", bbox_to_anchor=(1.01,0.5))
 agg_lab = "dominant array" if AGG=="ian" else "freq-weighted mean"
 g.figure.suptitle(f"Centromere / genome trait pairplot ({agg_lab}, {len(d)} species)\n"
-                  "upper: naive Pearson vs phylogenetically corrected (BM) r",
+                  "upper: naive Pearson vs phylogenetically corrected (PGLS, λ-adjusted) r",
                   y=1.02, fontsize=12, fontweight="bold")
 g.savefig(f"{FIG}/trait_pairplot_seaborn_325sp_{AGG}.png", dpi=200, bbox_inches="tight")
 g.savefig(f"{FIG}/trait_pairplot_seaborn_325sp_{AGG}.pdf", bbox_inches="tight")
@@ -82,7 +82,7 @@ sns.heatmap(M, annot=S, fmt="", cmap="RdBu_r", center=0, vmin=-0.6, vmax=0.6,
             xticklabels=[labels[t] for t in traits], yticklabels=[labels[t] for t in traits],
             linewidths=1, linecolor="white", cbar_kws={"label":"correlation r"},
             annot_kws={"fontsize":8}, ax=ax)
-ax.set_title("Trait correlations: upper = naive Pearson, lower = phylogenetic (BM, phyl.vcv)\n"
+ax.set_title("Trait correlations: upper = naive Pearson, lower = phylogenetic (PGLS, λ-adjusted)\n"
              "*** p<0.001  ** p<0.01  * p<0.05", fontsize=11, fontweight="bold")
 plt.xticks(rotation=40,ha="right"); plt.yticks(rotation=0); plt.tight_layout()
 fig.savefig(f"{FIG}/trait_corr_heatmap_naive_vs_phylo_325sp_{AGG}.png", dpi=200, bbox_inches="tight")
@@ -94,13 +94,13 @@ trio = pd.read_csv(f"{DATA}/phylo_pairwise_vs_partial_trio_{AGG}.tsv", sep="\t")
 xlab = [f"{p}\n(control: {c})" for p,c in zip(trio.pair, trio.control_for)]
 xi = np.arange(len(trio)); w = 0.38
 fig,ax = plt.subplots(figsize=(8,4.8))
-ax.bar(xi-w/2, trio.pic_r_pairwise, w, label="pairwise (phylo, BM)", color="#9ecae1", edgecolor="k", lw=.5)
-ax.bar(xi+w/2, trio.pic_r_partial,  w, label="partial (control 3rd trait)", color="#fc9272", edgecolor="k", lw=.5)
-for k,(rp,pp) in enumerate(zip(trio.pic_r_partial, trio.partial_p)):
+ax.bar(xi-w/2, trio.pgls_r_pairwise, w, label="pairwise (phylo, PGLS)", color="#9ecae1", edgecolor="k", lw=.5)
+ax.bar(xi+w/2, trio.pgls_r_partial,  w, label="partial (control 3rd trait)", color="#fc9272", edgecolor="k", lw=.5)
+for k,(rp,pp) in enumerate(zip(trio.pgls_r_partial, trio.partial_p)):
     ax.text(xi[k]+w/2, rp+0.02*np.sign(rp+1e-9), star(pp), ha="center",
             va="bottom" if rp>=0 else "top", fontsize=11, fontweight="bold")
 ax.axhline(0, color="grey", lw=.8); ax.set_xticks(xi); ax.set_xticklabels(xlab, fontsize=9)
-ax.set_ylabel("phylogenetic correlation r"); ax.set_ylim(-0.15, max(0.75, trio.pic_r_pairwise.max()+0.1))
+ax.set_ylabel("phylogenetic correlation r"); ax.set_ylim(-0.15, max(0.75, trio.pgls_r_pairwise.max()+0.1))
 ax.set_title(f"Pairwise vs partial phylogenetic correlation — regi/HOR/monomer trio ({agg_lab})\n"
              "partial holds the 3rd trait constant; stars = PGLS partial-slope p", fontsize=10, fontweight="bold")
 ax.legend(frameon=False, fontsize=9); plt.tight_layout()
