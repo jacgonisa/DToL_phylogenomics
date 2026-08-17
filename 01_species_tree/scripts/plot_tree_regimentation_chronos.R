@@ -114,13 +114,6 @@ plot_df <- tibble(label = tree_calibrated$tip.label) %>%
     symbol = ifelse(classification == "Holocentric", "triangle left", symbol)
   )
 
-# Colour-blind-safe (Okabe-Ito) centromere-type colours; keeps tips == legend consistent
-cb_type <- c("Satellite"="#D55E00", "Transposon"="#0072B2", "Satellite/transposon"="#CC79A7",
-             "Holocentric"="#009E73")
-plot_df <- plot_df %>%
-  mutate(colour = ifelse(classification %in% names(cb_type),
-                         unname(cb_type[classification]), colour))
-
 shape_map <- c("circle" = 21, "rectangle" = 22, "triangle left" = 24)
 
 # ── Broad group + subclade assignment ─────────────────────────────────────────
@@ -314,15 +307,15 @@ p <- p +
     inherit.aes = FALSE, shape = 21, size = 0, alpha = 0
   ) +
   scale_fill_manual(
-    values = c("Satellite" = "#D55E00", "Transposon" = "#0072B2",
-               "Mixed (Sat/Trans)" = "#CC79A7", "Holocentric" = "#009E73"),
+    values = c("Satellite" = "#ff006e", "Transposon" = "#3a86ff",
+               "Mixed (Sat/Trans)" = "#8338ec", "Holocentric" = "#2d7d32"),
     name = "Centromere type",
     guide = guide_legend(
       order = 3,
       override.aes = list(
         shape  = c(21L, 21L, 21L, 24L), size = 3, alpha = 1,
-        color  = c("#D55E00", "#0072B2", "#CC79A7", "#009E73"),
-        fill   = c("#D55E00", "#0072B2", "#CC79A7", "#009E73"),
+        color  = c("#ff006e", "#3a86ff", "#8338ec", "#2d7d32"),
+        fill   = c("#ff006e", "#3a86ff", "#8338ec", "#2d7d32"),
         stroke = 0.4
       )
     )
@@ -545,44 +538,45 @@ p <- p +
   ggnewscale::new_scale_fill() +
   geom_fruit(data = regi_df, geom = geom_tile, mapping = aes(y = label, fill = regi),
              width = 0.045 * max_x, offset = 0.10, axis.params = list(axis = "none")) +
-  scale_fill_viridis_c(option = "inferno", direction = -1, na.value = "#e0e0e0",
-    limits = c(0, 100), name = sprintf("HOR regimentation\n(%s)", agg_lab)) +
+  # 7 distinct, colour-blind-safe ColorBrewer sequential ramps (one hue family each)
+  scale_fill_gradientn(colours = c("#fff5f0","#fcbba1","#fb6a4a","#cb181d","#67000d"),  # Reds
+    na.value = "#e0e0e0", limits = c(0, 100), name = sprintf("HOR regimentation\n(%s)", agg_lab)) +
   # (3) HOR score
   ggnewscale::new_scale_fill() +
   geom_fruit(data = regi_df, geom = geom_tile, mapping = aes(y = label, fill = hor),
              width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
-  scale_fill_viridis_c(option = "viridis", direction = -1, na.value = "#e0e0e0",
-    name = sprintf("HOR score\n(%s)", agg_lab)) +
+  scale_fill_gradientn(colours = c("#f7fcf5","#c7e9c0","#74c476","#238b45","#00441b"),  # Greens
+    na.value = "#e0e0e0", name = sprintf("HOR score\n(%s)", agg_lab)) +
   # (4) Satellite total amount (bp)
   ggnewscale::new_scale_fill() +
   geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = sat_totbp),
              width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
-  scale_fill_viridis_c(option = "mako", direction = -1, na.value = "#e0e0e0",
-    trans = "log10", name = "Satellite total\namount (bp)") +
+  scale_fill_gradientn(colours = c("#f7fbff","#c6dbef","#6baed6","#2171b5","#08306b"),  # Blues
+    na.value = "#e0e0e0", trans = "log10", name = "Satellite total\namount (bp)") +
   # (5) Satellite monomer length (bp)
   ggnewscale::new_scale_fill() +
   geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = sat_len),
              width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
-  scale_fill_viridis_c(option = "magma", direction = -1, na.value = "#e0e0e0",
-    trans = "log10", name = "Satellite\nmonomer length (bp)") +
+  scale_fill_gradientn(colours = c("#fcfbfd","#dadaeb","#9e9ac8","#6a51a3","#3f007d"),  # Purples
+    na.value = "#e0e0e0", trans = "log10", name = "Satellite\nmonomer length (bp)") +
   # (6) Host genome GC%
   ggnewscale::new_scale_fill() +
   geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = genome_gc),
              width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
-  scale_fill_viridis_c(option = "cividis", na.value = "#e0e0e0",
-    limits = c(20, 50), name = "Host genome\nGC %") +
+  scale_fill_gradientn(colours = c("#ffffe5","#fee391","#fe9929","#d95f0e","#993404"),  # YlOrBr
+    na.value = "#e0e0e0", limits = c(20, 50), name = "Host genome\nGC %") +
   # (7) Chromosome number
   ggnewscale::new_scale_fill() +
   geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = chrs),
              width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
-  scale_fill_viridis_c(option = "plasma", direction = -1, na.value = "#e0e0e0",
-    name = "Chromosome\nnumber (n)") +
+  scale_fill_gradientn(colours = c("#f7f7f7","#cccccc","#969696","#525252","#252525"),  # Greys
+    na.value = "#e0e0e0", name = "Chromosome\nnumber (n)") +
   # (8 outermost) Genome size (Mb)
   ggnewscale::new_scale_fill() +
   geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = genome_bp / 1e6),
              width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
-  scale_fill_viridis_c(option = "rocket", direction = -1, na.value = "#e0e0e0",
-    trans = "log10", name = "Genome size\n(Mb)")
+  scale_fill_gradientn(colours = c("#f7f4f9","#d4b9da","#df65b0","#ce1256","#67001f"),  # PuRd
+    na.value = "#e0e0e0", trans = "log10", name = "Genome size\n(Mb)")
 
 # ── Save outputs ──────────────────────────────────────────────────────────────
 pdf(out_pdf, width = 15, height = 18)
