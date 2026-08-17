@@ -37,7 +37,6 @@ df$disp_label <- c64$disp_label[match(df$label, c64$label)]
 df$age_min <- as.numeric(c64$age_min[match(df$label, c64$label)])
 df$age_max <- as.numeric(c64$age_max[match(df$label, c64$label)])
 # all calibration nodes are now TimeTree-sourced (no literature-only constraints)
-df$is_lit <- FALSE
 df$clade <- factor(df$clade, levels = clade_order)
 num <- function(x) { x <- as.character(x)
   suppressWarnings(as.numeric(ifelse(x %in% c("None","NA",""), NA, x))) }
@@ -104,7 +103,7 @@ p_a <- ggplot(df) +
   scale_y_discrete(name = NULL) +
   labs(tag = "A",
        title    = sprintf("Calibration nodes: TimeTree range vs calibrated age (%d nodes)", nrow(df)),
-       subtitle = "Red diamond = TimeTree median  |  red line = TimeTree range (constraint for most nodes)  |  black circle = calibrated age  |  grey line + * = literature (not TimeTree)  |  y labels by clade") +
+       subtitle = "Red diamond = TimeTree median  |  red line = TimeTree range (constraint for most nodes)  |  black circle = calibrated age  |  y labels by clade") +
   theme_bw(base_size = 13) +
   theme(axis.text.y = element_text(size = 9, colour = ycols),
         axis.text.x = element_text(size = 12),
