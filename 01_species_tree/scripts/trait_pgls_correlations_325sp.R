@@ -84,11 +84,12 @@ traits <- c("regi","hor","mono_len_bp","sat_gc","genome_gc","genome_mb","chr_n")
 logv   <- c(mono_len_bp=TRUE, genome_mb=TRUE)       # log10 these before correlating
 trans  <- function(v, nm) if (isTRUE(logv[nm])) log10(v) else v
 
-pic_rp <- function(phy, x, y) {          # Felsenstein PIC correlation + test (through origin)
-  cx <- pic(x, phy); cy <- pic(y, phy)
-  r  <- sum(cx*cy)/sqrt(sum(cx^2)*sum(cy^2))
-  p  <- summary(lm(cy ~ cx + 0))$coefficients["cx","Pr(>|t|)"]   # contrasts regression through origin
-  c(r=r, p=p)
+pic_rp <- function(phy, x, y) {          # phylo correlation from BM covariance (phytools::phyl.vcv)
+  X <- cbind(x[phy$tip.label], y[phy$tip.label]); rownames(X) <- phy$tip.label
+  r <- cov2cor(phyl.vcv(X, vcv(phy), lambda = 1)$R)[1, 2]         # symmetric evolutionary correlation
+  cx <- pic(x, phy); cy <- pic(y, phy)                           # contrasts only for the significance test
+  p  <- summary(lm(cy ~ cx + 0))$coefficients["cx", "Pr(>|t|)"]   # BM-correlation p (through origin)
+  c(r = r, p = p)
 }
 pgls_fit <- function(phy, d) {           # caper::pgls, Pagel's lambda by ML (Brownian fallback)
   cd <- comparative.data(phy, d, names.col="sp", vcv=TRUE, warn.dropped=FALSE)
@@ -157,22 +158,20 @@ write.table(part, PART_F, sep="\t", quote=FALSE, row.names=FALSE)
 cat("\nPartial PGLS (regi/hor/log10 monomer trio, n=", nrow(trio), "):\n", sep=""); print(part)
 cat("\nWrote:", PART_F, "\n")
 
-# ── Phylogenetic pairwise vs partial correlation (PIC contrasts) for the trio ────
-# Partial r controlling for the 3rd trait, from the standard formula on PIC r's;
-# significance stars taken from the PGLS partial-slope p-values above.
-cr <- pic(setNames(trio$regi, trio$sp), phy3)
-ch <- pic(setNames(trio$hor,  trio$sp), phy3)
-cm <- pic(setNames(trio$mono_len_bp, trio$sp), phy3)
-rr   <- function(a,b) sum(a*b)/sqrt(sum(a^2)*sum(b^2))
-pcor <- function(rxy,rxz,ryz) (rxy - rxz*ryz)/sqrt((1-rxz^2)*(1-ryz^2))
-r_rh<-rr(cr,ch); r_rm<-rr(cr,cm); r_hm<-rr(ch,cm)
+# ── Phylogenetic pairwise vs partial correlation for the trio (phytools::phyl.vcv) ──
+# Joint BM correlation matrix R3; pairwise = R3[i,j], partial = precision-matrix formula
+# (-P[i,j]/sqrt(P[i,i]P[j,j])). Significance stars from the PGLS partial-slope p-values.
+X3 <- cbind(regi = trio$regi, hor = trio$hor, mono = trio$mono_len_bp); rownames(X3) <- trio$sp
+R3 <- cov2cor(phyl.vcv(X3, vcv(phy3), lambda = 1)$R)
+P3 <- solve(R3)
+pcor3 <- function(i, j) -P3[i, j] / sqrt(P3[i, i] * P3[j, j])
 pget <- function(resp,pred) part$partial_p[part$response==resp & part$predictor==pred][1]
 trio_tbl <- data.frame(
   pair       = c("regimentation~HOR","regimentation~monomer","HOR~monomer"),
   control_for= c("monomer length","HOR score","regimentation"),
   n          = nrow(trio),
-  pic_r_pairwise = round(c(r_rh, r_rm, r_hm), 3),
-  pic_r_partial  = round(c(pcor(r_rh,r_rm,r_hm), pcor(r_rm,r_rh,r_hm), pcor(r_hm,r_rh,r_rm)), 3),
+  pic_r_pairwise = round(c(R3["regi","hor"], R3["regi","mono"], R3["hor","mono"]), 3),
+  pic_r_partial  = round(c(pcor3("regi","hor"), pcor3("regi","mono"), pcor3("hor","mono")), 3),
   partial_p  = signif(c(pget("regi","hor"), pget("regi","mono_len_bp"), pget("hor","mono_len_bp")), 3),
   stringsAsFactors = FALSE)
 PTRIO_F <- file.path(OUT_DIR, sprintf("phylo_pairwise_vs_partial_trio_%s.tsv", AGG))

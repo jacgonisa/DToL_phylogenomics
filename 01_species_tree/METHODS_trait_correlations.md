@@ -14,17 +14,19 @@ genome-level traits (genome size, GC content, chromosome number) are family-inva
 Monomer length and genome size were log₁₀-transformed. Pairwise associations were computed
 both naively (Pearson correlation) and with correction for phylogenetic non-independence
 on the chronos-calibrated 325-species time tree. Phylogenetic correction was applied two
-ways: (i) phylogenetic generalised least squares (PGLS) with Pagel's λ estimated by
-maximum likelihood (caper119 v1.0.4 `pgls`, `lambda = "ML"`; Brownian-motion fit used as a
-fallback where the λ optimisation failed to converge), and (ii) Felsenstein
-phylogenetically independent contrasts (ape120 v5.8.1 `pic`), correlated through the
-origin. The two approaches were concordant. Phylogenetic signal for each trait was
-quantified with Blomberg's *K* and Pagel's λ (phytools121 v2.5.2 `phylosig`, 999
-permutations). To distinguish direct from mediated associations among HOR regimentation,
-HOR score and monomer length, partial correlations were computed as multiple-predictor
-PGLS (caper `pgls`, each predictor's partial slope tested with the third trait held
-constant) and, equivalently, as phylogenetic partial-correlation coefficients derived from
-the independent-contrast correlations. All analyses were performed in R v4.3.3 and were
+ways: (i) association significance from phylogenetic generalised least squares (PGLS) with
+Pagel's λ estimated by maximum likelihood (caper119 v1.0.4 `pgls`, `lambda = "ML"`;
+Brownian-motion fit used as a fallback where the λ optimisation failed to converge), and
+(ii) a symmetric phylogenetic correlation coefficient read from the Brownian-motion
+evolutionary covariance matrix (phytools121 v2.5.2 `phyl.vcv`; equivalent to a Felsenstein
+independent-contrasts correlation, ape120 v5.8.1 `pic`, from which the correlation p-value
+was obtained). The two approaches were concordant. Phylogenetic signal for each trait was
+quantified with Blomberg's *K* and Pagel's λ (phytools `phylosig`, 999 permutations). To
+distinguish direct from mediated associations among HOR regimentation, HOR score and
+monomer length, partial correlations were computed as multiple-predictor PGLS (caper
+`pgls`, each predictor's partial slope tested with the third trait held constant) and,
+equivalently, as phylogenetic partial correlations from the inverse of the `phyl.vcv`
+correlation matrix. All analyses were performed in R v4.3.3 and were
 repeated under an alternative aggregation (copy-number-weighted genomic mean across
 families), yielding equivalent results. Visualisations used seaborn122 v0.13.2.
 
