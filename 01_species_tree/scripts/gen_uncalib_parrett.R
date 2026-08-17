@@ -34,10 +34,13 @@ ml.tree <- read.tree(uncal_file)
 # penalized-likelihood rate-smoothing with NO calibration points
 tr_our <- chronos(ml.tree, lambda = 1, model = "relaxed")
 class(tr_our) <- "phylo"
-# no calibration -> root age defaults to 1; rescale to the calibrated root age
-# purely so it plots on the My axis (correlation/R2 are scale-invariant)
-cal <- read.tree(cal_file)
-root_age <- max(node.depth.edgelength(cal))
+# no calibration -> root age defaults to 1; rescale so the ROOT equals the
+# Eukaryota root calibration (midpoint of its constraint), independent of the
+# correlated chronogram. Scale-invariant, so this sets only the displayed Myr axis
+# and does not affect the TimeTree concordance (Pearson/R2).
+oc <- read.delim(file.path(PUB_DIR, "over_calib.tsv"), stringsAsFactors = FALSE)
+rr <- oc[oc$label == "Eukaryota_root", ]
+root_age <- (rr$age_min + rr$age_max) / 2                  # 1378 Ma (midpoint of 1085-1671)
 tr_our$edge.length <- tr_our$edge.length * (root_age / max(node.depth.edgelength(tr_our)))
 write.tree(tr_our, file.path(PUB_DIR, "outputs/full_325sp_chronos_nocalib_relaxed.nwk"))
 
