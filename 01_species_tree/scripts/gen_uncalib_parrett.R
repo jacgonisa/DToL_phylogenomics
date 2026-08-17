@@ -31,18 +31,14 @@ tt_corrections <- c("Ailanthus_altissimus"="Ailanthus_altissima")
 
 tr_tt   <- read.tree(tt_file)
 ml.tree <- read.tree(uncal_file)
-# penalized-likelihood rate-smoothing with NO calibration points
-# (correlated model, to match the rate-smoothed root-only baseline and the final tree)
-tr_our <- chronos(ml.tree, lambda = 1, model = "correlated")
+# penalized-likelihood rate-smoothing with NO calibration points at all.
+# model="relaxed" (cf. Revell 2024, phytools blog "Obtaining a time-calibrated
+# ultrametric tree"): here relaxed yields node ages that correlate better with the
+# calibrated tree than correlated does.
+tr_our <- chronos(ml.tree, lambda = 1, model = "relaxed")
 class(tr_our) <- "phylo"
-# no calibration -> root age defaults to 1; rescale so the ROOT equals the
-# Eukaryota root calibration (midpoint of its constraint), independent of the
-# correlated chronogram. Scale-invariant, so this sets only the displayed Myr axis
-# and does not affect the TimeTree concordance (Pearson/R2).
-oc <- read.delim(file.path(PUB_DIR, "over_calib.tsv"), stringsAsFactors = FALSE)
-rr <- oc[oc$label == "Eukaryota_root", ]
-root_age <- (rr$age_min + rr$age_max) / 2                  # 1378 Ma (midpoint of 1085-1671)
-tr_our$edge.length <- tr_our$edge.length * (root_age / max(node.depth.edgelength(tr_our)))
+# Keep the node ages in RELATIVE units (root = 1), as in the phytools blog: we do NOT
+# rescale to Mya. Only the correlation with TimeTree is reported, which is scale-invariant.
 write.tree(tr_our, file.path(PUB_DIR, "outputs/full_325sp_chronos_nocalib_relaxed.nwk"))
 
 tr_tt$tip.label <- ifelse(tr_tt$tip.label %in% names(tt_corrections),

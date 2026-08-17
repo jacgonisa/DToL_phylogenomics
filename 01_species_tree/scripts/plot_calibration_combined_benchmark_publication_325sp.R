@@ -116,28 +116,28 @@ p_a <- ggplot(df) +
         panel.grid.major.y = element_blank(), panel.grid.minor = element_blank())
 
 # ── Panels B-E: PAReTT node-age comparison, one panel per dating method ───────
-build_parrett <- function(fname, tag, ttl) {
+build_parrett <- function(fname, tag, ttl, relative = FALSE) {
   d <- read.delim(file.path(QC_DIR, fname), stringsAsFactors = FALSE)
   d$broad <- factor(d$broad, levels = names(broad_pal))
   r2  <- round(summary(lm(our_age ~ tt_node_age, d))$r.squared, 3)
   pear <- round(cor(d$tt_node_age, d$our_age, method = "pearson"), 3)
-  mx  <- max(c(d$tt_node_age, d$our_age), na.rm = TRUE)
-  ggplot(d, aes(tt_node_age, our_age, colour = broad)) +
-    geom_abline(slope = 1, intercept = 0, linetype = "dashed",
-                colour = "grey20", linewidth = 0.95) +
+  xmx <- max(d$tt_node_age, na.rm = TRUE); ymx <- max(d$our_age, na.rm = TRUE)
+  mx  <- max(xmx, ymx)
+  g <- ggplot(d, aes(tt_node_age, our_age, colour = broad))
+  if (!relative)
+    g <- g + geom_abline(slope = 1, intercept = 0, linetype = "dashed",
+                         colour = "grey20", linewidth = 0.95)
+  g <- g +
     geom_smooth(aes(tt_node_age, our_age), inherit.aes = FALSE, method = "lm",
                 se = TRUE, colour = "#1565C0", linewidth = 0.85, alpha = 0.12) +
     geom_point(aes(size = log10(n_pairs + 1)), alpha = 0.72, shape = 16) +
-    annotate("text", x = mx * 0.04, y = mx * 0.90, hjust = 0, size = 4.3,
+    annotate("text", x = xmx * 0.04, y = ymx * 0.92, hjust = 0, size = 4.3,
              colour = "grey20", lineheight = 1.4,
              label = sprintf("Pearson = %.3f\nR² = %.3f", pear, r2)) +
     scale_colour_manual(values = broad_pal, name = "Group", na.value = "grey60") +
     scale_size_continuous(name = "log10(pairs)", range = c(1.8, 5.5)) +
-    scale_x_continuous(name = "TimeTree node age (Mya)", limits = c(0, mx * 1.03), expand = expansion(0)) +
-    scale_y_continuous(name = "Estimated node age (Mya)", limits = c(0, mx * 1.03), expand = expansion(0)) +
-    coord_fixed(ratio = 1) +
-    labs(tag = tag, title = ttl,
-         subtitle = sprintf("%d node-age comparisons; dashed = 1:1 line", nrow(d))) +
+    scale_x_continuous(name = "TimeTree node age (Mya)", limits = c(0, xmx * 1.03), expand = expansion(0)) +
+    labs(tag = tag, title = ttl) +
     theme_bw(base_size = 13) +
     theme(plot.tag = element_text(face = "bold", size = 19),
           plot.title = element_text(face = "bold", size = 15),
@@ -146,15 +146,26 @@ build_parrett <- function(fname, tag, ttl) {
           legend.position = "right", legend.text = element_text(size = 11.5),
           legend.title = element_text(size = 13, face = "bold"),
           axis.text = element_text(size = 12), panel.grid.minor = element_blank())
+  if (relative) {
+    g + scale_y_continuous(name = "Relative node age (root = 1)",
+                           limits = c(0, ymx * 1.03), expand = expansion(0)) +
+      labs(subtitle = sprintf("%d comparisons; uncalibrated, relative units (not Mya)", nrow(d)))
+  } else {
+    g + scale_y_continuous(name = "Estimated node age (Mya)",
+                           limits = c(0, mx * 1.03), expand = expansion(0)) +
+      coord_fixed(ratio = 1) +
+      labs(subtitle = sprintf("%d node-age comparisons; dashed = 1:1 line", nrow(d)))
+  }
 }
 p_b <- build_parrett("parrett_chronos_correlated.tsv", "B", "62 calibrations (correlated)")
 p_c <- build_parrett("parrett_chronos_relaxed.tsv",    "C", "62 calibrations (relaxed)")
 p_d <- build_parrett("parrett_ratesmoothed.tsv",       "D", "root-only (correlated)")
 p_e <- build_parrett("parrett_rootonly_relaxed.tsv",   "E", "root-only (relaxed)")
+p_f <- build_parrett("parrett_uncalibrated.tsv",       "F", "no calibration (relaxed)", relative = TRUE)
 
 # ── Combine ───────────────────────────────────────────────────────────────────
-# collect the shared Group / log10(pairs) legends of the B-E row into one
-p_row <- (p_b | p_c | p_d | p_e) + plot_layout(guides = "collect")
+# collect the shared Group / log10(pairs) legends of the B-F row into one
+p_row <- (p_b | p_c | p_d | p_e | p_f) + plot_layout(guides = "collect")
 p_combined <- (p_a / p_row) +
   plot_layout(heights = c(2.2, 2.0)) +
   plot_annotation(
@@ -164,11 +175,12 @@ p_combined <- (p_a / p_row) +
       "median (precomputed_age); red line = TimeTree range (precomputed_ci_low-high) - the ",
       "imposed constraint for nodes with a real range (else median +/-20%); black circle = ",
       "calibrated age (chronos correlated). All 62 constraints are TimeTree-derived.  ",
-      "B-E: PAReTT node-age concordance with TimeTree (all shared species pairs), as a 2x2 of ",
+      "B-F: PAReTT node-age concordance with TimeTree (all shared species pairs). B-E are a 2x2 of ",
       "chronos with the full 62 calibrations (B correlated, C relaxed) vs chronos with only the ",
-      "Eukaryota root age fixed (D correlated, E relaxed); all lambda=1, dashed = 1:1. The 62 ",
-      "internal calibrations raise the TimeTree concordance from R2~0.61 (root-only) to ~0.96, ",
-      "essentially independent of the correlated/relaxed rate model."
+      "Eukaryota root age fixed (D correlated, E relaxed); all lambda=1, dashed = 1:1. F is chronos ",
+      "penalized-likelihood rate-smoothing with NO calibration points (relaxed), whose node ages are ",
+      "in relative units (not Mya), so only the correlation is shown. The 62 internal calibrations raise ",
+      "the TimeTree concordance to R2~0.96 (Pearson ~0.98), vs ~0.61 root-only and ~0.68 with no calibration."
     ),
     theme = theme(plot.title = element_text(face = "bold", size = 17),
                   plot.caption = element_text(size = 10, colour = "grey35", hjust = 0),
