@@ -44,31 +44,26 @@ iqtree -T 32 -s trim_psuedo_alignment.fasta -p trim_IQTree_Partition_file.partit
 > used the `iqtree` on PATH — **v2.3.4** per the run log.
 
 ## Time calibration
-The inferred tree topology was time-calibrated using the `chronos` function of the
-**ape** R package⁶². Calibration nodes were placed at well-supported clades whose
-divergence could be defined by the most recent common ancestor of two sampled taxa, and
-each node was assigned a minimum–maximum age constraint. **Sixty-four constraints** were
-used in total: **one root constraint** (Eukaryota, 1,085–1,671 Mya) and **63 internal
-nodes** distributed across **Opisthokonta (n=1), Metazoa (n=32), Viridiplantae (n=22)
-and Fungi (n=8)**. For **62** of these, the bounds were taken from the corresponding
-TimeTree 5⁶³ divergence-time confidence interval, retrieved automatically with PAReTT
-(https://github.com/LSLeClercq/PAReTT). The remaining **two** nodes had no TimeTree
-record and were constrained from the literature: the caddisfly family **Limnephilidae**
-(10–18 Mya) and the rush genus **Luzula** (crown ~6–10 Mya). Constraint depths spanned
-the full tree: **39 of the 64 constraints were older than 100 Mya** (23 older than 300
-Mya), while at the shallow end **six were congeneric (genus-level) splits** and **8 were
-younger than 20 Mya** — the shallowest being the *Falco* (~2 Mya) and *Thunnus*
-(~3–4 Mya) divergences.
+The tree was **midpoint-rooted**, and calibration nodes were placed at well-supported
+clades, each defined by the most recent common ancestor of two sampled taxa and assigned
+a minimum–maximum age constraint. **Sixty-two constraints** were used in total, roughly
+proportional to taxon sampling: **one root constraint** (Eukaryota, 1,085–1,671 Mya) and
+**61 internal nodes** distributed across **Opisthokonta (n=1), Metazoa (n=31),
+Viridiplantae (n=21) and Fungi (n=8)**. The bounds were taken from the corresponding
+TimeTree 5⁶³ divergence-time confidence intervals — retrieved automatically with PAReTT
+(https://github.com/LSLeClercq/PAReTT) — for **58 nodes**; the remaining **4 nodes**,
+which lacked a reported TimeTree range, were bounded by the TimeTree median ± 20%
+(the *Patella*, *Phorcus*/*Steromphala*, *Geum* and *Leistus*/*Pterostichus* divergences).
 
-To choose a dating model, four approaches were compared and benchmarked against TimeTree
-by node-age concordance (`parrett_*` tables; Supplementary Fig. X): a **correlated-rates**
-penalised-likelihood model (`chronos`, `model="correlated"`, λ=1), a **relaxed-rates**
-model (`model="relaxed"`, λ=10), a **rate-smoothed** tree constrained only at the root,
-and an **uncalibrated** ultrametric tree (treePL and RelTime were additionally examined).
-The correlated-rates model gave the closest agreement with TimeTree node ages and was
-retained; the final chronogram was estimated under this model with all 64 constraints
-applied simultaneously to the full tree.
+The tree topology was time-calibrated using the `chronos` function of the **ape** R
+package⁶². To choose a dating model, we compared a range of penalised-likelihood models
+and benchmarked each against TimeTree by node-age concordance (**213 node-age comparisons
+across 210 shared taxa**): correlated-, relaxed- and discrete-rates models each across the
+smoothing parameter λ = 0, 0.1, 1 and 10, together with a strict clock and a tree
+constrained only at the root. The **correlated-rates model with λ = 0.1** gave the closest
+agreement with TimeTree node ages (Pearson r = 0.98, R² = 0.97) and was used for plotting
+and all further analyses.
 
 ```r
-chronos(tree_full, lambda = 1, model = "correlated", calibration = calib_df)
+chronos(tree, lambda = 0.1, model = "correlated", calibration = calib_df)
 ```
