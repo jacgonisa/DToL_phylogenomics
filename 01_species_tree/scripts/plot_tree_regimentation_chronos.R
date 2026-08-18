@@ -584,7 +584,7 @@ p <- p +
   ggnewscale::new_scale_fill() +
   geom_fruit(data = gen_df, geom = geom_tile, mapping = aes(y = label, fill = chrs),
              width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
-  scale_fill_gradientn(colours = c("#f7f7f7","#cccccc","#969696","#525252","#252525"),  # Greys
+  scale_fill_gradientn(colours = c("#edf8fb","#b2e2e2","#66c2a4","#2ca25f","#006d2c"),  # BuGn teal (grey reserved for NA)
     na.value = "#e0e0e0", name = "Chromosome\nnumber (n)") +
   # (8 outermost) Genome size (Mb)  (all species, from master)
   ggnewscale::new_scale_fill() +
