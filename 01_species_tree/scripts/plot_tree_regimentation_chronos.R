@@ -530,6 +530,21 @@ sat_df <- tibble(label = tree_plot$tip.label) %>%
   left_join(sd_ag %>% filter(!is.na(tip)) %>% select(-pfx) %>% rename(label = tip),
             by = "label")
 
+# ── Genome-level rings for ALL species (from the master table, not just satellite spp) ──
+# genome size / chromosome number / host GC are genome properties available for every
+# species, so these three rings are populated for all 325 tips (satellite metrics stay
+# satellite-only above).
+gm <- suppressMessages(read_excel(excel_path, sheet = "Sheet1"))
+gm$pfx <- sub("\\d.*$", "", tolower(gm$fasta))
+for (cc in c("chrs", "genome.bp", "genome.gc")) gm[[cc]] <- suppressWarnings(as.numeric(gm[[cc]]))
+gm <- gm %>% group_by(pfx) %>% slice(1) %>% ungroup()
+gm$tip <- vapply(gm$pfx, lk, character(1))
+gen_df <- tibble(label = tree_plot$tip.label) %>%
+  left_join(gm %>% filter(!is.na(tip)) %>%
+              transmute(label = tip, genome_gc = genome.gc, genome_bp = genome.bp, chrs = chrs),
+            by = "label")
+cat("genome-level metrics (master) matched to tree:", sum(!is.na(gen_df$genome_bp)), "/", Ntip(tree_plot), "\n")
+
 # ── Rings, added INSIDE -> OUTSIDE = Ian's outside->inside order reversed ──────
 # (centromere architecture is already shown by the tip symbols, so no ring for it)
 ro <- 0.085                        # spacing between rings
@@ -559,21 +574,21 @@ p <- p +
              width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
   scale_fill_gradientn(colours = c("#fcfbfd","#dadaeb","#9e9ac8","#6a51a3","#3f007d"),  # Purples
     na.value = "#e0e0e0", trans = "log10", name = "Satellite\nmonomer length (bp)") +
-  # (6) Host genome GC%
+  # (6) Host genome GC%  (all species, from master)
   ggnewscale::new_scale_fill() +
-  geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = genome_gc),
+  geom_fruit(data = gen_df, geom = geom_tile, mapping = aes(y = label, fill = genome_gc),
              width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
   scale_fill_gradientn(colours = c("#ffffe5","#fee391","#fe9929","#d95f0e","#993404"),  # YlOrBr
-    na.value = "#e0e0e0", limits = c(20, 50), name = "Host genome\nGC %") +
-  # (7) Chromosome number
+    na.value = "#e0e0e0", limits = c(20, 60), name = "Host genome\nGC %") +
+  # (7) Chromosome number  (all species, from master)
   ggnewscale::new_scale_fill() +
-  geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = chrs),
+  geom_fruit(data = gen_df, geom = geom_tile, mapping = aes(y = label, fill = chrs),
              width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
   scale_fill_gradientn(colours = c("#f7f7f7","#cccccc","#969696","#525252","#252525"),  # Greys
     na.value = "#e0e0e0", name = "Chromosome\nnumber (n)") +
-  # (8 outermost) Genome size (Mb)
+  # (8 outermost) Genome size (Mb)  (all species, from master)
   ggnewscale::new_scale_fill() +
-  geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = genome_bp / 1e6),
+  geom_fruit(data = gen_df, geom = geom_tile, mapping = aes(y = label, fill = genome_bp / 1e6),
              width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
   scale_fill_gradientn(colours = c("#f7f4f9","#d4b9da","#df65b0","#ce1256","#67001f"),  # PuRd
     na.value = "#e0e0e0", trans = "log10", name = "Genome size\n(Mb)")
