@@ -31,7 +31,7 @@ FIG_DIR   <- file.path(PUB_DIR, "01_species_tree/figures")
 TOP_FIG   <- file.path(PUB_DIR, "figures")
 excel_path <- file.path(BASE, "2026_trees/annotation_centromeres/DTOL_327_master_March.xlsx")
 iTOL_path  <- file.path(PUB_DIR, "02_ASR/inputs/full/branch_symbol_anno.tsv")
-tree_path  <- file.path(TR_DIR, "full_325sp_chronos_over_correlated_fa.nwk")
+tree_path  <- file.path(TR_DIR, "full_325sp_calibrated_correlatedlambda01.nwk")  # chronos correlated, lambda=0.1, 62 calibration points
 # Aggregation for poly-/di-typic species (multiple centromeric families):
 #   ian   = dominant family (highest copy number)          [Ian's preference]
 #   piotr = genomic average weighted by family frequency   [Piotr's preference]
@@ -445,7 +445,7 @@ tree_xy <- ggtree::fortify(tree_plot) %>% select(node, x, y)
 cal_xy  <- dplyr::left_join(cal, tree_xy, by = c("node_plot" = "node"))
 cal_xy  <- cal_xy[!is.na(cal_xy$x) & !is.na(cal_xy$y), ]
 
-if (nrow(cal_xy) > 0) {
+if (FALSE) {                      # calibration points removed from the figure (per request)
   cal_xy <- cal_xy %>%
     group_by(node_plot) %>%
     mutate(dup_n = n(), dup_i = row_number()) %>%
