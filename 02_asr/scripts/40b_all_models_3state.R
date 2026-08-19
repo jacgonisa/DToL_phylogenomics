@@ -93,8 +93,10 @@ cat("\n========= 3-STATE MODEL TABLE =========\n")
 print(as.data.frame(tbl %>% select(dataset, model, k, logL, AICc, dAICc, w_AICc)))
 
 # ── weight dot plot (AIC + AICc facets, red one-directional labels) ───────────
-model_order <- c("ER","SYM","ARD","ARD_irrevH_noDirectST",
-                 "ARD_irrevH_noSatToTrans","ARD_irrevH_noTransToSat","ARD_irrevH")
+# order models by total AICc weight across datasets: best-supported at the BOTTOM
+# (ARD_irrevH lowest). model_order is top->bottom = ascending total weight.
+model_order <- tbl %>% group_by(model) %>% summarise(tw = sum(w_AICc), .groups = "drop") %>%
+  arrange(tw) %>% pull(model)
 ds_pal   <- c(`Full tree`="#E41A1C", Metazoa="#377EB8", Viridiplantae="#2E7D32")
 ds_shape <- c(`Full tree`=16, Metazoa=17, Viridiplantae=15)
 
