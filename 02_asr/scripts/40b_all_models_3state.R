@@ -43,7 +43,6 @@ mk_ard <- function() { dm <- matrix(0L,3,3,dimnames=list(states3,states3)); k<-1
   for(i in states3) for(j in states3) if(i!=j){dm[i,j]<-k; k<-k+1L}; dm }
 mk_irrevH <- function(){ dm<-mk_ard(); dm["H","Sat"]<-0L; dm["H","Trans"]<-0L; dm }
 mk_irrevH_noDirectST <- function(){ dm<-mk_irrevH(); dm["Sat","Trans"]<-0L; dm["Trans","Sat"]<-0L; dm }
-mk_irrevH_symST <- function(){ dm<-mk_irrevH(); dm["Trans","Sat"]<-dm["Sat","Trans"]; dm }
 mk_irrevH_noSatToTrans <- function(){ dm<-mk_irrevH(); dm["Sat","Trans"]<-0L; dm }
 mk_irrevH_noTransToSat <- function(){ dm<-mk_irrevH(); dm["Trans","Sat"]<-0L; dm }
 
@@ -53,7 +52,6 @@ models <- list(
   ARD                     = "ARD",
   ARD_irrevH              = mk_irrevH(),
   ARD_irrevH_noDirectST   = mk_irrevH_noDirectST(),
-  ARD_irrevH_symST        = mk_irrevH_symST(),
   ARD_irrevH_noSatToTrans = mk_irrevH_noSatToTrans(),
   ARD_irrevH_noTransToSat = mk_irrevH_noTransToSat()
 )
@@ -95,7 +93,7 @@ cat("\n========= 3-STATE MODEL TABLE =========\n")
 print(as.data.frame(tbl %>% select(dataset, model, k, logL, AICc, dAICc, w_AICc)))
 
 # ── weight dot plot (AIC + AICc facets, red one-directional labels) ───────────
-model_order <- c("ER","SYM","ARD","ARD_irrevH_noDirectST","ARD_irrevH_symST",
+model_order <- c("ER","SYM","ARD","ARD_irrevH_noDirectST",
                  "ARD_irrevH_noSatToTrans","ARD_irrevH_noTransToSat","ARD_irrevH")
 ds_pal   <- c(`Full tree`="#E41A1C", Metazoa="#377EB8", Viridiplantae="#2E7D32")
 ds_shape <- c(`Full tree`=16, Metazoa=17, Viridiplantae=15)

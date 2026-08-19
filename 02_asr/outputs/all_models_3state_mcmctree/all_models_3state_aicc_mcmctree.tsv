@@ -1,0 +1,22 @@
+dataset	model	k	logL	AIC	AICc	dAICc	w_AICc	best
+Full tree	ARD_irrevH	4	-161.14	330.28	330.43	0	0.634	TRUE
+Full tree	SYM	3	-163.068	332.14	332.22	1.79	0.259	FALSE
+Full tree	ARD	6	-161.14	334.28	334.59	4.16	0.079	FALSE
+Full tree	ARD_irrevH_noTransToSat	3	-165.309	336.62	336.71	6.28	0.027	FALSE
+Full tree	ER	1	-185.717	373.43	373.45	43.02	0	FALSE
+Full tree	ARD_irrevH_noSatToTrans	3	-208.557	423.11	423.2	92.77	0	FALSE
+Full tree	ARD_irrevH_noDirectST	2	-1e+50	2e+50	2e+50	2e+50	0	FALSE
+Metazoa	ARD_irrevH	4	-86.581	181.16	181.41	0	0.963	TRUE
+Metazoa	ARD	6	-87.704	187.41	187.94	6.53	0.037	FALSE
+Metazoa	SYM	3	-95.663	197.33	197.48	16.07	0	FALSE
+Metazoa	ARD_irrevH_noTransToSat	3	-99.607	205.21	205.36	23.95	0	FALSE
+Metazoa	ARD_irrevH_noSatToTrans	3	-106.293	218.59	218.74	37.33	0	FALSE
+Metazoa	ER	1	-109.053	220.11	220.13	38.72	0	FALSE
+Metazoa	ARD_irrevH_noDirectST	2	-1e+50	2e+50	2e+50	2e+50	0	FALSE
+Viridiplantae	SYM	3	-52.658	111.32	111.65	0	0.723	TRUE
+Viridiplantae	ARD_irrevH	4	-52.82	113.64	114.2	2.55	0.202	FALSE
+Viridiplantae	ARD	6	-52.062	116.12	117.32	5.67	0.042	FALSE
+Viridiplantae	ARD_irrevH_noTransToSat	3	-55.794	117.59	117.92	6.27	0.031	FALSE
+Viridiplantae	ER	1	-60.863	123.73	123.78	12.13	0.002	FALSE
+Viridiplantae	ARD_irrevH_noSatToTrans	3	-64.997	135.99	136.32	24.67	0	FALSE
+Viridiplantae	ARD_irrevH_noDirectST	2	-1e+50	2e+50	2e+50	2e+50	0	FALSE
