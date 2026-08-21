@@ -31,13 +31,14 @@ df = df.dropna(subset=["mya"])
 df = df[df["mya"] > 0]
 
 within = df[df["group"].isin(["Vertebrates","Invertebrates","Viridiplantae"])].copy()
+within["group"] = within["group"].replace({"Vertebrates": "Chordata"})  # match paper (Fig 2/3) labelling
 within["mya"] = within["mya"].round(3)   # collapse float path-sum noise: one MRCA node = one point
 navg = within.groupby(["mya","group"]).agg(sim=("mean_pct_id","mean"),
                                            n=("mean_pct_id","count")).reset_index()
 
 def exp_free(t, A, lam, C): return A*np.exp(-lam*t)+C
-pal = {"Vertebrates":"#1565C0","Invertebrates":"#E65100","Viridiplantae":"#2E7D32"}
-groups = ["Vertebrates","Invertebrates","Viridiplantae"]
+pal = {"Chordata":"#F72485","Invertebrates":"#3F37C9","Viridiplantae":"#8AC827"}  # paper palette (Fig 2/3)
+groups = ["Chordata","Invertebrates","Viridiplantae"]
 THR = 60   # identity threshold (%) for the "oldest node still above" marker
 
 fig, axes = plt.subplots(1, 3, figsize=(15, 4.5), sharey=True)
