@@ -1,4 +1,4 @@
-clade	half_life_My	floor_pct	floor_reached	n_nodes	n_pairs
-Vertebrates	843.5	0.0	False	23	289
-Invertebrates	100.9	44.9	True	93	5251
-Viridiplantae	17.5	62.8	True	83	3740
+clade	half_life_My	floor_pct	init_rate_pct_per_My	floor_reached	n_nodes	n_pairs
+Vertebrates	843.5	0.0	0.072	False	23	289
+Invertebrates	100.9	44.9	0.13	True	93	5251
+Viridiplantae	17.5	62.8	1.385	True	83	3740

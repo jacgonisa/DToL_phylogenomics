@@ -17,11 +17,31 @@ Run: `python3 ../../scripts/cenh3_halflife_325sp.py` (`--selftest` for the unit 
 - Fit `H = A·e^(−λt) + C` (floor `C` free); `t½ = ln2/λ`, per clade.
 
 ## Result
-| Clade | half-life | floor | note |
+| Clade | half-life | floor | **initial rate** (% id lost/My) | note |
+|---|---|---|---|---|
+| Viridiplantae | **17.5 My** | ~63% | **1.39** | fastest; clean plateau |
+| Invertebrates | ~101 My | ~45% | 0.13 | shallow, scattered |
+| Vertebrates | **> ~440 My** | — | 0.07 | still declining; floor not reached, t½ not identifiable (do not quote 844 My) |
+
+> **Which number to report.** Half-life hides the amplitude and is undefined
+> when the floor isn't sampled (vertebrates). The **initial rate = A·λ** (tangent
+> slope at divergence 0, `init_rate_pct_per_My`) is the cleaner "how many % lost
+> per My" answer and is robust even when the floor is unidentified — it's fixed
+> by the early data. Prefer it over half-life for cross-clade comparison.
+
+## CENP-A protein vs its satellite DNA (`cenh3_vs_satellite_halflife_325sp.*`)
+Overlaying the CENP-A decay on the satellite-DNA decay (`05_satellite_similarity`)
+on the same axes + an initial-rate bar chart:
+
+| Clade | CENP-A rate | satellite rate | satellite / protein |
 |---|---|---|---|
-| Viridiplantae | **17.5 My** | ~63% | fastest; clean plateau |
-| Invertebrates | ~101 My | ~45% | shallow, scattered |
-| Vertebrates | **> ~440 My** | — | still declining at deepest node; floor not reached, t½ not identifiable (do not quote 844 My) |
+| Vertebrates | 0.07 | 5.6 | ~78× |
+| Invertebrates | 0.13 | 1.2 | ~9× |
+| Viridiplantae | 1.39 | 12.2 | ~9× |
+
+The **satellite DNA erodes ~9–80× faster** than the CENP-A protein that binds it,
+and in both, **Viridiplantae is fastest, Vertebrates slowest** — the divergence
+rate is lineage-specific for protein and DNA alike.
 
 **Takeaways**
 1. **Lineage-specific, strongly.** Plant CENP-A turns over ~6× faster than
@@ -38,5 +58,7 @@ Run: `python3 ../../scripts/cenh3_halflife_325sp.py` (`--selftest` for the unit 
 
 ## Files
 - `cenh3_seqsim_pairs_325sp.tsv` — per species-pair identity + MRCA age + clade
-- `cenh3_halflife_325sp.tsv` — per-clade fit summary (incl. `floor_reached` flag)
-- figure: `../../figures/cenh3_halflife_325sp.{png,pdf}`
+- `cenh3_halflife_325sp.tsv` — per-clade fit summary (t½, floor, init rate, `floor_reached`)
+- `cenh3_vs_satellite_rates_325sp.tsv` — CENP-A vs satellite initial rates + floors
+- figures: `../../figures/cenh3_halflife_325sp.{png,pdf}`,
+  `../../figures/cenh3_vs_satellite_halflife_325sp.{png,pdf}`

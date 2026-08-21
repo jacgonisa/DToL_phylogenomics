@@ -35,6 +35,7 @@ MSA   = MOD/"data/cenpa430_H3_archaea10.aligned.clipkit.325sp.fasta"
 GROUP = MOD/"data/groupsim/groups_gap085.txt"
 TREE  = REPO/"01_species_tree/data/full_325sp_calibrated_correlatedlambda01.nwk"
 TRAIT = REPO/"01_species_tree/data/centromere_trait_table_325sp_piotr.tsv"
+SAT   = REPO/"05_satellite_similarity/data/seqsim_blastn_melters_325sp.tsv"  # satellite DNA pairs, for contrast
 FIG   = MOD/"figures"; FIG.mkdir(exist_ok=True)
 OUTD  = MOD/"analysis/cenh3_halflife"; OUTD.mkdir(parents=True, exist_ok=True)
 
@@ -86,6 +87,17 @@ def pair_identity(seqsA, seqsB):
     return max(best) if best else np.nan
 
 def exp_free(t, A, lam, C): return A*np.exp(-lam*t) + C
+
+def fit_decay(mya, sim):
+    """fit H=A·e^(−λt)+C. Returns (A, lam, C, half_life, rate0) where
+    rate0 = A·λ = %-identity lost per My at divergence 0 (the tangent slope —
+    a cleaner 'how fast does it diverge' number than half-life, which hides the
+    amplitude). Half-life is only meaningful once the floor C is sampled."""
+    C0 = float(np.quantile(sim, 0.10)); A0 = float(np.max(sim)) - C0
+    popt, _ = curve_fit(exp_free, mya, sim, p0=[max(A0,1), 0.02, C0],
+                        bounds=([0,1e-5,0],[100,5,100]), maxfev=20000)
+    A, lam, C = popt
+    return A, lam, C, np.log(2)/lam, A*lam
 
 # ── load CENP-A alignment, grouped by species ─────────────────────────────────
 def main():
@@ -139,12 +151,9 @@ def main():
         cp = pal[grp_]; ax = axes[col]
         d = navg[navg["clade"]==grp_].dropna(subset=["sim"])
         ax.scatter(d["mya"], d["sim"], s=d["n"]*0.8, color=cp, alpha=0.55, zorder=3)
-        hl = C = np.nan
+        hl = C = rate0 = np.nan
         try:
-            C0 = float(d["sim"].quantile(0.10)); A0 = float(d["sim"].max())-C0
-            popt,_ = curve_fit(exp_free, d["mya"], d["sim"], p0=[max(A0,1),0.02,C0],
-                               bounds=([0,1e-5,0],[100,5,100]), maxfev=20000)
-            A, lam, C = popt; hl = np.log(2)/lam
+            A, lam, C, hl, rate0 = fit_decay(d["mya"].values, d["sim"].values)
             tmax = d["mya"].max()
             # floor is only identified if the plateau is actually sampled; if the
             # half-life exceeds the deepest node, C rails and t½ is an extrapolation.
@@ -152,8 +161,9 @@ def main():
             t = np.linspace(0, tmax, 400)
             ax.plot(t, exp_free(t,A,lam,C), color=cp, lw=1.8, ls="-" if constrained else "--")
             ax.axhline(C, color=cp, lw=0.7, ls=":", alpha=0.6)
-            lab_txt = (f"t½ = {hl:.0f} My\nfloor = {C:.0f}%" if constrained
-                       else f"t½ > {tmax:.0f} My\n(floor not reached)")
+            lab_txt = ((f"t½ = {hl:.0f} My\nfloor = {C:.0f}%\n" if constrained
+                        else f"t½ > {tmax:.0f} My (floor not reached)\n")
+                       + f"initial rate = {rate0:.2f} %/My")
             ax.text(0.97,0.05, lab_txt, transform=ax.transAxes,
                     ha="right", va="bottom", fontsize=10, color=cp, fontweight="bold")
             leg = (f"{grp_} (t½={hl:.0f} My)" if constrained
@@ -169,6 +179,7 @@ def main():
         ax.set_ylim(40, 102)
         ax.spines[["top","right"]].set_visible(False); ax.yaxis.grid(True, color="#f0f0f0")
         summary.append(dict(clade=grp_, half_life_My=round(hl,1), floor_pct=round(C,1),
+                            init_rate_pct_per_My=round(rate0,3),
                             floor_reached=bool(hl <= d["mya"].max() and C > 1),
                             n_nodes=len(d), n_pairs=int(df[df.clade==grp_].shape[0])))
     axes[3].set_title("All lineages", fontsize=11, fontweight="bold")
@@ -186,6 +197,67 @@ def main():
     sdf = pd.DataFrame(summary)
     sdf.to_csv(OUTD/"cenh3_halflife_325sp.tsv", sep="\t", index=False)
     print(sdf.to_string(index=False))
+
+    build_comparison(navg)
+
+def _node_avg(df, valcol):
+    df = df.copy(); df["mya"] = df["mya"].round(3)
+    return df.groupby(["mya","clade"]).agg(sim=(valcol,"mean"),
+                                           n=(valcol,"count")).reset_index()
+
+def build_comparison(cenh3_navg):
+    """CENP-A protein vs centromeric-satellite DNA: overlaid decay curves +
+    a %/My initial-rate bar chart. Answers 'how fast, and is it lineage-specific,
+    compared with the satellite it binds'."""
+    pal = {"Vertebrates":"#1565C0","Invertebrates":"#E65100","Viridiplantae":"#2E7D32"}
+    groups = ["Vertebrates","Invertebrates","Viridiplantae"]
+    if not SAT.exists():
+        print("satellite tsv absent — skipping comparison"); return
+    sat = pd.read_csv(SAT, sep="\t").rename(columns={"group":"clade"})
+    sat = sat[sat["clade"].isin(groups)]
+    sat_navg = _node_avg(sat, "mean_pct_id")
+
+    fig, (axC, axB) = plt.subplots(1, 2, figsize=(13, 4.8),
+                                   gridspec_kw={"width_ratios":[1.6,1]})
+    rate_rows = []
+    for src, navg, ls, lab in [("CENP-A protein", cenh3_navg, "-", "CENP-A"),
+                               ("satellite DNA", sat_navg, "--", "satellite")]:
+        for grp_ in groups:
+            d = navg[navg["clade"]==grp_].dropna(subset=["sim"])
+            if len(d) < 4: continue
+            try: A, lam, C, hl, r0 = fit_decay(d["mya"].values, d["sim"].values)
+            except Exception as e: print(src, grp_, "fit failed", e); continue
+            t = np.linspace(0, d["mya"].max(), 400)
+            axC.plot(t, exp_free(t,A,lam,C), color=pal[grp_], lw=2, ls=ls,
+                     label=f"{grp_} — {lab}")
+            rate_rows.append(dict(source=src, clade=grp_, init_rate=r0, floor=C))
+    axC.set_xlabel("Divergence time (My)"); axC.set_ylabel("Mean % identity")
+    axC.set_title("Decay: CENP-A protein (solid) vs satellite DNA (dashed)", fontsize=10)
+    axC.set_xlim(0, 120)   # zoom the fast early regime where the contrast lives
+    axC.set_ylim(20, 100); axC.spines[["top","right"]].set_visible(False)
+    axC.legend(fontsize=7, frameon=False, ncol=2)
+
+    rr = pd.DataFrame(rate_rows)
+    x = np.arange(len(groups)); w = 0.38
+    for i, src in enumerate(["CENP-A protein","satellite DNA"]):
+        vals = [rr[(rr.source==src)&(rr.clade==g)]["init_rate"].squeeze() if
+                not rr[(rr.source==src)&(rr.clade==g)].empty else 0 for g in groups]
+        axB.bar(x + (i-0.5)*w, vals, w, label=src,
+                color=[pal[g] for g in groups], alpha=0.55 if i else 1.0,
+                hatch="" if i==0 else "//", edgecolor="white")
+    axB.set_xticks(x); axB.set_xticklabels(groups, rotation=20, ha="right", fontsize=8)
+    axB.set_ylabel("Initial rate  (% identity lost / My)")
+    axB.set_title("How fast identity erodes (tangent at t=0)\nsolid = CENP-A, hatched = satellite", fontsize=9)
+    axB.spines[["top","right"]].set_visible(False)
+    fig.suptitle("CENP-A protein diverges far slower than its satellite DNA — and the rate is lineage-specific",
+                 fontsize=11, fontweight="bold")
+    plt.tight_layout()
+    for ext in ("png","pdf"):
+        fig.savefig(FIG/f"cenh3_vs_satellite_halflife_325sp.{ext}",
+                    dpi=300 if ext=="png" else None, bbox_inches="tight", facecolor="white")
+        print("Saved:", FIG/f"cenh3_vs_satellite_halflife_325sp.{ext}")
+    rr.to_csv(OUTD/"cenh3_vs_satellite_rates_325sp.tsv", sep="\t", index=False)
+    print(rr.round(3).to_string(index=False))
 
 def _selftest():
     core = "MARTKQTARKSTGGKAPRKQLATKAARKSAP"    # 31 aa, > MIN_OVERLAP
