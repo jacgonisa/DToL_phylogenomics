@@ -56,6 +56,32 @@ rate is lineage-specific for protein and DNA alike.
    so its half-life is only a lower bound. Interpret the vertebrate curve as
    "slow, still declining", not a fitted t½.
 
+## Congeneric control (`cenh3_congeneric_325sp.py`, `cenh3_congeneric_325sp.*`)
+Same-genus pairs are all shallow divergences, so they isolate lineage-specific
+rate variation and directly test the "but Geum didn't change" observation.
+Genus is taken from the real binomial (the tolID 3-letter abbreviation collides,
+e.g. *Macrophya* vs *Macropis* both `iyMac` at 255 My — dropped).
+
+| genus | clade | mya | best-copy % id |
+|---|---|---|---|
+| *Geum* | plant | 12.9 | **100.0** |
+| *Malus* | plant | 38.7 | 99.5 |
+| *Thunnus* | fish | 4.1 | 99.3 |
+| *Schoenoplectus* | plant | 9–18 | 95–99 |
+| *Nebria* | beetle | 11.6 | 95.7 |
+| *Luzula* | plant | 26.2 | 82.9 |
+| *Juncus* | plant | 17.5–34.9 | **59–83** |
+
+**Both things are true at once — no contradiction with "Viridiplantae fastest":**
+- *Geum* CENP-A really is unchanged (100%), but that's a single, shallow pair.
+- The clade-average rate is set by the many pairs that diverge fast. Within
+  plants alone, **at the same ~35 My divergence *Malus* is 99.5% but *Juncus*
+  is ~60%** — a >6× rate difference between two plant genera.
+- The fast plant genera here (*Juncus*, *Luzula* = Juncaceae) are **holocentric**;
+  the conserved ones (*Geum*, *Malus* = Rosaceae) are monocentric — worth tying
+  into the centromere-architecture story (`02_asr/`). So the divergence rate is
+  lineage-specific *within* Viridiplantae, not just between clades.
+
 ## Files
 - `cenh3_seqsim_pairs_325sp.tsv` — per species-pair identity + MRCA age + clade
 - `cenh3_halflife_325sp.tsv` — per-clade fit summary (t½, floor, init rate, `floor_reached`)
