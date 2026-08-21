@@ -560,7 +560,7 @@ cat("genome-level metrics (master) matched to tree:", sum(!is.na(gen_df$genome_b
 # ── Rings, added INSIDE -> OUTSIDE = Ian's outside->inside order reversed ──────
 # (centromere architecture is already shown by the tip symbols, so no ring for it)
 ro <- 0.085                        # spacing between ring groups
-ri <- 0.012                        # tight spacing within a related pair (no visible gap)
+ri <- 0.05                         # slightly reduced spacing within a related pair (rings stay same width)
 p <- p +
   # (1 innermost) HOR regimentation
   ggnewscale::new_scale_fill() +
