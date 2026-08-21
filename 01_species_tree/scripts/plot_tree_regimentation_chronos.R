@@ -559,7 +559,8 @@ cat("genome-level metrics (master) matched to tree:", sum(!is.na(gen_df$genome_b
 
 # ── Rings, added INSIDE -> OUTSIDE = Ian's outside->inside order reversed ──────
 # (centromere architecture is already shown by the tip symbols, so no ring for it)
-ro <- 0.085                        # spacing between rings
+ro <- 0.085                        # spacing between ring groups
+ri <- 0.012                        # tight spacing within a related pair (no visible gap)
 p <- p +
   # (1 innermost) HOR regimentation
   ggnewscale::new_scale_fill() +
@@ -568,10 +569,10 @@ p <- p +
   # 7 distinct, colour-blind-safe ColorBrewer sequential ramps (one hue family each)
   scale_fill_gradientn(colours = c("#fff5f0","#fcbba1","#fb6a4a","#cb181d","#67000d"),  # Reds
     na.value = "#e0e0e0", limits = c(0, 100), name = sprintf("HOR regimentation\n(%s)", agg_lab)) +
-  # (3) HOR score
+  # (3) HOR score  — paired tight with HOR regimentation
   ggnewscale::new_scale_fill() +
   geom_fruit(data = regi_df, geom = geom_tile, mapping = aes(y = label, fill = hor),
-             width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
+             width = 0.045 * max_x, offset = ri, axis.params = list(axis = "none")) +
   scale_fill_gradientn(colours = c("#f7fcf5","#c7e9c0","#74c476","#238b45","#00441b"),  # Greens
     na.value = "#e0e0e0", name = sprintf("HOR score\n(%s)", agg_lab)) +
   # (4) Satellite total amount (bp)
@@ -592,10 +593,10 @@ p <- p +
              width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
   scale_fill_gradientn(colours = c("#f7fcf0","#bae4bc","#7bccc4","#43a2ca","#0868ac"),  # GnBu
     na.value = "#e0e0e0", limits = c(10, 75), name = "Satellite\nGC %") +
-  # (6) Host genome GC%  (all species, from master)
+  # (6) Host genome GC%  (all species, from master) — paired tight with satellite GC
   ggnewscale::new_scale_fill() +
   geom_fruit(data = gen_df, geom = geom_tile, mapping = aes(y = label, fill = genome_gc),
-             width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
+             width = 0.045 * max_x, offset = ri, axis.params = list(axis = "none")) +
   scale_fill_gradientn(colours = c("#ffffe5","#fee391","#fe9929","#d95f0e","#993404"),  # YlOrBr
     na.value = "#e0e0e0", limits = c(20, 60), name = "Host genome\nGC %") +
   # (7) Chromosome number  (all species, from master)
@@ -604,10 +605,10 @@ p <- p +
              width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
   scale_fill_gradientn(colours = c("#edf8fb","#b2e2e2","#66c2a4","#2ca25f","#006d2c"),  # BuGn teal (grey reserved for NA)
     na.value = "#e0e0e0", name = "Chromosome\nnumber (n)") +
-  # (8 outermost) Genome size (Mb)  (all species, from master)
+  # (8 outermost) Genome size (Mb)  (all species, from master) — paired tight with chromosome number
   ggnewscale::new_scale_fill() +
   geom_fruit(data = gen_df, geom = geom_tile, mapping = aes(y = label, fill = genome_bp / 1e6),
-             width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
+             width = 0.045 * max_x, offset = ri, axis.params = list(axis = "none")) +
   scale_fill_gradientn(colours = c("#f7f4f9","#d4b9da","#df65b0","#ce1256","#67001f"),  # PuRd
     na.value = "#e0e0e0", trans = "log10", name = "Genome size\n(Mb)")
 
