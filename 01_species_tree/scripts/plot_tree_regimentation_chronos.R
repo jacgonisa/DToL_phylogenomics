@@ -475,7 +475,7 @@ if (FALSE) {                      # calibration points removed from the figure (
 }
 
 # ── Outer rings: HOR regimentation + HOR score (Piotr, cen_families.csv) ──────
-cf <- read.csv("/home/jg2070/Desktop/DToL_phylogenomics/01_species_tree/data/cen_families.csv", stringsAsFactors = FALSE)
+cf <- read.csv("/home/jg2070/Downloads/cen_families.csv", stringsAsFactors = FALSE)
 cf$regimentation_score <- suppressWarnings(as.numeric(cf$regimentation_score))
 cf$HOR_score           <- suppressWarnings(as.numeric(cf$HOR_score))
 cf$count_total         <- suppressWarnings(as.numeric(cf$count_total))
@@ -511,17 +511,18 @@ regi_df <- tibble(label = tree_plot$tip.label) %>%
 # ── Ring data: satellite monomer length + total amount + genome GC + size + chr# ──
 # read.csv renames gc% -> gc.; genome.bp / chrs / genome.gc are genome-level (constant
 # per species) so aggregation only affects the satellite-family metrics.
-sd <- read.csv("/home/jg2070/Desktop/DToL_phylogenomics/01_species_tree/data/dtol.sat.dat.csv",
+sd <- read.csv("/home/jg2070/Desktop/dtol_review_August/DToL_phylogenomics_publication_325genomes/01_species_tree/data/dtol.sat.dat.csv",
                stringsAsFactors = FALSE)
 sd$pfx <- sub("\\d.*$", "", tolower(sd$fasta))
 if (AGG == "ian") {
   sd_ag <- sd %>% group_by(pfx) %>% slice_max(n, n = 1, with_ties = FALSE) %>% ungroup() %>%
-    transmute(pfx, sat_len = width, sat_totbp = tot.bp,
+    transmute(pfx, sat_len = width, sat_totbp = tot.bp, sat_gc = `gc.` * 100,
               genome_gc = genome.gc, genome_bp = genome.bp, chrs = chrs)
 } else {
   sd_ag <- sd %>% group_by(pfx) %>%
     summarise(sat_len   = weighted.mean(width, n, na.rm = TRUE),
               sat_totbp = sum(tot.bp, na.rm = TRUE),          # total centromeric satellite bp
+              sat_gc    = weighted.mean(`gc.`, n, na.rm = TRUE) * 100,  # satellite monomer GC%
               genome_gc = first(genome.gc), genome_bp = first(genome.bp),
               chrs = first(chrs), .groups = "drop")
 }
@@ -529,6 +530,17 @@ sd_ag$tip <- vapply(sd_ag$pfx, lk, character(1))
 sat_df <- tibble(label = tree_plot$tip.label) %>%
   left_join(sd_ag %>% filter(!is.na(tip)) %>% select(-pfx) %>% rename(label = tip),
             by = "label")
+
+# ── Drop Pieris napi satellite characterisation (per supervisor: unreliable) ──
+# blanks the satellite-derived rings (total amount, monomer length, GC) AND the
+# HOR regimentation/score rings for Pieris napi; genome-level rings are kept.
+pieris_tip <- tree_plot$tip.label[sub("\\d.*$", "", tolower(tree_plot$tip.label)) == "ilpienapi"]
+sat_df <- sat_df %>%
+  mutate(across(c(sat_len, sat_totbp, sat_gc), ~ ifelse(label %in% pieris_tip, NA, .)))
+regi_df <- regi_df %>%
+  mutate(regi = ifelse(label %in% pieris_tip, NA, regi),
+         hor  = ifelse(label %in% pieris_tip, NA, hor))
+cat("Pieris napi tip blanked:", if (length(pieris_tip)) pieris_tip else "NOT FOUND", "\n")
 
 # ── Genome-level rings for ALL species (from the master table, not just satellite spp) ──
 # genome size / chromosome number / host GC are genome properties available for every
@@ -574,6 +586,12 @@ p <- p +
              width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
   scale_fill_gradientn(colours = c("#fcfbfd","#dadaeb","#9e9ac8","#6a51a3","#3f007d"),  # Purples
     na.value = "#e0e0e0", trans = "log10", name = "Satellite\nmonomer length (bp)") +
+  # (5b) Satellite GC %  (satellite-only; blanked for Pieris napi)
+  ggnewscale::new_scale_fill() +
+  geom_fruit(data = sat_df, geom = geom_tile, mapping = aes(y = label, fill = sat_gc),
+             width = 0.045 * max_x, offset = ro, axis.params = list(axis = "none")) +
+  scale_fill_gradientn(colours = c("#f7fcf0","#bae4bc","#7bccc4","#43a2ca","#0868ac"),  # GnBu
+    na.value = "#e0e0e0", limits = c(10, 75), name = "Satellite\nGC %") +
   # (6) Host genome GC%  (all species, from master)
   ggnewscale::new_scale_fill() +
   geom_fruit(data = gen_df, geom = geom_tile, mapping = aes(y = label, fill = genome_gc),
