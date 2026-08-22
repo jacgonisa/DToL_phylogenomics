@@ -30,6 +30,9 @@ load3 <- function(ds) {
   ann <- read.delim(file.path(in_dir, ds, "branch_symbol_anno.tsv"), stringsAsFactors = FALSE)
   colnames(ann)[c(1,8)] <- c("tip","architecture")
   tr  <- read.tree(file.path(in_dir, ds, "tree_renamed.nw"))
+  # haplotype-label fix: tree labels daTanVulg as hap2 but the annotation is hap1
+  # (Tanacetum vulgare = Satellite); without this it drops to NA and n is 276 not 277.
+  tr$tip.label <- sub("daTanVulg1.hap2.1", "daTanVulg1.hap1.1", tr$tip.label, fixed = TRUE)
   tr  <- midpoint.root(tr); tr <- multi2di(tr, random = FALSE)
   ch  <- factor(map_arch3[ann$architecture[match(tr$tip.label, ann$tip)]], levels = states3)
   names(ch) <- tr$tip.label
